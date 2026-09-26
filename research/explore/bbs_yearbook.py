@@ -395,6 +395,173 @@ def harvest_prices(pages: list[str]) -> pd.DataFrame:
     return df
 
 
+# ---------------------------------------------------------------- 10.1-10.4: monthly wholesale and retail prices
+PRICE_TABLES = [("10.1", "wholesale", 2024, 616, 622), ("10.2", "wholesale", 2025, 623, 629),
+                ("10.3", "retail", 2024, 630, 636), ("10.4", "retail", 2025, 637, 652)]
+MONTHS = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"]
+DITTO = re.compile(r"^(?:,,|‘’|“”|\"\"|''|”|“|‘|’)\s*")
+PRICE_HEADER = re.compile(r"(?i)^(?:sl no|name of|january|year-|measur|ement|\(per|source|note|10\.\d)")
+
+
+def monthly_prices(pages: list[str]) -> pd.DataFrame:
+    """National monthly average prices (DAM): wholesale Tk per quintal, retail Tk per kg (the 2025 tables print a
+    'measurement' column, kept as printed). Long names wrap: in the 2025 tables the extra lines follow the row; in
+    the 2024 tables the row's figures sit mid-cell, so name lines come before it (a new name, ditto mark or capital)
+    and after it (a lower-case word, a bracket, or the rest of an open bracket). The 2024 tables also abbreviate
+    repeated names with ditto marks: `item_full` fills them from the category above (heuristic). Values more than 3x
+    off the row median are listed in `suspect_months` (e.g. '300' printed among ~3,000s)."""
+    val = r"(?:\.?\d[\d,]*(?:\.\d*)?\.?|-)"  # the book has stray dots: "57.74.", ".36.72"
+    rows = []
+    for table, market, year, p0, p1 in PRICE_TABLES:
+        measurement, last, head, serial_head = None, None, [], None
+        recs = []
+        for p in range(p0, p1 + 1):
+            for line in pages[p - 1].splitlines():
+                line = line.strip()
+                if not line or PRICE_HEADER.match(line):
+                    continue
+                # print glitches: '571.02-' (a dash glued on), '--', '####' (a spreadsheet overflow)
+                line = re.sub(r"(?<=\d)-(?=\s|$)", " -", line.replace("####", "-"))
+                line = re.sub(r"(?<=\s)--(?=\s|$)", "- -", line)
+                m = re.match(r"^(?:(\d{1,3})\s+)?(.*?)\s*((?:" + val + r"\s+){12}" + val + r")$", line)
+                short = None
+                if not m:  # one month missing: 11 months + average; taken as Jan-Nov
+                    m = short = re.match(r"^(?:(\d{1,3})\s+)?(.*?)\s*((?:" + val + r"\s+){11}" + val + r")$", line)
+                    if m and not re.search(r"[A-Za-z]", m.group(2)) and not m.group(1):
+                        m = short = None
+                if m and (m.group(1) or serial_head):
+                    serial = int(m.group(1)) if m.group(1) else serial_head[0]
+                    core = m.group(2).strip() if m.group(1) else f"{serial_head[1]} {m.group(2)}".strip()
+                    serial_head = None
+                    toks = m.group(3).split()
+                    if short:
+                        toks = toks[:11] + ["-"] + toks[11:]
+                    last = {"serial": serial, "head": head, "core": core, "tail": [], "toks": toks, "page": p,
+                            "note": "11 months printed; read as Jan-Nov" if short else None}
+                    recs.append(last)
+                    head = []
+                    continue
+                s = re.match(r"^(\d{1,3})\s+(\D.*)$", line)
+                if s:  # serial and the start of a name; the figures come on the next line ("44 Dal Black gram")
+                    serial_head = (int(s.group(1)), s.group(2).strip())
+                    continue
+                if re.search(r"\d{3,}", line) or last is None and year == 2025:
+                    continue
+                name_so_far = " ".join(last["head"] + [last["core"]] + last["tail"]) if last else ""
+                is_tail = last is not None and (year == 2025 or line[:1] in "(" or line[:1].islower()
+                                               or name_so_far.count("(") > name_so_far.count(")"))
+                (last["tail"] if is_tail else head).append(line)
+        category, prev = None, 0
+        for r in recs:
+            if r["serial"] < prev - 50:  # the 2025 tables number 217-219 as 117-119
+                r["note"] = "; ".join(x for x in (r["note"], f"serial printed as {r['serial']}") if x)
+                r["serial"] += 100
+            prev = r["serial"]
+            name = " ".join(r["head"] + [r["core"]] + r["tail"]).strip()
+            meas = re.search(r"\s*(1\s?quintal|\d+\s?[Pp]i?ces?|,,)(?=\s|$)", name) if year == 2025 else None
+            if meas:
+                measurement = measurement if meas.group(1) == ",," else meas.group(1).replace(" ", "")
+                name = (name[:meas.start()] + name[meas.end():]).strip()
+            ditto = bool(DITTO.match(name)) or (name[:1].islower() and category is not None)
+            bare = re.sub(r"\s+", " ", DITTO.sub("", name)).strip()
+            if ditto and category:
+                full = f"{category} {bare}"
+            else:
+                full = bare
+                words = bare.split()
+                category = " ".join(words[:2]) if words and words[0] in ("Paddy", "Rice") else (words[0] if words else None)
+            vals = [num(t.strip(".")) for t in r["toks"]]
+            months = dict(zip(MONTHS, vals[:12]))
+            good = [v for v in vals[:12] if v]
+            med = float(pd.Series(good).median()) if good else None
+            suspect = [k for k, v in months.items() if v and med and (v < med / 3 or v > med * 3)]
+            rows.append({"table": table, "market": market, "year": year, "serial": r["serial"], "item": name,
+                         "item_full": full, "measurement": measurement if year == 2025 else None,
+                         "unit": "Tk per quintal" if market == "wholesale" else "Tk per kg", **months,
+                         "average_printed": vals[12], "suspect_months": ";".join(suspect) or None,
+                         "note": r["note"], "page": r["page"]})
+    return pd.DataFrame(rows)
+
+
+# ---------------------------------------------------------------- 9.1.1: livestock and poultry by holding size
+HOLDING_CLASSES = ["all", "no_operated_land", "no_cultivated_land", "cultivated_0.01-0.04ac", "small_0.05-2.49ac",
+                   "medium_2.50-7.49ac", "large_7.50ac+", "farm_total"]
+ANIMALS = {"cow": "cow", "buffalo": "buffalo", "goat": "goat", "sheep": "sheep", "cock;hen": "chicken",
+           "cocks;hens": "chicken", "duck": "duck", "pigeon": "pigeon"}
+
+
+def livestock_census(pages: list[str]) -> pd.DataFrame:
+    """Agriculture Census 2019 (Table 9.1.1): holdings keeping each animal and head counts, by area (Bangladesh,
+    rural, urban) and holding class. Rows are rebuilt where the text wraps a label or a number onto the next line.
+    Counts obey all = the three non-farm classes + farm total, and farm total = small + medium + large; a count
+    broken by a line wrap is recomputed from them (`note`). Average per holding is recomputed from the counts (the
+    book prints 134.04 for urban small-farm poultry, 13.04 by the counts)."""
+    text = "\n".join(pages[p - 1] for p in range(560, 564))
+    lines = [l.strip() for l in text.splitlines()]
+    area, recs, pending = None, {}, None
+    numrow = re.compile(r"^((?:[\d.]+\s+){7}[\d.]+)$")
+    for i, line in enumerate(lines):
+        if line in ("BANGLADESH", "RURAL", "URBAN"):
+            area = line.title()
+            continue
+        m = re.match(r"^([A-Za-z;() ]+?)\s+((?:[\d.]+\s+){7}[\d.]+)$", line)
+        label, nums = (m.group(1), m.group(2)) if m else (None, None)
+        if not m and numrow.match(line):
+            nums = line
+            if pending:  # "Holdings reporting buffalo" / numbers on the next line
+                label = pending
+            else:  # numbers first, label after ("29752874 ... 16048594" / "All holdings")
+                nxt = lines[i + 1] if i + 1 < len(lines) else ""
+                label = nxt if re.match(r"^[A-Za-z][A-Za-z;() ]*$", nxt) else None
+        elif not m:
+            if re.match(r"^Holdings reporting", line):
+                pending = line  # label alone; its numbers come on the next line
+            continue
+        if nums is None or label is None or area is None:
+            continue
+        v = [float(x) for x in nums.split()]
+        # a number broken by a line wrap: '... 39501 515266 ...' then '16' on the next line
+        wrap = lines[i + 1] if i + 1 < len(lines) and re.fullmatch(r"\d{1,3}", lines[i + 1]) else None
+        low = label.lower()
+        if low.startswith("all holdings"):
+            recs[(area, "all_holdings")] = v, None
+        elif low.startswith("holdings reporting"):
+            recs[(area, "holdings", ANIMALS.get(low.split("reporting")[-1].strip(), low))] = v, wrap
+        elif low.startswith("number of"):
+            recs[(area, "number", ANIMALS.get(low.split("number of")[-1].strip(), low))] = v, wrap
+        elif low.startswith("percentage of corresponding"):
+            last_animal = next((k[2] for k in reversed(recs) if k[0] == area and len(k) == 3), None)
+            recs[(area, "pct_reporting", last_animal)] = v, None
+        pending = None
+    rows = []
+    for (key, (v, wrap)) in recs.items():
+        if key[1] not in ("holdings", "number"):
+            continue
+        note = None
+        v = list(v)
+        if abs(v[0] - (v[1] + v[2] + v[3] + v[7])) > 2:  # repair the class the wrap broke
+            fixed = v[0] - v[1] - v[3] - v[7]
+            note = f"no_cultivated_land printed {v[2]:.0f}{'|' + wrap if wrap else ''}; recomputed from the row total"
+            v[2] = fixed
+        recs[key] = v, note
+    for area_ in ("Bangladesh", "Rural", "Urban"):
+        allh = recs.get((area_, "all_holdings"), (None, None))[0]
+        for animal in ("cow", "buffalo", "goat", "sheep", "chicken", "duck", "pigeon"):
+            h, hn = recs.get((area_, "holdings", animal), (None, None))
+            n, nn = recs.get((area_, "number", animal), (None, None))
+            pct = recs.get((area_, "pct_reporting", animal), (None, None))[0]
+            if h is None or n is None:
+                continue
+            for k, cls in enumerate(HOLDING_CLASSES):
+                fixes = [f"{what} {x}" for what, x in (("holdings:", hn), ("head:", nn)) if x]
+                rows.append({"area": area_, "animal": animal, "holding_class": cls,
+                             "all_holdings": allh[k] if allh else None, "holdings_keeping": h[k], "head": n[k],
+                             "pct_of_holdings_keeping": pct[k] if pct else None,
+                             "head_per_keeping_holding": round(n[k] / h[k], 2) if h[k] else None,
+                             "note": "; ".join(fixes) if fixes and cls == "no_cultivated_land" else None})
+    return pd.DataFrame(rows)
+
+
 # ---------------------------------------------------------------- Table 7.7: irrigation by crop
 def irrigation(pages: list[str]) -> pd.DataFrame:
     """The 2022-23 half of Table 7.7 wraps badly: the total can sit on the name line and 'Other' can drop
@@ -509,7 +676,8 @@ def main() -> None:
     outputs = {"crop_district": crop_tables(pages), "crop_calendar": crop_calendar(),
                "census_costs": census_costs(pages), "harvest_prices": harvest_prices(pages),
                "irrigation": irrigation(pages), "intensity": intensity(pages), "damage": damage(pages),
-               "holdings": holdings(pages), "wages": wages(pages)}
+               "holdings": holdings(pages), "wages": wages(pages), "monthly_prices": monthly_prices(pages),
+               "livestock_census": livestock_census(pages)}
     outputs["bmd_monthly"], outputs["bmd_annual_rain"] = bmd_weather(pages)
     # the long table titles go to a lookup file instead of repeating on 21,000 rows
     cd = outputs["crop_district"]

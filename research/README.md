@@ -24,11 +24,12 @@ The full statement and datasets are due 28 Oct 2026. Re-read it then.
 | `acquire/soilgrids.py` | ISRIC SoilGrids 2.0 (CC BY 4.0) | SOC, N, pH, clay/sand/silt, CEC, bulk density; 3 depths; mean + 5–95% band | `data/soil/` |
 | `acquire/gibs_snapshots.py` | NASA GIBS WMS | Bangladesh images: VIIRS NOAA-20 NDVI, SMAP L4 root zone, IMERG, MODIS flood | `data/gibs/` |
 | `acquire/gsod.py` | NOAA GSOD: BMD's own daily station reports via WMO | 41 stations, 186,165 station-days of Tmax/Tmin/rain/wind, 1981 → 24 Aug 2025, converted to °C and mm | `data/stations/gsod/`, `sites/bmd_stations_gsod.csv` |
-| `acquire/brri_factsheets.py` + `explore/brri_varieties.py` | BRRI Rice Knowledge Bank factsheets | 178 PDFs → **127 rice varieties** (135 variety-season rows): duration, yield, height, release year, sowing and harvest windows, salt/flood/drought/cold tolerance, zinc | PDFs in `data/brri/`; table in `crops/brri_rice_varieties.csv` |
-| `explore/bbs_yearbook.py` | BBS Yearbook of Agricultural Statistics 2025 (684 pages; PDF in `data/bbs/`) | `bbs/crop_district.csv` (124 crop tables × 64 districts, 2022-23 to 2024-25; district sums match national totals), `crop_calendar.csv`, `census_costs.csv` (cost and return per acre by division), `harvest_prices.csv` (70 items), `irrigation.csv`, `intensity.csv`, `damage.csv` (8 flood/cyclone events by district) | `research/bbs/` |
+| `acquire/brri_factsheets.py` + `explore/brri_varieties.py` | BRRI Rice Knowledge Bank factsheets | 178 PDFs → **127 rice varieties** (135 variety-season rows): duration, yield, height, release year, sowing and harvest windows (129 rows), salt/flood/drought/cold tolerance, zinc; for the 12 newest two-page sheets also spacing, seedlings per hill, weed-free days and **fertilizer doses per bigha with timing** | PDFs in `data/brri/`; table in `crops/brri_rice_varieties.csv` |
+| `explore/bbs_yearbook.py` | BBS Yearbook of Agricultural Statistics 2025 (684 pages; PDF in `data/bbs/`) | `bbs/crop_district.csv` (124 crop tables × 64 districts, 2022-23 to 2024-25; district sums match national totals), `crop_calendar.csv`, `census_costs.csv` (cost and return per acre by division), `harvest_prices.csv` (70 items), `irrigation.csv`, `intensity.csv`, `damage.csv` (8 flood/cyclone events by district), **`monthly_prices.csv`** (national wholesale and retail prices by month, 2024 and 2025, ~260 items: paddy and rice by season and grade, pulses, oilseeds, potato, onion, jute, vegetables, beef, milk, fertilizer) and **`livestock_census.csv`** (Agriculture Census 2019: holdings keeping cows, buffalo, goats, sheep, chickens, ducks, pigeons and head counts, by farm size, national/rural/urban) | `research/bbs/` |
 | `explore/cropping_patterns.py` | Nasim et al. 2017, BRRI national cropping-pattern survey (PDF in `raw, collected datas/`) | all 316 patterns with area; district tables for the top 6; crop diversity and intensity by district | `research/crops/` |
 
 | `explore/bari_varieties.py` | BARI Krishi Projukti Hatboi, 10th ed. (650 pages, Bijoy-encoded; PDF in `raw, collected datas/`) | **167 varieties of 21 field crops** (potato, mustard, lentil, chickpea, mungbean, grass pea, sesame, groundnut ...): release year, days to maturity, yield, height, drought/salt/heat tolerance, fits after Aman | `crops/bari_field_crop_varieties.csv` |
+| `explore/bari_production.py` (+ `explore/bijoy.py`) | the same handbook, "উৎপাদন প্রযুক্তি" (production technology) sections | **147 crop sections** (tubers, pulses, oilseeds, spices, grains, vegetables, fruits, flowers): sowing windows as dates, seed rate kg/ha, row and plant spacing, fertilizer doses kg/ha (urea, TSP, MoP, gypsum, zinc, boron, cowdung), number of irrigations, days to harvest; every labelled field as **Unicode Bangla text** (2,372 fields: soil, land preparation, sowing, fertilizer timing, weeding, irrigation, harvest, pests and diseases); 597 fertilizer rows with unit and basis | `crops/bari_production_technology.csv`, `crops/bari_production_fields.csv`, `crops/bari_fertilizer_doses.csv` |
 | `explore/fao56.py` | FAO-56 Chapter 6, Tables 11-12 (link in `raw, collected datas/sitelink.txt`) | crop coefficients Kc ini/mid/end for 124 crops, growth-stage lengths (165 rows); footnote marks removed | `crops/fao56_kc.csv`, `crops/fao56_stage_lengths.csv` |
 | `explore/crop_parameters.py` | all of the above | **the rotation engine's crop table**: 13 candidate crops with varieties, duration, sowing/harvest window, Kc, heat threshold, tolerant varieties, national and Rajshahi yield, price, cost, by-product value; every row lists its sources | `crops/crop_parameters.csv` |
 
@@ -55,6 +56,28 @@ text, so each variety appears several times. The parser scores every copy (does 
 the days and yield plausible for that crop) and keeps the best; the Bijoy text it parsed is kept in
 `description_bijoy`. Wheat and maize varieties now come from BWMRI and are not described in this handbook.
 
+**About the BARI production-technology tables.** `bari_production.py` keeps only the characters that fall inside
+each page (dropping the neighbours' copies), notes each character's font, and converts the Bijoy text to Unicode
+Bangla with `bijoy.py` (text set in Times New Roman, such as scientific names, is left alone). Bold spans are the
+field labels ("মাটি:", "বপনের সময়:", "সারের পরিমাণ:"), photo captions are the lines set wholly in italic and are
+dropped, and the table of contents gives each crop's page. Checked against the printed pages: mustard urea
+250-300, TSP 170-180, MoP 85-100 kg/ha, sow mid-Oct to mid-Nov; potato 325-350 / 200-220 / 250-300 kg/ha;
+lentil sown late Oct to the 2nd week of Nov, harvested 110-115 days after sowing. Things to know:
+* Dates are the book's; where it gives only Bangla-calendar months they are converted (Kartik = 17 Oct - 15 Nov).
+  `sowing_windows` lists every window in reading order (the first is usually the main one; sesame, mung bean
+  and groundnut list one per season).
+* Dose columns in the summary are **midpoints of the printed range**, per hectare, and only where the value is
+  believable per hectare; `bari_fertilizer_doses.csv` has every row with its unit (kg, g, t) and basis (ha,
+  bigha, decimal, plant, pit). Fruit trees are dosed per plant by age, so their summary doses are blank.
+* The book gives one recommendation for most pulses (urea 40-45, TSP 80-90, MoP 40-45, gypsum 50-55 kg/ha), so
+  lentil, chickpea, mung bean, black gram and field pea share figures. Coriander prints TSP "15 kg/ha" (probably
+  150); garlic's table lists only cowdung, ash, TSP and MoP.
+* The summer-onion section also covers onion seed production (mother-bulb planting in Oct-Dec). Two pages
+  (broccoli p.188, pointed gourd p.217) are printed as outlines with no text layer and are not extracted.
+* Not every field is filled: 115 of 147 sections give sowing dates, 54 a seed rate, 64 an MoP dose, 44 days to
+  harvest. The Bangla text of every field is in `bari_production_fields.csv` for reading and for the advisory
+  wording (cite BARI).
+
 **About FAO-56 stage lengths.** They are for California, the Mediterranean and similar climates (lentil
 150-170 days there, 105-115 in Bangladesh). Use their proportions, scaled to the local variety duration.
 
@@ -62,8 +85,10 @@ the days and yield plausible for that crop) and keeps the best; the Bijoy text i
 Bijoy font encoding, which `brri_varieties.py` decodes with patterns (50 varieties). The other 113 are
 scanned images; those 77 varieties were read by eye and entered in `crops/brri_manual_entries.csv`, which
 the script merges. Every row keeps its source file and URL. Figures are BRRI's own (yield under good
-management), and blanks mean the sheet did not state the value. For 12 multi-page scans only page 1 was
-read, so a few harvest dates are missing. Spot-check a few scanned rows against their PDFs before quoting them.
+management), and blanks mean the sheet did not state the value. Page 2 of the 12 two-page scans (BRRI dhan79,
+91, 101, 104, 108, 110-112, 115-118) adds harvest dates, spacing, weed-free period and the fertilizer table
+(kg per bigha of 33 decimals, as farmers use; × 7.475 for kg/ha) with split timing; the BRRI dhan51 scan
+duplicates a text factsheet. Spot-check a few scanned rows against their PDFs before quoting them.
 
 Every cached file has a `.provenance.json` sidecar (source, URL, parameters, retrieval time).
 
@@ -72,10 +97,19 @@ silently returns -999. The script makes two calls per site for this reason.
 
 ## What needs a free Earthdata Login
 
-Status 26 Sep 2026: MODIS ET/PET (`--preset et`, 5 sites × 1,196 composites, 2000-2025), GRACE-FO and **SMAP L4**
-(`--preset l4`, 5 sites × 8,736 three-hourly steps, 27 Sep 2023 - 22 Sep 2026; daily means in
-`data/appeears/l4/smap_l4_daily.parquet`) are downloaded. SMAP L3 + VIIRS (`core`) was still processing at NASA;
-resume with `appeears_points.py --preset core --resume efdd0922-e96c-473c-a1b6-5a2a8576d804`.
+Status 27 Sep 2026: all downloaded. MODIS ET/PET (`--preset et`, 5 sites × 1,196 composites, 2000-2025),
+GRACE-FO, **SMAP L4** (`--preset l4`, 5 sites × 8,736 three-hourly steps, 27 Sep 2023 - 22 Sep 2026; daily means
+in `data/appeears/l4/smap_l4_daily.parquet`) and the **`core` job** (`data/appeears/core/`): SMAP L3 enhanced
+soil moisture 1 Apr 2015 - 23 Sep 2026, SMAP L4 carbon (GPP, soil organic carbon) 1 Apr 2015 - 21 Sep 2026,
+VIIRS NOAA-20 NDVI 2018 - 6 Sep 2026, all at the 5 pilots.
+
+**Core job checks:** VIIRS NDVI (pixel reliability 0-3, 1,425 of 2,000 composites) tracks MODIS NDVI on the same
+dates, r = 0.80 overall (0.53-0.87 by site) with a median offset within ±0.04, so it can take over when MODIS
+ends. SMAP L4 GPP is complete and shows the two rice seasons (peaks Mar-May for Boro and Sep-Oct for Aman,
+lows in Dec-Jan and at Aman transplanting in July). SMAP L3 soil moisture is noisy here: a retrieval on 41% of
+days, "recommended quality" on only 13% (open water and dense crops in the 9 km pixel), wetter than L4 (median
+0.31-0.38 vs 0.18-0.32) and correlating 0.34-0.79 with it. Use L4 as the soil-moisture signal; L3 only as an
+independent cross-check.
 
 **SMAP L4 checks:** root-zone moisture 0.13-0.55 m³/m³; correlates 0.85-0.92 with POWER's MERRA-2 root-zone
 wetness at all five sites; rises ~0.01-0.02 m³/m³ the day after >20 mm of IMERG rain; driest in April, wettest
@@ -107,9 +141,9 @@ only as regional context.
 |---|---|---|
 | Station data after 24 Aug 2025 (optional) | [BMD data portal](https://dataportal.bmd.gov.bd/web/) sells the last 3 months; older history is covered by `gsod.py` | checking the current season against gauges |
 | Cropping patterns by district | BRRI: Nasim et al. 2017, *Distribution of crops and cropping patterns in Bangladesh*, Bangladesh Rice Journal 21(2) | the candidate-rotation library |
-| Crop traits | FAO-56 crop coefficients; BARI Krishi Projukti Hatboi for non-rice crops (rice is done: see the BRRI table above) | fill `templates/crop_parameters_template.csv` |
-| Soil and salinity | SRDI upazila land and soil guides; BARC Fertilizer Recommendation Guide 2018 | local soil information |
-| District yields; market prices | BBS Yearbook of Agricultural Statistics; DAM price bulletins | income side of the rotation score; labels for any yield model |
+| Crop traits | done: FAO-56, BRRI and BARI tables above (`crops/crop_parameters.csv` does not yet use the BARI production tables) | the rotation engine's crop table |
+| Soil and salinity | SRDI upazila land and soil guides; BARC Fertilizer Recommendation Guide 2018 (the BARI and BRRI doses above stand in until it is found) | local soil information and area-specific fertilizer |
+| District market prices over time | DAM price bulletins (we have national monthly prices and harvest prices from the yearbook) | income side of the rotation score |
 | Flood dates | BWDB Flood Forecasting and Warning Centre | hindcast the flash-flood trigger |
 
 ## First look (run `python explore/first_look.py`)

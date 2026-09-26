@@ -108,7 +108,12 @@ def parse_text(t: str) -> dict:
 COLUMNS = ["variety", "season", "release_year", "duration_days_min", "duration_days_max", "yield_t_ha_min",
            "yield_t_ha_max", "plant_height_cm", "seedbed_sowing", "seedling_age_days", "harvest",
            "salt_tolerant", "salt_tolerance_ds_m", "submergence_tolerant", "drought_tolerant", "cold_tolerant", "aromatic",
-           "zinc_mg_kg", "notes", "source", "source_file", "url"]
+           "zinc_mg_kg",
+           # cultivation method, read from the two-page scanned factsheets only; doses are per bigha (33 decimals,
+           # 0.1338 ha) as printed: multiply by 7.475 for kg/ha
+           "spacing_cm", "seedlings_per_hill", "weed_free_days", "urea_kg_bigha", "tsp_kg_bigha", "mop_kg_bigha",
+           "gypsum_kg_bigha", "zinc_sulphate_kg_bigha", "fertilizer_timing",
+           "notes", "source", "source_file", "url"]
 
 
 def main() -> None:
