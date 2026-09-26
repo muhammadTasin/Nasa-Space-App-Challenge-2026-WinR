@@ -40,8 +40,11 @@ def main() -> None:
     df.index.name = "time"
     path = d / "grace_lwe_cm_bangladesh.csv"
     df.to_csv(path)
+    # the monsoon swing (40-56 cm) dwarfs the trend, so remove each month's mean before fitting
+    from scipy import stats
     yrs = (df.index - df.index[0]).days / 365.25
-    trends = {k: float(np.polyfit(yrs, df[k].interpolate(), 1)[0]) for k in df}
+    trends = {k: float(stats.theilslopes(df[k] - df[k].groupby(df.index.month).transform("mean"), yrs).slope)
+              for k in df}
     write_provenance(path, source=f"{SHORT_NAME} via earthaccess (PO.DAAC)", boxes=BOXES,
                      trend_cm_per_year=trends, caveat="~300 km native resolution; regional signal only")
     print(df.tail(), "\ntrend cm/yr:", {k: round(v, 2) for k, v in trends.items()})

@@ -23,6 +23,21 @@ The full statement and datasets are due 28 Oct 2026. Re-read it then.
 | `acquire/ndvi_modis.py` | MODIS MOD13Q1 250 m NDVI (ORNL DAAC web service) | 2000 → Aug 2026, 9×9-pixel window per pilot site, QA-filtered | `data/ndvi/MOD13Q1/` |
 | `acquire/soilgrids.py` | ISRIC SoilGrids 2.0 (CC BY 4.0) | SOC, N, pH, clay/sand/silt, CEC, bulk density; 3 depths; mean + 5–95% band | `data/soil/` |
 | `acquire/gibs_snapshots.py` | NASA GIBS WMS | Bangladesh images: VIIRS NOAA-20 NDVI, SMAP L4 root zone, IMERG, MODIS flood | `data/gibs/` |
+| `acquire/gsod.py` | NOAA GSOD: BMD's own daily station reports via WMO | 41 stations, 186,165 station-days of Tmax/Tmin/rain/wind, 1981 → 24 Aug 2025, converted to °C and mm | `data/stations/gsod/`, `sites/bmd_stations_gsod.csv` |
+| `acquire/brri_factsheets.py` + `explore/brri_varieties.py` | BRRI Rice Knowledge Bank factsheets | 178 PDFs → **127 rice varieties** (135 variety-season rows): duration, yield, height, release year, sowing and harvest windows, salt/flood/drought/cold tolerance, zinc | PDFs in `data/brri/`; table in `crops/brri_rice_varieties.csv` |
+
+| `explore/bbs_yearbook.py` | BBS Yearbook of Agricultural Statistics 2025 (684 pages; PDF in `data/bbs/`) | `bbs/crop_district.csv` (124 crop tables × 64 districts, 2022-23 to 2024-25; district sums match national totals), `crop_calendar.csv`, `census_costs.csv` (cost and return per acre by division), `harvest_prices.csv` (70 items), `irrigation.csv`, `intensity.csv`, `damage.csv` (8 flood/cyclone events by district) | `research/bbs/` |
+| `explore/cropping_patterns.py` | Nasim et al. 2017, BRRI national cropping-pattern survey (PDF in `raw, collected datas/`) | all 316 patterns with area; district tables for the top 6; crop diversity and intensity by district | `research/crops/` |
+
+Not yet processed: `raw, collected datas/krishiProjuktiHatboi_10.pdf` (BARI handbook, 650 pages, Bangla in the
+legacy Bijoy encoding like the BRRI factsheets) and the FAO-56 crop-coefficient tables (link in `sitelink.txt`).
+
+**About the BRRI table.** The factsheets are in Bangla. 65 PDFs have a text layer typed in the legacy
+Bijoy font encoding, which `brri_varieties.py` decodes with patterns (50 varieties). The other 113 are
+scanned images; those 77 varieties were read by eye and entered in `crops/brri_manual_entries.csv`, which
+the script merges. Every row keeps its source file and URL. Figures are BRRI's own (yield under good
+management), and blanks mean the sheet did not state the value. For 12 multi-page scans only page 1 was
+read, so a few harvest dates are missing. Spot-check a few scanned rows against their PDFs before quoting them.
 
 Every cached file has a `.provenance.json` sidecar (source, URL, parameters, retrieval time).
 
@@ -49,20 +64,27 @@ silently returns -999. The script makes two calls per site for this reason.
 
 | Item | Source | Use |
 |---|---|---|
-| Daily station Tmax/Tmin/rain for Rajshahi, Sylhet, Khulna, Bogura, Rangpur | Bangladesh Meteorological Department (BMD) data request | **bias-correct POWER** (see below) and validate IMERG |
+| Station data after 24 Aug 2025 (optional) | [BMD data portal](https://dataportal.bmd.gov.bd/web/) sells the last 3 months; older history is covered by `gsod.py` | checking the current season against gauges |
 | Cropping patterns by district | BRRI: Nasim et al. 2017, *Distribution of crops and cropping patterns in Bangladesh*, Bangladesh Rice Journal 21(2) | the candidate-rotation library |
-| Crop traits | FAO-56 crop coefficients; BRRI/BARI variety guides (duration, heat, salt and flood tolerance) | fill `templates/crop_parameters_template.csv` |
+| Crop traits | FAO-56 crop coefficients; BARI Krishi Projukti Hatboi for non-rice crops (rice is done: see the BRRI table above) | fill `templates/crop_parameters_template.csv` |
 | Soil and salinity | SRDI upazila land and soil guides; BARC Fertilizer Recommendation Guide 2018 | local soil information |
 | District yields; market prices | BBS Yearbook of Agricultural Statistics; DAM price bulletins | income side of the rotation score; labels for any yield model |
 | Flood dates | BWDB Flood Forecasting and Warning Centre | hindcast the flash-flood trigger |
 
 ## First look (run `python explore/first_look.py`)
 
-Exploratory only: one grid cell per site, and not yet checked against stations.
+Exploratory only: one grid cell per site. `python explore/station_check.py` compares each pilot site
+with its nearest BMD station (GSOD copy) on the same days, 2011 → Aug 2025.
 
-* **Reanalysis Tmax runs about 3 °C hot in Barind.** POWER's April mean Tmax at the Tanore cell is
-  39.0 °C against BMD Rajshahi's 35.8 °C (1991–2020 normals). Crop heat thresholds (e.g. 35 °C at
-  rice flowering) cannot be applied to raw POWER values; bias-correct first.
+* **IMERG rain agrees with the gauges.** Monthly totals are within about 10% of the nearest gauge
+  (IMERG/gauge 0.93–1.11) with correlations of 0.93–0.96, over 87–91 complete months per site. The haor
+  site reads 1.65× its nearest gauge, but that gauge is 60 km away in drier Mymensingh.
+* **POWER Tmax needs a seasonal correction.** Same-day comparison: in April POWER runs +1.8 °C (Tanore),
+  +1.9 (Batiaghata), +2.0 (Ullahpara) and +3.8 (Mithapukur) hotter than the station; in July it runs
+  1.2–1.6 °C cooler. Against the 1991–2020 BMD normals the April gap at Tanore looks like +3.2 °C, because
+  POWER's April Tmax also varies by decade (40.1 °C in the 1990s, 37.7 in the 2010s). Correct month by
+  month over overlapping recent years, and use station data, not POWER, for any "it is getting hotter" claim.
+  Crop heat thresholds (e.g. 35 °C at rice flowering) cannot be applied to raw POWER values.
 * **No robust shift in rainy-season onset** at any pilot site (Liebmann–Marengo method, 2001–12 vs
   2013–25, all p > 0.2). Year-to-year spread is 16–28 days, so timing advice has to follow each
   season's live data rather than a fixed "shifted calendar".
