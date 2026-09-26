@@ -72,9 +72,16 @@ silently returns -999. The script makes two calls per site for this reason.
 
 ## What needs a free Earthdata Login
 
-Status 26 Sep 2026: MODIS ET/PET (`--preset et`, 5 sites × 1,196 composites, 2000-2025) and GRACE-FO are
-downloaded. SMAP L3 + VIIRS (`core`) and SMAP L4 (`l4`) were still processing at NASA; resume a download with
-`appeears_points.py --preset core --resume efdd0922-e96c-473c-a1b6-5a2a8576d804` (l4: `36464a52-d778-49df-80fd-21776b806779`).
+Status 26 Sep 2026: MODIS ET/PET (`--preset et`, 5 sites × 1,196 composites, 2000-2025), GRACE-FO and **SMAP L4**
+(`--preset l4`, 5 sites × 8,736 three-hourly steps, 27 Sep 2023 - 22 Sep 2026; daily means in
+`data/appeears/l4/smap_l4_daily.parquet`) are downloaded. SMAP L3 + VIIRS (`core`) was still processing at NASA;
+resume with `appeears_points.py --preset core --resume efdd0922-e96c-473c-a1b6-5a2a8576d804`.
+
+**SMAP L4 checks:** root-zone moisture 0.13-0.55 m³/m³; correlates 0.85-0.92 with POWER's MERRA-2 root-zone
+wetness at all five sites; rises ~0.01-0.02 m³/m³ the day after >20 mm of IMERG rain; driest in April, wettest
+Aug-Oct. **Do not use the `sm_rootzone_pctl` field as delivered:** it is missing on a third of days and its median
+over 2023-2026 is 13.5, not ~50, so it is not a simple climatological percentile. Compute percentiles ourselves
+from `sm_rootzone` (or from POWER GWETROOT, which goes back to 1981).
 
 **MODIS ET caveat:** at Tanore it reads only ~1-1.5 mm/day in the Boro months, far below irrigated rice. The
 model does not see irrigation, so use FAO-56 Kc × ET0 (from POWER weather) for crop water need, and MODIS ET
