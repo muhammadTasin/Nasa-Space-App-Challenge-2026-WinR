@@ -1,0 +1,6 @@
+site_id,name,district,lat,lon,stress,why
+RAJ_TANORE,Tanore,Rajshahi,24.62,88.56,drought+groundwater+heat,"Barind Tract: Boro irrigation on falling groundwater, hottest pre-monsoon in BD"
+SUN_DHARMAPASHA,Dharmapasha,Sunamganj,24.89,91.00,flash-flood,"Haor single-crop Boro; April flash floods (2017, 2022) wipe out the year's harvest"
+KHU_BATIAGHATA,Batiaghata,Khulna,22.72,89.52,salinity,"Coastal saline zone; T.Aman-Fallow-Fallow, dry-season fields left idle"
+SIR_ULLAHPARA,Ullahpara,Sirajganj,24.32,89.57,flood+dairy,"Milk-shed belt next to the Jamuna floodplain; crop-livestock mixed farms"
+RAN_MITHAPUKUR,Mithapukur,Rangpur,25.55,89.29,intensive+cold,"North: Rice-Potato-Rice intensity, cold spells, historic monga lean season"
