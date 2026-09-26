@@ -25,12 +25,20 @@ The full statement and datasets are due 28 Oct 2026. Re-read it then.
 | `acquire/gibs_snapshots.py` | NASA GIBS WMS | Bangladesh images: VIIRS NOAA-20 NDVI, SMAP L4 root zone, IMERG, MODIS flood | `data/gibs/` |
 | `acquire/gsod.py` | NOAA GSOD: BMD's own daily station reports via WMO | 41 stations, 186,165 station-days of Tmax/Tmin/rain/wind, 1981 → 24 Aug 2025, converted to °C and mm | `data/stations/gsod/`, `sites/bmd_stations_gsod.csv` |
 | `acquire/brri_factsheets.py` + `explore/brri_varieties.py` | BRRI Rice Knowledge Bank factsheets | 178 PDFs → **127 rice varieties** (135 variety-season rows): duration, yield, height, release year, sowing and harvest windows, salt/flood/drought/cold tolerance, zinc | PDFs in `data/brri/`; table in `crops/brri_rice_varieties.csv` |
-
 | `explore/bbs_yearbook.py` | BBS Yearbook of Agricultural Statistics 2025 (684 pages; PDF in `data/bbs/`) | `bbs/crop_district.csv` (124 crop tables × 64 districts, 2022-23 to 2024-25; district sums match national totals), `crop_calendar.csv`, `census_costs.csv` (cost and return per acre by division), `harvest_prices.csv` (70 items), `irrigation.csv`, `intensity.csv`, `damage.csv` (8 flood/cyclone events by district) | `research/bbs/` |
 | `explore/cropping_patterns.py` | Nasim et al. 2017, BRRI national cropping-pattern survey (PDF in `raw, collected datas/`) | all 316 patterns with area; district tables for the top 6; crop diversity and intensity by district | `research/crops/` |
 
-Not yet processed: `raw, collected datas/krishiProjuktiHatboi_10.pdf` (BARI handbook, 650 pages, Bangla in the
-legacy Bijoy encoding like the BRRI factsheets) and the FAO-56 crop-coefficient tables (link in `sitelink.txt`).
+| `explore/bari_varieties.py` | BARI Krishi Projukti Hatboi, 10th ed. (650 pages, Bijoy-encoded; PDF in `raw, collected datas/`) | **167 varieties of 21 field crops** (potato, mustard, lentil, chickpea, mungbean, grass pea, sesame, groundnut ...): release year, days to maturity, yield, height, drought/salt/heat tolerance, fits after Aman | `crops/bari_field_crop_varieties.csv` |
+| `explore/fao56.py` | FAO-56 Chapter 6, Tables 11-12 (link in `raw, collected datas/sitelink.txt`) | crop coefficients Kc ini/mid/end for 124 crops, growth-stage lengths (165 rows); footnote marks removed | `crops/fao56_kc.csv`, `crops/fao56_stage_lengths.csv` |
+| `explore/crop_parameters.py` | all of the above | **the rotation engine's crop table**: 13 candidate crops with varieties, duration, sowing/harvest window, Kc, heat threshold, tolerant varieties, national and Rajshahi yield, price, cost, by-product value; every row lists its sources | `crops/crop_parameters.csv` |
+
+**About the BARI table.** The PDF was built in Illustrator and neighbouring pages carry copies of each other's
+text, so each variety appears several times. The parser scores every copy (does it name its own variety; are
+the days and yield plausible for that crop) and keeps the best; the Bijoy text it parsed is kept in
+`description_bijoy`. Wheat and maize varieties now come from BWMRI and are not described in this handbook.
+
+**About FAO-56 stage lengths.** They are for California, the Mediterranean and similar climates (lentil
+150-170 days there, 105-115 in Bangladesh). Use their proportions, scaled to the local variety duration.
 
 **About the BRRI table.** The factsheets are in Bangla. 65 PDFs have a text layer typed in the legacy
 Bijoy font encoding, which `brri_varieties.py` decodes with patterns (50 varieties). The other 113 are
@@ -44,7 +52,15 @@ Every cached file has a `.provenance.json` sidecar (source, URL, parameters, ret
 **Gotcha:** POWER returns `IMERG_PRECTOT` only with `time-standard=UTC`. With the default (LST) it
 silently returns -999. The script makes two calls per site for this reason.
 
-## What needs a free Earthdata Login (scripts ready, not yet run)
+## What needs a free Earthdata Login
+
+Status 26 Sep 2026: MODIS ET/PET (`--preset et`, 5 sites × 1,196 composites, 2000-2025) and GRACE-FO are
+downloaded. SMAP L3 + VIIRS (`core`) and SMAP L4 (`l4`) were still processing at NASA; resume a download with
+`appeears_points.py --preset core --resume efdd0922-e96c-473c-a1b6-5a2a8576d804` (l4: `36464a52-d778-49df-80fd-21776b806779`).
+
+**MODIS ET caveat:** at Tanore it reads only ~1-1.5 mm/day in the Boro months, far below irrigated rice. The
+model does not see irrigation, so use FAO-56 Kc × ET0 (from POWER weather) for crop water need, and MODIS ET
+only as regional context.
 
 1. Each teammate creates an account at <https://urs.earthdata.nasa.gov/users/new>.
 2. In the Earthdata profile, under *Applications → Authorized Apps*, approve **NASA GESDISC DATA ARCHIVE**
