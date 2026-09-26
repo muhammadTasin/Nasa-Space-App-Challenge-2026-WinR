@@ -32,6 +32,24 @@ The full statement and datasets are due 28 Oct 2026. Re-read it then.
 | `explore/fao56.py` | FAO-56 Chapter 6, Tables 11-12 (link in `raw, collected datas/sitelink.txt`) | crop coefficients Kc ini/mid/end for 124 crops, growth-stage lengths (165 rows); footnote marks removed | `crops/fao56_kc.csv`, `crops/fao56_stage_lengths.csv` |
 | `explore/crop_parameters.py` | all of the above | **the rotation engine's crop table**: 13 candidate crops with varieties, duration, sowing/harvest window, Kc, heat threshold, tolerant varieties, national and Rajshahi yield, price, cost, by-product value; every row lists its sources | `crops/crop_parameters.csv` |
 
+| `acquire/brri_regional_papers.py` + `explore/regional_patterns.py` | BRRI's 14 regional cropping-system papers (Bangladesh Rice Journal 21(2), 2017, open access) | **upazila level, 2014-15**: land use and cropping intensity for 461 upazilas, 1,662 region-level rotation rows, where each region's top rotations sit (1,665 upazila rows), crop diversity; 97% of upazilas matched to map locations and districts | `crops/upazila_*.csv`, `crops/regional_patterns.csv` |
+| `acquire/bbs_yearbooks.py` + `explore/bbs_panel.py` | 13 editions of the BBS yearbook (2012-2025; the 2021 link is broken) | **district panel, 23 rotation crops × 64 districts × 13 seasons (2012-13 to 2024-25)**, 25,735 rows; latest edition wins where they overlap. Checks: national rice area within 1-3% of FAOSTAT every season; editions agree on every overlapping cell; rice totals the 2015-2018 books omit are derived from their local/HYV/hybrid tables (matching printed totals, median diff 0.00%); the 2015 book's minor-crop tables use a 2-season layout (acre, kg/acre, t), detected from the column header. Mustard is missing 2015-16 and 2016-17 | `bbs/crop_district_panel.csv` |
+| `acquire/faostat.py` | FAOSTAT crops and livestock (CC BY 4.0) | Bangladesh 1961-2024, 138 items: the long-run "field shift" (maize ×100 since 2000, wheat −63%) | `crops/faostat_bangladesh*.csv` |
+| `acquire/livestock_glw4.py` | FAO Gridded Livestock of the World v4, cattle 2015 (CC0) | cattle per district (23.8 million nationally, matching the official estimate) | `crops/cattle_by_district_glw4.csv` |
+| `explore/bbs_yearbook.py` (holdings) | Agriculture Census 2019, via the yearbook | farm holdings by district: small/medium/large, tenancy, farm-labour households; sums to the national total | `bbs/holdings.csv` |
+| `explore/pilot_cards.py` | all of the above | one card per pilot site with its local rotations, land use, farms, cattle, irrigation, yields and recorded losses | `pilots/*.md` |
+
+**Existing government services we must position against (checked 26 Sep 2026).** DAE's BAMIS portal
+(<https://www.bamis.gov.bd>, with BMD) publishes district and upazila agromet bulletins, runs automatic rain
+gauges, and lists two services close to ours, both not working today: an **IVR advisory** page showing only an
+"Under construction / Coming soon" poster (uploaded Jan 2024), and **IRAS**, a satellite-based irrigation
+advisory "under maintenance" while DAE improves it "over Barind and Haor regions", which are our two main
+pilots. Pitch it as complementary: rotation choice, cattle and voice delivery that could plug into BAMIS.
+
+**Not reachable from here:** BARC's *Fertilizer Recommendation Guide 2018* (ministry server times out, BARC
+portal retired, the Fertilizer Association copy is gone) and FFWC river data (needs a login). Try the
+ministry link from a Bangladeshi network, or request both from BARC and BWDB.
+
 **About the BARI table.** The PDF was built in Illustrator and neighbouring pages carry copies of each other's
 text, so each variety appears several times. The parser scores every copy (does it name its own variety; are
 the days and yield plausible for that crop) and keeps the best; the Bijoy text it parsed is kept in
@@ -95,6 +113,9 @@ with its nearest BMD station (GSOD copy) on the same days, 2011 → Aug 2025.
 * **IMERG rain agrees with the gauges.** Monthly totals are within about 10% of the nearest gauge
   (IMERG/gauge 0.93–1.11) with correlations of 0.93–0.96, over 87–91 complete months per site. The haor
   site reads 1.65× its nearest gauge, but that gauge is 60 km away in drier Mymensingh.
+* **Confirmed with BMD's official monthly figures for 2023-2025** (yearbook Chapter 6, `bbs/bmd_monthly.csv`):
+  IMERG monthly rain vs the Rajshahi, Khulna and Rangpur gauges correlates 0.87-0.95, reading 11-18% high over
+  May-October; POWER's April Tmax is 1.6-2.8 °C hot while its annual mean bias is within ±0.7 °C.
 * **POWER Tmax needs a seasonal correction.** Same-day comparison: in April POWER runs +1.8 °C (Tanore),
   +1.9 (Batiaghata), +2.0 (Ullahpara) and +3.8 (Mithapukur) hotter than the station; in July it runs
   1.2–1.6 °C cooler. Against the 1991–2020 BMD normals the April gap at Tanore looks like +3.2 °C, because

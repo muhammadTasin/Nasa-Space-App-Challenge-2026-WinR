@@ -125,7 +125,18 @@ def title_years(title: str) -> list[str]:
     return [f"{y}-{(y + 1) % 100:02d}" for y in range(min(ys), max(ys) + 1)] if ys else []
 
 
-def crop_tables(pages: list[str]) -> pd.DataFrame:
+def seasons_for(found: list[str], n: int, edition: int) -> list[str]:
+    """The n seasons a row covers: the last n of those named in the title/header; if fewer are named,
+    count back from the latest one named (or from the edition year)."""
+    found = sorted(set(found))
+    if len(found) >= n:
+        return found[-n:]
+    end = int(found[-1][:4]) if found else edition - 1
+    return [f"{y}-{(y + 1) % 100:02d}" for y in range(end - n + 1, end + 1)]
+
+
+def crop_tables(pages: list[str], first: int = 66, last: int = 425, edition: int = 2025) -> pd.DataFrame:
+    """Chapter 3 district tables between PDF pages first..last-1 (defaults: the 2025 edition)."""
     rows, title = [], None
     full = re.compile(r"^\s*(?:\d{1,2}\s+)?([A-Za-z][A-Za-z .'’()-]*?)\s+((?:" + NUMTOK + r"\s+){5,10}" + NUMTOK
                       + r")\s*$")
@@ -137,7 +148,7 @@ def crop_tables(pages: list[str]) -> pd.DataFrame:
         if not d or v is None:
             return
         if len(v) == 10:  # major crops: 2 seasons x (acre, ha, maund/acre, t/ha, t)
-            for k, y in enumerate(years[-2:] if len(years) >= 2 else ["2023-24", "2024-25"]):
+            for k, y in enumerate(seasons_for(years, 2, edition)):
                 a_ac, a_ha, _, y_tha, prod = v[5 * k: 5 * k + 5]
                 note = None
                 # the printed t/ha column has typos (Aus hybrid 2023-24): trust production / area instead
@@ -146,17 +157,29 @@ def crop_tables(pages: list[str]) -> pd.DataFrame:
                     y_tha, note = round(prod / a_ha, 3), "yield recomputed as production/area (printed t/ha inconsistent)"
                 rows.append({"table": title, "page": p, "district": d, "year": y, "area_acre": a_ac,
                              "area_ha": a_ha, "yield_t_ha": y_tha, "production_t": prod, "note": note})
+        elif layout["yield_cols"]:
+            # 2015 edition: header 'Area | Yield per acre (KG) | Production' -> 2 seasons x (acre, kg/acre, t)
+            for k, y in enumerate(seasons_for(years, 2, edition)):
+                a_ac, _, prod = v[3 * k: 3 * k + 3]
+                rows.append({"table": title, "page": p, "district": d, "year": y, "area_acre": a_ac,
+                             "area_ha": None if a_ac is None else round(a_ac * ACRE_HA, 1),
+                             "yield_t_ha": round(prod / (a_ac * ACRE_HA), 3) if a_ac and prod is not None else None,
+                             "production_t": prod, "note": "2-season layout: acre, kg/acre, t"})
         else:  # minor crops: 3 seasons x (acre, t); yield derived
-            for k, y in enumerate(years[:3] if len(years) >= 3 else ["2022-23", "2023-24", "2024-25"]):
+            for k, y in enumerate(seasons_for(years, 3, edition)):
                 a_ac, prod = v[2 * k: 2 * k + 2]
                 rows.append({"table": title, "page": p, "district": d, "year": y, "area_acre": a_ac,
                              "area_ha": None if a_ac is None else round(a_ac * ACRE_HA, 1),
                              "yield_t_ha": round(prod / (a_ac * ACRE_HA), 3) if a_ac and prod is not None else None,
                              "production_t": prod})
 
-    for p in range(66, 425):
+    layout = {"yield_cols": False}  # decided from each table's column header; continuation pages keep it
+    for p in range(first, min(last, len(pages) + 1)):
         t = pages[p - 1]
         head = "\n".join(t.splitlines()[:3])
+        hdr = t[:500]
+        if re.search(r"Area", hdr) and re.search(r"P\s?roduction", hdr):
+            layout["yield_cols"] = bool(re.search(r"(?i)yield\s*per", hdr))
         m = re.search(r"^(Table[^\n]*?(?:Estimat|Area and Production)[^\n]*)", head, re.I | re.M)
         if m:
             title = re.sub(r"\s+", " ", m.group(1)).strip()
@@ -164,7 +187,9 @@ def crop_tables(pages: list[str]) -> pd.DataFrame:
             title = None  # narrative page between tables
         if not title:
             continue
-        years = title_years(title) or list(dict.fromkeys(season(y) for y in re.findall(r"20\d\d\s*-\s*\d{2,4}", t[:500])))
+        years = sorted(set(title_years(title)) | {season(y) for y in re.findall(r"20\d\d\s*-\s*\d{2,4}", t[:500])})
+        # data values can look like seasons ('2030 -31'): keep only the few seasons before this edition
+        years = [y for y in years if edition - 8 <= int(y[:4]) <= edition - 1]
         pend_name = pend_nums = None
         for line in t.splitlines():
             line = re.sub(r"(\d)\.\.(\d)", r"\1.\2", line)  # '1114..00' typo
@@ -259,6 +284,91 @@ def census_costs(pages: list[str]) -> pd.DataFrame:
                 crop = None if section.lower() in ("aus", "amon", "aman", "boro") else section
     df = pd.DataFrame(rows)
     return df
+
+
+# ---------------------------------------------------------------- 8.1: farm holdings by district (Census 2019)
+def holdings(pages: list[str]) -> pd.DataFrame:
+    cols = ["all_holdings", "non_farm_holdings", "farm_holdings", "small_farms", "medium_farms", "large_farms",
+            "owner", "owner_cum_tenant", "tenant", "agri_labour_holdings", "fisheries_holdings"]
+    rows = []
+    for p in range(550, 554):
+        lines = pages[p - 1].splitlines()
+        for i, line in enumerate(lines):
+            m = re.match(r"^\s*\d{2}\s*-\s*([A-Za-z][A-Za-z .'’-]*?)\s+((?:\d+\s+){10}\d+)\s*$", line)
+            if not m and re.match(r"^\s*\d{2}\s*-\s*$", line) and i + 2 < len(lines):
+                # '70-' / numbers / 'Chapainababganj' on three lines
+                nums = re.match(r"^\s*((?:\d+\s+){10}\d+)\s*$", lines[i + 1])
+                if nums and district(lines[i + 2].strip()):
+                    m = re.match(r"(.*)\|(.*)", f"{lines[i + 2].strip()}|{nums.group(1)}")
+            if m and district(m.group(1)):
+                v = [int(x) for x in m.group(2).split()]
+                rec = {"district": district(m.group(1)), **dict(zip(cols, v)), "note": None, "page": p}
+                # the book has typos (Rajshahi small farms '3251111' for 325111): farm = small + medium + large
+                if abs(rec["small_farms"] + rec["medium_farms"] + rec["large_farms"] - rec["farm_holdings"]) > 200:
+                    rec["small_farms"] = rec["farm_holdings"] - rec["medium_farms"] - rec["large_farms"]
+                    rec["note"] = "small_farms recomputed as farm - medium - large (printed value inconsistent)"
+                rows.append(rec)
+    df = pd.DataFrame(rows).drop_duplicates("district")
+    df["small_farm_share"] = (df["small_farms"] / df["farm_holdings"]).round(3)
+    df["tenancy_share"] = ((df["owner_cum_tenant"] + df["tenant"]) / (df["owner"] + df["owner_cum_tenant"]
+                                                                     + df["tenant"])).round(3)
+    return df
+
+
+# ---------------------------------------------------------------- Chapter 6: BMD station weather
+def bmd_weather(pages: list[str]) -> tuple[pd.DataFrame, pd.DataFrame]:
+    """6.1.2-6.1.4 monthly rain, 6.2.4-6.2.9 monthly Tmax/Tmin, 6.3.x humidity (2023-2025), and 6.1.1 annual rain
+    2016-24. Missing values print as '*', '***' or '-'. Rows with fewer tokens than columns are ambiguous
+    (which month is missing?) and are skipped."""
+    monthly, annual = [], []
+    months = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"]
+    tok = r"(?:\d+(?:\.\d+)?|\*+|-)"
+    for p in range(462, 478):
+        t = pages[p - 1]
+        head = t[:300]
+        var = ("rain_mm" if "Rainfall" in head else "tmax_c" if "Maximum Temperature in" in head else
+               "tmin_c" if "Minimum Temperature in" in head else "rh_pct" if "Humidity" in head else
+               "tmean_c" if "Maximum + Minimum" in head else None)
+        yr = re.search(r"(20\d\d)\s*(?:by|\(|$)|of\s*-?\s*(20\d\d)", head)
+        year = int(next(g for g in yr.groups() if g)) if yr else None
+        for line in t.splitlines():
+            if p == 462:
+                m = re.match(r"^([A-Z][A-Za-z'’ .]+?)\s+((?:" + tok + r"\s+){8}" + tok + r")\s*$", line.strip())
+                if m:
+                    vals = m.group(2).split()
+                    annual += [{"station": m.group(1).strip(), "year": y, "rain_mm": num(v)}
+                               for y, v in zip(range(2016, 2025), vals)]
+                continue
+            m = re.match(r"^([A-Z][A-Za-z'’ .]+?)\s+((?:" + tok + r"\s+){11,12}" + tok + r")\s*$", line.strip())
+            if m and var and year and not re.match(r"^(Station|Name)", m.group(1)):
+                vals = m.group(2).split()
+                monthly += [{"station": m.group(1).strip(), "year": year, "month": i + 1, "variable": var,
+                             "value": None if re.fullmatch(r"\*+|-", v) else float(v)}
+                            for i, v in enumerate(vals[:12])]
+    return pd.DataFrame(monthly), pd.DataFrame(annual)
+
+
+# ---------------------------------------------------------------- 7.5: farm labour wages by district
+def wages(pages: list[str]) -> pd.DataFrame:
+    """Daily wage, Tk. Column order read from the values (more meals provided -> lower cash wage): one meal M/F,
+    two meals M/F, three meals M/F, without food M/F. 0 = not reported."""
+    cols = ["one_meal_m", "one_meal_f", "two_meals_m", "two_meals_f", "three_meals_m", "three_meals_f",
+            "no_food_m", "no_food_f"]
+    rows = []
+    mon = {m: i + 1 for i, m in enumerate(["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct",
+                                            "Nov", "Dec"])} | {"Agu": 8, "Sept": 9, "June": 6, "July": 7}  # book typos
+    for p in range(490, 538):
+        mo = re.search(r"\b([A-Z][a-z]{2,3})-(20\d\d)\b", pages[p - 1][:400])
+        if not mo or mo.group(1) not in mon:
+            continue
+        month = f"{mo.group(2)}-{mon[mo.group(1)]:02d}"
+        for line in pages[p - 1].splitlines():
+            m = re.match(r"^([A-Z][A-Za-z'’ .]+?)\s+((?:\d+\s+){7}\d+)\s*$", line.strip())
+            if m and district(m.group(1)):
+                v = [int(x) for x in m.group(2).split()]
+                rows.append({"month": month, "district": district(m.group(1)),
+                             **{c: (x or None) for c, x in zip(cols, v)}})
+    return pd.DataFrame(rows).drop_duplicates(["month", "district"])
 
 
 # ---------------------------------------------------------------- Table 10.5.1: harvest-time prices
@@ -398,7 +508,9 @@ def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
     outputs = {"crop_district": crop_tables(pages), "crop_calendar": crop_calendar(),
                "census_costs": census_costs(pages), "harvest_prices": harvest_prices(pages),
-               "irrigation": irrigation(pages), "intensity": intensity(pages), "damage": damage(pages)}
+               "irrigation": irrigation(pages), "intensity": intensity(pages), "damage": damage(pages),
+               "holdings": holdings(pages), "wages": wages(pages)}
+    outputs["bmd_monthly"], outputs["bmd_annual_rain"] = bmd_weather(pages)
     # the long table titles go to a lookup file instead of repeating on 21,000 rows
     cd = outputs["crop_district"]
     titles = cd.groupby(["crop", "variant", "table"]).page.agg(lambda s: f"{s.min()}-{s.max()}").reset_index()

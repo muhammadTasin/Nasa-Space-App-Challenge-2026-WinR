@@ -17,3 +17,8 @@ Rebuild with `python research/explore/bbs_yearbook.py` (downloads nothing; expec
 | `irrigation.csv` | 7.7 | irrigated area by crop, '000 acres; wrapped rows rebuilt from row sums |
 | `intensity.csv` | 5.2.1 | net and gross cropped area; intensity recomputed (the printed column is misaligned) |
 | `damage.csv` | 4.2.x | district crop damage for 8 floods and cyclones, 2017-2024; the book repeats some Noakhali 2024 rows under two crops |
+| `holdings.csv` | 8.1 (Agriculture Census 2019) | farm holdings by district: small/medium/large, owner/tenant, farm-labour and fisheries households; two typo rows recomputed (`note`); sums to the national total |
+| `wages.csv` | 7.5 | daily farm wage (Tk) by district and month, Jan 2024 - Dec 2025, men and women, with 1/2/3 meals or without food (column order inferred from the values: more meals, lower cash wage); 0 printed = not reported |
+| `bmd_monthly.csv` | 6.1.2-6.3.3 | BMD station monthly rain, Tmax, Tmin, humidity, 2023-2025 (33-45 stations); rows with an unmarked missing month are skipped |
+| `bmd_annual_rain.csv` | 6.1.1 | BMD annual rainfall 2016-2024, 39 stations |
+| `crop_district_panel.csv` | all editions 2012-2025 | built by `bbs_panel.py`: rotation crops by district and season, ~2009-10 to 2024-25; the latest edition wins where editions overlap; rice totals missing from the 2015-2018 books are derived from their local/HYV/hybrid tables (`note`) |

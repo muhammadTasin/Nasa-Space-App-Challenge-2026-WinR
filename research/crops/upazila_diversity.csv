@@ -1,0 +1,486 @@
+region,upazila,n_patterns,n_crops,pattern_diversity_index,crop_diversity_index,cropping_intensity_pct,source,adm3_name,district,lat,lon
+Barisal,Agailjhara,11,13,0.152,0.221,107,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Land Use Pattern in Barisal Region', doi:10.3329/brj.v21i2.38196",Agailjhara,Barisal,22.968,90.1408
+Barisal,Babuganj,21,19,0.842,0.928,214,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Land Use Pattern in Barisal Region', doi:10.3329/brj.v21i2.38196",Babuganj,Barisal,22.8235,90.3146
+Barisal,Bakerganj,19,15,0.836,0.916,214,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Land Use Pattern in Barisal Region', doi:10.3329/brj.v21i2.38196",Bakerganj,Barisal,22.5524,90.3826
+Barisal,Banaripara,20,17,0.767,0.859,169,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Land Use Pattern in Barisal Region', doi:10.3329/brj.v21i2.38196",Banari Para,Barisal,22.8118,90.1284
+Barisal,Barisal sadar,22,14,0.865,0.927,183,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Land Use Pattern in Barisal Region', doi:10.3329/brj.v21i2.38196",Barisal Sadar (Kotwali),Barisal,22.7146,90.3822
+Barisal,Gournadi,22,16,0.706,0.845,210,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Land Use Pattern in Barisal Region', doi:10.3329/brj.v21i2.38196",Gaurnadi,Barisal,22.9662,90.2447
+Barisal,Hizla,32,17,0.875,0.936,200,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Land Use Pattern in Barisal Region', doi:10.3329/brj.v21i2.38196",Hizla,Barisal,22.966,90.5334
+Barisal,Mehendiganj,32,19,0.877,0.944,214,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Land Use Pattern in Barisal Region', doi:10.3329/brj.v21i2.38196",Mehendiganj,Barisal,22.8404,90.56
+Barisal,Muladi,28,16,0.889,0.943,208,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Land Use Pattern in Barisal Region', doi:10.3329/brj.v21i2.38196",Muladi,Barisal,22.9526,90.3759
+Barisal,Wazirpur,18,14,0.669,0.799,152,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Land Use Pattern in Barisal Region', doi:10.3329/brj.v21i2.38196",Wazirpur,Barisal,22.8656,90.1659
+Barisal,Bhola sadar,37,18,0.827,0.917,249,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Land Use Pattern in Barisal Region', doi:10.3329/brj.v21i2.38196",Bhola Sadar,Bhola,22.6837,90.6188
+Barisal,Burhanuddin,40,22,0.706,0.87,232,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Land Use Pattern in Barisal Region', doi:10.3329/brj.v21i2.38196",Burhanuddin,Bhola,22.4774,90.7331
+Barisal,Charfasson,26,17,0.937,0.972,221,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Land Use Pattern in Barisal Region', doi:10.3329/brj.v21i2.38196",Char Fasson,Bhola,22.1331,90.7071
+Barisal,Daulatkhan,25,15,0.847,0.936,233,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Land Use Pattern in Barisal Region', doi:10.3329/brj.v21i2.38196",Daulatkhan,Bhola,22.5959,90.702
+Barisal,Lalmohan,24,17,0.833,0.934,232,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Land Use Pattern in Barisal Region', doi:10.3329/brj.v21i2.38196",Lalmohan,Bhola,22.3148,90.7543
+Barisal,Monpura,16,16,0.625,0.816,205,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Land Use Pattern in Barisal Region', doi:10.3329/brj.v21i2.38196",Manpura,Bhola,22.2002,90.9548
+Barisal,Tazumuddin,31,18,0.926,0.968,226,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Land Use Pattern in Barisal Region', doi:10.3329/brj.v21i2.38196",Tazumuddin,Bhola,22.404,90.8164
+Barisal,Amtali,15,13,0.887,0.95,232,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Land Use Pattern in Barisal Region', doi:10.3329/brj.v21i2.38196",Amtali,Barguna,22.0749,90.2028
+Barisal,Bamna,18,14,0.84,0.927,221,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Land Use Pattern in Barisal Region', doi:10.3329/brj.v21i2.38196",Bamna,Barguna,22.2725,90.0581
+Barisal,Betagi,8,5,0.821,0.917,241,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Land Use Pattern in Barisal Region', doi:10.3329/brj.v21i2.38196",Betagi,Barguna,22.3472,90.1482
+Barisal,Barguna,15,11,0.745,0.884,236,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Land Use Pattern in Barisal Region', doi:10.3329/brj.v21i2.38196",Barguna Sadar,Barguna,22.1346,90.109
+Barisal,Patharghata,10,9,0.712,0.865,209,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Land Use Pattern in Barisal Region', doi:10.3329/brj.v21i2.38196",Patharghata,Barguna,22.0941,89.9658
+Barisal,Taltali,8,8,0.598,0.786,152,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Land Use Pattern in Barisal Region', doi:10.3329/brj.v21i2.38196",,,,
+Barisal,Jhalakati,26,18,0.909,0.953,190,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Land Use Pattern in Barisal Region', doi:10.3329/brj.v21i2.38196",,,,
+Barisal,Kathalia,24,13,0.862,0.928,206,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Land Use Pattern in Barisal Region', doi:10.3329/brj.v21i2.38196",Kanthalia,Jhalokati,22.4203,90.1024
+Barisal,Nalchity,23,17,0.833,0.906,189,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Land Use Pattern in Barisal Region', doi:10.3329/brj.v21i2.38196",Nalchity,Jhalokati,22.6007,90.2736
+Barisal,Rajapur,23,15,0.784,0.902,172,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Land Use Pattern in Barisal Region', doi:10.3329/brj.v21i2.38196",Rajapur,Jhalokati,22.5507,90.131
+Barisal,Bauphal,27,16,0.801,0.907,211,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Land Use Pattern in Barisal Region', doi:10.3329/brj.v21i2.38196",Bauphal,Patuakhali,22.433,90.5384
+Barisal,Dashmina,27,11,0.68,0.846,206,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Land Use Pattern in Barisal Region', doi:10.3329/brj.v21i2.38196",Dashmina,Patuakhali,22.2802,90.5379
+Barisal,Dumki,24,13,0.858,0.931,208,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Land Use Pattern in Barisal Region', doi:10.3329/brj.v21i2.38196",Dumki,Patuakhali,22.4503,90.3719
+Barisal,Galachipa,28,17,0.918,0.965,219,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Land Use Pattern in Barisal Region', doi:10.3329/brj.v21i2.38196",Galachipa,Patuakhali,22.2031,90.423
+Barisal,Kalapara,31,19,0.662,0.821,150,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Land Use Pattern in Barisal Region', doi:10.3329/brj.v21i2.38196",Kala Para,Patuakhali,21.8914,90.1948
+Barisal,Mirzaganj,20,16,0.736,0.878,242,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Land Use Pattern in Barisal Region', doi:10.3329/brj.v21i2.38196",Mirzaganj,Patuakhali,22.3569,90.2167
+Barisal,Patuakhali,21,15,0.812,0.912,208,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Land Use Pattern in Barisal Region', doi:10.3329/brj.v21i2.38196",Patuakhali Sadar,Patuakhali,22.3358,90.329
+Barisal,Rangabali,18,13,0.836,0.925,223,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Land Use Pattern in Barisal Region', doi:10.3329/brj.v21i2.38196",,,,
+Barisal,Bhandaria,21,9,0.49,0.598,150,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Land Use Pattern in Barisal Region', doi:10.3329/brj.v21i2.38196",Bhandaria,Pirojpur,22.4542,90.0215
+Barisal,Kawkhali,15,7,0.704,0.764,163,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Land Use Pattern in Barisal Region', doi:10.3329/brj.v21i2.38196",Kawkhali,Pirojpur,22.6067,90.0585
+Barisal,Mathbaria,21,17,0.707,0.768,161,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Land Use Pattern in Barisal Region', doi:10.3329/brj.v21i2.38196",Mathbaria,Pirojpur,22.2853,89.9507
+Barisal,Nazirpur,34,21,0.702,0.717,150,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Land Use Pattern in Barisal Region', doi:10.3329/brj.v21i2.38196",Nazirpur,Pirojpur,22.7703,89.9743
+Barisal,Nesarabad,21,13,0.852,0.915,166,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Land Use Pattern in Barisal Region', doi:10.3329/brj.v21i2.38196",,,,
+Barisal,Pirojpur,14,8,0.838,0.912,190,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Land Use Pattern in Barisal Region', doi:10.3329/brj.v21i2.38196",Pirojpur Sadar,Pirojpur,22.6086,89.9811
+Barisal,Zianagar,17,11,0.648,0.81,154,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Land Use Pattern in Barisal Region', doi:10.3329/brj.v21i2.38196",Zianagar,Bagerhat,22.4657,89.9345
+Bogra,Adamdighi,14,13,0.762,0.909,261,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Pattern in Bogra', doi:10.3329/brj.v21i2.38197",Adamdighi,Bogra,24.7992,89.0595
+Bogra,Bogra,16,18,0.675,0.879,282,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Pattern in Bogra', doi:10.3329/brj.v21i2.38197",Bogra Sadar,Bogra,24.8955,89.3557
+Bogra,Dhunat,22,17,0.535,0.794,215,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Pattern in Bogra', doi:10.3329/brj.v21i2.38197",Dhunat,Bogra,24.6825,89.5503
+Bogra,Dubchachia,9,13,0.827,0.866,277,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Pattern in Bogra', doi:10.3329/brj.v21i2.38197",Dhupchanchia,Bogra,24.8837,89.1392
+Bogra,Gabtali,20,16,0.614,0.831,218,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Pattern in Bogra', doi:10.3329/brj.v21i2.38197",Gabtali,Bogra,24.8868,89.465
+Bogra,Kahalu,9,11,0.677,0.878,274,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Pattern in Bogra', doi:10.3329/brj.v21i2.38197",,,,
+Bogra,Nandigram,6,7,0.692,0.893,276,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Pattern in Bogra', doi:10.3329/brj.v21i2.38197",Nandigram,Bogra,24.6813,89.2268
+Bogra,Sariakandi,19,17,0.852,0.929,205,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Pattern in Bogra', doi:10.3329/brj.v21i2.38197",Sariakandi,Bogra,24.8812,89.6141
+Bogra,Sherpur,32,15,0.66,0.863,227,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Pattern in Bogra', doi:10.3329/brj.v21i2.38197",Sherpur,Bogra,24.6291,89.4223
+Bogra,Shibganj,16,15,0.499,0.81,282,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Pattern in Bogra', doi:10.3329/brj.v21i2.38197",Shibganj,Bogra,25.0166,89.3067
+Bogra,Shajahanpur,22,14,0.761,0.905,241,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Pattern in Bogra', doi:10.3329/brj.v21i2.38197",Shajahanpur,Bogra,24.7601,89.375
+Bogra,Sonatola,34,22,0.835,0.936,246,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Pattern in Bogra', doi:10.3329/brj.v21i2.38197",Sonatola,Bogra,24.9971,89.514
+Bogra,Akkelpur,19,15,0.647,0.859,260,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Pattern in Bogra', doi:10.3329/brj.v21i2.38197",Akkelpur,Joypurhat,24.934,89.0421
+Bogra,Joypurhat,14,15,0.795,0.92,259,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Pattern in Bogra', doi:10.3329/brj.v21i2.38197",Joypurhat Sadar,Joypurhat,25.1055,89.0199
+Bogra,Kalai,12,13,0.27,0.734,289,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Pattern in Bogra', doi:10.3329/brj.v21i2.38197",Kalai,Joypurhat,25.0779,89.1977
+Bogra,Khetlal,17,12,0.402,0.783,291,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Pattern in Bogra', doi:10.3329/brj.v21i2.38197",Khetlal,Joypurhat,25.0225,89.1181
+Bogra,Panchbibi,13,10,0.768,0.908,251,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Pattern in Bogra', doi:10.3329/brj.v21i2.38197",Panchbibi,Joypurhat,25.2022,89.0704
+Bogra,Atghroria,28,13,0.868,0.949,237,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Pattern in Bogra', doi:10.3329/brj.v21i2.38197",Atgharia,Pabna,24.1083,89.2819
+Bogra,Bera,29,20,0.95,0.972,183,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Pattern in Bogra', doi:10.3329/brj.v21i2.38197",Bera,Pabna,23.9424,89.656
+Bogra,Bhangura,16,13,0.859,0.931,196,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Pattern in Bogra', doi:10.3329/brj.v21i2.38197",Bhangura,Pabna,24.239,89.3927
+Bogra,Chatmohar,20,16,0.912,0.961,218,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Pattern in Bogra', doi:10.3329/brj.v21i2.38197",Chatmohar,Pabna,24.2252,89.302
+Bogra,Faridpur,11,14,0.816,0.906,200,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Pattern in Bogra', doi:10.3329/brj.v21i2.38197",Faridpur,Pabna,24.1606,89.4488
+Bogra,Iswardi,18,17,0.904,0.954,247,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Pattern in Bogra', doi:10.3329/brj.v21i2.38197",Ishwardi,Pabna,24.0778,89.0972
+Bogra,Pabna sadar,34,21,0.942,0.978,256,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Pattern in Bogra', doi:10.3329/brj.v21i2.38197",Pabna Sadar,Pabna,23.9938,89.2814
+Bogra,Santhia,25,16,0.891,0.962,274,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Pattern in Bogra', doi:10.3329/brj.v21i2.38197",Santhia,Pabna,24.0422,89.5168
+Bogra,Sujanagar,28,19,0.843,0.922,201,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Pattern in Bogra', doi:10.3329/brj.v21i2.38197",Sujanagar,Pabna,23.8967,89.5127
+Bogra,Belkuchi,14,14,0.759,0.894,219,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Pattern in Bogra', doi:10.3329/brj.v21i2.38197",Belkuchi,Sirajganj,24.2953,89.7021
+Bogra,Chowhali,26,26,0.901,0.944,196,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Pattern in Bogra', doi:10.3329/brj.v21i2.38197",,,,
+Bogra,Kazipur,36,21,0.845,0.94,190,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Pattern in Bogra', doi:10.3329/brj.v21i2.38197",Kazipur,Sirajganj,24.6702,89.6872
+Bogra,Kamarkhanda,19,18,0.832,0.919,227,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Pattern in Bogra', doi:10.3329/brj.v21i2.38197",Kamarkhanda,Sirajganj,24.3751,89.6434
+Bogra,Raiganj,21,17,0.425,0.718,203,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Pattern in Bogra', doi:10.3329/brj.v21i2.38197",Ramganj,Lakshmipur,23.0989,90.8726
+Bogra,Shahjadpur,19,16,0.703,0.87,217,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Pattern in Bogra', doi:10.3329/brj.v21i2.38197",Shahjadpur,Sirajganj,24.1628,89.6301
+Bogra,Sirajganj,25,21,0.831,0.917,206,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Pattern in Bogra', doi:10.3329/brj.v21i2.38197",Sirajganj Sadar,Sirajganj,24.494,89.6885
+Bogra,Tarash,28,22,0.799,0.899,198,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Pattern in Bogra', doi:10.3329/brj.v21i2.38197",Tarash,Sirajganj,24.4431,89.3581
+Bogra,Ullapara,26,18,0.777,0.9,209,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Pattern in Bogra', doi:10.3329/brj.v21i2.38197",Ullah Para,Sirajganj,24.3273,89.5181
+Comilla,Akhaura,7,7,0.624,0.776,174,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversity and Cropping Patterns of Comilla Region', doi:10.3329/brj.v21i2.38198",Akhaura,Brahamanbaria,23.8386,91.1951
+Comilla,Ashuganj,7,8,0.705,0.872,215,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversity and Cropping Patterns of Comilla Region', doi:10.3329/brj.v21i2.38198",Ashuganj,Brahamanbaria,24.0158,91.0184
+Comilla,B.Baria,15,14,0.627,0.772,181,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversity and Cropping Patterns of Comilla Region', doi:10.3329/brj.v21i2.38198",Brahmanbaria Sadar,Brahamanbaria,23.9506,91.119
+Comilla,Bijoynagar,11,7,0.559,0.737,144,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversity and Cropping Patterns of Comilla Region', doi:10.3329/brj.v21i2.38198",Bijoynagar,Brahamanbaria,23.9944,91.2282
+Comilla,Bancharampur,24,20,0.682,0.829,141,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversity and Cropping Patterns of Comilla Region', doi:10.3329/brj.v21i2.38198",Banchharampur,Brahamanbaria,23.7801,90.807
+Comilla,Kasba,12,11,0.739,0.872,195,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversity and Cropping Patterns of Comilla Region', doi:10.3329/brj.v21i2.38198",Kasba,Brahamanbaria,23.763,91.1303
+Comilla,Nabinagar,16,15,0.774,0.898,170,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversity and Cropping Patterns of Comilla Region', doi:10.3329/brj.v21i2.38198",Nabinagar,Brahamanbaria,23.8635,90.9804
+Comilla,Nasirnagar,24,20,0.751,0.877,156,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversity and Cropping Patterns of Comilla Region', doi:10.3329/brj.v21i2.38198",Nasirnagar,Brahamanbaria,24.1822,91.1875
+Comilla,Sarail,13,12,0.594,0.774,146,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversity and Cropping Patterns of Comilla Region', doi:10.3329/brj.v21i2.38198",Sarail,Brahamanbaria,24.1032,91.1122
+Comilla,Chandpur,20,20,0.865,0.925,166,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversity and Cropping Patterns of Comilla Region', doi:10.3329/brj.v21i2.38198",Chandpur Sadar,Chandpur,23.227,90.6908
+Comilla,Faridganj,14,10,0.566,0.749,180,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversity and Cropping Patterns of Comilla Region', doi:10.3329/brj.v21i2.38198",Faridganj,Chandpur,23.1462,90.7609
+Comilla,Haimchar,24,17,0.93,0.964,208,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversity and Cropping Patterns of Comilla Region', doi:10.3329/brj.v21i2.38198",Haim Char,Chandpur,23.0727,90.6618
+Comilla,Hajiganj,13,11,0.433,0.637,126,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversity and Cropping Patterns of Comilla Region', doi:10.3329/brj.v21i2.38198",Hajiganj,Chandpur,23.263,90.8372
+Comilla,Kachua,16,8,0.761,0.891,221,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversity and Cropping Patterns of Comilla Region', doi:10.3329/brj.v21i2.38198",Kachua,Chandpur,23.3627,90.8817
+Comilla,Matlab.N,20,17,0.822,0.925,236,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversity and Cropping Patterns of Comilla Region', doi:10.3329/brj.v21i2.38198",Matlab Uttar,Chandpur,23.4145,90.642
+Comilla,Matlab.S,17,14,0.801,0.894,168,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversity and Cropping Patterns of Comilla Region', doi:10.3329/brj.v21i2.38198",Matlab Dakshin,Chandpur,23.3501,90.7475
+Comilla,Shaharasti,11,9,0.558,0.773,197,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversity and Cropping Patterns of Comilla Region', doi:10.3329/brj.v21i2.38198",Shahrasti,Chandpur,23.2087,90.9569
+Comilla,Barura,15,13,0.522,0.832,292,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversity and Cropping Patterns of Comilla Region', doi:10.3329/brj.v21i2.38198",Barura,Comilla,23.3557,91.0394
+Comilla,Brahmanpara,20,17,0.8,0.903,221,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversity and Cropping Patterns of Comilla Region', doi:10.3329/brj.v21i2.38198",Brahman Para,Comilla,23.6452,91.0966
+Comilla,Burichang,13,15,0.724,0.889,244,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversity and Cropping Patterns of Comilla Region', doi:10.3329/brj.v21i2.38198",Burichang,Comilla,23.5337,91.117
+Comilla,Chouddagram,18,17,0.605,0.785,188,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversity and Cropping Patterns of Comilla Region', doi:10.3329/brj.v21i2.38198",Chauddagram,Comilla,23.2203,91.2804
+Comilla,Chandina,33,20,0.806,0.911,250,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversity and Cropping Patterns of Comilla Region', doi:10.3329/brj.v21i2.38198",Chandina,Comilla,23.4459,90.9465
+Comilla,Com.Adarsha,7,8,0.59,0.481,129,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversity and Cropping Patterns of Comilla Region', doi:10.3329/brj.v21i2.38198",Comilla Adarsha Sadar,Comilla,23.4699,91.1712
+Comilla,Com.South,19,12,0.659,0.862,240,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversity and Cropping Patterns of Comilla Region', doi:10.3329/brj.v21i2.38198",,,,
+Comilla,Daudkandi,12,7,0.668,0.791,144,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversity and Cropping Patterns of Comilla Region', doi:10.3329/brj.v21i2.38198",Daudkandi,Comilla,23.5027,90.7731
+Comilla,Debidwar,36,21,0.739,0.891,265,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversity and Cropping Patterns of Comilla Region', doi:10.3329/brj.v21i2.38198",Debidwar,Comilla,23.5783,90.9979
+Comilla,Homna,27,16,0.832,0.891,176,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversity and Cropping Patterns of Comilla Region', doi:10.3329/brj.v21i2.38198",Homna,Comilla,23.6791,90.8128
+Comilla,Nangolkot,16,13,0.769,0.9,231,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversity and Cropping Patterns of Comilla Region', doi:10.3329/brj.v21i2.38198",Nangalkot,Comilla,23.1401,91.2093
+Comilla,Laksam,14,10,0.612,0.806,205,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversity and Cropping Patterns of Comilla Region', doi:10.3329/brj.v21i2.38198",Laksam,Comilla,23.2388,91.1053
+Comilla,Meghna,15,13,0.828,0.911,170,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversity and Cropping Patterns of Comilla Region', doi:10.3329/brj.v21i2.38198",Meghna,Comilla,23.6248,90.6909
+Comilla,Monoharganj,13,13,0.504,0.677,140,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversity and Cropping Patterns of Comilla Region', doi:10.3329/brj.v21i2.38198",Manoharganj,Comilla,23.1402,91.067
+Comilla,Muradnagar,35,20,0.909,0.956,209,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversity and Cropping Patterns of Comilla Region', doi:10.3329/brj.v21i2.38198",Muradnagar,Comilla,23.6776,90.9437
+Comilla,Titas,20,13,0.656,0.795,132,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversity and Cropping Patterns of Comilla Region', doi:10.3329/brj.v21i2.38198",Titas,Comilla,23.5897,90.797
+Chittagong,Anwara,20,13,0.752,0.877,212,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Systems in Chittagong Region', doi:10.3329/brj.v21i2.38199",Anowara,Chittagong,22.2026,91.8812
+Chittagong,Banshkhali,15,11,0.889,0.945,205,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Systems in Chittagong Region', doi:10.3329/brj.v21i2.38199",Banshkhali,Chittagong,22.0147,91.9402
+Chittagong,Boalkhali,12,10,0.724,0.853,160,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Systems in Chittagong Region', doi:10.3329/brj.v21i2.38199",Boalkhali,Chittagong,22.377,91.9701
+Chittagong,Chandanaish,19,14,0.884,0.95,213,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Systems in Chittagong Region', doi:10.3329/brj.v21i2.38199",Chandanaish,Chittagong,22.2122,92.0635
+Chittagong,Fatikchhari,24,20,0.609,0.767,144,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Systems in Chittagong Region', doi:10.3329/brj.v21i2.38199",Fatikchhari,Chittagong,22.7563,91.7472
+Chittagong,Hathazari,17,15,0.697,0.806,163,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Systems in Chittagong Region', doi:10.3329/brj.v21i2.38199",Hathazari,Chittagong,22.5287,91.7971
+Chittagong,Lohagara,12,9,0.81,0.896,181,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Systems in Chittagong Region', doi:10.3329/brj.v21i2.38199",Lohagara,Chittagong,21.9862,92.111
+Chittagong,Mirsharai,25,18,0.739,0.846,190,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Systems in Chittagong Region', doi:10.3329/brj.v21i2.38199",Mirsharai,Chittagong,22.81,91.5502
+Chittagong,Patiya,13,10,0.716,0.868,171,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Systems in Chittagong Region', doi:10.3329/brj.v21i2.38199",Patiya,Chittagong,22.292,91.964
+Chittagong,Rngunia,17,16,0.637,0.793,172,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Systems in Chittagong Region', doi:10.3329/brj.v21i2.38199",Rangunia,Chittagong,22.465,92.0666
+Chittagong,Rauzan,18,15,0.692,0.826,171,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Systems in Chittagong Region', doi:10.3329/brj.v21i2.38199",Raozan,Chittagong,22.5208,91.917
+Chittagong,Sandwip,18,17,0.723,0.89,170,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Systems in Chittagong Region', doi:10.3329/brj.v21i2.38199",Sandwip,Chittagong,22.4912,91.491
+Chittagong,Satkania,16,11,0.782,0.879,182,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Systems in Chittagong Region', doi:10.3329/brj.v21i2.38199",Satkania,Chittagong,22.1045,92.0605
+Chittagong,Sitakunda,18,16,0.843,0.932,215,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Systems in Chittagong Region', doi:10.3329/brj.v21i2.38199",Sitakunda,Chittagong,22.5588,91.6828
+Chittagong,Chakaria,17,15,0.684,0.863,231,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Systems in Chittagong Region', doi:10.3329/brj.v21i2.38199",Chakaria,Cox's Bazar,21.7402,92.0524
+Chittagong,CoxBazar,18,14,0.509,0.733,192,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Systems in Chittagong Region', doi:10.3329/brj.v21i2.38199",Cox's Bazar Sadar,Cox's Bazar,21.5056,92.0347
+Chittagong,Kutubdia,9,7,0.413,0.776,279,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Systems in Chittagong Region', doi:10.3329/brj.v21i2.38199",Kutubdia,Cox's Bazar,21.8378,91.8625
+Chittagong,Maheskhali,13,13,0.521,0.687,174,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Systems in Chittagong Region', doi:10.3329/brj.v21i2.38199",Maheshkhali,Cox's Bazar,21.6094,91.9218
+Chittagong,Pekua,11,12,0.598,0.852,240,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Systems in Chittagong Region', doi:10.3329/brj.v21i2.38199",Pekua,Cox's Bazar,21.8182,91.9527
+Chittagong,Ramu,16,17,0.546,0.758,193,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Systems in Chittagong Region', doi:10.3329/brj.v21i2.38199",Ramu,Cox's Bazar,21.4408,92.1211
+Chittagong,Teknaf,11,11,0.484,0.673,127,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Systems in Chittagong Region', doi:10.3329/brj.v21i2.38199",Teknaf,Cox's Bazar,20.9961,92.2224
+Chittagong,Ukhia,10,8,0.586,0.746,178,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Systems in Chittagong Region', doi:10.3329/brj.v21i2.38199",Ukhia,Cox's Bazar,21.2295,92.1159
+Chittagong,Chhagalnaiya,16,15,0.639,0.781,175,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Systems in Chittagong Region', doi:10.3329/brj.v21i2.38199",Chhagalnaiya,Feni,23.017,91.507
+Chittagong,Dagonbhuiyan,17,18,0.652,0.799,174,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Systems in Chittagong Region', doi:10.3329/brj.v21i2.38199",Daganbhuiyan,Feni,22.9706,91.2997
+Chittagong,Feni,11,11,0.647,0.827,202,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Systems in Chittagong Region', doi:10.3329/brj.v21i2.38199",Feni Sadar,Feni,22.99,91.4159
+Chittagong,Fulgazi,7,7,0.551,0.726,174,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Systems in Chittagong Region', doi:10.3329/brj.v21i2.38199",Fulgazi,Feni,23.118,91.4425
+Chittagong,Parshuram,12,11,0.611,0.76,170,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Systems in Chittagong Region', doi:10.3329/brj.v21i2.38199",Parshuram,Feni,23.2013,91.4397
+Chittagong,Sonagazi,18,12,0.819,0.916,185,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Systems in Chittagong Region', doi:10.3329/brj.v21i2.38199",Sonagazi,Feni,22.8655,91.395
+Chittagong,Kamalnagar,10,9,0.655,0.872,283,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Systems in Chittagong Region', doi:10.3329/brj.v21i2.38199",Kamalnagar,Lakshmipur,22.7677,90.8653
+Chittagong,Lakshmipur,17,14,0.691,0.859,209,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Systems in Chittagong Region', doi:10.3329/brj.v21i2.38199",Lakshmipur Sadar,Lakshmipur,22.9239,90.8684
+Chittagong,Ramganj,17,14,0.786,0.892,169,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Systems in Chittagong Region', doi:10.3329/brj.v21i2.38199",Ramganj,Lakshmipur,23.0989,90.8726
+Chittagong,Ramgati,16,15,0.64,0.864,281,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Systems in Chittagong Region', doi:10.3329/brj.v21i2.38199",Ramgati,Lakshmipur,22.6654,90.9468
+Chittagong,Raipur,12,10,0.784,0.908,220,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Systems in Chittagong Region', doi:10.3329/brj.v21i2.38199",,,,
+Chittagong,Begumganj,4,5,0.151,0.269,108,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Systems in Chittagong Region', doi:10.3329/brj.v21i2.38199",Begumganj,Noakhali,22.9306,91.0952
+Chittagong,Chatkhil,7,7,0.084,0.135,103,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Systems in Chittagong Region', doi:10.3329/brj.v21i2.38199",Chatkhil,Noakhali,23.0538,90.9639
+Chittagong,Companiganj,26,23,0.737,0.857,165,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Systems in Chittagong Region', doi:10.3329/brj.v21i2.38199",Companiganj,Noakhali,22.7825,91.2735
+Chittagong,Hatiya,15,13,0.872,0.938,224,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Systems in Chittagong Region', doi:10.3329/brj.v21i2.38199",Hatiya,Noakhali,22.2431,91.1116
+Chittagong,Kabirhat,26,23,0.776,0.867,139,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Systems in Chittagong Region', doi:10.3329/brj.v21i2.38199",Kabirhat,Noakhali,22.8133,91.1999
+Chittagong,Noakhali,28,18,0.886,0.944,192,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Systems in Chittagong Region', doi:10.3329/brj.v21i2.38199",Boalkhali,Chittagong,22.377,91.9701
+Chittagong,Senbag,13,12,0.523,0.738,189,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Systems in Chittagong Region', doi:10.3329/brj.v21i2.38199",Senbagh,Noakhali,22.9924,91.2121
+Chittagong,Sonaimuri,8,9,0.091,0.155,104,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Systems in Chittagong Region', doi:10.3329/brj.v21i2.38199",Sonaimuri,Noakhali,23.0262,91.0777
+Chittagong,Subarnachar,23,18,0.833,0.926,183,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Systems in Chittagong Region', doi:10.3329/brj.v21i2.38199",Subarnachar,Noakhali,22.637,91.1277
+Dhaka,Dhamrai,35,20,0.88,0.95,224,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Pattern, Intensity and Diversity in Dhaka Region', doi:10.3329/brj.v21i2.38200",Dhamrai,Dhaka,23.9371,90.1414
+Dhaka,Dohar,30,20,0.76,0.84,161,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Pattern, Intensity and Diversity in Dhaka Region', doi:10.3329/brj.v21i2.38200",Dohar,Dhaka,23.6009,90.1093
+Dhaka,Keraniganj,22,21,0.89,0.94,213,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Pattern, Intensity and Diversity in Dhaka Region', doi:10.3329/brj.v21i2.38200",Keraniganj,Dhaka,23.6935,90.3443
+Dhaka,Nawabganj,18,19,0.77,0.9,175,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Pattern, Intensity and Diversity in Dhaka Region', doi:10.3329/brj.v21i2.38200",Nawabganj,Dhaka,23.6735,90.1608
+Dhaka,Savar,14,13,0.72,0.91,177,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Pattern, Intensity and Diversity in Dhaka Region', doi:10.3329/brj.v21i2.38200",Savar,Dhaka,23.8811,90.2807
+Dhaka,Gazipur sadar,19,12,0.84,0.91,180,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Pattern, Intensity and Diversity in Dhaka Region', doi:10.3329/brj.v21i2.38200",Gazipur Sadar,Gazipur,24.0141,90.3962
+Dhaka,Kapasia,14,12,0.78,0.84,158,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Pattern, Intensity and Diversity in Dhaka Region', doi:10.3329/brj.v21i2.38200",Kapasia,Gazipur,24.1472,90.5999
+Dhaka,Kaliakair,17,13,0.75,0.87,167,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Pattern, Intensity and Diversity in Dhaka Region', doi:10.3329/brj.v21i2.38200",Kaliakair,Gazipur,24.1033,90.2645
+Dhaka,Kaliganj,15,16,0.64,0.83,150,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Pattern, Intensity and Diversity in Dhaka Region', doi:10.3329/brj.v21i2.38200",Kaliganj,Gazipur,23.9642,90.5549
+Dhaka,Sreepur,18,11,0.77,0.85,148,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Pattern, Intensity and Diversity in Dhaka Region', doi:10.3329/brj.v21i2.38200",Sreepur,Gazipur,24.2052,90.4431
+Dhaka,Daulatpur,31,23,0.9,0.94,193,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Pattern, Intensity and Diversity in Dhaka Region', doi:10.3329/brj.v21i2.38200",Daulatpur,Manikganj,23.9558,89.7977
+Dhaka,Ghior,21,16,0.8,0.89,201,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Pattern, Intensity and Diversity in Dhaka Region', doi:10.3329/brj.v21i2.38200",Ghior,Manikganj,23.8732,89.9046
+Dhaka,Harirampur,21,21,0.9,0.94,178,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Pattern, Intensity and Diversity in Dhaka Region', doi:10.3329/brj.v21i2.38200",Harirampur,Manikganj,23.7242,89.9478
+Dhaka,Manikganj sadar,29,21,0.85,0.93,219,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Pattern, Intensity and Diversity in Dhaka Region', doi:10.3329/brj.v21i2.38200",Manikganj Sadar,Manikganj,23.8357,90.0305
+Dhaka,Saturia,16,14,0.84,0.93,239,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Pattern, Intensity and Diversity in Dhaka Region', doi:10.3329/brj.v21i2.38200",Saturia,Manikganj,23.9575,90.0016
+Dhaka,Shibalaya,10,10,0.79,0.89,222,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Pattern, Intensity and Diversity in Dhaka Region', doi:10.3329/brj.v21i2.38200",Shibalaya,Manikganj,23.8383,89.8102
+Dhaka,Singair,25,16,0.87,0.94,233,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Pattern, Intensity and Diversity in Dhaka Region', doi:10.3329/brj.v21i2.38200",Singair,Manikganj,23.7834,90.1543
+Dhaka,Gazaria,12,11,0.79,0.89,153,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Pattern, Intensity and Diversity in Dhaka Region', doi:10.3329/brj.v21i2.38200",Gazaria,Munshiganj,23.5472,90.6297
+Dhaka,Lohaganj,15,18,0.79,0.9,162,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Pattern, Intensity and Diversity in Dhaka Region', doi:10.3329/brj.v21i2.38200",Mohanganj,Netrakona,24.8268,91.0237
+Dhaka,Munsiganj sadar,18,17,0.66,0.82,197,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Pattern, Intensity and Diversity in Dhaka Region', doi:10.3329/brj.v21i2.38200",Munshiganj Sadar,Munshiganj,23.4865,90.5276
+Dhaka,Sreenagar,8,9,0.66,0.82,124,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Pattern, Intensity and Diversity in Dhaka Region', doi:10.3329/brj.v21i2.38200",Sreenagar,Munshiganj,23.547,90.2632
+Dhaka,Serajdikhan,17,12,0.89,0.95,212,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Pattern, Intensity and Diversity in Dhaka Region', doi:10.3329/brj.v21i2.38200",Serajdikhan,Munshiganj,23.5978,90.3563
+Dhaka,Tungibari,14,14,0.73,0.86,201,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Pattern, Intensity and Diversity in Dhaka Region', doi:10.3329/brj.v21i2.38200",Tongibari,Munshiganj,23.4761,90.4527
+Dhaka,Araihazar,25,17,0.83,0.92,186,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Pattern, Intensity and Diversity in Dhaka Region', doi:10.3329/brj.v21i2.38200",Araihazar,Narayanganj,23.761,90.6689
+Dhaka,Bandar,7,7,0.6,0.85,146,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Pattern, Intensity and Diversity in Dhaka Region', doi:10.3329/brj.v21i2.38200",Bandar,Narayanganj,23.6377,90.5378
+Dhaka,Nrayanganj sadar,8,8,0.76,0.88,206,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Pattern, Intensity and Diversity in Dhaka Region', doi:10.3329/brj.v21i2.38200",Narayanganj Sadar,Narayanganj,23.6275,90.4811
+Dhaka,Rupganj,20,17,0.67,0.8,136,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Pattern, Intensity and Diversity in Dhaka Region', doi:10.3329/brj.v21i2.38200",Rupganj,Narayanganj,23.8128,90.5388
+Dhaka,Sonargaon,22,18,0.61,0.75,127,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Pattern, Intensity and Diversity in Dhaka Region', doi:10.3329/brj.v21i2.38200",Sonargaon,Narayanganj,23.6756,90.5933
+Dhaka,Belabo,19,17,0.61,0.75,226,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Pattern, Intensity and Diversity in Dhaka Region', doi:10.3329/brj.v21i2.38200",Belabo,Narsingdi,24.0986,90.8493
+Dhaka,Monohardi,11,11,0.49,0.72,195,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Pattern, Intensity and Diversity in Dhaka Region', doi:10.3329/brj.v21i2.38200",Manohardi,Narsingdi,24.1607,90.7304
+Dhaka,Narsingdi sadar,14,14,0.76,0.88,158,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Pattern, Intensity and Diversity in Dhaka Region', doi:10.3329/brj.v21i2.38200",Narsingdi Sadar,Narsingdi,23.8667,90.7082
+Dhaka,Palash,7,6,0.6,0.77,187,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Pattern, Intensity and Diversity in Dhaka Region', doi:10.3329/brj.v21i2.38200",Palash,Narsingdi,23.9538,90.6494
+Dhaka,Raipur,20,17,0.79,0.89,156,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Pattern, Intensity and Diversity in Dhaka Region', doi:10.3329/brj.v21i2.38200",,,,
+Dhaka,Shibpur,19,17,0.47,0.73,201,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Pattern, Intensity and Diversity in Dhaka Region', doi:10.3329/brj.v21i2.38200",Shibpur,Narsingdi,24.026,90.7454
+Dhaka,Basail,18,15,0.85,0.93,225,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Pattern, Intensity and Diversity in Dhaka Region', doi:10.3329/brj.v21i2.38200",Basail,Tangail,24.2311,90.0394
+Dhaka,Bhuanpur,25,24,0.9,0.95,208,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Pattern, Intensity and Diversity in Dhaka Region', doi:10.3329/brj.v21i2.38200",Bhuapur,Tangail,24.4767,89.8143
+Dhaka,Delduar,22,18,0.84,0.93,220,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Pattern, Intensity and Diversity in Dhaka Region', doi:10.3329/brj.v21i2.38200",Delduar,Tangail,24.142,89.9377
+Dhaka,Dhanbari,12,11,0.37,0.7,207,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Pattern, Intensity and Diversity in Dhaka Region', doi:10.3329/brj.v21i2.38200",Dhanbari,Tangail,24.6867,89.9333
+Dhaka,Ghatail,14,13,0.62,0.79,189,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Pattern, Intensity and Diversity in Dhaka Region', doi:10.3329/brj.v21i2.38200",Ghatail,Tangail,24.4735,90.0516
+Dhaka,Gopalpur,24,18,0.57,0.81,213,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Pattern, Intensity and Diversity in Dhaka Region', doi:10.3329/brj.v21i2.38200",Gopalpur,Tangail,24.572,89.9036
+Dhaka,Kalihati,24,16,0.82,0.92,209,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Pattern, Intensity and Diversity in Dhaka Region', doi:10.3329/brj.v21i2.38200",Kalihati,Tangail,24.36,89.9448
+Dhaka,Madhupur,16,13,0.79,0.83,157,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Pattern, Intensity and Diversity in Dhaka Region', doi:10.3329/brj.v21i2.38200",Madhupur,Tangail,24.6502,90.0602
+Dhaka,Mirzapur,26,21,0.87,0.94,205,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Pattern, Intensity and Diversity in Dhaka Region', doi:10.3329/brj.v21i2.38200",Mirzapur,Tangail,24.1159,90.1072
+Dhaka,Nagarpur,19,15,0.85,0.94,227,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Pattern, Intensity and Diversity in Dhaka Region', doi:10.3329/brj.v21i2.38200",Nagarpur,Tangail,24.0477,89.8742
+Dhaka,Shakhipur,13,13,0.58,0.8,212,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Pattern, Intensity and Diversity in Dhaka Region', doi:10.3329/brj.v21i2.38200",Sakhipur,Tangail,24.3066,90.1728
+Dhaka,Tangail sadar,35,26,0.93,0.97,208,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Pattern, Intensity and Diversity in Dhaka Region', doi:10.3329/brj.v21i2.38200",Tangail Sadar,Tangail,24.2564,89.8661
+Dinajpur,Birampur,15,14,0.343,0.708,214,"Bangladesh Rice Journal 21(2) 2017, 'Crops and Cropping Systems in Dinajpur Region', doi:10.3329/brj.v21i2.38202",Birampur,Dinajpur,25.3791,88.9637
+Dinajpur,Birganj,19,16,0.849,0.941,241,"Bangladesh Rice Journal 21(2) 2017, 'Crops and Cropping Systems in Dinajpur Region', doi:10.3329/brj.v21i2.38202",Birganj,Dinajpur,25.9279,88.6266
+Dinajpur,Birol,16,15,0.856,0.947,246,"Bangladesh Rice Journal 21(2) 2017, 'Crops and Cropping Systems in Dinajpur Region', doi:10.3329/brj.v21i2.38202",Biral,Dinajpur,25.6467,88.5477
+Dinajpur,Bochaganj,17,14,0.811,0.927,236,"Bangladesh Rice Journal 21(2) 2017, 'Crops and Cropping Systems in Dinajpur Region', doi:10.3329/brj.v21i2.38202",Bochaganj,Dinajpur,25.7857,88.4535
+Dinajpur,Chirirbandar,22,16,0.473,0.777,219,"Bangladesh Rice Journal 21(2) 2017, 'Crops and Cropping Systems in Dinajpur Region', doi:10.3329/brj.v21i2.38202",Chirirbandar,Dinajpur,25.6654,88.7865
+Dinajpur,Dinajpur,25,16,0.809,0.925,238,"Bangladesh Rice Journal 21(2) 2017, 'Crops and Cropping Systems in Dinajpur Region', doi:10.3329/brj.v21i2.38202",Dinajpur Sadar,Dinajpur,25.6081,88.6774
+Dinajpur,Phulbari,19,15,0.6,0.837,225,"Bangladesh Rice Journal 21(2) 2017, 'Crops and Cropping Systems in Dinajpur Region', doi:10.3329/brj.v21i2.38202",Phulbari,Kurigram,25.9481,89.5713
+Dinajpur,Ghoraghat,17,19,0.458,0.753,212,"Bangladesh Rice Journal 21(2) 2017, 'Crops and Cropping Systems in Dinajpur Region', doi:10.3329/brj.v21i2.38202",Ghoraghat,Dinajpur,25.2844,89.2143
+Dinajpur,Hakimpur,20,19,0.456,0.774,225,"Bangladesh Rice Journal 21(2) 2017, 'Crops and Cropping Systems in Dinajpur Region', doi:10.3329/brj.v21i2.38202",Hakimpur,Dinajpur,25.2921,89.062
+Dinajpur,Kaharol,11,13,0.794,0.909,218,"Bangladesh Rice Journal 21(2) 2017, 'Crops and Cropping Systems in Dinajpur Region', doi:10.3329/brj.v21i2.38202",Kaharole,Dinajpur,25.8009,88.5988
+Dinajpur,Khansama,26,15,0.831,0.937,249,"Bangladesh Rice Journal 21(2) 2017, 'Crops and Cropping Systems in Dinajpur Region', doi:10.3329/brj.v21i2.38202",Khansama,Dinajpur,25.8698,88.7652
+Dinajpur,Nawabganj,18,18,0.578,0.803,209,"Bangladesh Rice Journal 21(2) 2017, 'Crops and Cropping Systems in Dinajpur Region', doi:10.3329/brj.v21i2.38202",Nawabganj,Dhaka,23.6735,90.1608
+Dinajpur,Parbatipur,16,16,0.451,0.76,216,"Bangladesh Rice Journal 21(2) 2017, 'Crops and Cropping Systems in Dinajpur Region', doi:10.3329/brj.v21i2.38202",Parbatipur,Dinajpur,25.6188,88.9256
+Dinajpur,Atwari,20,19,0.852,0.935,222,"Bangladesh Rice Journal 21(2) 2017, 'Crops and Cropping Systems in Dinajpur Region', doi:10.3329/brj.v21i2.38202",Atwari,Panchagarh,26.2496,88.4264
+Dinajpur,Boda,30,22,0.746,0.879,206,"Bangladesh Rice Journal 21(2) 2017, 'Crops and Cropping Systems in Dinajpur Region', doi:10.3329/brj.v21i2.38202",Boda,Panchagarh,26.2306,88.6127
+Dinajpur,Debiganj,25,21,0.863,0.902,221,"Bangladesh Rice Journal 21(2) 2017, 'Crops and Cropping Systems in Dinajpur Region', doi:10.3329/brj.v21i2.38202",Debiganj,Panchagarh,26.1321,88.7194
+Dinajpur,Panchagarh,20,19,0.874,0.938,203,"Bangladesh Rice Journal 21(2) 2017, 'Crops and Cropping Systems in Dinajpur Region', doi:10.3329/brj.v21i2.38202",Panchagarh Sadar,Panchagarh,26.3674,88.5818
+Dinajpur,Tetulia,25,19,0.855,0.941,240,"Bangladesh Rice Journal 21(2) 2017, 'Crops and Cropping Systems in Dinajpur Region', doi:10.3329/brj.v21i2.38202",Tentulia,Panchagarh,26.5134,88.4298
+Dinajpur,Baliadangi,18,14,0.859,0.952,243,"Bangladesh Rice Journal 21(2) 2017, 'Crops and Cropping Systems in Dinajpur Region', doi:10.3329/brj.v21i2.38202",Baliadangi,Thakurgaon,26.1085,88.2637
+Dinajpur,Haripur,18,15,0.792,0.931,247,"Bangladesh Rice Journal 21(2) 2017, 'Crops and Cropping Systems in Dinajpur Region', doi:10.3329/brj.v21i2.38202",Haripur,Thakurgaon,25.8785,88.1549
+Dinajpur,Pirganj,22,18,0.811,0.922,228,"Bangladesh Rice Journal 21(2) 2017, 'Crops and Cropping Systems in Dinajpur Region', doi:10.3329/brj.v21i2.38202",Pirganj,Rangpur,25.4237,89.2743
+Dinajpur,Ranisonkail,24,18,0.883,0.955,246,"Bangladesh Rice Journal 21(2) 2017, 'Crops and Cropping Systems in Dinajpur Region', doi:10.3329/brj.v21i2.38202",Ranisankail,Thakurgaon,25.9401,88.2458
+Dinajpur,Thakurgaon,19,16,0.839,0.938,239,"Bangladesh Rice Journal 21(2) 2017, 'Crops and Cropping Systems in Dinajpur Region', doi:10.3329/brj.v21i2.38202",Thakurgaon Sadar,Thakurgaon,26.0707,88.4644
+Faridpur,Alfadanga,18,15,0.917,0.957,205,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Patterns and Land Use Practices in Faridpur Region', doi:10.3329/brj.v21i2.38203",Alfadanga,Faridpur,23.2968,89.6699
+Faridpur,Bhanga,16,16,0.887,0.947,224,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Patterns and Land Use Practices in Faridpur Region', doi:10.3329/brj.v21i2.38203",Bhanga,Faridpur,23.3867,90.0098
+Faridpur,Boalmari,21,19,0.861,0.948,234,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Patterns and Land Use Practices in Faridpur Region', doi:10.3329/brj.v21i2.38203",Boalmari,Faridpur,23.4045,89.6971
+Faridpur,Charbhadrasan,40,22,0.942,0.97,183,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Patterns and Land Use Practices in Faridpur Region', doi:10.3329/brj.v21i2.38203",Char Bhadrasan,Faridpur,23.5926,89.978
+Faridpur,Faridpur sadar,44,25,0.957,0.981,216,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Patterns and Land Use Practices in Faridpur Region', doi:10.3329/brj.v21i2.38203",Faridpur Sadar,Faridpur,23.6048,89.8165
+Faridpur,Madhukhali,39,22,0.937,0.977,237,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Patterns and Land Use Practices in Faridpur Region', doi:10.3329/brj.v21i2.38203",Madhukhali,Faridpur,23.5409,89.612
+Faridpur,Nagarkanda,17,14,0.779,0.901,214,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Patterns and Land Use Practices in Faridpur Region', doi:10.3329/brj.v21i2.38203",Nagarkanda,Faridpur,23.4373,89.8944
+Faridpur,Sadarpur,21,22,0.909,0.959,228,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Patterns and Land Use Practices in Faridpur Region', doi:10.3329/brj.v21i2.38203",Sadarpur,Faridpur,23.4959,90.0526
+Faridpur,Saltha,23,16,0.649,0.85,262,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Patterns and Land Use Practices in Faridpur Region', doi:10.3329/brj.v21i2.38203",Saltha,Faridpur,23.42,89.7997
+Faridpur,Gopalganj sadar,25,18,0.675,0.848,151,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Patterns and Land Use Practices in Faridpur Region', doi:10.3329/brj.v21i2.38203",Gopalganj Sadar,Gopalganj,23.0604,89.8489
+Faridpur,Kasiani,12,10,0.692,0.732,153,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Patterns and Land Use Practices in Faridpur Region', doi:10.3329/brj.v21i2.38203",Kashiani,Gopalganj,23.1907,89.7963
+Faridpur,Kotalipara,16,14,0.307,0.448,113,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Patterns and Land Use Practices in Faridpur Region', doi:10.3329/brj.v21i2.38203",Kotali Para,Gopalganj,23.0111,90.0207
+Faridpur,Muksudpur,17,15,0.81,0.912,184,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Patterns and Land Use Practices in Faridpur Region', doi:10.3329/brj.v21i2.38203",Muksudpur,Gopalganj,23.2667,89.9144
+Faridpur,Tungipara,28,22,0.394,0.606,126,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Patterns and Land Use Practices in Faridpur Region', doi:10.3329/brj.v21i2.38203",Tungi Para,Gopalganj,22.9256,89.9045
+Faridpur,Kalkini,30,19,0.822,0.935,179,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Patterns and Land Use Practices in Faridpur Region', doi:10.3329/brj.v21i2.38203",Kalkini,Madaripur,23.0709,90.2481
+Faridpur,Madaripur sadar,23,17,0.883,0.952,224,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Patterns and Land Use Practices in Faridpur Region', doi:10.3329/brj.v21i2.38203",Madaripur Sadar,Madaripur,23.1938,90.175
+Faridpur,Rajoir,29,21,0.837,0.922,201,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Patterns and Land Use Practices in Faridpur Region', doi:10.3329/brj.v21i2.38203",Rajoir,Madaripur,23.2013,90.037
+Faridpur,Shibchar,18,14,0.908,0.966,211,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Patterns and Land Use Practices in Faridpur Region', doi:10.3329/brj.v21i2.38203",Shib Char,Madaripur,23.3754,90.1742
+Faridpur,Baliakandi,24,21,0.924,0.965,247,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Patterns and Land Use Practices in Faridpur Region', doi:10.3329/brj.v21i2.38203",Balia Kandi,Rajbari,23.6497,89.5507
+Faridpur,Goalanda,22,17,0.931,0.966,205,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Patterns and Land Use Practices in Faridpur Region', doi:10.3329/brj.v21i2.38203",Goalandaghat,Rajbari,23.7564,89.7661
+Faridpur,Kalukhali,16,13,0.885,0.943,231,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Patterns and Land Use Practices in Faridpur Region', doi:10.3329/brj.v21i2.38203",Kalukhali,Rajbari,23.741,89.4743
+Faridpur,Pangsa,12,12,0.852,0.928,244,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Patterns and Land Use Practices in Faridpur Region', doi:10.3329/brj.v21i2.38203",Pangsha,Rajbari,23.7878,89.3869
+Faridpur,Rajbari sadar,18,15,0.928,0.971,229,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Patterns and Land Use Practices in Faridpur Region', doi:10.3329/brj.v21i2.38203",Rajbari Sadar,Rajbari,23.7175,89.6542
+Faridpur,Bhedarganj,33,21,0.935,0.97,191,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Patterns and Land Use Practices in Faridpur Region', doi:10.3329/brj.v21i2.38203",Bhedarganj,Shariatpur,23.2114,90.51
+Faridpur,Damudya,22,17,0.689,0.871,163,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Patterns and Land Use Practices in Faridpur Region', doi:10.3329/brj.v21i2.38203",Damudya,Shariatpur,23.1368,90.4217
+Faridpur,Goshairhat,22,13,0.843,0.938,175,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Patterns and Land Use Practices in Faridpur Region', doi:10.3329/brj.v21i2.38203",Gosairhat,Shariatpur,23.0796,90.447
+Faridpur,Naria,22,13,0.783,0.902,156,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Patterns and Land Use Practices in Faridpur Region', doi:10.3329/brj.v21i2.38203",Naria,Shariatpur,23.3046,90.4273
+Faridpur,Shariatpur sadar,30,22,0.851,0.93,168,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Patterns and Land Use Practices in Faridpur Region', doi:10.3329/brj.v21i2.38203",Shariatpur Sadar,Shariatpur,23.2161,90.3159
+Faridpur,Janjira,42,21,0.949,0.974,199,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Cropping Patterns and Land Use Practices in Faridpur Region', doi:10.3329/brj.v21i2.38203",Zanjira,Shariatpur,23.3655,90.3183
+Chittagong Hill Tracts,Alikadam,9,7,0.93,0.95,144,"Bangladesh Rice Journal 21(2) 2017, 'Crops and Cropping Sequences in Chittagong Hill Tracts', doi:10.3329/brj.v21i2.38204",Alikadam,Bandarban,21.6001,92.3846
+Chittagong Hill Tracts,Bandarb. sadar,22,16,0.89,0.92,142,"Bangladesh Rice Journal 21(2) 2017, 'Crops and Cropping Sequences in Chittagong Hill Tracts', doi:10.3329/brj.v21i2.38204",Bandarban Sadar,Bandarban,22.1711,92.2182
+Chittagong Hill Tracts,Lama,30,15,0.94,0.96,154,"Bangladesh Rice Journal 21(2) 2017, 'Crops and Cropping Sequences in Chittagong Hill Tracts', doi:10.3329/brj.v21i2.38204",Lama,Bandarban,21.8181,92.2076
+Chittagong Hill Tracts,Naikhongchhari,10,8,0.86,0.91,161,"Bangladesh Rice Journal 21(2) 2017, 'Crops and Cropping Sequences in Chittagong Hill Tracts', doi:10.3329/brj.v21i2.38204",Naikhongchhari,Cox's Bazar,21.469,92.2287
+Chittagong Hill Tracts,Rowangchhari,24,14,0.99,0.99,135,"Bangladesh Rice Journal 21(2) 2017, 'Crops and Cropping Sequences in Chittagong Hill Tracts', doi:10.3329/brj.v21i2.38204",Rowangchhari,Bandarban,22.2091,92.3397
+Chittagong Hill Tracts,Ruma,8,7,0.92,0.92,100,"Bangladesh Rice Journal 21(2) 2017, 'Crops and Cropping Sequences in Chittagong Hill Tracts', doi:10.3329/brj.v21i2.38204",Ruma,Bandarban,22.0126,92.4294
+Chittagong Hill Tracts,Thanchi,15,15,0.85,0.76,106,"Bangladesh Rice Journal 21(2) 2017, 'Crops and Cropping Sequences in Chittagong Hill Tracts', doi:10.3329/brj.v21i2.38204",Thanchi,Bandarban,21.6372,92.531
+Chittagong Hill Tracts,Dighinala,28,20,0.89,0.92,143,"Bangladesh Rice Journal 21(2) 2017, 'Crops and Cropping Sequences in Chittagong Hill Tracts', doi:10.3329/brj.v21i2.38204",Dighinala,Khagrachhari,23.3994,92.0498
+Chittagong Hill Tracts,Khagra. sadar,25,16,0.89,0.92,160,"Bangladesh Rice Journal 21(2) 2017, 'Crops and Cropping Sequences in Chittagong Hill Tracts', doi:10.3329/brj.v21i2.38204",Magura Sadar,Magura,23.4519,89.4131
+Chittagong Hill Tracts,Lakshmichhari,12,9,0.89,0.92,142,"Bangladesh Rice Journal 21(2) 2017, 'Crops and Cropping Sequences in Chittagong Hill Tracts', doi:10.3329/brj.v21i2.38204",Lakshmichhari,Khagrachhari,22.7849,91.929
+Chittagong Hill Tracts,Mohalchhari,18,13,0.9,0.94,150,"Bangladesh Rice Journal 21(2) 2017, 'Crops and Cropping Sequences in Chittagong Hill Tracts', doi:10.3329/brj.v21i2.38204",Mahalchhari,Khagrachhari,22.9515,92.0232
+Chittagong Hill Tracts,Manikchhari,13,9,0.85,0.91,164,"Bangladesh Rice Journal 21(2) 2017, 'Crops and Cropping Sequences in Chittagong Hill Tracts', doi:10.3329/brj.v21i2.38204",Manikchhari,Khagrachhari,22.8412,91.8191
+Chittagong Hill Tracts,Matiranga,20,13,0.88,0.92,145,"Bangladesh Rice Journal 21(2) 2017, 'Crops and Cropping Sequences in Chittagong Hill Tracts', doi:10.3329/brj.v21i2.38204",Matiranga,Khagrachhari,23.1044,91.8548
+Chittagong Hill Tracts,Panchhari,23,17,0.82,0.87,164,"Bangladesh Rice Journal 21(2) 2017, 'Crops and Cropping Sequences in Chittagong Hill Tracts', doi:10.3329/brj.v21i2.38204",Panchhari,Khagrachhari,23.3197,91.9101
+Chittagong Hill Tracts,Ramgarh,12,8,0.9,0.93,152,"Bangladesh Rice Journal 21(2) 2017, 'Crops and Cropping Sequences in Chittagong Hill Tracts', doi:10.3329/brj.v21i2.38204",Ramgarh,Khagrachhari,22.935,91.831
+Chittagong Hill Tracts,Baghaichhari,13,10,0.86,0.92,145,"Bangladesh Rice Journal 21(2) 2017, 'Crops and Cropping Sequences in Chittagong Hill Tracts', doi:10.3329/brj.v21i2.38204",Baghai Chhari,Rangamati,23.3731,92.2294
+Chittagong Hill Tracts,Barkal,15,11,0.96,0.96,112,"Bangladesh Rice Journal 21(2) 2017, 'Crops and Cropping Sequences in Chittagong Hill Tracts', doi:10.3329/brj.v21i2.38204",Barkal,Rangamati,22.8454,92.3447
+Chittagong Hill Tracts,Belaichhari,9,7,0.81,0.82,102,"Bangladesh Rice Journal 21(2) 2017, 'Crops and Cropping Sequences in Chittagong Hill Tracts', doi:10.3329/brj.v21i2.38204",Belai Chhari,Rangamati,22.3028,92.4852
+Chittagong Hill Tracts,Juraichhari,12,9,0.9,0.91,112,"Bangladesh Rice Journal 21(2) 2017, 'Crops and Cropping Sequences in Chittagong Hill Tracts', doi:10.3329/brj.v21i2.38204",Jurai Chhari,Rangamati,22.6309,92.4225
+Chittagong Hill Tracts,Kaptai,9,8,0.95,0.96,133,"Bangladesh Rice Journal 21(2) 2017, 'Crops and Cropping Sequences in Chittagong Hill Tracts', doi:10.3329/brj.v21i2.38204",Kaptai,Rangamati,22.4599,92.1934
+Chittagong Hill Tracts,Kawkhali,12,9,0.94,0.94,125,"Bangladesh Rice Journal 21(2) 2017, 'Crops and Cropping Sequences in Chittagong Hill Tracts', doi:10.3329/brj.v21i2.38204",Kawkhali,Pirojpur,22.6067,90.0585
+Chittagong Hill Tracts,Langadu,16,12,0.94,0.96,134,"Bangladesh Rice Journal 21(2) 2017, 'Crops and Cropping Sequences in Chittagong Hill Tracts', doi:10.3329/brj.v21i2.38204",Langadu,Rangamati,22.9505,92.2089
+Chittagong Hill Tracts,Nannerchar,18,16,0.9,0.91,132,"Bangladesh Rice Journal 21(2) 2017, 'Crops and Cropping Sequences in Chittagong Hill Tracts', doi:10.3329/brj.v21i2.38204",Naniarchar,Rangamati,22.8217,92.0694
+Chittagong Hill Tracts,Rajasthali,9,7,0.93,0.95,140,"Bangladesh Rice Journal 21(2) 2017, 'Crops and Cropping Sequences in Chittagong Hill Tracts', doi:10.3329/brj.v21i2.38204",Rajasthali,Rangamati,22.3785,92.2416
+Chittagong Hill Tracts,Rangam. sadar,14,11,0.96,0.96,115,"Bangladesh Rice Journal 21(2) 2017, 'Crops and Cropping Sequences in Chittagong Hill Tracts', doi:10.3329/brj.v21i2.38204",Rangamati Sadar,Rangamati,22.6365,92.199
+Jessore,Jessore sadar,57,16,0.679,0.863,233,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Cropping Systems in Jessore Region', doi:10.3329/brj.v21i2.38206",,,,
+Jessore,Keshabpur,22,18,0.8,0.921,188,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Cropping Systems in Jessore Region', doi:10.3329/brj.v21i2.38206",Keshabpur,Jessore,22.8801,89.2318
+Jessore,Manirampur,24,14,0.792,0.923,242,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Cropping Systems in Jessore Region', doi:10.3329/brj.v21i2.38206",Manirampur,Jessore,23.0062,89.2202
+Jessore,Abhaynagar,20,16,0.685,0.871,168,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Cropping Systems in Jessore Region', doi:10.3329/brj.v21i2.38206",Abhaynagar,Jessore,23.0177,89.4204
+Jessore,Jhikargachha,30,20,0.797,0.925,235,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Cropping Systems in Jessore Region', doi:10.3329/brj.v21i2.38206",Jhikargachha,Jessore,23.0688,89.0542
+Jessore,Sarsha,19,18,0.723,0.903,241,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Cropping Systems in Jessore Region', doi:10.3329/brj.v21i2.38206",Sharsha,Jessore,23.0449,88.9407
+Jessore,Bagherpara,27,22,0.695,0.889,235,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Cropping Systems in Jessore Region', doi:10.3329/brj.v21i2.38206",Bagher Para,Jessore,23.2424,89.3355
+Jessore,Chougachha,22,18,0.747,0.903,223,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Cropping Systems in Jessore Region', doi:10.3329/brj.v21i2.38206",Chaugachha,Jessore,23.2634,89.0218
+Jessore,Kushtia sadar,58,18,0.818,0.946,232,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Cropping Systems in Jessore Region', doi:10.3329/brj.v21i2.38206",Kushtia Sadar,Kushtia,23.8223,89.0896
+Jessore,Mirpur,58,24,0.9,0.963,264,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Cropping Systems in Jessore Region', doi:10.3329/brj.v21i2.38206",Mirpur,Dhaka,23.7942,90.3618
+Jessore,Kumarkhali,58,23,0.928,0.973,231,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Cropping Systems in Jessore Region', doi:10.3329/brj.v21i2.38206",Kumarkhali,Kushtia,23.8567,89.2096
+Jessore,Khoksa,20,20,0.887,0.97,240,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Cropping Systems in Jessore Region', doi:10.3329/brj.v21i2.38206",Khoksa,Kushtia,23.8089,89.2998
+Jessore,Daulatpur,46,23,0.954,0.981,236,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Cropping Systems in Jessore Region', doi:10.3329/brj.v21i2.38206",Daulatpur,Manikganj,23.9558,89.7977
+Jessore,Bheramara,29,19,0.938,0.978,226,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Cropping Systems in Jessore Region', doi:10.3329/brj.v21i2.38206",Bheramara,Kushtia,24.0568,88.9815
+Jessore,Magura sadar,33,23,0.83,0.939,250,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Cropping Systems in Jessore Region', doi:10.3329/brj.v21i2.38206",Magura Sadar,Magura,23.4519,89.4131
+Jessore,Sreepur,17,16,0.858,0.948,271,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Cropping Systems in Jessore Region', doi:10.3329/brj.v21i2.38206",Sreepur,Gazipur,24.2052,90.4431
+Jessore,Shalikha,22,16,0.749,0.911,246,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Cropping Systems in Jessore Region', doi:10.3329/brj.v21i2.38206",Shalikha,Magura,23.3481,89.3585
+Jessore,Mohammadpur,30,18,0.906,0.96,241,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Cropping Systems in Jessore Region', doi:10.3329/brj.v21i2.38206",Mohammadpur,Dhaka,23.7586,90.3565
+Jessore,Meherpur sadar,23,17,0.892,0.961,241,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Cropping Systems in Jessore Region', doi:10.3329/brj.v21i2.38206",Meherpur Sadar,Meherpur,23.7661,88.6611
+Jessore,Gangni,25,14,0.925,0.972,244,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Cropping Systems in Jessore Region', doi:10.3329/brj.v21i2.38206",Gangni,Meherpur,23.8576,88.771
+Jessore,Mujibnagar,19,13,0.902,0.962,218,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Cropping Systems in Jessore Region', doi:10.3329/brj.v21i2.38206",Mujib Nagar,Meherpur,23.6683,88.6213
+Jessore,Narail sadar,15,14,0.661,0.852,198,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Cropping Systems in Jessore Region', doi:10.3329/brj.v21i2.38206",Narail Sadar,Narail,23.1546,89.4948
+Jessore,Lohagara,19,16,0.906,0.959,224,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Cropping Systems in Jessore Region', doi:10.3329/brj.v21i2.38206",Lohagara,Chittagong,21.9862,92.111
+Jessore,Kalia,22,13,0.83,0.924,209,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Cropping Systems in Jessore Region', doi:10.3329/brj.v21i2.38206",Kalia,Narail,23.028,89.644
+Jessore,Jhenaidaha sadar,19,17,0.649,0.876,227,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Cropping Systems in Jessore Region', doi:10.3329/brj.v21i2.38206",Jhenaidah Sadar,Jhenaidah,23.5165,89.1577
+Jessore,Shailkupa,14,16,0.842,0.947,239,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Cropping Systems in Jessore Region', doi:10.3329/brj.v21i2.38206",Shailkupa,Jhenaidah,23.6634,89.2422
+Jessore,Kotchandpur,22,12,0.794,0.917,205,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Cropping Systems in Jessore Region', doi:10.3329/brj.v21i2.38206",Kotchandpur,Jhenaidah,23.4479,88.9987
+Jessore,Moheshpur,33,22,0.857,0.942,217,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Cropping Systems in Jessore Region', doi:10.3329/brj.v21i2.38206",Maheshpur,Jhenaidah,23.3197,88.8578
+Jessore,Harinakundu,25,17,0.71,0.903,207,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Cropping Systems in Jessore Region', doi:10.3329/brj.v21i2.38206",Harinakunda,Jhenaidah,23.6428,89.0766
+Jessore,Kaliganj,26,18,0.712,0.902,227,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Cropping Systems in Jessore Region', doi:10.3329/brj.v21i2.38206",Kaliganj,Gazipur,23.9642,90.5549
+Jessore,Chuadnga sadar,22,19,0.849,0.938,216,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Cropping Systems in Jessore Region', doi:10.3329/brj.v21i2.38206",Chuadanga Sadar,Chuadanga,23.5886,88.8846
+Jessore,Alamdanga,24,18,0.855,0.939,208,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Cropping Systems in Jessore Region', doi:10.3329/brj.v21i2.38206",Alamdanga,Chuadanga,23.7293,88.9081
+Jessore,Jibannagar,12,14,0.767,0.922,255,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Cropping Systems in Jessore Region', doi:10.3329/brj.v21i2.38206",Jiban Nagar,Chuadanga,23.4411,88.8491
+Jessore,Damurhuda,11,13,0.775,0.914,232,"Bangladesh Rice Journal 21(2) 2017, 'Diversity of Crops and Cropping Systems in Jessore Region', doi:10.3329/brj.v21i2.38206",Damurhuda,Chuadanga,23.5931,88.7404
+Khulna,Bagerhat sadar,16,13,0.81,0.89,171,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and their Diversity in Khulna Region', doi:10.3329/brj.v21i2.38207",Bagerhat Sadar,Bagerhat,22.6775,89.7632
+Khulna,Chitalmari,17,16,0.66,0.83,200,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and their Diversity in Khulna Region', doi:10.3329/brj.v21i2.38207",Chitalmari,Bagerhat,22.8123,89.8653
+Khulna,Fakirhat,17,15,0.76,0.87,167,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and their Diversity in Khulna Region', doi:10.3329/brj.v21i2.38207",Fakirhat,Bagerhat,22.7425,89.6657
+Khulna,Kachua,21,18,0.86,0.92,185,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and their Diversity in Khulna Region', doi:10.3329/brj.v21i2.38207",Kachua,Chandpur,23.3627,90.8817
+Khulna,Mollahat,20,17,0.86,0.93,176,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and their Diversity in Khulna Region', doi:10.3329/brj.v21i2.38207",Mollahat,Bagerhat,22.8827,89.7733
+Khulna,Mongla,5,5,0.43,0.48,103,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and their Diversity in Khulna Region', doi:10.3329/brj.v21i2.38207",Mongla,Bagerhat,22.3313,89.6749
+Khulna,Morrelganj,18,16,0.53,0.73,132,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and their Diversity in Khulna Region', doi:10.3329/brj.v21i2.38207",Morrelganj,Bagerhat,22.4838,89.8336
+Khulna,Rampal,8,8,0.7,0.81,135,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and their Diversity in Khulna Region', doi:10.3329/brj.v21i2.38207",Rampal,Bagerhat,22.5914,89.6522
+Khulna,Sarankhola,12,10,0.67,0.82,166,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and their Diversity in Khulna Region', doi:10.3329/brj.v21i2.38207",Sarankhola,Bagerhat,22.2253,89.8144
+Khulna,Dacope,11,8,0.26,0.42,114,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and their Diversity in Khulna Region', doi:10.3329/brj.v21i2.38207",Dacope,Khulna,22.3889,89.5185
+Khulna,Dighalia,17,12,0.84,0.9,177,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and their Diversity in Khulna Region', doi:10.3329/brj.v21i2.38207",Dighalia,Khulna,22.9252,89.5601
+Khulna,Dumuria,22,17,0.67,0.91,169,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and their Diversity in Khulna Region', doi:10.3329/brj.v21i2.38207",Dumuria,Khulna,22.8054,89.398
+Khulna,Phultala,14,12,0.73,0.86,192,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and their Diversity in Khulna Region', doi:10.3329/brj.v21i2.38207",Phultala,Khulna,22.9565,89.4419
+Khulna,Koyra,11,10,0.51,0.71,133,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and their Diversity in Khulna Region', doi:10.3329/brj.v21i2.38207",Koyra,Khulna,22.3377,89.3466
+Khulna,Paikgachha,12,9,0.7,0.83,181,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and their Diversity in Khulna Region', doi:10.3329/brj.v21i2.38207",Paikgachha,Khulna,22.5906,89.3403
+Khulna,Rupsha,10,9,0.71,0.83,175,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and their Diversity in Khulna Region', doi:10.3329/brj.v21i2.38207",Rupsa,Khulna,22.8203,89.6364
+Khulna,Terokhada,12,10,0.81,0.85,157,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and their Diversity in Khulna Region', doi:10.3329/brj.v21i2.38207",Terokhada,Khulna,22.9126,89.6543
+Khulna,Assasuni,18,12,0.63,0.79,169,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and their Diversity in Khulna Region', doi:10.3329/brj.v21i2.38207",Assasuni,Satkhira,22.5192,89.1874
+Khulna,Debhata,15,10,0.79,0.91,219,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and their Diversity in Khulna Region', doi:10.3329/brj.v21i2.38207",Debhata,Satkhira,22.5972,89.0153
+Khulna,Kalaroa,26,19,0.81,0.92,224,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and their Diversity in Khulna Region', doi:10.3329/brj.v21i2.38207",Kalaroa,Satkhira,22.8807,89.0303
+Khulna,Kaliganj,15,9,0.81,0.91,179,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and their Diversity in Khulna Region', doi:10.3329/brj.v21i2.38207",Kaliganj,Gazipur,23.9642,90.5549
+Khulna,Satkhira sadar,21,15,0.67,0.86,221,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and their Diversity in Khulna Region', doi:10.3329/brj.v21i2.38207",Satkhira Sadar,Satkhira,22.721,89.0386
+Khulna,Shyamnagar,13,11,0.51,0.71,133,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and their Diversity in Khulna Region', doi:10.3329/brj.v21i2.38207",Shyamnagar,Satkhira,22.2236,89.1612
+Khulna,Tala,24,17,0.88,0.95,198,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and their Diversity in Khulna Region', doi:10.3329/brj.v21i2.38207",Tala,Satkhira,22.7401,89.2105
+Mymensingh,Baksiganj,29,17,0.806,0.923,235,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Patterns in Mymensingh Region: Diversity, Constraint and Potential', doi:10.3329/brj.v21i2.38208",Bakshiganj,Jamalpur,25.2149,89.8527
+Mymensingh,Dewanganj,17,13,0.847,0.933,222,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Patterns in Mymensingh Region: Diversity, Constraint and Potential', doi:10.3329/brj.v21i2.38208",Dewanganj,Jamalpur,25.2636,89.7659
+Mymensingh,Islampur,21,16,0.817,0.913,208,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Patterns in Mymensingh Region: Diversity, Constraint and Potential', doi:10.3329/brj.v21i2.38208",Islampur,Jamalpur,25.0752,89.7613
+Mymensingh,Jamalpur sadar,25,19,0.554,0.795,211,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Patterns in Mymensingh Region: Diversity, Constraint and Potential', doi:10.3329/brj.v21i2.38208",Jamalpur Sadar,Jamalpur,24.8442,90.0125
+Mymensingh,Madarganj,22,18,0.789,0.915,242,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Patterns in Mymensingh Region: Diversity, Constraint and Potential', doi:10.3329/brj.v21i2.38208",Madarganj,Jamalpur,24.8819,89.7408
+Mymensingh,Melandaha,21,14,0.68,0.863,222,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Patterns in Mymensingh Region: Diversity, Constraint and Potential', doi:10.3329/brj.v21i2.38208",Melandaha,Jamalpur,24.9574,89.8247
+Mymensingh,Sarishabari,25,18,0.779,0.899,216,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Patterns in Mymensingh Region: Diversity, Constraint and Potential', doi:10.3329/brj.v21i2.38208",Sarishabari,Jamalpur,24.7186,89.8304
+Mymensingh,Astogram,22,14,0.191,0.271,106,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Patterns in Mymensingh Region: Diversity, Constraint and Potential', doi:10.3329/brj.v21i2.38208",Austagram,Kishoreganj,24.323,91.1215
+Mymensingh,Bajitpur,16,13,0.722,0.848,170,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Patterns in Mymensingh Region: Diversity, Constraint and Potential', doi:10.3329/brj.v21i2.38208",Bajitpur,Kishoreganj,24.2245,90.9512
+Mymensingh,Bhairab,14,12,0.837,0.92,189,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Patterns in Mymensingh Region: Diversity, Constraint and Potential', doi:10.3329/brj.v21i2.38208",Bhairab,Kishoreganj,24.0974,90.9816
+Mymensingh,Hossainpur,28,14,0.733,0.876,249,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Patterns in Mymensingh Region: Diversity, Constraint and Potential', doi:10.3329/brj.v21i2.38208",Hossainpur,Kishoreganj,24.4488,90.6628
+Mymensingh,Itna,14,13,0.206,0.216,101,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Patterns in Mymensingh Region: Diversity, Constraint and Potential', doi:10.3329/brj.v21i2.38208",Itna,Kishoreganj,24.5491,91.0826
+Mymensingh,Karimganj,22,18,0.788,0.906,209,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Patterns in Mymensingh Region: Diversity, Constraint and Potential', doi:10.3329/brj.v21i2.38208",Karimganj,Kishoreganj,24.4513,90.896
+Mymensingh,Kishoreganj sadar,18,17,0.814,0.911,227,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Patterns in Mymensingh Region: Diversity, Constraint and Potential', doi:10.3329/brj.v21i2.38208",Kishoreganj Sadar,Kishoreganj,24.4238,90.7833
+Mymensingh,Katiadi,22,19,0.686,0.849,205,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Patterns in Mymensingh Region: Diversity, Constraint and Potential', doi:10.3329/brj.v21i2.38208",Katiadi,Kishoreganj,24.2911,90.824
+Mymensingh,Kuliarchar,25,14,0.728,0.859,194,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Patterns in Mymensingh Region: Diversity, Constraint and Potential', doi:10.3329/brj.v21i2.38208",Kuliar Char,Kishoreganj,24.152,90.8881
+Mymensingh,Mithamoin,14,13,0.103,0.111,101,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Patterns in Mymensingh Region: Diversity, Constraint and Potential', doi:10.3329/brj.v21i2.38208",Mithamain,Kishoreganj,24.433,91.1107
+Mymensingh,Nikli,15,13,0.287,0.391,109,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Patterns in Mymensingh Region: Diversity, Constraint and Potential', doi:10.3329/brj.v21i2.38208",Nikli,Kishoreganj,24.3368,90.9631
+Mymensingh,Pakundia,30,17,0.763,0.902,231,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Patterns in Mymensingh Region: Diversity, Constraint and Potential', doi:10.3329/brj.v21i2.38208",Pakundia,Kishoreganj,24.3206,90.6926
+Mymensingh,Tarail,17,15,0.693,0.809,140,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Patterns in Mymensingh Region: Diversity, Constraint and Potential', doi:10.3329/brj.v21i2.38208",Tarail,Kishoreganj,24.5503,90.8908
+Mymensingh,Bhaluka,17,14,0.463,0.693,188,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Patterns in Mymensingh Region: Diversity, Constraint and Potential', doi:10.3329/brj.v21i2.38208",Bhaluka,Mymensingh,24.3817,90.3535
+Mymensingh,Dhubaura,20,13,0.555,0.745,187,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Patterns in Mymensingh Region: Diversity, Constraint and Potential', doi:10.3329/brj.v21i2.38208",Dhobaura,Mymensingh,25.1012,90.5249
+Mymensingh,Phulbaria,21,16,0.692,0.84,197,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Patterns in Mymensingh Region: Diversity, Constraint and Potential', doi:10.3329/brj.v21i2.38208",Phulbari,Kurigram,25.9481,89.5713
+Mymensingh,Phulpur,29,17,0.311,0.679,209,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Patterns in Mymensingh Region: Diversity, Constraint and Potential', doi:10.3329/brj.v21i2.38208",Phulpur,Mymensingh,24.9085,90.4064
+Mymensingh,Gafargaon,25,18,0.698,0.844,192,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Patterns in Mymensingh Region: Diversity, Constraint and Potential', doi:10.3329/brj.v21i2.38208",Gaffargaon,Mymensingh,24.3935,90.5495
+Mymensingh,Gouripur,19,14,0.386,0.662,191,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Patterns in Mymensingh Region: Diversity, Constraint and Potential', doi:10.3329/brj.v21i2.38208",Gauripur,Mymensingh,24.756,90.5858
+Mymensingh,Haluaghat,16,12,0.682,0.825,178,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Patterns in Mymensingh Region: Diversity, Constraint and Potential', doi:10.3329/brj.v21i2.38208",Haluaghat,Mymensingh,25.0846,90.3513
+Mymensingh,Iswarganj,12,8,0.486,0.733,195,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Patterns in Mymensingh Region: Diversity, Constraint and Potential', doi:10.3329/brj.v21i2.38208",Ishwarganj,Mymensingh,24.645,90.5994
+Mymensingh,Muktagachha,14,12,0.471,0.725,197,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Patterns in Mymensingh Region: Diversity, Constraint and Potential', doi:10.3329/brj.v21i2.38208",Muktagachha,Mymensingh,24.743,90.2038
+Mymensingh,Mymensingh sadar,25,21,0.594,0.835,226,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Patterns in Mymensingh Region: Diversity, Constraint and Potential', doi:10.3329/brj.v21i2.38208",Mymensingh Sadar,Mymensingh,24.7746,90.3614
+Mymensingh,Nandail,14,12,0.362,0.691,204,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Patterns in Mymensingh Region: Diversity, Constraint and Potential', doi:10.3329/brj.v21i2.38208",Nandail,Mymensingh,24.5502,90.677
+Mymensingh,Trisal,19,15,0.587,0.83,224,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Patterns in Mymensingh Region: Diversity, Constraint and Potential', doi:10.3329/brj.v21i2.38208",Trishal,Mymensingh,24.5639,90.4093
+Mymensingh,Atpara,13,11,0.577,0.741,173,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Patterns in Mymensingh Region: Diversity, Constraint and Potential', doi:10.3329/brj.v21i2.38208",Atpara,Netrakona,24.7914,90.8762
+Mymensingh,Barhatta,11,9,0.316,0.644,197,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Patterns in Mymensingh Region: Diversity, Constraint and Potential', doi:10.3329/brj.v21i2.38208",Barhatta,Netrakona,24.9196,90.8852
+Mymensingh,Durgapur,19,14,0.54,0.707,146,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Patterns in Mymensingh Region: Diversity, Constraint and Potential', doi:10.3329/brj.v21i2.38208",Durgapur,Netrakona,25.0897,90.6821
+Mymensingh,Kalmakanda,14,11,0.62,0.731,122,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Patterns in Mymensingh Region: Diversity, Constraint and Potential', doi:10.3329/brj.v21i2.38208",Kalmakanda,Netrakona,25.077,90.8573
+Mymensingh,Kendua,15,14,0.437,0.682,186,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Patterns in Mymensingh Region: Diversity, Constraint and Potential', doi:10.3329/brj.v21i2.38208",Kendua,Netrakona,24.6773,90.8028
+Mymensingh,Khaliajuri,16,15,0.093,0.114,102,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Patterns in Mymensingh Region: Diversity, Constraint and Potential', doi:10.3329/brj.v21i2.38208",Khaliajuri,Netrakona,24.7023,91.1212
+Mymensingh,Madan,12,10,0.633,0.781,150,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Patterns in Mymensingh Region: Diversity, Constraint and Potential', doi:10.3329/brj.v21i2.38208",Madan,Netrakona,24.6775,90.9669
+Mymensingh,Mohanganj,27,15,0.588,0.744,146,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Patterns in Mymensingh Region: Diversity, Constraint and Potential', doi:10.3329/brj.v21i2.38208",Mohanganj,Netrakona,24.8268,91.0237
+Mymensingh,Netrokona sadar,11,10,0.368,0.645,188,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Patterns in Mymensingh Region: Diversity, Constraint and Potential', doi:10.3329/brj.v21i2.38208",Netrokona Sadar,Netrakona,24.8868,90.7374
+Mymensingh,Purbadhala,13,11,0.255,0.604,195,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Patterns in Mymensingh Region: Diversity, Constraint and Potential', doi:10.3329/brj.v21i2.38208",Purbadhala,Netrakona,24.9338,90.602
+Mymensingh,Jhenaigati,18,13,0.44,0.704,196,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Patterns in Mymensingh Region: Diversity, Constraint and Potential', doi:10.3329/brj.v21i2.38208",Jhenaigati,Sherpur,25.1818,90.053
+Mymensingh,Nakla,20,12,0.611,0.831,218,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Patterns in Mymensingh Region: Diversity, Constraint and Potential', doi:10.3329/brj.v21i2.38208",Nakla,Sherpur,24.9568,90.1836
+Mymensingh,Nalitabari,15,10,0.33,0.684,207,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Patterns in Mymensingh Region: Diversity, Constraint and Potential', doi:10.3329/brj.v21i2.38208",Nalitabari,Sherpur,25.1175,90.1835
+Mymensingh,Sherpur sadar,15,10,0.654,0.859,225,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Patterns in Mymensingh Region: Diversity, Constraint and Potential', doi:10.3329/brj.v21i2.38208",Sherpur Sadar,Sherpur,24.9929,90.0199
+Mymensingh,Sreebardi,10,8,0.485,0.762,210,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Patterns in Mymensingh Region: Diversity, Constraint and Potential', doi:10.3329/brj.v21i2.38208",Sreebardi,Sherpur,25.1656,89.9549
+Rajshahi,Bholahat,13,9,0.923,0.962,203,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use Pattern in Rajshahi Region', doi:10.3329/brj.v21i2.38209",Bholahat,Nawabganj,24.8963,88.2097
+Rajshahi,Chapainawabganj,34,19,0.862,0.942,238,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use Pattern in Rajshahi Region', doi:10.3329/brj.v21i2.38209",,,,
+Rajshahi,Gomastapur,29,18,0.859,0.929,199,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use Pattern in Rajshahi Region', doi:10.3329/brj.v21i2.38209",Gomastapur,Nawabganj,24.8569,88.355
+Rajshahi,Nachol,20,11,0.876,0.943,207,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use Pattern in Rajshahi Region', doi:10.3329/brj.v21i2.38209",Nachole,Nawabganj,24.7267,88.3964
+Rajshahi,Shibganj,14,13,0.869,0.925,226,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use Pattern in Rajshahi Region', doi:10.3329/brj.v21i2.38209",Shibganj,Bogra,25.0166,89.3067
+Rajshahi,Atrai,18,13,0.853,0.933,190,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use Pattern in Rajshahi Region', doi:10.3329/brj.v21i2.38209",Atrai,Naogaon,24.6252,88.9879
+Rajshahi,Badalgachhi,19,12,0.694,0.897,253,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use Pattern in Rajshahi Region', doi:10.3329/brj.v21i2.38209",Badalgachhi,Naogaon,24.9659,88.9435
+Rajshahi,Dhamoirhat,21,16,0.665,0.867,228,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use Pattern in Rajshahi Region', doi:10.3329/brj.v21i2.38209",Dhamoirhat,Naogaon,25.1304,88.823
+Rajshahi,Manda,32,19,0.884,0.951,223,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use Pattern in Rajshahi Region', doi:10.3329/brj.v21i2.38209",Manda,Naogaon,24.7444,88.713
+Rajshahi,Mohadebpur,23,12,0.762,0.914,251,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use Pattern in Rajshahi Region', doi:10.3329/brj.v21i2.38209",Mahadebpur,Naogaon,24.9199,88.7647
+Rajshahi,Naogaon sadar,26,17,0.814,0.926,209,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use Pattern in Rajshahi Region', doi:10.3329/brj.v21i2.38209",Naogaon Sadar,Naogaon,24.811,88.8981
+Rajshahi,Niamatpur,16,9,0.81,0.918,224,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use Pattern in Rajshahi Region', doi:10.3329/brj.v21i2.38209",Niamatpur,Naogaon,24.8285,88.5515
+Rajshahi,Porsha,16,11,0.831,0.922,209,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use Pattern in Rajshahi Region', doi:10.3329/brj.v21i2.38209",Porsha,Naogaon,24.9922,88.5177
+Rajshahi,Patnitala,15,12,0.775,0.907,227,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use Pattern in Rajshahi Region', doi:10.3329/brj.v21i2.38209",Patnitala,Naogaon,25.0754,88.7165
+Rajshahi,Raninagar,18,13,0.596,0.823,215,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use Pattern in Rajshahi Region', doi:10.3329/brj.v21i2.38209",Raninagar,Naogaon,24.7107,89.0218
+Rajshahi,Shapahar,15,11,0.803,0.906,202,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use Pattern in Rajshahi Region', doi:10.3329/brj.v21i2.38209",Sapahar,Naogaon,25.1182,88.5303
+Rajshahi,Bagatipara,15,13,0.972,0.978,172,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use Pattern in Rajshahi Region', doi:10.3329/brj.v21i2.38209",Bagati Para,Natore,24.3122,88.9467
+Rajshahi,Baraigram,21,12,0.93,0.969,232,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use Pattern in Rajshahi Region', doi:10.3329/brj.v21i2.38209",Baraigram,Natore,24.2737,89.1476
+Rajshahi,Gurudaspur,29,17,0.929,0.969,223,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use Pattern in Rajshahi Region', doi:10.3329/brj.v21i2.38209",Gurudaspur,Natore,24.3728,89.203
+Rajshahi,Lalpur,20,17,0.905,0.949,234,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use Pattern in Rajshahi Region', doi:10.3329/brj.v21i2.38209",Lalpur,Natore,24.1983,88.9849
+Rajshahi,Natore,20,14,0.953,0.97,215,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use Pattern in Rajshahi Region', doi:10.3329/brj.v21i2.38209",Natore Sadar,Natore,24.4432,88.9841
+Rajshahi,Naldanga,12,7,0.852,0.931,188,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use Pattern in Rajshahi Region', doi:10.3329/brj.v21i2.38209",Sonadanga,Khulna,22.8197,89.5425
+Rajshahi,Singra,17,13,0.749,0.881,201,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use Pattern in Rajshahi Region', doi:10.3329/brj.v21i2.38209",Singra,Natore,24.5241,89.186
+Rajshahi,Charghat,11,7,0.955,0.979,240,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use Pattern in Rajshahi Region', doi:10.3329/brj.v21i2.38209",Charghat,Rajshahi,24.3001,88.7754
+Rajshahi,Bagha,12,7,0.933,0.956,171,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use Pattern in Rajshahi Region', doi:10.3329/brj.v21i2.38209",Bagha,Rajshahi,24.2004,88.8283
+Rajshahi,Bagmara,22,13,0.664,0.528,206,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use Pattern in Rajshahi Region', doi:10.3329/brj.v21i2.38209",Baghmara,Rajshahi,24.5911,88.8107
+Rajshahi,Durgapur,35,21,0.94,0.979,243,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use Pattern in Rajshahi Region', doi:10.3329/brj.v21i2.38209",Durgapur,Netrakona,25.0897,90.6821
+Rajshahi,Godagari,29,18,0.859,0.934,206,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use Pattern in Rajshahi Region', doi:10.3329/brj.v21i2.38209",Godagari,Rajshahi,24.4836,88.4147
+Rajshahi,Mohanpur,15,8,0.801,0.916,252,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use Pattern in Rajshahi Region', doi:10.3329/brj.v21i2.38209",Mohanpur,Rajshahi,24.5536,88.6403
+Rajshahi,Paba,36,24,0.911,0.958,242,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use Pattern in Rajshahi Region', doi:10.3329/brj.v21i2.38209",Paba,Rajshahi,24.4022,88.6004
+Rajshahi,Puthia,21,17,0.965,0.989,210,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use Pattern in Rajshahi Region', doi:10.3329/brj.v21i2.38209",Puthia,Rajshahi,24.411,88.8274
+Rajshahi,Tanor,16,11,0.799,0.902,224,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use Pattern in Rajshahi Region', doi:10.3329/brj.v21i2.38209",Tanore,Rajshahi,24.6202,88.5312
+Rangpur,Rangpur,14,11,0.935,0.968,223,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversification in Rangpur Region', doi:10.3329/brj.v21i2.38210",Rangpur Sadar,Rangpur,25.7459,89.2124
+Rangpur,Gangachara,26,13,0.913,0.954,255,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversification in Rangpur Region', doi:10.3329/brj.v21i2.38210",Gangachara,Rangpur,25.8742,89.1933
+Rangpur,Kaunia,14,12,0.958,0.978,239,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversification in Rangpur Region', doi:10.3329/brj.v21i2.38210",Kaunia,Rangpur,25.7639,89.395
+Rangpur,Pirgachha,20,17,0.721,0.876,225,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversification in Rangpur Region', doi:10.3329/brj.v21i2.38210",Pirgachha,Rangpur,25.6652,89.42
+Rangpur,Pirganj,29,15,0.685,0.745,203,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversification in Rangpur Region', doi:10.3329/brj.v21i2.38210",Pirganj,Rangpur,25.4237,89.2743
+Rangpur,Badarganj,31,14,0.799,0.902,225,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversification in Rangpur Region', doi:10.3329/brj.v21i2.38210",Badarganj,Rangpur,25.6659,89.0564
+Rangpur,Mithapukur,23,12,0.788,0.872,231,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversification in Rangpur Region', doi:10.3329/brj.v21i2.38210",Mitha Pukur,Rangpur,25.5713,89.2612
+Rangpur,Taraganj,18,11,0.874,0.902,220,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversification in Rangpur Region', doi:10.3329/brj.v21i2.38210",Taraganj,Rangpur,25.7806,89.0334
+Rangpur,Gaibandha sadar,16,15,0.71,0.86,190,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversification in Rangpur Region', doi:10.3329/brj.v21i2.38210",Gaibandha Sadar,Gaibandha,25.3497,89.5667
+Rangpur,Palasbari,18,13,0.839,0.921,210,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversification in Rangpur Region', doi:10.3329/brj.v21i2.38210",Palashbari,Gaibandha,25.2636,89.3967
+Rangpur,Gobindaganj,14,12,0.527,0.772,221,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversification in Rangpur Region', doi:10.3329/brj.v21i2.38210",Gobindaganj,Gaibandha,25.1572,89.3691
+Rangpur,Saghata,13,16,0.833,0.918,218,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversification in Rangpur Region', doi:10.3329/brj.v21i2.38210",Saghatta,Gaibandha,25.1234,89.5638
+Rangpur,Fulchhari,21,17,0.932,0.967,200,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversification in Rangpur Region', doi:10.3329/brj.v21i2.38210",Fulchhari,Gaibandha,25.2543,89.6539
+Rangpur,Sundarganj,26,18,0.281,0.651,208,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversification in Rangpur Region', doi:10.3329/brj.v21i2.38210",Sundarganj,Gaibandha,25.51,89.564
+Rangpur,Sadullapur,18,12,0.798,0.901,215,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversification in Rangpur Region', doi:10.3329/brj.v21i2.38210",Sadullapur,Gaibandha,25.3948,89.4264
+Rangpur,Kurigram,28,19,0.778,0.823,227,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversification in Rangpur Region', doi:10.3329/brj.v21i2.38210",Kurigram Sadar,Kurigram,25.826,89.6907
+Rangpur,Ulipur,20,17,0.601,0.804,210,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversification in Rangpur Region', doi:10.3329/brj.v21i2.38210",Ulipur,Kurigram,25.6891,89.6689
+Rangpur,Chilmari,18,16,0.978,0.989,191,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversification in Rangpur Region', doi:10.3329/brj.v21i2.38210",Chilmari,Kurigram,25.5663,89.7184
+Rangpur,Rowmari,24,15,0.756,0.829,240,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversification in Rangpur Region', doi:10.3329/brj.v21i2.38210",,,,
+Rangpur,Razibpur,10,14,0.982,0.991,206,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversification in Rangpur Region', doi:10.3329/brj.v21i2.38210",Kazipur,Sirajganj,24.6702,89.6872
+Rangpur,Bhurungamari,18,13,0.855,0.929,218,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversification in Rangpur Region', doi:10.3329/brj.v21i2.38210",Bhurungamari,Kurigram,26.1161,89.6935
+Rangpur,Nageswari,25,17,0.678,0.874,200,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversification in Rangpur Region', doi:10.3329/brj.v21i2.38210",Nageshwari,Kurigram,25.9585,89.7401
+Rangpur,Phulbari,18,12,0.772,0.845,219,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversification in Rangpur Region', doi:10.3329/brj.v21i2.38210",Phulbari,Kurigram,25.9481,89.5713
+Rangpur,Rajarhat,23,17,0.852,0.935,211,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversification in Rangpur Region', doi:10.3329/brj.v21i2.38210",Rajarhat,Kurigram,25.7861,89.5424
+Rangpur,Nilphamari,19,13,0.63,0.819,230,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversification in Rangpur Region', doi:10.3329/brj.v21i2.38210",Nilphamari Sadar,Nilphamari,25.9417,88.8548
+Rangpur,Saidpur,20,12,0.943,0.972,214,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversification in Rangpur Region', doi:10.3329/brj.v21i2.38210",Saidpur,Nilphamari,25.8028,88.9221
+Rangpur,Domar,25,16,0.725,0.836,222,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversification in Rangpur Region', doi:10.3329/brj.v21i2.38210",Domar,Nilphamari,26.1586,88.8252
+Rangpur,Dimla,31,14,0.701,0.835,214,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversification in Rangpur Region', doi:10.3329/brj.v21i2.38210",Dimla,Nilphamari,26.1721,88.9725
+Rangpur,Jaldhaka,19,11,0.915,0.913,223,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversification in Rangpur Region', doi:10.3329/brj.v21i2.38210",Jaldhaka,Nilphamari,26.0296,88.9933
+Rangpur,Kishoreganj,28,14,0.919,0.96,240,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversification in Rangpur Region', doi:10.3329/brj.v21i2.38210",Kishoreganj,Nilphamari,25.8961,89.0328
+Rangpur,Lalmonirhat,25,17,0.698,0.865,230,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversification in Rangpur Region', doi:10.3329/brj.v21i2.38210",Lalmonirhat Sadar,Lalmonirhat,25.8747,89.4527
+Rangpur,Aditmari,16,11,0.795,0.924,230,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversification in Rangpur Region', doi:10.3329/brj.v21i2.38210",Aditmari,Lalmonirhat,25.9421,89.3687
+Rangpur,Kaliganj,20,14,0.674,0.872,237,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversification in Rangpur Region', doi:10.3329/brj.v21i2.38210",Kaliganj,Gazipur,23.9642,90.5549
+Rangpur,Hatibandha,20,12,0.914,0.918,220,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversification in Rangpur Region', doi:10.3329/brj.v21i2.38210",Hatibandha,Lalmonirhat,26.1215,89.1409
+Rangpur,Patgram,17,13,0.815,0.909,220,"Bangladesh Rice Journal 21(2) 2017, 'Crop Diversification in Rangpur Region', doi:10.3329/brj.v21i2.38210",Patgram,Lalmonirhat,26.347,89.0256
+Sylhet,Ajmiriganj,7,6,0.607,0.741,130,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use in Sylhet Region', doi:10.3329/brj.v21i2.38211",Ajmiriganj,Habiganj,24.5533,91.2843
+Sylhet,Bahubal,14,8,0.746,0.861,172,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use in Sylhet Region', doi:10.3329/brj.v21i2.38211",Bahubal,Habiganj,24.3606,91.5464
+Sylhet,Baniachang,11,9,0.659,0.784,139,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use in Sylhet Region', doi:10.3329/brj.v21i2.38211",Baniachong,Habiganj,24.4947,91.3654
+Sylhet,Chunarughat,7,6,0.693,0.876,233,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use in Sylhet Region', doi:10.3329/brj.v21i2.38211",Chunarughat,Habiganj,24.1816,91.5174
+Sylhet,Habiganj,15,14,0.817,0.915,211,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use in Sylhet Region', doi:10.3329/brj.v21i2.38211",Habiganj Sadar,Habiganj,24.3359,91.4143
+Sylhet,Lakhai,21,16,0.711,0.843,147,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use in Sylhet Region', doi:10.3329/brj.v21i2.38211",Lakhai,Habiganj,24.2981,91.2603
+Sylhet,Madhabpur,15,12,0.823,0.923,229,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use in Sylhet Region', doi:10.3329/brj.v21i2.38211",Madhabpur,Habiganj,24.1205,91.3415
+Sylhet,Nabiganj,17,12,0.686,0.78,125,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use in Sylhet Region', doi:10.3329/brj.v21i2.38211",Nabiganj,Habiganj,24.5696,91.5444
+Sylhet,Barlekha,32,16,0.836,0.91,157,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use in Sylhet Region', doi:10.3329/brj.v21i2.38211",Barlekha,Maulvibazar,24.7082,92.1756
+Sylhet,Juri,16,10,0.842,0.913,176,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use in Sylhet Region', doi:10.3329/brj.v21i2.38211",Juri,Maulvibazar,24.5532,92.1432
+Sylhet,Kamalganj,22,18,0.688,0.853,200,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use in Sylhet Region', doi:10.3329/brj.v21i2.38211",Kamalganj,Maulvibazar,24.3157,91.8592
+Sylhet,Kulaura,9,7,0.779,0.873,160,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use in Sylhet Region', doi:10.3329/brj.v21i2.38211",Kulaura,Maulvibazar,24.4903,92.0123
+Sylhet,Maulvibazar,9,6,0.775,0.866,143,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use in Sylhet Region', doi:10.3329/brj.v21i2.38211",Maulvi Bazar Sadar,Maulvibazar,24.4995,91.7123
+Sylhet,Rajnagar,16,12,0.776,0.862,161,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use in Sylhet Region', doi:10.3329/brj.v21i2.38211",Rajnagar,Maulvibazar,24.5653,91.8608
+Sylhet,Sreemangal,13,10,0.706,0.847,188,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use in Sylhet Region', doi:10.3329/brj.v21i2.38211",Sreemangal,Maulvibazar,24.301,91.698
+Sylhet,Biswambarpur,20,20,0.676,0.819,153,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use in Sylhet Region', doi:10.3329/brj.v21i2.38211",Bishwambarpur,Sunamganj,25.1098,91.3151
+Sylhet,Chhatak,8,5,0.642,0.724,117,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use in Sylhet Region', doi:10.3329/brj.v21i2.38211",Chhatak,Sunamganj,24.9439,91.6155
+Sylhet,Dharampasha,14,12,0.298,0.446,114,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use in Sylhet Region', doi:10.3329/brj.v21i2.38211",Dharampasha,Sunamganj,25.0107,91.0407
+Sylhet,Derai,6,5,0.219,0.313,107,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use in Sylhet Region', doi:10.3329/brj.v21i2.38211",Derai,Sunamganj,24.7875,91.336
+Sylhet,Dowarabazar,34,25,0.745,0.846,144,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use in Sylhet Region', doi:10.3329/brj.v21i2.38211",Dowarabazar,Sunamganj,25.0717,91.5625
+Sylhet,Jagannathpur,11,11,0.486,0.585,112,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use in Sylhet Region', doi:10.3329/brj.v21i2.38211",Jagannathpur,Sunamganj,24.7469,91.5558
+Sylhet,Jamalganj,9,9,0.309,0.469,117,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use in Sylhet Region', doi:10.3329/brj.v21i2.38211",Jamalganj,Sunamganj,24.9542,91.203
+Sylhet,Sulla,4,3,0.46,0.623,126,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use in Sylhet Region', doi:10.3329/brj.v21i2.38211",Sulla,Sunamganj,24.6864,91.2569
+Sylhet,Sunamganj South,7,6,0.255,0.367,109,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use in Sylhet Region', doi:10.3329/brj.v21i2.38211",,,,
+Sylhet,Sunamganj,9,8,0.647,0.682,149,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use in Sylhet Region', doi:10.3329/brj.v21i2.38211",Sunamganj Sadar,Sunamganj,25.0508,91.3955
+Sylhet,Tahirpur,12,11,0.552,0.719,136,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use in Sylhet Region', doi:10.3329/brj.v21i2.38211",Tahirpur,Sunamganj,25.1281,91.1633
+Sylhet,Balaganj,10,7,0.806,0.889,153,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use in Sylhet Region', doi:10.3329/brj.v21i2.38211",Balaganj,Sylhet,24.6954,91.7734
+Sylhet,Beanibazar,8,6,0.77,0.848,134,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use in Sylhet Region', doi:10.3329/brj.v21i2.38211",Beani Bazar,Sylhet,24.8489,92.1591
+Sylhet,Biswanath,8,6,0.814,0.894,163,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use in Sylhet Region', doi:10.3329/brj.v21i2.38211",Bishwanath,Sylhet,24.8349,91.7292
+Sylhet,Companiganj,25,12,0.708,0.808,138,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use in Sylhet Region', doi:10.3329/brj.v21i2.38211",Companiganj,Noakhali,22.7825,91.2735
+Sylhet,Fenchuganj,8,7,0.712,0.806,138,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use in Sylhet Region', doi:10.3329/brj.v21i2.38211",Fenchuganj,Sylhet,24.6938,91.9617
+Sylhet,Goainghat,8,8,0.802,0.883,144,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use in Sylhet Region', doi:10.3329/brj.v21i2.38211",Gowainghat,Sylhet,25.0831,91.9583
+Sylhet,Golapganj,15,13,0.811,0.884,172,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use in Sylhet Region', doi:10.3329/brj.v21i2.38211",Golabganj,Sylhet,24.812,92.017
+Sylhet,Jaintapur,15,10,0.763,0.873,148,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use in Sylhet Region', doi:10.3329/brj.v21i2.38211",Jaintiapur,Sylhet,25.0565,92.1014
+Sylhet,Zakiganj,11,9,0.716,0.806,133,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use in Sylhet Region', doi:10.3329/brj.v21i2.38211",Zakiganj,Sylhet,24.926,92.3671
+Sylhet,Kanaighat,13,10,0.787,0.878,154,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use in Sylhet Region', doi:10.3329/brj.v21i2.38211",Kanaighat,Sylhet,24.9935,92.218
+Sylhet,Surma,8,7,0.814,0.879,157,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use in Sylhet Region', doi:10.3329/brj.v21i2.38211",,,,
+Sylhet,Sylhetsadar,13,8,0.844,0.912,178,"Bangladesh Rice Journal 21(2) 2017, 'Cropping Systems and Land Use in Sylhet Region', doi:10.3329/brj.v21i2.38211",Sylhet Sadar,Sylhet,24.9413,91.8474

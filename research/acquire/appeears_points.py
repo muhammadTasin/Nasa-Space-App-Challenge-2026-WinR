@@ -72,13 +72,26 @@ def submit(s, tok: str, preset: str, sites: list[dict], start: str, end: str) ->
 
 def wait_and_download(s, tok: str, task_id: str, preset: str) -> None:
     h = {"Authorization": f"Bearer {tok}"}
+    fails = 0
     while True:
-        st = s.get(f"{API}/task/{task_id}", headers=h, timeout=60).json().get("status")
-        print(time.strftime("%H:%M:%S"), task_id, st, flush=True)
+        try:
+            j = s.get(f"{API}/task/{task_id}", headers=h, timeout=60).json()
+        except Exception as e:  # network blip: try again next minute
+            j = {"message": type(e).__name__}
+        st = j.get("status")
+        print(time.strftime("%H:%M:%S"), task_id, st or j.get("message", "no status"), flush=True)
         if st == "done":
             break
         if st in ("error", "expired"):
             sys.exit(f"task {task_id} ended with status {st}")
+        if st is None:  # token revoked or expired (a logout elsewhere revokes it): log in again
+            fails += 1
+            if fails > 30:
+                sys.exit("AppEEARS keeps refusing the request; check the Earthdata login")
+            tok = token(s)
+            h = {"Authorization": f"Bearer {tok}"}
+        else:
+            fails = 0
         time.sleep(60)
     d = out_dir("appeears", preset)
     for f in s.get(f"{API}/bundle/{task_id}", headers=h, timeout=60).json()["files"]:

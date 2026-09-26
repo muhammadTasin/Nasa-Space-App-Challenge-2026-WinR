@@ -1,0 +1,614 @@
+{
+ "RAJ_TANORE": {
+  "site": "RAJ_TANORE",
+  "upazila": "Tanor",
+  "district": "Rajshahi",
+  "land_use_2014_15": {
+   "net_cropped_ha": 22550.0,
+   "single_cropped_ha": 450.0,
+   "double_cropped_ha": 15850.0,
+   "triple_cropped_ha": 5980.0,
+   "cropping_intensity_pct": 224.0
+  },
+  "top_patterns": [
+   {
+    "pattern": "Boro-Fallow-T. Aman",
+    "area_ha": 7400.0,
+    "pct_upazila_nca": 33.0
+   },
+   {
+    "pattern": "Mustard-Boro-T. Aman",
+    "area_ha": 850.0,
+    "pct_upazila_nca": 3.79
+   },
+   {
+    "pattern": "Boro-Aus-T. Aman",
+    "area_ha": 700.0,
+    "pct_upazila_nca": 3.13
+   },
+   {
+    "pattern": "Boro-Fallow-Fallow",
+    "area_ha": 450.0,
+    "pct_upazila_nca": 2.01
+   }
+  ],
+  "farms": {
+   "farm_holdings": 354300,
+   "small_farm_share": 0.918,
+   "tenancy_share": 0.246,
+   "agri_labour_holdings": 279865
+  },
+  "cattle_2015": 477930,
+  "irrigated_000acre_2022_23": {
+   "aman": 188.0,
+   "boro": 166.0,
+   "wheat": 56.0,
+   "potato": 88.0,
+   "vegetables": 69.0,
+   "total": 693.0
+  },
+  "yields": [
+   {
+    "crop": "Boro rice",
+    "area_ha_2024_25": 67292.0,
+    "yield_2024_25": 4.021,
+    "first_season": "2012-13",
+    "yield_first": 4.053
+   },
+   {
+    "crop": "Aman rice",
+    "area_ha_2024_25": 81580.0,
+    "yield_2024_25": 2.954,
+    "first_season": "2012-13",
+    "yield_first": 2.844
+   },
+   {
+    "crop": "Aus rice",
+    "area_ha_2024_25": 45471.0,
+    "yield_2024_25": 3.33,
+    "first_season": "2012-13",
+    "yield_first": 2.516
+   },
+   {
+    "crop": "Wheat",
+    "area_ha_2024_25": 23511.0,
+    "yield_2024_25": 4.093,
+    "first_season": "2012-13",
+    "yield_first": 3.255
+   },
+   {
+    "crop": "Potato",
+    "area_ha_2024_25": 37386.0,
+    "yield_2024_25": 26.34,
+    "first_season": "2012-13",
+    "yield_first": 22.417
+   },
+   {
+    "crop": "Rabi Maize",
+    "area_ha_2024_25": 7230.8,
+    "yield_2024_25": 9.254,
+    "first_season": "2013-14",
+    "yield_first": 6.275
+   },
+   {
+    "crop": "Lentil (Masur)",
+    "area_ha_2024_25": 9815.3,
+    "yield_2024_25": 1.513,
+    "first_season": "2013-14",
+    "yield_first": 1.371
+   },
+   {
+    "crop": "Rape and Mustard (Local+HYV)",
+    "area_ha_2024_25": 21864.4,
+    "yield_2024_25": 1.52,
+    "first_season": "2013-14",
+    "yield_first": 1.134
+   },
+   {
+    "crop": "Green gram (Mug)",
+    "area_ha_2024_25": 603.6,
+    "yield_2024_25": 1.182,
+    "first_season": "2013-14",
+    "yield_first": 1.436
+   },
+   {
+    "crop": "Jute",
+    "area_ha_2024_25": 16664.0,
+    "yield_2024_25": 13.072,
+    "first_season": "2012-13",
+    "yield_first": 13.023
+   }
+  ],
+  "damage_events": {
+   "Damage of different crops due to flood & Excessive rain in the months of July& August 2017-18": 75265.0,
+   "Damage Report of different crops due to flood in the months of July 2020-21": 11519.4242,
+   "Damage of different Crops Due to Flood Excessive Rainfall & Rush of Water in the Month of August to September 2024-25": 767.0,
+   "Damage of different crops due to flood in the month of July 2020-21": 217.09,
+   "Damage of different Crops of Cyclone (Amphan) in the Month of May 2020": 185.0
+  }
+ },
+ "SUN_DHARMAPASHA": {
+  "site": "SUN_DHARMAPASHA",
+  "upazila": "Dharampasha",
+  "district": "Sunamganj",
+  "land_use_2014_15": {
+   "net_cropped_ha": 35500.0,
+   "single_cropped_ha": 30910.0,
+   "double_cropped_ha": 3750.0,
+   "triple_cropped_ha": 550.0,
+   "cropping_intensity_pct": 114.0
+  },
+  "top_patterns": [
+   {
+    "pattern": "Boro-Fallow-Fallow",
+    "area_ha": 29500.0,
+    "pct_upazila_nca": 83.1
+   },
+   {
+    "pattern": "Boro-Fallow-T. Aman",
+    "area_ha": 2500.0,
+    "pct_upazila_nca": 7.04
+   },
+   {
+    "pattern": "Fallow-Fallow-T. Aman",
+    "area_ha": 1100.0,
+    "pct_upazila_nca": 5.52
+   }
+  ],
+  "farms": {
+   "farm_holdings": 273369,
+   "small_farm_share": 0.841,
+   "tenancy_share": 0.242,
+   "agri_labour_holdings": 191778
+  },
+  "cattle_2015": 477678,
+  "irrigated_000acre_2022_23": {
+   "aman": 13.0,
+   "boro": 515.0,
+   "wheat": 1.0,
+   "potato": 3.0,
+   "vegetables": 18.0,
+   "total": 553.0
+  },
+  "yields": [
+   {
+    "crop": "Boro rice",
+    "area_ha_2024_25": 218077.0,
+    "yield_2024_25": 4.35,
+    "first_season": "2012-13",
+    "yield_first": 3.367
+   },
+   {
+    "crop": "Aman rice",
+    "area_ha_2024_25": 78341.0,
+    "yield_2024_25": 3.119,
+    "first_season": "2012-13",
+    "yield_first": 2.4
+   },
+   {
+    "crop": "Aus rice",
+    "area_ha_2024_25": 7229.0,
+    "yield_2024_25": 3.084,
+    "first_season": "2012-13",
+    "yield_first": 1.614
+   },
+   {
+    "crop": "Wheat",
+    "area_ha_2024_25": 374.0,
+    "yield_2024_25": 3.33,
+    "first_season": "2012-13",
+    "yield_first": 1.901
+   },
+   {
+    "crop": "Potato",
+    "area_ha_2024_25": 1683.0,
+    "yield_2024_25": 16.342,
+    "first_season": "2012-13",
+    "yield_first": 9.068
+   },
+   {
+    "crop": "Rabi Maize",
+    "area_ha_2024_25": 151.4,
+    "yield_2024_25": 7.175,
+    "first_season": "2014-15",
+    "yield_first": 6.178
+   },
+   {
+    "crop": "Rape and Mustard (Local+HYV)",
+    "area_ha_2024_25": 504.6,
+    "yield_2024_25": 1.023,
+    "first_season": "2013-14",
+    "yield_first": 0.836
+   },
+   {
+    "crop": "Jute",
+    "area_ha_2024_25": 307.0,
+    "yield_2024_25": 10.403,
+    "first_season": "2012-13",
+    "yield_first": 8.328
+   }
+  ],
+  "damage_events": {
+   "Damage of different Crops Due to Flood Excessive Rainfall & Rush of Water in the Month of April to June 2022": 11296.0,
+   "Damage of different Crops Due to Flood Excessive Rainfall & Rush of Water in the Month of August to September 2024-25": 2223.0
+  }
+ },
+ "KHU_BATIAGHATA": {
+  "site": "KHU_BATIAGHATA",
+  "upazila": "Batiaghata",
+  "district": "Khulna",
+  "land_use_2014_15": {
+   "net_cropped_ha": 17870.0,
+   "single_cropped_ha": 5500.0,
+   "double_cropped_ha": 11740.0,
+   "triple_cropped_ha": 500.0,
+   "cropping_intensity_pct": 172.0
+  },
+  "top_patterns": [
+   {
+    "pattern": "Fallow-Fallow-T. Aman",
+    "area_ha": 5500.0,
+    "pct_upazila_nca": 30.78
+   },
+   {
+    "pattern": "Boro-Fallow-T. Aman",
+    "area_ha": 2950.0,
+    "pct_upazila_nca": 16.51
+   },
+   {
+    "pattern": "Boro-Fish",
+    "area_ha": 500.0,
+    "pct_upazila_nca": 2.8
+   },
+   {
+    "pattern": "Fish-T. Aman",
+    "area_ha": 300.0,
+    "pct_upazila_nca": 1.68
+   }
+  ],
+  "farms": {
+   "farm_holdings": 251331,
+   "small_farm_share": 0.909,
+   "tenancy_share": 0.206,
+   "agri_labour_holdings": 153439
+  },
+  "cattle_2015": 307275,
+  "irrigated_000acre_2022_23": {
+   "aman": 6.0,
+   "boro": 147.0,
+   "wheat": NaN,
+   "potato": 1.0,
+   "vegetables": 27.0,
+   "total": 190.0
+  },
+  "yields": [
+   {
+    "crop": "Boro rice",
+    "area_ha_2024_25": 60376.0,
+    "yield_2024_25": 4.468,
+    "first_season": "2012-13",
+    "yield_first": 3.695
+   },
+   {
+    "crop": "Aman rice",
+    "area_ha_2024_25": 90042.0,
+    "yield_2024_25": 2.643,
+    "first_season": "2012-13",
+    "yield_first": 2.259
+   },
+   {
+    "crop": "Aus rice",
+    "area_ha_2024_25": 4940.0,
+    "yield_2024_25": 1.916,
+    "first_season": "2012-13",
+    "yield_first": 1.408
+   },
+   {
+    "crop": "Wheat",
+    "area_ha_2024_25": 108.0,
+    "yield_2024_25": 2.865,
+    "first_season": "2012-13",
+    "yield_first": 1.987
+   },
+   {
+    "crop": "Potato",
+    "area_ha_2024_25": 560.0,
+    "yield_2024_25": 19.266,
+    "first_season": "2012-13",
+    "yield_first": 13.339
+   },
+   {
+    "crop": "Rabi Maize",
+    "area_ha_2024_25": 102.8,
+    "yield_2024_25": 7.412,
+    "first_season": "2013-14",
+    "yield_first": 5.508
+   },
+   {
+    "crop": "Lentil (Masur)",
+    "area_ha_2024_25": 89.4,
+    "yield_2024_25": 0.826,
+    "first_season": "2013-14",
+    "yield_first": 0.792
+   },
+   {
+    "crop": "Rape and Mustard (Local+HYV)",
+    "area_ha_2024_25": 411.5,
+    "yield_2024_25": 1.049,
+    "first_season": "2013-14",
+    "yield_first": 0.704
+   },
+   {
+    "crop": "Green gram (Mug)",
+    "area_ha_2024_25": 83.1,
+    "yield_2024_25": 0.725,
+    "first_season": "2013-14",
+    "yield_first": 0.741
+   },
+   {
+    "crop": "Jute",
+    "area_ha_2024_25": 1310.0,
+    "yield_2024_25": 11.713,
+    "first_season": "2012-13",
+    "yield_first": 8.402
+   }
+  ],
+  "damage_events": {
+   "Damage of different Crops of Cyclone (Amphan) in the Month of May 2020": 5876.0,
+   "Damage Report of different crops due to flood in the months of July 2020-21": 2379.00632,
+   "Damage of different Crops of Cyclone (Chattrang) in the Month of October 2022": 127.75299999999999
+  }
+ },
+ "SIR_ULLAHPARA": {
+  "site": "SIR_ULLAHPARA",
+  "upazila": "Ullapara",
+  "district": "Sirajganj",
+  "land_use_2014_15": {
+   "net_cropped_ha": 32090.0,
+   "single_cropped_ha": 5440.0,
+   "double_cropped_ha": 18070.0,
+   "triple_cropped_ha": 8390.0,
+   "cropping_intensity_pct": 209.0
+  },
+  "top_patterns": [
+   {
+    "pattern": "Mustard-Boro-Fallow",
+    "area_ha": 13000.0,
+    "pct_upazila_nca": 40.51
+   },
+   {
+    "pattern": "Boro-Fallow-Fallow",
+    "area_ha": 5400.0,
+    "pct_upazila_nca": 16.83
+   },
+   {
+    "pattern": "Mustard-Boro-T. Aman",
+    "area_ha": 3700.0,
+    "pct_upazila_nca": 11.53
+   },
+   {
+    "pattern": "Potato-Boro-T. Aman",
+    "area_ha": 250.0,
+    "pct_upazila_nca": 0.78
+   }
+  ],
+  "farms": {
+   "farm_holdings": 373984,
+   "small_farm_share": 0.915,
+   "tenancy_share": 0.267,
+   "agri_labour_holdings": 263396
+  },
+  "cattle_2015": 518276,
+  "irrigated_000acre_2022_23": {
+   "aman": 153.0,
+   "boro": 344.0,
+   "wheat": 6.0,
+   "potato": 4.0,
+   "vegetables": 15.0,
+   "total": 581.0
+  },
+  "yields": [
+   {
+    "crop": "Boro rice",
+    "area_ha_2024_25": 140897.0,
+    "yield_2024_25": 4.549,
+    "first_season": "2012-13",
+    "yield_first": 4.157
+   },
+   {
+    "crop": "Aman rice",
+    "area_ha_2024_25": 85335.0,
+    "yield_2024_25": 2.95,
+    "first_season": "2012-13",
+    "yield_first": 2.106
+   },
+   {
+    "crop": "Aus rice",
+    "area_ha_2024_25": 6200.0,
+    "yield_2024_25": 2.479,
+    "first_season": "2012-13",
+    "yield_first": 1.782
+   },
+   {
+    "crop": "Wheat",
+    "area_ha_2024_25": 4555.0,
+    "yield_2024_25": 3.835,
+    "first_season": "2012-13",
+    "yield_first": 2.219
+   },
+   {
+    "crop": "Potato",
+    "area_ha_2024_25": 2911.0,
+    "yield_2024_25": 14.558,
+    "first_season": "2012-13",
+    "yield_first": 12.176
+   },
+   {
+    "crop": "Rabi Maize",
+    "area_ha_2024_25": 14543.2,
+    "yield_2024_25": 10.696,
+    "first_season": "2013-14",
+    "yield_first": 7.122
+   },
+   {
+    "crop": "Lentil (Masur)",
+    "area_ha_2024_25": 1280.5,
+    "yield_2024_25": 1.299,
+    "first_season": "2013-14",
+    "yield_first": 1.031
+   },
+   {
+    "crop": "Rape and Mustard (Local+HYV)",
+    "area_ha_2024_25": 60593.6,
+    "yield_2024_25": 1.607,
+    "first_season": "2013-14",
+    "yield_first": 0.763
+   },
+   {
+    "crop": "Jute",
+    "area_ha_2024_25": 14528.0,
+    "yield_2024_25": 11.663,
+    "first_season": "2012-13",
+    "yield_first": 10.477
+   }
+  ],
+  "damage_events": {
+   "Damage of different crops due to flood & Excessive rain in the months of July& August 2017-18": 20788.0,
+   "Damage of different crops due to flood in the month of July 2020-21": 11008.435899999999,
+   "Damage Report of different crops due to flood in the months of July 2020-21": 6789.134,
+   "Damage of different Crops of Cyclone (Amphan) in the Month of May 2020": 97.0
+  }
+ },
+ "RAN_MITHAPUKUR": {
+  "site": "RAN_MITHAPUKUR",
+  "upazila": "Mithapukur",
+  "district": "Rangpur",
+  "land_use_2014_15": {
+   "net_cropped_ha": 44530.0,
+   "single_cropped_ha": 1510.0,
+   "double_cropped_ha": 26320.0,
+   "triple_cropped_ha": 15950.0,
+   "cropping_intensity_pct": 231.0
+  },
+  "top_patterns": [
+   {
+    "pattern": "Boro-Fallow-T. Aman",
+    "area_ha": 22500.0,
+    "pct_upazila_nca": 50.53
+   },
+   {
+    "pattern": "Potato-Boro-T. Aman",
+    "area_ha": 6300.0,
+    "pct_upazila_nca": 14.35
+   },
+   {
+    "pattern": "Maize-Fallow-T. Aman",
+    "area_ha": 3600.0,
+    "pct_upazila_nca": 8.2
+   },
+   {
+    "pattern": "Boro-Fallow-Fallow",
+    "area_ha": 1500.0,
+    "pct_upazila_nca": 3.42
+   },
+   {
+    "pattern": "Mustard-Boro-T. Aman",
+    "area_ha": 500.0,
+    "pct_upazila_nca": 1.14
+   }
+  ],
+  "farms": {
+   "farm_holdings": 396196,
+   "small_farm_share": 0.94,
+   "tenancy_share": 0.363,
+   "agri_labour_holdings": 282179
+  },
+  "cattle_2015": 749115,
+  "irrigated_000acre_2022_23": {
+   "aman": 46.0,
+   "boro": 324.0,
+   "wheat": 5.0,
+   "potato": 104.0,
+   "vegetables": 34.0,
+   "total": 552.0
+  },
+  "yields": [
+   {
+    "crop": "Boro rice",
+    "area_ha_2024_25": 132482.0,
+    "yield_2024_25": 4.565,
+    "first_season": "2012-13",
+    "yield_first": 4.066
+   },
+   {
+    "crop": "Aman rice",
+    "area_ha_2024_25": 165696.0,
+    "yield_2024_25": 3.475,
+    "first_season": "2012-13",
+    "yield_first": 2.619
+   },
+   {
+    "crop": "Aus rice",
+    "area_ha_2024_25": 22374.0,
+    "yield_2024_25": 3.255,
+    "first_season": "2012-13",
+    "yield_first": 2.198
+   },
+   {
+    "crop": "Wheat",
+    "area_ha_2024_25": 1490.0,
+    "yield_2024_25": 3.722,
+    "first_season": "2012-13",
+    "yield_first": 2.511
+   },
+   {
+    "crop": "Potato",
+    "area_ha_2024_25": 57575.0,
+    "yield_2024_25": 25.626,
+    "first_season": "2012-13",
+    "yield_first": 21.945
+   },
+   {
+    "crop": "Rabi Maize",
+    "area_ha_2024_25": 18338.3,
+    "yield_2024_25": 10.581,
+    "first_season": "2013-14",
+    "yield_first": 7.38
+   },
+   {
+    "crop": "Lentil (Masur)",
+    "area_ha_2024_25": 87.8,
+    "yield_2024_25": 1.332,
+    "first_season": "2013-14",
+    "yield_first": 1.097
+   },
+   {
+    "crop": "Rape and Mustard (Local+HYV)",
+    "area_ha_2024_25": 1935.2,
+    "yield_2024_25": 1.253,
+    "first_season": "2013-14",
+    "yield_first": 0.846
+   },
+   {
+    "crop": "Green gram (Mug)",
+    "area_ha_2024_25": 16.8,
+    "yield_2024_25": 0.941,
+    "first_season": "2013-14",
+    "yield_first": 1.236
+   },
+   {
+    "crop": "Jute",
+    "area_ha_2024_25": 7844.0,
+    "yield_2024_25": 13.986,
+    "first_season": "2012-13",
+    "yield_first": 12.553
+   }
+  ],
+  "damage_events": {
+   "Damage of different crops due to flood & Excessive rain in the months of July& August 2017-18": 867441.0,
+   "Damage Report of different crops due to flood in the months of July 2020-21": 388.0,
+   "Damage of different Crops Due to Flood Excessive Rainfall & Rush of Water in the Month of August to September 2024-25": 37.0,
+   "Damage of different crops due to flood in the month of July 2020-21": 12.5434
+  }
+ }
+}

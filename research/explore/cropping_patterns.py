@@ -51,7 +51,7 @@ def season_split(pattern: str) -> dict:
         rec.update(rabi=parts[0], kharif1=parts[1], kharif2=parts[1], extra=None)
     else:
         rec.update(rabi=parts[0], kharif1=parts[1] if len(parts) > 1 else None,
-                   kharif2=parts[2] if len(parts) > 2 else None, extra="−".join(parts[3:]) or None)
+                   kharif2=parts[2] if len(parts) > 2 else None, extra="-".join(parts[3:]) or None)
     return rec
 
 
@@ -67,7 +67,7 @@ def main() -> None:
     for i in range(15, 23):
         for line in pages[i].splitlines():
             if m := pat.match(line.strip()):
-                rows.append({"rank": int(m.group(1)), "pattern": re.sub(DASH, "−", m.group(2)).strip(),
+                rows.append({"rank": int(m.group(1)), "pattern": re.sub(DASH, "-", m.group(2)).strip(),
                              "area_ha": int(m.group(3)), "pct_nca": float(m.group(4)),
                              "n_districts": int(m.group(5)), "n_upazilas": int(m.group(6))})
     cp = pd.DataFrame(rows).drop_duplicates("rank").sort_values("rank")
@@ -81,7 +81,7 @@ def main() -> None:
         for line in pages[i].splitlines():
             if t := re.match(r"^Table (1[89]|2[0-3])\. Distribution of the .*?dominant\s+(.+?)\s+cropping pattern",
                              line.strip()):
-                current = re.sub(DASH, "−", t.group(2)).strip()
+                current = re.sub(DASH, "-", t.group(2)).strip()
                 continue
             m = re.match(r"^(\d{2})\s+([A-Za-z.' ]+?)\s+(\d+)\s+(\d+\.\d+)\s+(\d+\.\d+)\s*$", line.strip())
             if m and current and dist(m.group(2)):
