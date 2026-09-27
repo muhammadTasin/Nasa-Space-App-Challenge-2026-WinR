@@ -48,8 +48,9 @@ advisory "under maintenance" while DAE improves it "over Barind and Haor regions
 pilots. Pitch it as complementary: rotation choice, cattle and voice delivery that could plug into BAMIS.
 
 **Not reachable from here:** BARC's *Fertilizer Recommendation Guide 2018* (ministry server times out, BARC
-portal retired, the Fertilizer Association copy is gone) and FFWC river data (needs a login). Try the
-ministry link from a Bangladeshi network, or request both from BARC and BWDB.
+portal retired, the Fertilizer Association copy is gone) and FFWC's daily river data (its API is locked; the
+annual flood reports are used instead, see `ffwc_floods.py`). Try the ministry link from a Bangladeshi network,
+or request both from BARC and BWDB.
 
 **About the BARI table.** The PDF was built in Illustrator and neighbouring pages carry copies of each other's
 text, so each variety appears several times. The parser scores every copy (does it name its own variety; are
@@ -109,10 +110,13 @@ silently returns -999. The script makes two calls per site for this reason.
 | `explore/fao_ky.py` | FAO Irrigation and Drainage Paper 66, Table 1 (FAO-33 values) | seasonal yield-response factor Ky for 21 crops (maize 1.25, spring wheat 1.15, potato and onion 1.1, groundnut 0.7 ...); no rice, lentil, mustard or jute in the table | `crops/fao_ky_seasonal.csv` |
 | `acquire/bwmri_varieties.py` + `explore/bwmri_varieties.py` | BWMRI variety pages (bwmri.gov.bd; the page text is Unicode Bangla, the leaflets are scans) | **14 wheat and 30 maize varieties**: release year, days to maturity, height, 1000-grain weight, yield, sowing window, seed rate, heat/salt/drought/blast/rust traits, suitable areas. All current wheat varieties are heat tolerant; BARI Gom 25 and BWMRI Gom 4 take 8-10 dS/m salinity; BARI Gom 33 is blast resistant and zinc-rich; BARI Hybrid Maize 13 is the drought-tolerant Barind maize (8.1-8.5 t/ha with one irrigation) | `crops/bwmri_wheat_maize_varieties.csv` |
 | `acquire/dls_livestock.py` + `explore/dls_livestock.py` | DLS *Livestock Economy at a glance* 2015-16 to 2025-26 | national cattle, buffalo, goat, sheep, chicken and duck numbers and milk, meat and egg production by year (cattle 23.8 to 25.3 million; milk 7.3 to 15.8 million t). DLS's own yearly estimates, which differ from the census head count | `livestock/dls_livestock_economy.csv` |
+| `acquire/ffwc_reports.py` + `explore/ffwc_floods.py` | FFWC/BWDB *Annual Flood Report* 2010-2021 (old.ffwc.gov.bd; 2008-09 are linked but not on the server) and FFWC's station list | **river floods by station and year**: 948 station-years at 95 stations (danger level, previous record, the year's monsoon peak and its date, days above danger level; the peak agrees with the report's own peak-date table 98% of the time, the rest are typos in the reports). **Haor flash floods**: the 15 Mar-15 May table of the 2018-2021 reports for 15 Meghna-basin stations (monsoon and pre-monsoon danger levels, season peak, days above each) for 2010 and 2017-2021, the reports' 91 sentences on pre-monsoon floods, and a year table: flash floods before mid-May in 2010 (late April, early May), 2017 (very early April), 2018 (mid-May) and 2019 (short; Jariajanjail 6 days above its pre-monsoon danger level), none in 2014, 2020, 2021. Levels in mPWD (0.45 m above the new site's mMSL) | `floods/ffwc_station_years.csv`, `floods/ffwc_premonsoon_meghna.csv`, `floods/ffwc_premonsoon_notes.csv`, `floods/haor_flash_flood_years.csv` |
 
-**Not reachable or not ours to take:** FFWC's data API refuses requests without a site security header (river
-levels need a formal request to BWDB/FFWC); BWDB groundwater well data needs registration and is sold by the
-record. DAM's report pages (market.dam.gov.bd daily market report and commodity report, incl. growers' prices)
+**Not reachable or not ours to take:** FFWC's data API refuses requests without a site security header, and the
+new site (ffwc.gov.bd/app) only shows its data: the last 40 days of readings, May-Oct hydrographs for 2022-2026
+and monthly average and maximum levels for 2003-2026, as charts with image export only. Daily levels, and the
+2022-2026 pre-monsoon record (the 2022 flash flood is after the last report), need a formal request to BWDB/FFWC.
+BWDB groundwater well data needs registration and is sold by the record. DAM's report pages (market.dam.gov.bd daily market report and commodity report, incl. growers' prices)
 returned empty tables for every market and date tried, 2020-2026, even Kawran Bazar from a browser (27 Sep 2026);
 `wfp_prices.py` takes DAM's prices as WFP republishes them.
 
@@ -183,7 +187,7 @@ only as regional context.
 | Crop traits | done: FAO-56, BRRI and BARI tables above (`crops/crop_parameters.csv` does not yet use the BARI production tables) | the rotation engine's crop table |
 | Soil and salinity | SRDI upazila land and soil guides (soil test values, land-type areas) and salinity data; BARC Fertilizer Recommendation Guide 2018 (the SRDI atlas classes, the land-type proxy and the SRDI fertilizer cards for the pilot unions stand in) | field-level soil information |
 | District farm-gate prices over time | DAM district offices or growers' price records (DAM's web reports are empty; we have national monthly and harvest prices from the yearbook and retail prices by district from WFP) | income side of the rotation score |
-| River levels and flood dates | BWDB Flood Forecasting and Warning Centre (formal request; the public API is locked) | hindcast the flash-flood trigger |
+| Daily river levels, 2022-2026 flood dates | BWDB Flood Forecasting and Warning Centre (formal request; the public API is locked). 2010-2021 flood statistics and haor flash-flood years are in `floods/` from the annual reports | hindcast the flash-flood trigger (7 labelled years so far: 2010, 2014, 2017-2021) |
 | Groundwater levels, Barind | BWDB groundwater wells (registration, paid) or BMDA | local proof of the falling water table (GRACE-FO is ~300 km) |
 | Farmer priorities | 5-10 farmers and 1 SAAO per pilot | the fourth input the challenge names |
 
