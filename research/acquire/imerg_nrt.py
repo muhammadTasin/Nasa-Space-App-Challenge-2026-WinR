@@ -21,6 +21,9 @@ from __future__ import annotations
 import argparse
 import math
 import re
+import threading
+import time
+from concurrent.futures import ThreadPoolExecutor
 from datetime import date, timedelta
 
 import numpy as np
@@ -45,8 +48,22 @@ def sites() -> list[dict]:
     return load_sites("pilot_sites") + load_sites("upstream_points") + load_sites("districts")
 
 
-def baseline(s, y0: int, y1: int) -> None:
-    """Late-run daily grids for whole years, one compressed file a year (a few MB), then site series."""
+def baseline(new_session, y0: int, y1: int, workers: int = 4) -> None:
+    """Late-run daily grids for whole years, one compressed file a year (a few MB), then site series. A request
+    takes ~4 s, so days are fetched `workers` at a time, each worker with its own session."""
+    local = threading.local()
+
+    def one(day):
+        if not hasattr(local, "s"):
+            local.s = new_session()
+        for attempt in range(4):
+            try:
+                return fetch_day(local.s, day.date(), runs=RUNS[:1])
+            except Exception:  # transient server error: wait and retry
+                if attempt == 3:
+                    raise
+                time.sleep(10 * (attempt + 1))
+
     d = out_dir("imerg_nrt", "late_baseline")
     for year in range(y0, y1 + 1):
         path = d / f"imerg_late_{year}.npz"
@@ -54,10 +71,10 @@ def baseline(s, y0: int, y1: int) -> None:
             continue
         days = pd.date_range(f"{year}-01-01", f"{year}-12-31")
         arr = np.full((len(days), LON1 - LON0 + 1, LAT1 - LAT0 + 1), np.nan, dtype="float32")
-        for k, day in enumerate(days):
-            got = fetch_day(s, day.date(), runs=RUNS[:1])
-            if got is not None:
-                arr[k] = got[0]
+        with ThreadPoolExecutor(max_workers=workers) as ex:
+            for k, got in enumerate(ex.map(one, days)):
+                if got is not None:
+                    arr[k] = got[0]
         np.savez_compressed(path, precip=arr, dates=days.strftime("%Y-%m-%d").to_numpy(), lons=LONS, lats=LATS)
         print(year, f"{np.isfinite(arr[:, 0, 0]).sum()} days", flush=True)
     rows = []
@@ -104,7 +121,7 @@ def main() -> None:
     earthaccess.login(strategy="environment")
     s = earthaccess.get_requests_https_session()
     if args.baseline:
-        baseline(s, *args.baseline)
+        baseline(earthaccess.get_requests_https_session, *args.baseline)
         return
     cache = out_dir("imerg_nrt", "days")
     frames = []
