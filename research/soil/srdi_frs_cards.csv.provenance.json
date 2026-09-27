@@ -1,0 +1,6 @@
+{
+ "source": "SRDI fertilizer recommendation card service (frs-bd.com, SRDI and Katalyst), searched for 100 decimals (1 acre)",
+ "url": "http://frs-bd.com/",
+ "note": "kg_per_ha = printed kg per acre x 2.471; 'as needed' left empty",
+ "retrieved_utc": "2026-09-27T06:22:42+00:00"
+}

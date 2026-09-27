@@ -16,7 +16,7 @@ The full statement and datasets are due 28 Oct 2026. Re-read it then.
 
 | Script | Source | What we have | Where |
 |---|---|---|---|
-| `acquire/boundaries.py` | geoBoundaries (CC BY 4.0) | 64 districts, 544 upazilas + centroids (5,160 unions available) | `data/boundaries/`, `sites/districts.csv` |
+| `acquire/boundaries.py` | geoBoundaries (CC BY 4.0) | 64 districts, 544 upazilas and 5,160 unions (`--levels ADM4`) + centroids | `data/boundaries/`, `sites/districts.csv`, `sites/adm4_centroids.csv` |
 | `acquire/power.py` | NASA POWER daily (MERRA-2, CERES) | 16 variables, 1991 → yesterday, 64 districts + 5 pilot sites + 1 upstream point | `data/power/daily/*.parquet` |
 | `acquire/power.py` | **GPM IMERG via POWER** (`IMERG_PRECTOT`) | daily rain at native 0.1°, 1998 → ~12 days ago | same files, column `IMERG_PRECTOT` |
 | `acquire/power.py --hourly-years` | NASA POWER hourly | T, RH, wind, sun for 2023–2025 at the pilot sites (cattle THI) | `data/power/hourly/` |
@@ -100,7 +100,10 @@ silently returns -999. The script makes two calls per site for this reason.
 | Script | Source | What we have | Where |
 |---|---|---|---|
 | `acquire/forecast.py [--skill]` | ECMWF IFS/ENS and NOAA GFS via [Open-Meteo](https://open-meteo.com) (CC BY 4.0; NASA's GEOS-FP servers did not answer from here) | for the 5 pilots, the upstream Meghalaya point and 64 district centroids: 16-day hourly and daily forecast (T, RH, rain, wind, sun, FAO ET0, cattle THI); 51-member ensemble probabilities for 15 days (rain >= 20/50/100 mm, Tmax >= 36/38/40 C); 6-month seasonal outlook by month; with `--skill`, archived ECMWF runs at 1-7 days' lead since Jan 2024 (Tanore Tmax error 0.8 C a day ahead, 1.5 C a week ahead) | `data/forecast/<date>/` (run daily) |
-| `acquire/imerg_nrt.py [--days 120]` / `--baseline 2001 2025` | NASA GPM IMERG V07 daily, Late run (Early for the newest day), GES DISC OPeNDAP, a 0.1 deg window over Bangladesh and Meghalaya | **rain to yesterday** (POWER lags ~12 days): 30 May - 26 Sep 2026 on the grid and at 70 sites; identical to POWER's values where they overlap (r = 1.00). **Compare it only with a Late-run baseline**: POWER's 1998-2025 history is the gauge-adjusted Final run (r = 1.000), and in Jul-Aug 2025 the Late run caught 52% (Tanore), 69% (Ullapara), 75% (Batiaghata), 82% (Dharampasha), 86% (Mithapukur) and 63% (Sohra) of Final's rain, so Late 2026 against the Final history wrongly shows a record-dry monsoon at every pilot. `--baseline` builds the Late-run history (one file a year) for like-for-like anomalies | `data/imerg_nrt/` |
+| `acquire/imerg_nrt.py [--days 120]` / `--baseline 2001 2025` | NASA GPM IMERG V07 daily, Late run (Early for the newest day), GES DISC OPeNDAP, a 0.1 deg window over Bangladesh and Meghalaya; the baseline from GES DISC's Giovanni time-series service | **rain to yesterday** (POWER lags ~12 days): 30 May - 26 Sep 2026 on the grid and at 70 sites; identical to POWER's values where they overlap (r = 1.00). `--baseline`: the Late run 2001-2025 at the same 70 cells, one call per site (~5 s for 25 years; cutting the days out over OPeNDAP took ~10 min a year; the two agree to 0.000002 mm). POWER's 1998-2025 history is the gauge-adjusted Final run (r = 1.000), and **the Late run has drifted dry against it**: Jun-Sep Late/Final stayed within 0.8-1.2 in 2001-2022, then fell to 0.84, 0.64, 0.58 at Tanore (2023-2025) and 0.73-0.92 at the other pilots. So even Late against Late overstates dryness now; see `rain_vs_normal.py` | `data/imerg_nrt/` |
+| `explore/rain_vs_normal.py` | the IMERG Late feed and baseline, POWER's IMERG Final and MERRA-2 | **rain so far against normal** at 70 sites (since 1 Jun, by month, last 30 days) from three estimates (Late vs Late; Late scaled by the site's 2023-2025 Late/Final ratio vs Final; MERRA-2) and a `verdict` that says dry/wet/normal only when all three agree. As of 22 Sep 2026 they disagree on the season (Tanore since 1 Jun: 50%, 71%, 107% of normal; ERA5 from Open-Meteo, checked by hand, 75%), and agree that the **last 30 days were dry** at Batiaghata, Mithapukur and Dharmapasha. BMD gauges would settle the season (see the hand-collection table) | `pilots/rain_vs_normal.csv` |
+| `acquire/srdi_frs.py` | SRDI's online fertilizer recommendation card ([frs-bd.com](http://frs-bd.com), SRDI with Katalyst; searched only, nothing entered but the choices) | **union-level fertilizer doses by soil type, land type, season and crop** for each pilot's union (Talanda, Tanore; Selborash, Dharmapasha; Batiaghata; Ullapara; Durgapur, Mithapukur): urea (with/without DAP), TSP/DAP, MoP, gypsum, zinc sulphate, boric acid, lime, with timing, per acre as printed and per hectare. **The doses are local**: no two pilot unions get the same card for a crop, season and land type (Boro, medium-high land: urea 80 kg/acre at Ullapara, 132 at Batiaghata and Selborash, 185 at Talanda; lime at Talanda and Selborash; no zinc at Selborash). The form returns cards for every land type it lists crops for (the haor union gets high-land cards too), so which land types a union has comes from `landtype_proxy_*.csv`, not from here. The pilot points: Dharmapasha's lies 0.3 km over the Mohanganj border and Ullapara's in the town, so their nearest rural unions inside the upazila are used | `soil/srdi_frs_cards.csv`, `soil/srdi_frs_doses.csv` |
+| `acquire/wfp_prices.py` | WFP Bangladesh food prices on HDX (CC BY-IGO; republishes DAM's market prices, monthly) | monthly market prices in the pilot districts and Dhaka: division series 2004/2006-2020, district markets 2020-Jul 2026 (Rajshahi, Godagari, Khulna, Dumuria, Rangpur, Mithapukur, Sirajganj, Sunamganj). Mostly retail household items (coarse rice, lentils, flour, oil, potato, onion): food cost and price trends, not farm-gate prices | `pilots/wfp_market_prices.csv` |
 | `explore/srdi_soil_maps.py` | SRDI *Soil Fertility Atlas of Bangladesh 2020* (built from the Upazila Nirdeshika data; PDF in `data/soil/`) | **soil fertility class for every upazila** (and 5 x 5 pixels at each pilot): pH, organic matter, P, K and S (upland and wetland rice), Zn, B, Ca, Mg. The 12 map images are georeferenced to BUTM by fitting Bangladesh's outline (91-93% overlap; district lines land on the map's own), each pixel is classed by the nearest legend colour and each upazila takes its majority class (`*_share` = how dominant). Upazila shares match the atlas's national tables (pH strongly/very strongly acidic 44% vs 46%; Zn low 84% vs 79%). A map pixel is ~0.85 km: upazila-scale classes, not field tests | `soil/srdi_fertility_upazila.csv`, `soil/srdi_fertility_pilots.csv` |
 | `acquire/landtype_proxy.py` | NASA NASADEM elevation (Planetary Computer) + JRC Global Surface Water 1984-2021 | **a land-type proxy for every upazila and pilot**: elevation p10/median/p90, share of land never seen as water, water in >= 10% / >= 50% of clear Landsat views, water >= 3 / 6 months in 2021. The wettest upazilas are the haor (Khaliajuri, Itna, Mithamain, Austagram, Sulla, Jamalganj, Dharampasha) and char areas. Landsat misses floods under monsoon cloud, so this marks land that stays wet into the dry season, not flood depth | `soil/landtype_proxy_upazila.csv`, `soil/landtype_proxy_pilots.csv` |
 | `explore/fao_ky.py` | FAO Irrigation and Drainage Paper 66, Table 1 (FAO-33 values) | seasonal yield-response factor Ky for 21 crops (maize 1.25, spring wheat 1.15, potato and onion 1.1, groundnut 0.7 ...); no rice, lentil, mustard or jute in the table | `crops/fao_ky_seasonal.csv` |
@@ -109,8 +112,17 @@ silently returns -999. The script makes two calls per site for this reason.
 
 **Not reachable or not ours to take:** FFWC's data API refuses requests without a site security header (river
 levels need a formal request to BWDB/FFWC); BWDB groundwater well data needs registration and is sold by the
-record; SRDI's online fertilizer recommendation (frs-bd.com, union-level doses by land type and crop) and the DAM
-market price pages are query forms, so they need the team's go-ahead before an automated lookup.
+record. DAM's report pages (market.dam.gov.bd daily market report and commodity report, incl. growers' prices)
+returned empty tables for every market and date tried, 2020-2026, even Kawran Bazar from a browser (27 Sep 2026);
+`wfp_prices.py` takes DAM's prices as WFP republishes them.
+
+**Faster ways to NASA data (checked 27 Sep 2026).** Time goes on how many files NASA's server opens, not on
+how much we download: a day of IMERG is one global file even when we keep 3,250 cells of it. For a point series
+use the **Giovanni time-series service** (`imerg_nrt.py --baseline`; CMR lists it for IMERG, GLDAS and more;
+it refused the SMAP L4 name we tried), for a gridded cut-out **Harmony** (listed for IMERG Late, Final and monthly),
+and AppEEARS only for MODIS/VIIRS/SMAP points, where jobs queue for hours. NASA's official **Earthdata MCP
+server** (<https://cmr.earthdata.nasa.gov/mcp/v1>, tools `get_collections`, `get_granules`, `get_services`,
+`get_variables` ...) only searches the catalogue; it finds these services but downloads nothing.
 
 ## What needs a free Earthdata Login
 
@@ -128,11 +140,15 @@ days, "recommended quality" on only 13% (open water and dense crops in the 9 km 
 0.31-0.38 vs 0.18-0.32) and correlating 0.34-0.79 with it. Use L4 as the soil-moisture signal; L3 only as an
 independent cross-check.
 
-**National jobs, submitted 27 Sep 2026 01:10** (they take hours at NASA; re-run with `--resume` if the watcher
-stops): `--preset ndvi_national --sites adm3_centroids` (MODIS 2000- and VIIRS 2018- NDVI at all 544 upazila
-centroids, task `51baeb90-b315-4bdc-b28f-6ffab21daf32`) and `--preset l4_national --sites districts` (SMAP L4
-surface and root-zone soil moisture for the last year at the 64 district centroids, task
-`11a5220e-608b-47d6-a10a-07a163cc333c`). One pixel per centroid, so these are context layers for maps.
+**National jobs, submitted 27 Sep 2026 01:10, not waited for:** `--preset ndvi_national --sites adm3_centroids`
+(MODIS 2000- and VIIRS 2018- NDVI at all 544 upazila centroids, task `51baeb90-b315-4bdc-b28f-6ffab21daf32`) and
+`--preset l4_national --sites districts` (SMAP L4 surface and root-zone soil moisture for the last year at the
+64 district centroids, task `11a5220e-608b-47d6-a10a-07a163cc333c`). After 10.5 hours NDVI was at 18% of its
+download step and L4 had sat at 74% for 5 hours (AppEEARS opens every file that covers the points: 26 years of
+16-day tiles from two sensors, 2,920 global three-hourly SMAP files), so the watchers were stopped; the tasks stay on AppEEARS and
+`--resume <task_id>` fetches them if they finish. One pixel per centroid, so they were only context layers for
+maps: the pilots already have their NDVI and SMAP series, and the district and upazila context comes from the
+BBS and BRRI tables.
 
 **SMAP L4 checks:** root-zone moisture 0.13-0.55 m³/m³; correlates 0.85-0.92 with POWER's MERRA-2 root-zone
 wetness at all five sites; rises ~0.01-0.02 m³/m³ the day after >20 mm of IMERG rain; driest in April, wettest
@@ -162,11 +178,11 @@ only as regional context.
 
 | Item | Source | Use |
 |---|---|---|
-| Station data after 24 Aug 2025 (optional) | [BMD data portal](https://dataportal.bmd.gov.bd/web/) sells the last 3 months; older history is covered by `gsod.py` | checking the current season against gauges |
+| **Station rain, Jun-Sep 2026** (needed) | BMD monthly rainfall for Rajshahi, Ishurdi or Bogura, Rangpur, Khulna, Sylhet or Sunamganj: BMD's monthly bulletins, BAMIS, or the [BMD data portal](https://dataportal.bmd.gov.bd/web/) (sells the last 3 months); BMD's reports stopped reaching NOAA on 24 Aug 2025 | the satellite and model estimates disagree on whether this monsoon was dry (`pilots/rain_vs_normal.csv`); gauges decide it and calibrate the Late run |
 | Cropping patterns by district | BRRI: Nasim et al. 2017, *Distribution of crops and cropping patterns in Bangladesh*, Bangladesh Rice Journal 21(2) | the candidate-rotation library |
 | Crop traits | done: FAO-56, BRRI and BARI tables above (`crops/crop_parameters.csv` does not yet use the BARI production tables) | the rotation engine's crop table |
-| Soil and salinity | SRDI upazila land and soil guides and salinity data; BARC Fertilizer Recommendation Guide 2018 (the SRDI atlas classes, the land-type proxy and the BARI/BRRI doses above stand in until they are found) | field-level soil information and area-specific fertilizer |
-| District market prices over time | DAM price bulletins (we have national monthly prices and harvest prices from the yearbook) | income side of the rotation score |
+| Soil and salinity | SRDI upazila land and soil guides (soil test values, land-type areas) and salinity data; BARC Fertilizer Recommendation Guide 2018 (the SRDI atlas classes, the land-type proxy and the SRDI fertilizer cards for the pilot unions stand in) | field-level soil information |
+| District farm-gate prices over time | DAM district offices or growers' price records (DAM's web reports are empty; we have national monthly and harvest prices from the yearbook and retail prices by district from WFP) | income side of the rotation score |
 | River levels and flood dates | BWDB Flood Forecasting and Warning Centre (formal request; the public API is locked) | hindcast the flash-flood trigger |
 | Groundwater levels, Barind | BWDB groundwater wells (registration, paid) or BMDA | local proof of the falling water table (GRACE-FO is ~300 km) |
 | Farmer priorities | 5-10 farmers and 1 SAAO per pilot | the fourth input the challenge names |
