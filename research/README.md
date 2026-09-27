@@ -95,6 +95,23 @@ Every cached file has a `.provenance.json` sidecar (source, URL, parameters, ret
 **Gotcha:** POWER returns `IMERG_PRECTOT` only with `time-standard=UTC`. With the default (LST) it
 silently returns -999. The script makes two calls per site for this reason.
 
+## Live feeds and local layers (added 27 Sep 2026)
+
+| Script | Source | What we have | Where |
+|---|---|---|---|
+| `acquire/forecast.py [--skill]` | ECMWF IFS/ENS and NOAA GFS via [Open-Meteo](https://open-meteo.com) (CC BY 4.0; NASA's GEOS-FP servers did not answer from here) | for the 5 pilots, the upstream Meghalaya point and 64 district centroids: 16-day hourly and daily forecast (T, RH, rain, wind, sun, FAO ET0, cattle THI); 51-member ensemble probabilities for 15 days (rain >= 20/50/100 mm, Tmax >= 36/38/40 C); 6-month seasonal outlook by month; with `--skill`, archived ECMWF runs at 1-7 days' lead since Jan 2024 (Tanore Tmax error 0.8 C a day ahead, 1.5 C a week ahead) | `data/forecast/<date>/` (run daily) |
+| `acquire/imerg_nrt.py` | NASA GPM IMERG Late/Early daily (GES DISC OPeNDAP), a 0.1 deg window over Bangladesh and Meghalaya | **not yet run**: GES DISC answers "pre-authorization required" until the account approves NASA GESDISC DATA ARCHIVE (see below); the files are there up to ~2 days ago | `data/imerg_nrt/` |
+| `explore/srdi_soil_maps.py` | SRDI *Soil Fertility Atlas of Bangladesh 2020* (built from the Upazila Nirdeshika data; PDF in `data/soil/`) | **soil fertility class for every upazila** (and 5 x 5 pixels at each pilot): pH, organic matter, P, K and S (upland and wetland rice), Zn, B, Ca, Mg. The 12 map images are georeferenced to BUTM by fitting Bangladesh's outline (91-93% overlap; district lines land on the map's own), each pixel is classed by the nearest legend colour and each upazila takes its majority class (`*_share` = how dominant). Upazila shares match the atlas's national tables (pH strongly/very strongly acidic 44% vs 46%; Zn low 84% vs 79%). A map pixel is ~0.85 km: upazila-scale classes, not field tests | `soil/srdi_fertility_upazila.csv`, `soil/srdi_fertility_pilots.csv` |
+| `acquire/landtype_proxy.py` | NASA NASADEM elevation (Planetary Computer) + JRC Global Surface Water 1984-2021 | **a land-type proxy for every upazila and pilot**: elevation p10/median/p90, share of land never seen as water, water in >= 10% / >= 50% of clear Landsat views, water >= 3 / 6 months in 2021. The wettest upazilas are the haor (Khaliajuri, Itna, Mithamain, Austagram, Sulla, Jamalganj, Dharampasha) and char areas. Landsat misses floods under monsoon cloud, so this marks land that stays wet into the dry season, not flood depth | `soil/landtype_proxy_upazila.csv`, `soil/landtype_proxy_pilots.csv` |
+| `explore/fao_ky.py` | FAO Irrigation and Drainage Paper 66, Table 1 (FAO-33 values) | seasonal yield-response factor Ky for 21 crops (maize 1.25, spring wheat 1.15, potato and onion 1.1, groundnut 0.7 ...); no rice, lentil, mustard or jute in the table | `crops/fao_ky_seasonal.csv` |
+| `acquire/bwmri_varieties.py` + `explore/bwmri_varieties.py` | BWMRI variety pages (bwmri.gov.bd; the page text is Unicode Bangla, the leaflets are scans) | **14 wheat and 30 maize varieties**: release year, days to maturity, height, 1000-grain weight, yield, sowing window, seed rate, heat/salt/drought/blast/rust traits, suitable areas. All current wheat varieties are heat tolerant; BARI Gom 25 and BWMRI Gom 4 take 8-10 dS/m salinity; BARI Gom 33 is blast resistant and zinc-rich; BARI Hybrid Maize 13 is the drought-tolerant Barind maize (8.1-8.5 t/ha with one irrigation) | `crops/bwmri_wheat_maize_varieties.csv` |
+| `acquire/dls_livestock.py` + `explore/dls_livestock.py` | DLS *Livestock Economy at a glance* 2015-16 to 2025-26 | national cattle, buffalo, goat, sheep, chicken and duck numbers and milk, meat and egg production by year (cattle 23.8 to 25.3 million; milk 7.3 to 15.8 million t). DLS's own yearly estimates, which differ from the census head count | `livestock/dls_livestock_economy.csv` |
+
+**Not reachable or not ours to take:** FFWC's data API refuses requests without a site security header (river
+levels need a formal request to BWDB/FFWC); BWDB groundwater well data needs registration and is sold by the
+record; SRDI's online fertilizer recommendation (frs-bd.com, union-level doses by land type and crop) and the DAM
+market price pages are query forms, so they need the team's go-ahead before an automated lookup.
+
 ## What needs a free Earthdata Login
 
 Status 27 Sep 2026: all downloaded. MODIS ET/PET (`--preset et`, 5 sites × 1,196 composites, 2000-2025),
@@ -110,6 +127,12 @@ lows in Dec-Jan and at Aman transplanting in July). SMAP L3 soil moisture is noi
 days, "recommended quality" on only 13% (open water and dense crops in the 9 km pixel), wetter than L4 (median
 0.31-0.38 vs 0.18-0.32) and correlating 0.34-0.79 with it. Use L4 as the soil-moisture signal; L3 only as an
 independent cross-check.
+
+**National jobs, submitted 27 Sep 2026 01:10** (they take hours at NASA; re-run with `--resume` if the watcher
+stops): `--preset ndvi_national --sites adm3_centroids` (MODIS 2000- and VIIRS 2018- NDVI at all 544 upazila
+centroids, task `51baeb90-b315-4bdc-b28f-6ffab21daf32`) and `--preset l4_national --sites districts` (SMAP L4
+surface and root-zone soil moisture for the last year at the 64 district centroids, task
+`11a5220e-608b-47d6-a10a-07a163cc333c`). One pixel per centroid, so these are context layers for maps.
 
 **SMAP L4 checks:** root-zone moisture 0.13-0.55 m³/m³; correlates 0.85-0.92 with POWER's MERRA-2 root-zone
 wetness at all five sites; rises ~0.01-0.02 m³/m³ the day after >20 mm of IMERG rain; driest in April, wettest
@@ -142,9 +165,11 @@ only as regional context.
 | Station data after 24 Aug 2025 (optional) | [BMD data portal](https://dataportal.bmd.gov.bd/web/) sells the last 3 months; older history is covered by `gsod.py` | checking the current season against gauges |
 | Cropping patterns by district | BRRI: Nasim et al. 2017, *Distribution of crops and cropping patterns in Bangladesh*, Bangladesh Rice Journal 21(2) | the candidate-rotation library |
 | Crop traits | done: FAO-56, BRRI and BARI tables above (`crops/crop_parameters.csv` does not yet use the BARI production tables) | the rotation engine's crop table |
-| Soil and salinity | SRDI upazila land and soil guides; BARC Fertilizer Recommendation Guide 2018 (the BARI and BRRI doses above stand in until it is found) | local soil information and area-specific fertilizer |
+| Soil and salinity | SRDI upazila land and soil guides and salinity data; BARC Fertilizer Recommendation Guide 2018 (the SRDI atlas classes, the land-type proxy and the BARI/BRRI doses above stand in until they are found) | field-level soil information and area-specific fertilizer |
 | District market prices over time | DAM price bulletins (we have national monthly prices and harvest prices from the yearbook) | income side of the rotation score |
-| Flood dates | BWDB Flood Forecasting and Warning Centre | hindcast the flash-flood trigger |
+| River levels and flood dates | BWDB Flood Forecasting and Warning Centre (formal request; the public API is locked) | hindcast the flash-flood trigger |
+| Groundwater levels, Barind | BWDB groundwater wells (registration, paid) or BMDA | local proof of the falling water table (GRACE-FO is ~300 km) |
+| Farmer priorities | 5-10 farmers and 1 SAAO per pilot | the fourth input the challenge names |
 
 ## First look (run `python explore/first_look.py`)
 

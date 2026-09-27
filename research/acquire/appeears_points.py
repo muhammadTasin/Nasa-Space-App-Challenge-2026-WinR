@@ -44,6 +44,18 @@ PRESETS = {
         ("MOD16A2GF.061", "ET_500m"),
         ("MOD16A2GF.061", "PET_500m"),
     ]),
+    # national coverage for maps (run with --sites adm3_centroids / --sites districts): one pixel at each
+    # upazila or district centroid, so a context layer, not a field value
+    "ndvi_national": ("2000-02-18", [
+        ("MOD13Q1.061", "_250m_16_days_NDVI"),
+        ("MOD13Q1.061", "_250m_16_days_pixel_reliability"),
+        ("VJ113A1.002", "500_m_16_days_NDVI"),
+        ("VJ113A1.002", "500_m_16_days_pixel_reliability"),
+    ]),
+    "l4_national": (str(date.today() - timedelta(days=365)), [
+        ("SPL4SMGP.008", "Geophysical_Data_sm_surface"),
+        ("SPL4SMGP.008", "Geophysical_Data_sm_rootzone"),
+    ]),
 }
 
 
