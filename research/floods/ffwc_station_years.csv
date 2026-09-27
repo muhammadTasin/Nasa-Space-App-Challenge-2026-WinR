@@ -1,0 +1,949 @@
+year,station,stid,name_in_report,danger_level_mpwd,previous_max_mpwd,peak_mpwd,peak_date,peak_in_date_table,days_above_dl,page
+2010,Amalshid,60,Kushiyara Amalshid,15.85,18.28,17.47,,,87.0,45.0
+2011,Amalshid,60,Kushiyara Amalshid,15.85,18.28,16.75,2011-08-26,16.75,16.0,37.0
+2012,Amalshid,60,Kushiyara Amalshid,15.85,18.28,17.89,2012-06-28,17.89,9.0,35.0
+2013,Amalshid,60,Kushiyara Amalshid,15.85,18.28,16.94,2013-08-18,16.94,10.0,38.0
+2014,Amalshid,60,Kushiyara Amalshid,15.85,18.28,15.74,2014-09-09,15.74,0.0,39.0
+2015,Amalshid,60,Kushiyara Amalshid,15.85,18.28,17.49,2015-08-28,17.49,25.0,40.0
+2016,Amalshid,60,Kushiyara Amalshid,15.85,18.28,17.52,2016-05-20,17.52,25.0,40.0
+2017,Amalshid,60,Kushiyara Amalshid,15.85,18.28,17.34,2017-06-28,17.34,76.0,43.0
+2018,Amalshid,60,Kushiyara Amalshid,15.85,18.28,17.4,2018-06-16,17.4,9.0,48.0
+2019,Amalshid,60,Kushiyara Amalshid,15.85,18.28,17.02,2019-07-14,17.02,8.0,49.0
+2020,Amalshid,60,Kushiyara Amalshid,15.85,18.28,16.65,2020-07-16,16.65,6.0,49.0
+2021,Amalshid,60,Kushiyara Amalshid,15.85,18.28,14.92,2021-08-29,14.92,0.0,47.0
+2010,Aricha,38,Jamuna Aricha,9.14,10.76,9.6,,,10.0,41.0
+2011,Aricha,38,Jamuna Aricha,9.14,10.76,9.6,2011-08-21,9.6,,31.0
+2012,Aricha,38,Jamuna Aricha,9.14,10.76,9.84,2012-09-28,9.84,6.0,30.0
+2013,Aricha,38,Jamuna Aricha,9.4,10.76,9.7,2013-09-11,9.7,5.0,33.0
+2014,Aricha,38,Jamuna Aricha,9.4,10.76,9.58,2014-08-29,9.58,11.0,33.0
+2015,Aricha,38,Jamuna Aricha,9.4,10.76,9.45,2015-08-27,9.45,2.0,34.0
+2016,Aricha,38,Jamuna Aricha,9.4,10.76,9.97,2016-07-31,9.97,10.0,34.0
+2017,Aricha,38,Jamuna Aricha,9.4,10.76,10.16,2017-08-18,10.16,12.0,36.0
+2018,Aricha,38,Jamuna Aricha,9.4,10.76,9.22,2018-09-18,9.22,0.0,40.0
+2019,Aricha,38,Jamuna Aricha,9.4,10.76,9.84,2019-07-20,9.84,7.0,40.0
+2020,Aricha,38,Jamuna Aricha,9.4,10.76,10.2,2020-07-27,10.2,31.0,42.0
+2021,Aricha,38,Jamuna Aricha,9.4,10.76,9.8,2021-09-04,9.8,17.0,40.0
+2020,Atrai,50,Atrai Atrai,13.72,14.31,14.4,2020-07-16,14.4,28.0,45.0
+2014,B. Baria,108,,,,,2014-08-31,5.96,,
+2015,B. Baria,108,,,,,2015-09-05,6.11,,
+2016,B. Baria,108,,,,,2016-08-03,5.93,,
+2017,B. Baria,108,Titas B.Baria,5.5,6.5,6.01,2017-08-25,6.01,30.0,43.0
+2018,B. Baria,108,Titas B.Baria,5.5,6.5,4.03,2018-07-16,4.03,0.0,48.0
+2019,B. Baria,108,Titas B.Baria,5.5,6.5,5.18,2019-07-26,5.18,0.0,49.0
+2020,B. Baria,108,Titas B. Baria,5.5,6.5,5.85,2020-07-26,5.85,16.0,49.0
+2021,B. Baria,108,Titas B.Baria,5.5,6.5,4.82,2021-08-28,4.82,0.0,47.0
+2011,Badarganj,76,,,,,2011-08-19,31.83,,
+2012,Badarganj,76,Jamuneswari Badargonj,32.16,33.0,32.76,2012-09-20,32.85,15.0,30.0
+2013,Badarganj,76,Jamuneswari Badargonj,32.16,33.0,30.85,2013-07-12,30.85,0.0,33.0
+2014,Badarganj,76,Jamuneswari Badargonj,32.16,33.0,31.56,2014-09-23,31.56,0.0,33.0
+2015,Badarganj,76,Jamuneswari Badargonj,32.16,33.0,32.44,2015-08-24,32.44,3.0,34.0
+2016,Badarganj,76,Jamuneswari Badargonj,32.16,33.0,30.4,2016-07-21,30.4,0.0,34.0
+2017,Badarganj,76,Jamuneswari Badarganj,32.16,33.12,33.61,2017-08-15,33.61,8.0,36.0
+2018,Badarganj,76,Jamuneswari Badarganj,32.15,33.61,30.35,2018-07-08,30.35,0.0,40.0
+2019,Badarganj,76,Jamuneswari Badarganj,32.15,33.61,31.78,2019-07-17,31.78,0.0,40.0
+2020,Badarganj,76,Jamuneswari Badarganj,32.15,33.61,32.92,2020-09-29,32.92,5.0,42.0
+2021,Badarganj,76,Jamuneswari Badarganj,32.15,33.61,31.15,2021-10-05,31.15,0.0,40.0
+2014,Baghabari,97,,,,,2014-08-31,11.53,,
+2015,Baghabari,97,,,,,2015-09-07,12.01,,
+2016,Baghabari,97,,,,,2016-07-31,11.49,,
+2017,Baghabari,97,Atrai Baghabari,10.4,12.45,11.5,2017-08-18,11.5,22.0,36.0
+2018,Baghabari,97,Atrai Baghabari,10.4,12.45,10.53,2018-09-20,10.53,6.0,40.0
+2019,Baghabari,97,Atrai Baghabari,10.4,12.45,11.23,2019-07-21,11.23,15.0,40.0
+2020,Baghabari,97,Atrai Baghabari,10.4,12.45,11.54,2020-07-27,11.54,55.0,42.0
+2021,Baghabari,97,Atrai Baghabari,10.4,12.45,11.11,2021-09-04,11.11,21.0,40.0
+2010,Bahadurabad,66,Jamuna Bahadurabad,19.5,20.62,19.8,,,22.0,41.0
+2011,Bahadurabad,66,Jamuna Bahadurabad,19.5,20.62,19.65,2011-07-25,19.65,7.0,31.0
+2012,Bahadurabad,66,Jamuna Bahadurabad,19.5,20.62,20.56,2012-06-30,20.56,24.0,30.0
+2013,Bahadurabad,66,Jamuna Bahadurabad,19.5,20.62,19.91,2013-09-11,19.91,8.0,33.0
+2014,Bahadurabad,66,Jamuna Bahadurabad,19.5,20.62,20.21,2014-08-29,20.21,14.0,33.0
+2015,Bahadurabad,66,Jamuna Bahadurabad,19.5,20.62,20.19,2015-09-06,20.19,18.0,34.0
+2016,Bahadurabad,66,Jamuna Bahadurabad,19.5,20.62,20.71,2016-07-29,20.71,17.0,34.0
+2017,Bahadurabad,66,Jamuna Bahadurabad,19.5,20.71,20.84,2017-08-16,20.84,25.0,36.0
+2018,Bahadurabad,66,Jamuna Bahadurabad,19.5,20.84,19.59,2018-09-19,19.59,5.0,40.0
+2019,Bahadurabad,66,Jamuna Bahadurabad,19.5,21.16,21.16,2019-07-18,21.16,18.0,40.0
+2020,Bahadurabad,66,Jamuna Bahadurabad,19.5,21.16,20.79,2020-07-16,20.79,40.0,42.0
+2021,Bahadurabad,66,Jamuna Bahadurabad,19.5,21.16,20.13,2021-09-02,20.13,10.0,40.0
+2010,Bandarban,6,Sangu Bandarban,15.25,20.38,10.8,,,0.0,46.0
+2011,Bandarban,6,Sangu Bandarban,15.25,20.38,16.5,2011-10-08,16.5,2.0,39.0
+2012,Bandarban,6,Sangu Bandarban,15.25,20.38,16.4,2012-06-25,16.4,1.0,37.0
+2013,Bandarban,6,Sangu Bandarban,15.25,20.38,11.8,2013-06-30,11.8,0.0,40.0
+2014,Bandarban,6,Sangu Bandarban,15.25,20.38,11.0,2014-08-15,11.0,0.0,40.0
+2015,Bandarban,6,Sangu Bandarban,15.25,20.38,17.45,2015-07-27,17.45,7.0,41.0
+2016,Bandarban,6,Sangu Bandarban,15.25,20.38,15.3,2016-07-05,15.3,1.0,41.0
+2017,Bandarban,6,Sangu Bandarban,15.25,20.7,16.6,2017-06-13,16.6,3.0,45.0
+2018,Bandarban,6,Sangu Bandarban,15.25,20.7,15.85,2018-07-03,15.85,2.0,50.0
+2019,Bandarban,6,Sangu Bandarban,15.25,20.7,18.5,2019-07-14,18.5,5.0,51.0
+2020,Bandarban,6,Sangu Bandarban,15.25,20.7,12.4,2020-06-18,12.4,0.0,51.0
+2021,Bandarban,6,Sangu Bandarban,15.25,20.7,15.26,2021-07-29,15.26,1.0,49.0
+2015,Barisal,113,,,,,2015-08-05,2.89,,
+2016,Barisal,113,,,,,2016-08-05,2.62,,
+2017,Barisal,113,Kirtonkhola Barisal,2.55,,2.69,2017-10-21,2.69,1.0,39.0
+2018,Barisal,113,Kirtonkhola Barisal,2.55,3.2,,,,,43.0
+2019,Barisal,113,Kirtonkhola Barisal,2.55,3.2,2.5,2019-08-03,2.5,0.0,44.0
+2020,Barisal,113,Kirtonkhola Barisal,2.55,3.2,3.07,2020-08-20,3.07,21.0,45.0
+2021,Barisal,113,Kirtonkhola Barisal,2.55,3.2,2.7,2021-09-08,2.7,9.0,43.0
+2010,Bhagyakul,25,Padma Bhagyakul,6.0,7.58,6.71,,,57.0,42.0
+2011,Bhagyakul,25,Padma Bhagyakul,6.0,7.58,6.62,2011-08-22,6.62,36.0,34.0
+2012,Bhagyakul,25,Padma Bhagyakul,6.0,7.58,6.75,2012-09-29,6.75,11.0,33.0
+2013,Bhagyakul,25,Padma Bhagyakul,6.0,7.58,6.65,2013-09-11,6.65,7.0,36.0
+2014,Bhagyakul,25,Padma Bhagyakul,6.0,7.58,6.57,2014-08-31,6.57,11.0,36.0
+2015,Bhagyakul,25,Padma Bhagyakul,6.0,7.58,6.54,2015-08-28,6.54,16.0,37.0
+2016,Bhagyakul,25,Padma Bhagyakul,6.0,7.58,6.9,2016-08-01,6.9,17.0,37.0
+2017,Bhagyakul,25,Padma Bhagyakul,6.0,7.5,6.81,2017-08-18,6.81,20.0,39.0
+2018,Bhagyakul,25,Padma Bhagyakul,6.3,7.5,6.13,2018-09-21,6.13,0.0,43.0
+2019,Bhagyakul,25,Padma Bhagyakul,6.3,7.5,6.7,2019-07-20,6.7,7.0,44.0
+2020,Bhagyakul,25,Padma Bhagyakul,6.3,7.5,7.14,2020-07-27,7.14,41.0,45.0
+2021,Bhagyakul,25,Padma Bhagyakul,6.3,7.5,6.58,2021-09-06,6.58,11.0,43.0
+2010,Bhairabbazar,42,Upper Meghna Bhairab Bazar,6.25,7.66,5.93,,,0.0,45.0
+2011,Bhairabbazar,42,Upper Meghna Bhairab Bazar,6.25,7.66,6.08,2011-08-24,6.08,0.0,37.0
+2012,Bhairabbazar,42,Upper Meghna Bhairab Bazar,6.25,7.66,5.96,2012-07-24,5.96,0.0,35.0
+2013,Bhairabbazar,42,Upper Meghna Bhairab Bazar,6.25,7.66,5.52,2013-09-11,5.52,0.0,38.0
+2014,Bhairabbazar,42,Upper Meghna Bhairab Bazar,6.25,7.66,6.05,2014-08-29,6.05,0.0,39.0
+2015,Bhairabbazar,42,Upper Meghna Bhairab Bazar,6.25,7.66,6.14,2015-09-04,6.14,0.0,40.0
+2016,Bhairabbazar,42,Upper Meghna Bhairab Bazar,6.25,7.66,6.0,2016-08-03,6.0,0.0,40.0
+2017,Bhairabbazar,42,Upper Meghna Bhairab Bazar,6.25,7.78,6.05,2017-08-24,6.05,0.0,43.0
+2018,Bhairabbazar,42,Upper Meghna Bhairab Bazar,6.25,7.78,4.48,2018-07-16,4.48,0.0,48.0
+2019,Bhairabbazar,42,Upper Meghna Bhairab Bazar,6.25,7.78,5.09,2019-07-25,5.09,0.0,49.0
+2020,Bhairabbazar,42,Upper Meghna Bhairab Bazar,6.25,7.78,5.73,2020-07-25,5.73,0.0,49.0
+2021,Bhairabbazar,42,Upper Meghna Bhairab Bazar,6.25,7.78,4.91,2021-09-07,4.91,0.0,47.0
+2011,Bhusirbandar,73,,,,,2011-08-18,39.92,,
+2012,Bhusirbandar,73,,,,,2012-07-08,38.9,,
+2013,Bhusirbandar,73,,,,,2013-07-11,39.19,,
+2014,Bhusirbandar,73,,,,,2014-09-23,38.92,,
+2015,Bhusirbandar,73,,,,,2015-09-02,39.37,,
+2016,Bhusirbandar,73,,,,,2016-07-27,38.67,,
+2017,Bhusirbandar,73,Upper Atrai Bhusirbandar,39.62,41.1,40.35,2017-08-13,40.35,3.0,39.0
+2018,Bhusirbandar,73,Upper Atrai Bhusirbandar,39.62,41.1,38.97,2018-07-06,38.97,0.0,43.0
+2019,Bhusirbandar,73,Upper Atrai Bhusirbandar,39.62,41.1,39.45,2019-07-15,39.45,0.0,44.0
+2020,Bhusirbandar,73,Upper Atrai Bhusirbandar,39.62,41.1,39.98,2020-07-14,39.98,4.0,45.0
+2021,Bhusirbandar,73,Upper Atrai Bhusirbandar,39.62,41.1,38.63,2021-08-30,38.63,0.0,43.0
+2011,Bogra,55,,,,,2011-08-11,15.5,,
+2012,Bogra,55,,,,,2012-09-18,13.68,,
+2013,Bogra,55,,,,,2013-10-18,13.25,,
+2014,Bogra,55,,,,,2014-07-01,14.92,,
+2015,Bogra,55,,,,,2015-09-06,14.54,,
+2016,Bogra,55,,,,,2016-10-13,14.09,,
+2017,Bogra,55,Karatoa Bogra,16.32,17.45,15.04,2017-08-27,15.04,0.0,36.0
+2018,Bogra,55,Karatoa Bogra,16.32,17.45,14.78,2018-08-01,14.78,0.0,40.0
+2019,Bogra,55,Karatoa Bogra,16.32,17.45,14.97,2019-07-28,14.97,0.0,40.0
+2020,Bogra,55,Karatoa Bogra,16.32,17.45,15.54,2020-10-08,15.54,0.0,42.0
+2021,Bogra,55,Karatoa Bogra,16.32,17.45,14.75,2021-07-03,14.75,0.0,40.0
+2011,C-Nawabganj,51,,,,,2011-09-28,21.43,,
+2012,C-Nawabganj,51,,,,,2012-09-25,20.28,,
+2013,C-Nawabganj,51,,,,,2013-09-07,21.25,,
+2014,C-Nawabganj,51,,,,,2014-08-21,20.09,,
+2015,C-Nawabganj,51,,,,,2015-08-28,19.98,,
+2016,C-Nawabganj,51,,,,,2016-08-28,20.9,,
+2017,C-Nawabganj,51,Mohananda Chapai￾Nawabganj,21.0,23.01,21.16,2017-08-22,21.16,6.0,39.0
+2018,C-Nawabganj,51,Mohananda Chapai￾Nawabganj,21.0,23.01,20.04,2018-09-17,20.04,0.0,43.0
+2019,C-Nawabganj,51,Mohananda Chapai￾Nawabganj,21.0,23.01,20.88,2019-10-03,20.88,0.0,44.0
+2020,C-Nawabganj,51,Mohananda Chapai￾Nawabganj,21.0,23.01,20.15,2020-07-27,20.15,0.0,45.0
+2021,C-Nawabganj,51,Mohananda Chapai￾Nawabganj,21.0,23.01,20.7,2021-08-20,20.7,0.0,43.0
+2011,Chakrahimpur,56,,,,,2011-08-22,20.07,,
+2012,Chakrahimpur,56,,,,,2012-09-24,20.33,,
+2013,Chakrahimpur,56,,,,,2013-10-19,19.33,,
+2014,Chakrahimpur,56,,,,,2014-09-27,20.38,,
+2015,Chakrahimpur,56,,,,,2015-08-27,20.69,,
+2016,Chakrahimpur,56,,,,,2016-07-25,19.55,,
+2017,Chakrahimpur,56,Karatoa Chakrahimpur,20.15,21.41,20.4,2017-08-16,20.4,10.0,36.0
+2018,Chakrahimpur,56,Karatoa Chakrahimpur,20.15,21.41,19.46,2018-08-18,19.46,0.0,40.0
+2019,Chakrahimpur,56,Karatoa Chakrahimpur,20.15,21.41,20.19,2019-07-20,20.19,3.0,40.0
+2020,Chakrahimpur,56,Karatoa Chakrahimpur,20.15,21.41,21.31,2020-10-02,21.31,25.0,42.0
+2021,Chakrahimpur,56,Karatoa Chakrahimpur,20.15,21.41,19.98,2021-10-07,19.98,0.0,40.0
+2011,Chandpur,20,,,,,2011-08-04,4.55,,
+2012,Chandpur,20,,,,,2012-08-07,4.95,,
+2013,Chandpur,20,,,,,2013-08-24,3.81,,
+2014,Chandpur,20,,,,,2014-08-31,4.25,,
+2015,Chandpur,20,,,,,2015-08-30,4.54,,
+2016,Chandpur,20,,,,,2016-08-02,4.63,,
+2017,Chandpur,20,,,,,2017-08-21,4.59,,
+2018,Chandpur,20,Meghna Chandpur,4.0,5.35,4.07,2018-08-07,4.07,4.0,48.0
+2019,Chandpur,20,Meghna Chandpur,4.0,5.35,4.14,2019-07-18,4.14,15.0,49.0
+2020,Chandpur,20,Meghna Chandpur,4.0,5.35,4.66,2020-08-05,4.66,42.0,49.0
+2021,Chandpur,20,Meghna Chandpur,4.0,5.35,4.45,2021-09-07,4.45,0.0,47.0
+2010,Chilmari,72,Brahmaputra Chilmari,24.0,25.06,24.28,,,14.0,41.0
+2011,Chilmari,72,Brahmaputra Chilmari,24.0,25.06,23.61,2011-07-24,23.61,0.0,31.0
+2012,Chilmari,72,Brahmaputra Chilmari,24.0,25.06,24.48,2012-09-27,24.48,8.0,30.0
+2013,Chilmari,72,Brahmaputra Chilmari,24.0,25.06,23.92,2013-09-10,23.92,0.0,33.0
+2014,Chilmari,72,Brahmaputra Chilmari,24.0,25.06,24.49,2014-08-28,24.49,13.0,33.0
+2015,Chilmari,72,Brahmaputra Chilmari,24.0,25.06,24.44,2015-09-06,24.44,10.0,34.0
+2016,Chilmari,72,Brahmaputra Chilmari,24.0,25.06,24.99,2016-07-28,24.99,23.0,34.0
+2017,Chilmari,72,Brahmaputra Chilmari,24.0,25.07,24.87,2017-08-15,24.87,14.0,36.0
+2018,Chilmari,72,Brahmaputra Chilmari,23.7,25.07,23.53,2018-09-18,23.53,0.0,40.0
+2019,Chilmari,72,Brahmaputra Chilmari,23.7,25.07,25.02,2019-07-17,25.02,17.0,40.0
+2020,Chilmari,72,Brahmaputra Chilmari,23.7,25.07,24.73,2020-07-15,24.73,36.0,42.0
+2021,Chilmari,72,Brahmaputra Chilmari,23.7,25.07,24.21,2021-09-02,24.21,10.0,40.0
+2010,Chiringa,1,Matamuhuri Chiringa,5.75,6.83,6.83,,,2.0,46.0
+2011,Chiringa,1,Matamuhuri Chiringa,5.75,6.83,7.03,2011-08-09,7.03,11.0,39.0
+2012,Chiringa,1,Matamuhuri Chiringa,5.75,6.83,7.82,2012-06-27,7.82,8.0,37.0
+2013,Chiringa,1,Matamuhuri Chiringa,5.75,6.83,6.36,2013-08-18,6.36,3.0,40.0
+2014,Chiringa,1,Matamuhuri Chiringa,5.75,6.83,6.01,2014-07-21,6.01,1.0,40.0
+2015,Chiringa,1,Matamuhuri Chiringa,5.75,6.83,7.4,2015-06-26,7.4,15.0,41.0
+2016,Chiringa,1,Matamuhuri Chiringa,5.75,6.83,7.0,2016-07-05,7.0,0.0,41.0
+2017,Chiringa,1,Matamuhuri Chiringa,5.75,7.03,7.32,2017-07-04,7.32,10.0,45.0
+2018,Chiringa,1,Matamuhuri Chiringa,6.25,7.32,7.1,2018-06-12,7.1,6.0,50.0
+2019,Chiringa,1,Matamuhuri Chiringa,6.25,7.32,7.17,2019-07-14,7.17,5.0,51.0
+2020,Chiringa,1,Matamuhuri Chiringa,6.25,7.32,7.18,2020-06-17,7.18,2.0,51.0
+2021,Chiringa,1,Matamuhuri Chiringa,6.25,7.32,6.66,2021-07-29,6.66,2.0,49.0
+2018,Chittagong,119,Karnaphuli Chittagong,4.6,4.98,,,,,50.0
+2019,Chittagong,119,Karnaphuli Chittagong,4.6,4.98,4.85,2019-07-07,4.85,1.0,51.0
+2020,Chittagong,119,Karnaphuli Chittagong,4.6,4.98,4.45,2020-08-06,4.45,0.0,51.0
+2021,Chittagong,119,Karnaphuli Chittagong,4.6,4.98,3.6,2021-05-27,3.6,0.0,49.0
+2011,Chuadanga,30,,,,,2011-08-20,10.17,,
+2012,Chuadanga,30,,,,,2012-09-28,8.94,,
+2013,Chuadanga,30,,,,,2013-09-08,9.57,,
+2014,Chuadanga,30,,,,,2014-08-25,8.43,,
+2015,Chuadanga,30,,,,,2015-08-10,9.06,,
+2016,Chuadanga,30,,,,,2016-08-28,9.36,,
+2017,Chuadanga,30,Mathabhanga Chuadanga,12.04,12.67,8.67,2017-08-24,8.67,0.0,39.0
+2018,Chuadanga,30,Mathabhanga Chuadanga,12.05,12.67,8.27,2018-09-18,8.27,0.0,43.0
+2019,Chuadanga,30,Mathabhanga Chuadanga,12.05,12.67,8.88,2019-10-05,8.88,0.0,44.0
+2020,Chuadanga,30,Mathabhanga Chuadanga,12.05,12.67,9.48,2020-07-30,9.48,0.0,45.0
+2021,Chuadanga,30,Mathabhanga Chuadanga,12.05,12.67,9.76,2021-08-27,9.76,0.0,43.0
+2010,Comilla,23,Gumti Comilla,10.38,13.56,11.25,,,0.0,45.0
+2011,Comilla,23,Gumti Comilla,10.38,13.56,,2011-07-02,10.81,,37.0
+2012,Comilla,23,Gumti Comilla,10.38,13.56,10.6,2012-06-25,10.6,,35.0
+2013,Comilla,23,Gumti Comilla,11.75,13.56,10.86,2013-05-09,10.86,0.0,38.0
+2014,Comilla,23,Gumti Comilla,11.75,13.56,11.27,2014-06-23,11.27,0.0,39.0
+2015,Comilla,23,Gumti Comilla,11.75,13.56,11.02,2015-09-11,11.02,0.0,40.0
+2016,Comilla,23,Gumti Comilla,11.75,13.56,9.69,2016-07-19,9.69,0.0,40.0
+2017,Comilla,23,Gumti Comilla,11.75,13.56,11.78,2017-10-23,11.78,1.0,43.0
+2018,Comilla,23,Gumti Comilla,11.75,13.56,10.53,2018-05-21,10.53,0.0,48.0
+2019,Comilla,23,Gumti Comilla,11.75,13.56,10.15,2019-07-16,10.15,0.0,49.0
+2020,Comilla,23,Gumti Comilla,11.75,13.56,9.98,2020-07-13,9.98,0.0,49.0
+2021,Comilla,23,Gumti Comilla,11.75,13.56,9.94,2021-07-01,9.94,0.0,47.0
+2010,Dalia,80,Teesta Dalia,52.25,52.97,52.65,,,9.0,41.0
+2011,Dalia,80,Teesta Dalia,52.25,52.97,52.37,2011-09-19,52.5,,31.0
+2012,Dalia,80,Teesta Dalia,52.25,52.97,52.7,2012-07-16,52.7,9.0,30.0
+2013,Dalia,80,Teesta Dalia,52.4,52.97,52.7,2013-07-10,52.7,7.0,33.0
+2014,Dalia,80,Teesta Dalia,52.4,52.97,52.74,2014-08-27,52.74,20.0,33.0
+2015,Dalia,80,Teesta Dalia,52.4,52.97,52.85,2015-07-02,52.85,13.0,34.0
+2016,Dalia,80,Teesta Dalia,52.4,52.97,52.65,2016-06-22,52.65,8.0,34.0
+2017,Dalia,80,Teesta Dalia,52.4,52.97,53.05,2017-08-13,53.05,6.0,36.0
+2018,Dalia,80,Teesta Dalia,52.6,53.05,52.71,2018-07-05,52.71,5.0,40.0
+2019,Dalia,80,Teesta Dalia,52.6,53.1,53.1,2019-07-13,53.1,7.0,40.0
+2020,Dalia,80,Teesta Dalia,52.6,53.12,53.15,2020-07-13,53.12,14.0,42.0
+2021,Dalia,80,Teesta Dalia,52.6,53.1,53.3,2021-10-20,53.3,13.0,40.0
+2020,Daulatkhan,11,Lower Meghna Daulatkhan,3.41,5.11,4.5,2020-06-10,4.5,41.0,49.0
+2011,Debidwar,29,,,,,2011-08-22,6.88,,
+2012,Debidwar,29,,,,,2012-06-26,6.75,,
+2013,Debidwar,29,,,,,2013-09-06,7.06,,
+2014,Debidwar,29,,,,,2014-06-25,7.47,,
+2015,Debidwar,29,,,,,2015-09-23,7.78,,
+2016,Debidwar,29,,,,,2016-09-02,6.97,,
+2017,Debidwar,29,Gumti Debiddar,8.5,,8.67,2017-10-24,8.67,2.0,43.0
+2018,Debidwar,29,Gumti Debiddar,8.5,9.98,7.06,2018-05-21,7.06,0.0,48.0
+2019,Debidwar,29,Gumti Debiddar,8.5,9.98,6.96,2019-07-16,6.96,0.0,49.0
+2020,Debidwar,29,Gumti Debiddar,8.5,9.98,6.29,2020-07-14,6.29,0.0,49.0
+2021,Debidwar,29,Gumti Debiddar,8.5,9.98,6.36,2021-07-02,6.36,0.0,47.0
+2011,Demra,33,,,,,2011-08-20,5.74,,
+2012,Demra,33,,,,,2012-07-23,5.28,,
+2013,Demra,33,,,,,2013-09-08,5.31,,
+2014,Demra,33,,,,,2014-09-01,5.54,,
+2015,Demra,33,,,,,2015-09-02,5.52,,
+2016,Demra,33,,,,,2016-08-05,5.64,,
+2017,Demra,33,Balu Demra,5.75,7.13,5.65,2017-08-23,5.65,0.0,36.0
+2018,Demra,33,Balu Demra,5.75,7.13,4.92,2018-08-16,4.92,0.0,40.0
+2019,Demra,33,Balu Demra,5.75,7.13,5.4,2019-07-29,5.4,0.0,40.0
+2020,Demra,33,Balu Demra,5.75,7.13,6.0,2020-08-06,6.0,18.0,42.0
+2021,Demra,33,Balu Demra,5.75,7.13,5.51,2021-09-07,5.51,0.0,40.0
+2014,Derai,96,,,,,2014-08-28,7.3,,
+2015,Derai,96,,,,,2015-09-04,7.57,,
+2017,Derai,96,Old Surma Derai,7.0,7.75,7.48,2017-08-20,7.48,37.0,43.0
+2018,Derai,96,Old Surma Derai,7.0,7.75,6.92,2018-07-07,6.92,0.0,48.0
+2019,Derai,96,Old Surma Derai,7.0,7.75,7.06,2019-07-16,7.06,4.0,49.0
+2020,Derai,96,Old Surma Derai,7.0,7.75,7.41,2020-07-23,7.41,26.0,49.0
+2021,Derai,96,Old Surma Derai,7.0,7.75,6.54,2021-07-08,6.54,0.0,47.0
+2010,Dhaka,32,Buriganga Dhaka,6.0,7.58,5.16,,,0.0,41.0
+2011,Dhaka,32,Buriganga Dhaka,6.0,7.58,5.16,2011-08-21,5.16,0.0,31.0
+2012,Dhaka,32,Buriganga Dhaka,6.0,7.58,4.95,2012-07-23,4.95,0.0,30.0
+2013,Dhaka,32,Buriganga Dhaka,6.0,7.58,4.92,2013-09-12,4.92,0.0,33.0
+2014,Dhaka,32,Buriganga Dhaka,6.0,7.58,5.11,2014-08-31,5.11,0.0,33.0
+2015,Dhaka,32,Buriganga Dhaka,6.0,7.58,5.2,2015-09-02,5.2,0.0,34.0
+2016,Dhaka,32,Buriganga Dhaka,6.0,7.58,5.21,2016-08-04,5.21,0.0,34.0
+2017,Dhaka,32,Buriganga Dhaka,6.0,7.58,5.22,2017-08-24,5.22,0.0,36.0
+2018,Dhaka,32,Buriganga Dhaka,6.0,7.58,4.64,2018-08-16,4.64,0.0,40.0
+2019,Dhaka,32,Buriganga Dhaka,6.0,7.58,4.9,2019-07-22,4.9,0.0,40.0
+2020,Dhaka,32,Buriganga Dhaka,6.0,7.58,5.53,2020-08-07,5.53,0.0,42.0
+2021,Dhaka,32,Buriganga Dhaka,6.0,7.58,5.15,2021-09-08,5.15,0.0,40.0
+2010,Dinajpur,74,Punarbhaba Dinajpur,33.5,34.4,33.28,,,0.0,42.0
+2011,Dinajpur,74,Punarbhaba Dinajpur,33.5,34.4,33.55,2011-08-19,33.55,1.0,34.0
+2012,Dinajpur,74,Punarbhaba Dinajpur,33.5,34.4,32.85,2012-07-07,32.85,0.0,33.0
+2013,Dinajpur,74,Punarbhaba Dinajpur,33.5,34.4,33.5,2013-07-11,33.5,,36.0
+2014,Dinajpur,74,Punarbhaba Dinajpur,33.5,34.4,31.47,2014-08-27,31.47,0.0,36.0
+2015,Dinajpur,74,Punarbhaba Dinajpur,33.5,34.4,32.47,2015-09-02,32.47,0.0,37.0
+2016,Dinajpur,74,Punarbhaba Dinajpur,33.5,34.4,30.28,2016-09-27,30.28,0.0,37.0
+2017,Dinajpur,74,Punarbhaba Dinajpur,33.5,34.4,34.3,2017-08-13,34.3,4.0,39.0
+2018,Dinajpur,74,Punarbhaba Dinajpur,33.5,34.4,32.07,2018-07-07,32.07,0.0,43.0
+2019,Dinajpur,74,Punarbhaba Dinajpur,33.5,34.4,32.58,2019-07-16,32.58,0.0,44.0
+2020,Dinajpur,74,Punarbhaba Dinajpur,33.5,34.4,33.6,2020-09-28,33.6,1.0,45.0
+2021,Dinajpur,74,Punarbhaba Dinajpur,33.5,34.4,31.1,2021-08-29,31.1,0.0,43.0
+2010,Dohazari,4,Sangu Dohazari,5.75,9.05,5.36,,,0.0,46.0
+2011,Dohazari,4,Sangu Dohazari,5.75,9.05,7.73,2011-08-11,7.73,1.0,39.0
+2012,Dohazari,4,Sangu Dohazari,5.75,9.05,7.6,2012-06-26,7.6,3.0,37.0
+2013,Dohazari,4,Sangu Dohazari,7.0,9.05,5.5,2013-06-30,5.5,0.0,40.0
+2014,Dohazari,4,Sangu Dohazari,7.0,9.05,5.3,2014-08-15,5.3,0.0,40.0
+2015,Dohazari,4,Sangu Dohazari,7.0,9.05,8.3,2015-07-27,8.3,13.0,41.0
+2016,Dohazari,4,Sangu Dohazari,7.0,9.05,7.6,2016-07-06,7.6,3.0,41.0
+2017,Dohazari,4,Sangu Dohazari,7.0,9.05,7.79,2017-06-04,7.79,3.0,45.0
+2018,Dohazari,4,Sangu Dohazari,7.0,9.05,7.5,2018-06-12,7.5,3.0,50.0
+2019,Dohazari,4,Sangu Dohazari,7.0,9.05,8.6,2019-07-14,8.6,7.0,51.0
+2020,Dohazari,4,Sangu Dohazari,7.0,9.05,5.25,2020-06-18,5.25,0.0,51.0
+2021,Dohazari,4,Sangu Dohazari,7.0,9.05,6.65,2021-07-29,6.65,0.0,49.0
+2011,Durgapur,67,,,,,2011-08-16,14.71,,
+2012,Durgapur,67,,,,,2012-09-23,14.36,,
+2013,Durgapur,67,,,,,2013-10-06,12.38,,
+2014,Durgapur,67,,,,,2014-09-23,15.5,,
+2015,Durgapur,67,,,,,2015-08-20,14.16,,
+2016,Durgapur,67,,,,,2016-07-26,13.28,,
+2017,Durgapur,67,Someswari Durgapur,13.0,15.58,14.45,2017-08-12,14.45,5.0,43.0
+2018,Durgapur,67,Someswari Durgapur,13.0,15.2,12.8,2018-09-11,12.8,0.0,48.0
+2019,Durgapur,67,Someswari Durgapur,13.0,15.2,13.63,2019-07-10,13.63,2.0,49.0
+2020,Durgapur,67,Someswari Durgapur,13.0,15.2,13.34,2020-07-12,13.34,2.0,49.0
+2021,Durgapur,67,Someswari Durgapur,13.0,15.2,13.11,2021-06-30,13.11,1.0,47.0
+2014,Elasinghat,103,,,,,2014-08-31,12.31,,
+2015,Elasinghat,103,,,,,2015-09-08,12.33,,
+2016,Elasinghat,103,,,,,2016-07-31,12.8,,
+2017,Elasinghat,103,Dhaleswari Elasin,11.4,12.8,12.52,2017-08-18,12.52,31.0,36.0
+2018,Elasinghat,103,Dhaleswari Elasin,11.4,12.52,11.73,2018-09-20,11.73,9.0,40.0
+2019,Elasinghat,103,Dhaleswari Elasin,11.4,12.52,12.36,2019-07-20,12.36,17.0,40.0
+2020,Elasinghat,103,Dhaleswari Elasin,11.4,12.52,12.62,2020-07-27,12.62,62.0,42.0
+2021,Elasinghat,103,Dhaleswari Elasin,11.4,12.52,12.19,2021-09-04,12.19,20.0,40.0
+2011,Faridpur,27,,,,,2011-08-18,5.45,,
+2012,Faridpur,27,,,,,2012-09-30,4.58,,
+2013,Faridpur,27,,,,,2013-09-12,4.89,,
+2014,Faridpur,27,,,,,2014-09-01,4.89,,
+2015,Faridpur,27,,,,,2015-09-04,5.15,,
+2016,Faridpur,27,,,,,2016-08-22,4.75,,
+2017,Faridpur,27,Kumar Faridpur,7.5,8.76,5.22,2017-08-23,5.22,0.0,39.0
+2018,Faridpur,27,Kumar Faridpur,7.5,8.76,4.6,2018-09-22,4.6,0.0,43.0
+2019,Faridpur,27,Kumar Faridpur,7.5,8.76,4.95,2019-10-04,4.95,0.0,44.0
+2020,Faridpur,27,Kumar Faridpur,7.5,8.76,5.55,2020-07-29,5.55,0.0,45.0
+2021,Faridpur,27,Kumar Faridpur,7.5,8.76,5.04,2021-08-28,5.04,0.0,43.0
+2016,Fulchari,110,,,,,2016-07-28,21.13,,
+2017,Fulchari,110,Jamuna Fulchari,,,21.03,,,,36.0
+2018,Fulchari,110,Jamuna Fulchari,19.82,21.13,19.91,2018-09-20,19.91,5.0,40.0
+2019,Fulchari,110,Jamuna Fulchari,19.82,21.35,21.35,2019-07-18,21.35,18.0,40.0
+2020,Fulchari,110,Jamuna Fulchari,19.82,21.35,21.06,2020-07-16,21.06,40.0,42.0
+2021,Fulchari,110,Jamuna Fulchari,19.82,21.35,20.34,2021-09-03,20.34,9.0,40.0
+2011,Gaibandha,71,Ghagot Gaibandha,21.7,22.81,21.81,2011-07-22,21.81,4.0,31.0
+2012,Gaibandha,71,Ghagot Gaibandha,21.7,22.81,22.35,2012-07-01,22.35,15.0,30.0
+2013,Gaibandha,71,Ghagot Gaibandha,21.7,22.81,22.17,2013-09-10,22.17,4.0,33.0
+2014,Gaibandha,71,Ghagot Gaibandha,21.7,22.81,22.36,2014-08-29,22.36,14.0,33.0
+2015,Gaibandha,71,Ghagot Gaibandha,21.7,22.81,22.33,2015-09-06,22.33,8.0,34.0
+2016,Gaibandha,71,Ghagot Gaibandha,21.7,22.81,22.61,2016-07-28,22.61,51.0,34.0
+2017,Gaibandha,71,Ghagot Gaibandha,21.7,22.81,22.55,2017-08-15,22.55,15.0,36.0
+2018,Gaibandha,71,Ghagot Gaibandha,21.7,22.81,21.51,2018-09-17,21.51,0.0,40.0
+2019,Gaibandha,71,Ghagot Gaibandha,21.7,22.81,22.64,2019-07-18,22.64,16.0,40.0
+2020,Gaibandha,71,Ghagot Gaibandha,21.7,22.81,22.64,2020-07-15,22.64,38.0,42.0
+2021,Gaibandha,71,Ghagot Gaibandha,21.7,22.81,21.9,2021-09-03,21.9,4.0,40.0
+2010,Goalondo,34,Padma Goalundo,8.5,10.01,9.12,,,39.0,42.0
+2011,Goalondo,34,Padma Goalundo,8.5,10.01,8.86,2011-08-20,8.86,18.0,34.0
+2012,Goalondo,34,Padma Goalundo,8.5,10.01,9.17,2012-09-29,9.17,7.0,33.0
+2013,Goalondo,34,Padma Goalundo,8.5,10.01,8.97,2013-09-11,8.97,5.0,36.0
+2014,Goalondo,34,Padma Goalundo,8.5,10.01,8.92,2014-08-31,8.92,13.0,36.0
+2015,Goalondo,34,Padma Goalundo,8.5,10.01,9.09,2015-08-27,9.09,18.0,37.0
+2016,Goalondo,34,Padma Goalundo,8.5,10.01,9.66,2016-07-31,9.66,17.0,37.0
+2017,Goalondo,34,Padma Goalundo,8.5,10.21,9.71,2017-08-18,9.71,20.0,39.0
+2018,Goalondo,34,Padma Goalundo,8.65,10.21,8.64,2018-09-19,8.64,0.0,43.0
+2019,Goalondo,34,Padma Goalundo,8.65,10.21,9.33,2019-07-20,9.33,17.0,44.0
+2020,Goalondo,34,Padma Goalundo,8.65,10.21,9.84,2020-07-27,9.84,60.0,45.0
+2021,Goalondo,34,Padma Goalundo,8.65,10.21,9.43,2021-09-05,9.43,25.0,43.0
+2011,Gorai-RB,40,,,,,2011-08-22,12.42,,
+2012,Gorai-RB,40,Gorai Gorai Rail Bridge,12.75,13.65,12.09,,,0.0,33.0
+2013,Gorai-RB,40,Gorai Gorai Rail Bridge,12.75,13.65,12.24,2013-09-08,12.24,0.0,36.0
+2014,Gorai-RB,40,Gorai Gorai Rail Bridge,12.75,13.65,11.76,2014-08-24,11.76,0.0,36.0
+2015,Gorai-RB,40,Gorai Gorai Rail Bridge,12.75,13.65,11.82,2015-08-28,11.82,0.0,37.0
+2016,Gorai-RB,40,Gorai Gorai Rail Bridge,12.75,13.65,12.37,2016-08-28,12.37,0.0,37.0
+2017,Gorai-RB,40,Gorai Gorai Rail Bridge,12.75,13.65,12.21,2017-08-21,12.21,0.0,39.0
+2018,Gorai-RB,40,Gorai Gorai Rail Bridge,12.75,13.65,11.81,2018-09-18,11.81,0.0,43.0
+2019,Gorai-RB,40,Gorai Gorai Rail Bridge,12.75,13.65,12.47,2019-10-03,12.47,0.0,44.0
+2020,Gorai-RB,40,Gorai Gorai Rail Bridge,12.75,13.65,12.13,2020-07-28,12.13,0.0,45.0
+2021,Gorai-RB,40,Gorai Gorai Rail Bridge,12.75,13.65,12.52,2021-08-22,12.52,0.0,43.0
+2010,Habiganj,46,Khowai Habiganj,9.5,12.0,11.6,,,13.0,45.0
+2011,Habiganj,46,Khowai Habigonj,9.5,12.0,11.76,2011-05-22,11.5,3.0,37.0
+2012,Habiganj,46,Khowai Habigonj,9.5,12.0,11.7,2012-06-17,11.7,3.0,35.0
+2013,Habiganj,46,Khowai Habigonj,9.5,12.0,11.5,2013-05-09,11.5,1.0,38.0
+2014,Habiganj,46,Khowai Habiganj,9.5,12.0,10.8,2014-06-23,10.8,3.0,39.0
+2015,Habiganj,46,Khowai Habiganj,9.5,12.0,10.2,2015-07-20,10.2,2.0,40.0
+2016,Habiganj,46,Khowai Habiganj,9.5,12.0,10.0,2016-05-22,10.0,1.0,40.0
+2017,Habiganj,46,Khowai Habiganj,9.5,12.0,12.3,2017-06-20,12.3,18.0,43.0
+2018,Habiganj,46,Khowai Habiganj,9.5,12.3,11.5,2018-05-19,11.5,9.0,48.0
+2019,Habiganj,46,Khowai Habiganj,9.5,12.3,10.16,2019-07-15,10.16,2.0,49.0
+2020,Habiganj,46,Khowai Habiganj,9.5,12.3,8.91,2020-10-24,8.91,0.0,49.0
+2021,Habiganj,46,Khowai Habiganj,9.5,12.3,9.01,2021-07-01,9.01,0.0,47.0
+2010,Hardinge-RB,43,Ganges Hardinge Bridge,14.25,15.04,13.69,,,0.0,42.0
+2011,Hardinge-RB,43,Ganges Hardinge Bridge,14.25,15.04,13.78,2011-02-10,13.78,0.0,34.0
+2012,Hardinge-RB,43,Ganges Hardinge Bridge,14.25,15.04,13.56,2012-09-26,13.56,0.0,33.0
+2013,Hardinge-RB,43,Ganges Hardinge Bridge,14.25,15.04,14.13,2013-09-07,14.13,0.0,36.0
+2014,Hardinge-RB,43,Ganges Hardinge Bridge,14.25,15.04,13.31,2014-08-22,13.31,0.0,36.0
+2015,Hardinge-RB,43,Ganges Hardinge Bridge,14.25,15.04,13.75,2015-08-28,13.75,0.0,37.0
+2016,Hardinge-RB,43,Ganges Hardinge Bridge,14.25,15.04,14.19,2016-08-27,14.19,0.0,37.0
+2017,Hardinge-RB,43,Ganges Hardinge Bridge,14.25,15.19,13.85,2017-08-21,13.85,0.0,39.0
+2018,Hardinge-RB,43,Ganges Hardinge Bridge,14.25,15.19,13.69,2018-09-17,13.69,0.0,43.0
+2019,Hardinge-RB,43,Ganges Hardinge Bridge,14.25,15.19,14.33,2019-10-02,14.33,5.0,44.0
+2020,Hardinge-RB,43,Ganges Hardinge Bridge,14.25,15.19,13.5,2020-07-28,13.5,0.0,45.0
+2021,Hardinge-RB,43,Ganges Hardinge Bridge,14.25,15.19,14.2,2021-08-21,14.2,0.0,43.0
+2020,Hariharpara,28,Buriganga Hariharpara,5.79,7.13,5.48,2020-08-07,5.48,0.0,42.0
+2011,Hatboalia,36,,,,,2011-08-22,12.23,,
+2012,Hatboalia,36,,,,,2012-07-27,11.36,,
+2013,Hatboalia,36,,,,,2013-09-11,12.45,,
+2014,Hatboalia,36,,,,,2014-08-25,11.53,,
+2015,Hatboalia,36,,,,,2015-08-29,11.53,,
+2016,Hatboalia,36,,,,,2016-08-29,11.27,,
+2017,Hatboalia,36,Mathabhanga Hatboalia,14.48,15.13,10.62,2017-08-23,10.62,0.0,39.0
+2018,Hatboalia,36,Mathabhanga Hatboalia,14.5,15.13,10.42,2018-09-18,10.42,0.0,43.0
+2019,Hatboalia,36,Mathabhanga Hatboalia,14.5,15.13,11.12,2019-10-04,11.12,0.0,44.0
+2020,Hatboalia,36,Mathabhanga Hatboalia,14.5,15.13,10.96,2020-07-22,10.96,0.0,45.0
+2021,Hatboalia,36,Mathabhanga Hatboalia,14.5,15.13,11.71,2021-11-09,20.2,0.0,43.0
+2011,Jagir,39,,,,,2011-08-24,7.15,,
+2012,Jagir,39,,,,,2012-07-30,7.6,,
+2013,Jagir,39,,,,,2013-09-16,7.16,,
+2014,Jagir,39,,,,,2014-09-04,8.4,,
+2015,Jagir,39,,,,,2015-09-11,8.35,,
+2016,Jagir,39,,,,,2016-08-03,9.07,,
+2017,Jagir,39,Dhaleswari Jagir,8.23,9.73,9.0,2017-08-22,9.0,13.0,36.0
+2018,Jagir,39,Dhaleswari Jagir,8.23,9.73,6.77,2018-09-23,6.77,0.0,40.0
+2019,Jagir,39,Dhaleswari Jagir,8.23,9.73,7.68,2019-07-25,7.68,0.0,40.0
+2020,Jagir,39,Dhaleswari Jagir,8.23,9.73,9.29,2020-07-29,9.29,24.0,42.0
+2021,Jagir,39,Dhaleswari Jagir,8.23,9.73,8.3,2021-09-08,8.3,3.0,40.0
+2010,Jamalpur,62,Old Br.putra Jamalpur,17.0,18.0,16.17,,,0.0,41.0
+2011,Jamalpur,62,Old Br.putra Jamalpur,17.0,18.0,15.41,2011-08-20,15.41,0.0,31.0
+2012,Jamalpur,62,Old Br.putra Jamalpur,17.0,18.0,16.7,2012-09-30,16.7,0.0,30.0
+2013,Jamalpur,62,Old Br.putra Jamalpur,17.0,18.0,15.8,2013-09-12,15.8,0.0,33.0
+2014,Jamalpur,62,Old Br.putra Jamalpur,17.0,18.0,16.33,2014-09-01,16.33,0.0,33.0
+2015,Jamalpur,62,Old Br.putra Jamalpur,17.0,18.0,15.84,2015-09-09,15.84,0.0,34.0
+2016,Jamalpur,62,Old Brahmaputra Jamalpur,17.0,18.0,16.76,2016-08-01,16.76,0.0,34.0
+2017,Jamalpur,62,Old Br.putra Jamalpur,17.0,18.0,17.01,2017-08-18,17.01,1.0,36.0
+2018,Jamalpur,62,Old Br.putra Jamalpur,17.0,18.0,14.98,2018-09-20,14.98,0.0,40.0
+2019,Jamalpur,62,Old Br.putra Jamalpur,17.0,18.0,17.17,2019-07-20,17.17,4.0,40.0
+2020,Jamalpur,62,Old Br.putra Jamalpur,17.0,18.0,17.18,2020-07-28,17.18,8.0,42.0
+2021,Jamalpur,62,Old Br.putra Jamalpur,17.0,18.0,15.62,2021-09-05,15.62,0.0,40.0
+2011,Jariajanjail,63,,,,,2011-08-18,11.8,,
+2012,Jariajanjail,63,,,,,2012-07-18,10.94,,
+2013,Jariajanjail,63,,,,,2013-09-06,9.3,,
+2014,Jariajanjail,63,,,,,2014-09-23,12.15,,
+2015,Jariajanjail,63,,,,,2015-08-22,11.1,,
+2016,Jariajanjail,63,,,,,2016-07-26,10.95,,
+2017,Jariajanjail,63,Kangsha Jariajanjail,9.75,13.37,11.59,2017-08-13,11.59,82.0,43.0
+2018,Jariajanjail,63,Kangsha Jariajanjail,11.0,13.37,9.51,2018-08-03,9.51,0.0,48.0
+2019,Jariajanjail,63,Kangsha Jariajanjail,11.0,13.37,10.87,2019-07-15,10.87,0.0,49.0
+2020,Jariajanjail,63,Kangsha Jariajanjail,11.0,13.37,10.61,2020-09-25,10.61,0.0,49.0
+2021,Jariajanjail,63,Kangsha Jariajanjail,11.0,13.37,11.03,2021-07-01,11.03,1.0,47.0
+2011,Jhikargacha,18,Kobodak Jhikorgacha,4.11,5.59,4.99,2011-08-21,4.99,89.0,34.0
+2012,Jhikargacha,18,Kobodak Jhikorgacha,4.11,5.59,4.39,2012-09-20,4.39,49.0,33.0
+2013,Jhikargacha,18,Kobodak Jhikorgacha,4.11,5.59,4.92,2013-10-08,4.92,120.0,36.0
+2014,Jhikargacha,18,Kobodak Jhikorgacha,4.11,5.59,4.09,2014-08-22,4.09,0.0,36.0
+2015,Jhikargacha,18,Kobodak Jhikorgacha,4.11,5.59,4.85,2015-08-03,4.85,100.0,37.0
+2016,Jhikargacha,18,Kobodak Jhikorgacha,4.11,5.59,5.3,2016-08-25,5.3,22.0,37.0
+2017,Jhikargacha,18,Kobodak Jhikorgacha,4.11,5.59,4.65,2017-07-27,4.65,29.0,39.0
+2018,Jhikargacha,18,Kobodak Jhikorgacha,5.1,5.59,4.32,2018-08-09,4.32,0.0,43.0
+2019,Jhikargacha,18,Kobadak Jhikargacha,5.1,5.59,2.39,2019-08-18,2.39,0.0,44.0
+2020,Jhikargacha,18,Kobadak Jhikargacha,5.1,5.59,4.41,2020-08-24,4.41,0.0,45.0
+2021,Jhikargacha,18,Kobodak Jhikorgacha,5.1,5.59,4.01,2021-08-06,4.01,0.0,43.0
+2020,Kalaroa,15,Betna Kalaroa,3.81,4.89,4.75,2020-08-27,4.75,101.0,45.0
+2019,Kalmakanda,120,Someswari Kalmakanda,7.0,13.27,7.73,,,19.0,49.0
+2020,Kalmakanda,120,Someswari Kalmakanda,7.0,13.27,7.38,2020-07-12,7.38,14.0,49.0
+2011,Kamalganj,86,,,,,2011-06-11,20.22,,
+2012,Kamalganj,86,,,,,2012-06-16,20.65,,
+2013,Kamalganj,86,,,,,2013-08-15,20.5,,
+2014,Kamalganj,86,,,,,2014-09-04,20.25,,
+2015,Kamalganj,86,,,,,2015-08-19,19.5,,
+2016,Kamalganj,86,,,,,2016-08-16,20.15,,
+2017,Kamalganj,86,Dhalai Kamalganj,19.82,21.18,20.45,2017-06-04,20.45,9.0,43.0
+2018,Kamalganj,86,Dhalai Kamalganj,19.82,21.18,20.03,2018-06-15,20.03,4.0,48.0
+2019,Kamalganj,86,Dhalai Kamalganj,19.82,21.18,20.73,2019-06-14,20.73,2.0,49.0
+2020,Kamalganj,86,Dhalai Kamalganj,19.82,21.18,19.45,2020-06-04,19.45,0.0,49.0
+2021,Kamalganj,86,Dhalai Kamalganj,19.82,21.18,18.8,2021-09-01,18.8,0.0,47.0
+2011,Kamarkhali,24,Gorai Kamarkhali,8.2,9.48,8.44,2011-08-21,8.44,15.0,34.0
+2012,Kamarkhali,24,Gorai Kamarkhali,8.2,9.48,8.09,2012-09-27,8.09,0.0,33.0
+2013,Kamarkhali,24,Gorai Kamarkhali,8.2,9.48,8.36,2013-09-08,8.36,13.0,36.0
+2014,Kamarkhali,24,Gorai Kamarkhali,8.2,9.48,7.78,2014-08-24,7.78,0.0,36.0
+2015,Kamarkhali,24,Gorai Kamarkhali,8.2,9.48,4.65,2015-08-29,4.65,0.0,37.0
+2016,Kamarkhali,24,Gorai Kamarkhali,8.2,9.48,8.31,2016-08-29,8.31,,37.0
+2017,Kamarkhali,24,Gorai Kamarkhali,8.2,9.48,8.24,2017-08-21,8.24,3.0,39.0
+2018,Kamarkhali,24,Gorai Kamarkhali,8.2,9.48,7.75,2018-09-18,7.75,0.0,43.0
+2019,Kamarkhali,24,Gorai Kamarkhali,8.2,9.48,8.47,2019-10-03,8.47,6.0,44.0
+2020,Kamarkhali,24,Gorai Kamarkhali,8.2,9.48,8.11,2020-07-29,8.11,0.0,45.0
+2021,Kamarkhali,24,Gorai Kamarkhali,8.2,9.48,8.42,2021-08-21,8.42,12.0,43.0
+2010,Kanaighat,64,Surma Kanaighat,13.2,15.26,14.83,,,121.0,45.0
+2011,Kanaighat,64,Surma Kanaighat,13.2,15.26,13.94,2011-07-31,13.94,18.0,37.0
+2012,Kanaighat,64,Surma Kanaighat,13.2,15.26,15.58,2012-06-26,15.58,28.0,35.0
+2013,Kanaighat,64,Surma Kanaighat,13.2,15.58,13.67,2013-08-18,13.67,7.0,38.0
+2014,Kanaighat,64,Surma Kanaighat,13.2,15.58,13.99,2014-08-18,13.99,15.0,39.0
+2015,Kanaighat,64,Surma Kanaighat,13.2,15.58,14.85,2015-09-01,14.85,30.0,40.0
+2016,Kanaighat,64,Surma Kanaighat,13.2,15.58,14.45,2016-04-24,14.45,31.0,40.0
+2017,Kanaighat,64,Surma Kanaighat,13.2,15.26,14.51,2017-09-10,14.51,92.0,43.0
+2018,Kanaighat,64,Surma Kanaighat,13.2,15.26,14.77,2018-06-14,14.77,17.0,48.0
+2019,Kanaighat,64,Surma Kanaighat,13.2,15.26,14.3,2019-07-13,14.3,13.0,49.0
+2020,Kanaighat,64,Surma Kanaighat,13.2,15.26,14.04,2020-07-21,14.04,26.0,49.0
+2021,Kanaighat,64,Surma Kanaighat,13.2,15.26,13.49,2021-08-07,13.49,3.0,47.0
+2010,Kaunia,75,Teesta Kaunias,30.0,30.52,29.44,,,0.0,41.0
+2011,Kaunia,75,Teesta Kaunia,30.0,30.52,29.2,2011-08-17,29.2,0.0,31.0
+2012,Kaunia,75,Teesta Kaunia,30.0,30.52,29.98,2012-08-05,29.98,0.0,30.0
+2013,Kaunia,75,Teesta Kaunia,30.0,30.52,29.05,2013-07-10,29.05,0.0,33.0
+2014,Kaunia,75,Teesta Kaunia,30.0,30.52,28.95,2014-08-27,28.95,0.0,33.0
+2015,Kaunia,75,Teesta Kaunia,30.0,30.52,29.11,2015-09-02,29.11,0.0,34.0
+2016,Kaunia,75,Teesta Kaunia,30.0,30.52,28.98,2016-10-10,28.98,0.0,34.0
+2017,Kaunia,75,Teesta Kaunia,30.0,30.52,29.95,2017-08-13,29.95,0.0,36.0
+2018,Kaunia,75,Teesta Kaunia,29.2,30.52,28.5,2018-06-18,28.5,0.0,40.0
+2019,Kaunia,75,Teesta Kaunia,29.2,30.52,29.42,2019-07-14,29.42,3.0,40.0
+2020,Kaunia,75,Teesta Kaunia,29.2,30.52,29.35,2020-07-13,29.35,4.0,42.0
+2021,Kaunia,75,Teesta Kaunia,29.2,30.52,29.54,2021-10-21,29.54,2.0,40.0
+2016,Kazipur,87,,,,,2016-07-29,16.07,,
+2017,Kazipur,87,Jamuna Kazipur,15.24,,16.8,,,29.0,36.0
+2018,Kazipur,87,Jamuna Kazipur,15.25,17.47,15.54,2018-07-09,15.54,6.0,40.0
+2019,Kazipur,87,Jamuna Kazipur,15.25,17.47,16.51,2019-07-18,16.51,14.0,40.0
+2020,Kazipur,87,Jamuna Kazipur,15.25,17.47,16.47,2020-07-17,16.47,41.0,42.0
+2021,Kazipur,87,Jamuna Kazipur,15.25,17.47,15.92,2021-09-03,15.92,14.0,40.0
+2014,Khaliajuri,100,,,,,2014-07-28,8.82,,
+2015,Khaliajuri,100,,,,,2015-09-04,7.21,,
+2016,Khaliajuri,100,,,,,2016-09-10,8.87,,
+2017,Khaliajuri,100,Baulai Khaliajuri,8.5,9.52,7.39,2017-08-16,7.39,0.0,43.0
+2018,Khaliajuri,100,Baulai Khaliajuri,8.5,9.52,5.96,2018-07-06,5.96,0.0,48.0
+2019,Khaliajuri,100,Baulai Khaliajuri,8.5,9.52,6.89,2019-07-16,6.89,0.0,49.0
+2020,Khaliajuri,100,Baulai Khaliajuri,8.5,9.52,7.28,2020-07-23,7.28,0.0,49.0
+2021,Khaliajuri,100,Baulai Khaliajuri,8.5,9.52,6.31,2021-08-27,6.31,0.0,47.0
+2017,Khulna,14,Pashure Khulna,3.04,3.46,3.48,,,31.0,39.0
+2018,Khulna,14,Pashure Khulna,3.04,3.48,3.45,2018-08-14,3.45,24.0,43.0
+2019,Khulna,14,Pashure Khulna,3.04,3.48,3.47,2019-10-01,3.47,28.0,44.0
+2020,Khulna,14,Pashure Khulna,3.04,3.48,3.43,2020-07-24,3.43,48.0,45.0
+2021,Khulna,14,Pashure Khulna,3.04,3.48,3.36,2021-08-26,3.36,45.0,43.0
+2010,Kurigram,77,Dharla Kurigram,26.5,27.66,26.83,,,4.0,41.0
+2011,Kurigram,77,Dharla Kurigram,26.5,27.66,26.1,2011-07-31,26.04,0.0,31.0
+2012,Kurigram,77,Dharla Kurigram,26.5,27.66,26.74,2012-06-29,26.74,5.0,30.0
+2013,Kurigram,77,Dharla Kurigram,26.5,27.66,26.68,2013-07-11,26.68,3.0,33.0
+2014,Kurigram,77,Dharla Kurigram,26.5,27.66,26.95,2014-08-28,26.95,4.0,33.0
+2015,Kurigram,77,Dharla Kurigram,26.5,27.66,26.99,2015-09-02,26.99,13.0,34.0
+2016,Kurigram,77,Dharla Kurigram,26.5,27.66,27.56,2016-07-27,27.56,16.0,34.0
+2017,Kurigram,77,Dharla Kurigram,26.5,27.66,27.84,2017-08-13,27.84,12.0,36.0
+2018,Kurigram,77,Dharla Kurigram,26.5,27.84,26.81,2018-07-06,26.81,2.0,40.0
+2019,Kurigram,77,Dharla Kurigram,26.5,27.84,27.67,2019-07-16,27.67,15.0,40.0
+2020,Kurigram,77,Dharla Kurigram,26.5,27.84,27.53,2020-07-14,27.53,47.0,42.0
+2021,Kurigram,77,Dharla Kurigram,26.5,27.84,27.13,2021-09-04,27.13,14.0,40.0
+2014,Lakhpur,101,,,,,2014-09-01,6.75,,
+2015,Lakhpur,101,,,,,2015-09-03,6.25,,
+2016,Lakhpur,101,,,,,2016-08-06,5.7,,
+2017,Lakhpur,101,Lakhya Lakhpur,5.8,8.7,6.77,2017-08-23,6.77,22.0,36.0
+2018,Lakhpur,101,Lakhya Lakhpur,5.8,8.7,5.13,2018-08-12,5.13,0.0,40.0
+2019,Lakhpur,101,Lakhya Lakhpur,5.8,8.7,5.8,2019-07-26,5.8,0.0,40.0
+2020,Lakhpur,101,Lakhya Lakhpur,5.8,8.7,5.79,2020-08-01,5.79,0.0,42.0
+2021,Lakhpur,101,Lakhya Lakhpur,5.8,8.7,5.08,2021-09-09,5.08,0.0,40.0
+2010,Lama,2,Matamuhuri Lama,12.25,15.45,13.45,,,1.0,46.0
+2011,Lama,2,Matamuhuri Lama,12.25,15.45,14.06,2011-08-09,14.06,5.0,39.0
+2012,Lama,2,Matamuhuri Lama,12.25,15.45,14.65,2012-06-27,14.65,2.0,37.0
+2013,Lama,2,Matamuhuri Lama,12.25,15.45,12.16,2013-08-18,12.16,0.0,40.0
+2014,Lama,2,Matamuhuri Lama,12.25,15.45,11.36,2014-07-21,11.36,0.0,40.0
+2015,Lama,2,Matamuhuri Lama,12.25,15.45,14.11,2015-07-26,14.11,7.0,41.0
+2016,Lama,2,Matamuhuri Lama,12.25,15.45,12.24,2016-07-05,12.24,0.0,41.0
+2017,Lama,2,Matamuhuri Lama,12.25,15.46,13.79,2017-07-04,13.79,5.0,45.0
+2018,Lama,2,Matamuhuri Lama,12.25,15.46,13.29,2018-06-12,13.29,4.0,50.0
+2019,Lama,2,Matamuhuri Lama,12.25,15.46,13.84,2019-07-14,13.84,3.0,51.0
+2020,Lama,2,Matamuhuri Lama,12.25,15.46,12.44,2020-06-17,12.44,1.0,51.0
+2021,Lama,2,Matamuhuri Lama,12.25,15.46,13.87,2021-07-29,13.87,3.0,49.0
+2011,Lourergorh,70,,,,,2011-08-16,9.54,,
+2012,Lourergorh,70,,,,,2012-08-21,10.19,,
+2013,Lourergorh,70,,,,,2013-06-27,8.94,,
+2014,Lourergorh,70,,,,,2014-09-23,10.74,,
+2015,Lourergorh,70,,,,,2015-08-31,10.32,,
+2016,Lourergorh,70,,,,,2016-07-21,9.71,,
+2017,Lourergorh,70,Jadukata Lorergarh,8.53,11.85,10.57,2017-08-11,10.57,5.0,43.0
+2018,Lourergorh,70,Jadukata Lorergarh,8.53,11.85,8.73,2018-07-02,8.73,3.0,48.0
+2019,Lourergorh,70,Jadukata Lorergarh,8.53,11.85,9.24,2019-07-10,9.24,3.0,49.0
+2020,Lourergorh,70,Jadukata Lorergarh,8.53,11.85,10.5,2020-06-27,10.5,15.0,49.0
+2021,Lourergorh,70,Jadukata Lorergarh,8.53,11.85,9.07,2021-06-29,9.07,2.0,47.0
+2010,Madaripur,19,Arialkhan Madaripur,4.17,5.8,4.46,,,27.0,42.0
+2011,Madaripur,19,Arialkhan Madaripur,4.17,5.8,4.37,2011-08-14,4.37,30.0,34.0
+2012,Madaripur,19,Arialkhan Madaripur,4.17,5.8,3.71,2012-09-30,3.71,0.0,33.0
+2013,Madaripur,19,Arialkhan Madaripur,4.17,5.8,3.61,2013-09-12,3.61,0.0,36.0
+2014,Madaripur,19,Arialkhan Madaripur,4.17,5.8,3.76,2014-09-01,3.76,0.0,36.0
+2015,Madaripur,19,Arialkhan Madaripur,4.17,5.8,3.73,2015-09-03,3.73,0.0,37.0
+2016,Madaripur,19,Arialkhan Madaripur,4.17,5.8,3.87,2016-08-05,3.87,0.0,37.0
+2017,Madaripur,19,Arialkhan Madaripur,4.17,5.8,3.89,2017-08-22,3.89,0.0,39.0
+2018,Madaripur,19,Arialkhan Madaripur,4.17,5.8,3.36,2018-08-16,3.36,0.0,43.0
+2019,Madaripur,19,Arialkhan Madaripur,4.17,5.8,3.55,2019-07-23,3.55,0.0,44.0
+2020,Madaripur,19,Arialkhan Madaripur,4.17,5.8,4.37,2020-07-29,4.37,18.0,45.0
+2021,Madaripur,19,Arialkhan Madaripur,4.17,5.8,4.05,2021-09-07,4.05,0.0,43.0
+2010,Manu-RB,47,Manu Manu Rly Br,17.07,20.42,18.9,,,11.0,45.0
+2011,Manu-RB,47,,,,,2011-06-08,18.25,,
+2013,Manu-RB,47,,,,,2013-05-09,17.84,,
+2014,Manu-RB,47,,,,,2014-09-04,17.85,,
+2015,Manu-RB,47,Manu Manu RB,18.0,20.42,17.56,2015-07-18,17.56,0.0,40.0
+2016,Manu-RB,47,Manu Manu RB,18.0,20.42,18.76,2016-09-15,18.76,1.0,40.0
+2017,Manu-RB,47,Manu Manu RB,18.0,20.42,19.05,2017-06-05,19.05,6.0,43.0
+2018,Manu-RB,47,Manu Manu RB,18.0,20.42,19.41,2018-06-13,19.41,7.0,48.0
+2019,Manu-RB,47,Manu Manu RB,18.0,20.42,18.19,2019-07-15,18.19,3.0,49.0
+2020,Manu-RB,47,Manu Manu RB,18.0,20.42,17.61,2020-10-24,17.61,0.0,49.0
+2021,Manu-RB,47,Manu Manu RB,18.0,20.42,17.06,2021-09-01,17.06,0.0,47.0
+2014,Markuli,99,,,,,2014-06-27,7.81,,
+2015,Markuli,99,,,,,2015-09-01,7.96,,
+2016,Markuli,99,,,,,2016-05-22,8.06,,
+2017,Markuli,99,Kushiyara Markuli,8.5,8.51,8.0,2017-06-20,8.0,0.0,43.0
+2018,Markuli,99,Kushiyara Markuli,8.5,8.51,7.76,2018-05-12,7.76,0.0,48.0
+2019,Markuli,99,Kushiyara Markuli,8.5,8.51,7.55,2019-07-15,7.55,0.0,49.0
+2020,Markuli,99,Kushiyara Markuli,8.5,8.51,7.58,2020-07-24,7.58,0.0,49.0
+2021,Markuli,99,Kushiyara Markuli,8.5,8.51,7.44,2021-08-30,7.44,0.0,47.0
+2020,Mawa,88,Padma Mawa,6.1,7.14,6.85,2020-07-26,6.85,40.0,45.0
+2017,Meghna-Br,89,Meghna Meghna Bridge,5.03,,4.95,,,0.0,43.0
+2018,Meghna-Br,89,Meghna Meghna Bridge,5.03,6.76,3.81,2018-10-28,3.81,0.0,48.0
+2019,Meghna-Br,89,Meghna Meghna Bridge,5.03,6.76,4.23,2019-10-02,4.23,0.0,49.0
+2020,Meghna-Br,89,Meghna Meghna Bridge,5.03,6.76,4.48,2020-07-25,4.48,0.0,49.0
+2021,Meghna-Br,89,Meghna Meghna Bridge,5.03,6.76,4.38,2021-09-11,4.38,0.0,47.0
+2010,Mirpur,35,Turag Mirpur,5.94,8.35,5.34,,,0.0,41.0
+2011,Mirpur,35,Turag Mirpur,5.94,8.35,5.7,2011-08-19,5.7,0.0,31.0
+2012,Mirpur,35,Turag Mirpur,5.94,8.35,5.15,2012-07-25,5.15,0.0,30.0
+2013,Mirpur,35,Turag Mirpur,5.94,8.35,5.16,2013-08-23,5.16,0.0,33.0
+2014,Mirpur,35,Turag Mirpur,5.94,8.35,6.0,2014-09-01,6.0,4.0,33.0
+2015,Mirpur,35,Turag Mirpur,5.94,8.35,5.59,2015-09-02,5.59,0.0,34.0
+2016,Mirpur,35,Turag Mirpur,5.94,8.35,5.89,2016-08-04,5.89,0.0,34.0
+2017,Mirpur,35,Turag Mirpur,5.94,8.35,5.88,2017-08-24,5.88,0.0,36.0
+2018,Mirpur,35,Turag Mirpur,5.94,8.35,5.05,2018-08-17,5.05,0.0,40.0
+2019,Mirpur,35,Turag Mirpur,5.94,8.35,5.27,2019-07-30,5.27,0.0,40.0
+2020,Mirpur,35,Turag Mirpur,5.94,8.35,6.5,2020-08-07,6.5,18.0,42.0
+2021,Mirpur,35,Turag Mirpur,5.94,8.35,5.75,2021-09-08,5.75,0.0,40.0
+2011,Mohadevpur,54,,,,,2011-08-20,18.75,,
+2012,Mohadevpur,54,,,,,2012-07-08,17.63,,
+2013,Mohadevpur,54,,,,,2013-07-14,18.54,,
+2014,Mohadevpur,54,,,,,2014-09-24,17.07,,
+2015,Mohadevpur,54,,,,,2015-09-03,18.22,,
+2016,Mohadevpur,54,,,,,2016-07-28,17.26,,
+2017,Mohadevpur,54,Atrai Mohadebpur,18.59,19.89,19.38,2017-08-16,19.38,7.0,39.0
+2018,Mohadevpur,54,Atrai Mohadebpur,18.59,19.89,17.25,2018-07-08,17.25,0.0,43.0
+2019,Mohadevpur,54,Atrai Mohadebpur,18.59,19.89,18.57,2019-07-17,18.57,0.0,44.0
+2020,Mohadevpur,54,Atrai Mohadebpur,18.59,19.89,18.94,2020-09-30,18.94,3.0,45.0
+2021,Mohadevpur,54,Atrai Mohadebpur,18.59,19.89,16.7,2021-08-31,16.7,0.0,43.0
+2010,Moulvibazar,49,Manu Moulvi Bazar,11.75,15.5,12.22,,,10.0,45.0
+2011,Moulvibazar,49,Manu Moulvi Bazar,11.75,15.5,11.01,2011-06-08,11.41,0.0,37.0
+2012,Moulvibazar,49,Manu Moulvi Bazar,11.75,15.5,12.08,2012-06-17,12.08,1.0,35.0
+2013,Moulvibazar,49,Manu Moulvi Bazar,11.75,15.5,11.63,2013-05-09,11.63,0.0,38.0
+2014,Moulvibazar,49,Manu Moulvi Bazar,11.75,15.5,11.58,2014-05-09,11.58,0.0,39.0
+2015,Moulvibazar,49,Manu Moulvi Bazar,11.75,15.5,11.4,2015-07-18,11.4,0.0,40.0
+2016,Moulvibazar,49,Manu Moulvi Bazar,11.75,15.5,12.07,2016-09-15,12.07,2.0,40.0
+2017,Moulvibazar,49,Manu Moulvi Bazar,11.75,13.25,12.56,2017-06-05,12.56,11.0,43.0
+2018,Moulvibazar,49,Manu Moulvi Bazar,11.75,13.25,12.95,2018-06-16,12.95,6.0,48.0
+2019,Moulvibazar,49,Manu Moulvi Bazar,11.75,13.25,12.18,2019-07-16,12.18,2.0,49.0
+2020,Moulvibazar,49,Manu Moulvi Bazar,11.75,13.25,11.21,2020-10-24,11.21,0.0,49.0
+2021,Moulvibazar,49,Manu Moulvi Bazar,11.75,13.25,10.76,2021-08-30,10.76,0.0,47.0
+2010,Mymensingh,53,Old Br.putra Mymensingh,12.5,14.02,10.84,,,0.0,41.0
+2011,Mymensingh,53,Old Br.putra Mymensingh,12.5,14.02,10.72,2011-08-19,10.72,0.0,31.0
+2012,Mymensingh,53,Old Br.putra Mymensingh,12.5,14.02,10.7,2012-07-27,10.7,0.0,30.0
+2013,Mymensingh,53,Old Br.putra Mymensingh,12.5,14.02,10.12,2013-09-16,10.12,0.0,33.0
+2014,Mymensingh,53,Old Br.putra Mymensingh,12.5,14.02,11.25,2014-09-06,11.25,0.0,33.0
+2015,Mymensingh,53,Old Br.putra Mymensingh,12.5,14.02,11.19,2015-09-11,11.19,0.0,34.0
+2016,Mymensingh,53,Old Brahmaputra Mymensingh,12.5,14.02,11.66,2016-08-04,11.66,0.0,34.0
+2017,Mymensingh,53,Old Br.putra Mymensingh,12.5,13.71,12.03,2017-08-21,12.03,0.0,36.0
+2018,Mymensingh,53,Old Br.putra Mymensingh,12.5,13.71,9.4,2018-09-22,9.4,0.0,40.0
+2019,Mymensingh,53,Old Br.putra Mymensingh,12.5,13.71,12.31,2019-07-23,12.31,0.0,40.0
+2020,Mymensingh,53,Old Br.putra Mymensingh,12.5,13.71,12.43,2020-07-30,12.43,0.0,42.0
+2021,Mymensingh,53,Old Br.putra Mymensingh,12.5,13.71,9.52,2021-09-06,9.52,0.0,40.0
+2011,Nakuagaon,69,,,,,2011-08-16,25.5,,
+2012,Nakuagaon,69,,,,,2012-07-17,24.2,,
+2013,Nakuagaon,69,,,,,2013-10-06,22.66,,
+2014,Nakuagaon,69,,,,,2014-07-08,24.91,,
+2015,Nakuagaon,69,,,,,2015-06-16,23.84,,
+2016,Nakuagaon,69,,,,,2016-07-04,22.48,,
+2017,Nakuagaon,69,Bhugai Nakuagaon,22.4,26.01,24.86,2017-08-12,24.86,3.0,43.0
+2018,Nakuagaon,69,Bhugai Nakuagaon,22.4,26.01,23.31,2018-08-24,23.31,1.0,48.0
+2019,Nakuagaon,69,Bhugai Nakuagaon,22.4,26.01,22.79,2019-07-15,22.79,1.0,49.0
+2020,Nakuagaon,69,Bhugai Nakuagaon,22.4,26.01,22.85,2020-09-17,22.85,4.0,49.0
+2021,Nakuagaon,69,Bhugai Nakuagaon,22.4,26.01,23.09,2021-06-30,23.09,1.0,47.0
+2011,Naogaon,57,,,,,2011-08-21,15.13,,
+2012,Naogaon,57,,,,,2012-07-21,14.45,,
+2013,Naogaon,57,,,,,2013-07-14,14.0,,
+2014,Naogaon,57,,,,,2014-09-25,15.71,,
+2015,Naogaon,57,,,,,2015-08-24,15.35,,
+2016,Naogaon,57,,,,,2016-07-24,14.63,,
+2017,Naogaon,57,Little Jamuna Naogaon,15.24,16.2,16.06,2017-08-17,16.06,13.0,39.0
+2018,Naogaon,57,Little Jamuna Naogaon,15.24,16.2,13.64,2018-09-17,13.64,0.0,43.0
+2019,Naogaon,57,Little Jamuna Naogaon,15.24,16.2,15.06,2019-07-18,15.06,0.0,44.0
+2020,Naogaon,57,Little Jamuna Naogaon,15.24,16.2,15.43,2020-10-01,15.43,7.0,45.0
+2021,Naogaon,57,Little Jamuna Naogaon,15.24,16.2,14.32,2021-09-01,14.32,0.0,43.0
+2010,Narayanganj,31,Lakhya Narayanganj,5.5,6.71,5.25,,,0.0,41.0
+2011,Narayanganj,31,Lakhya Narayangonj,5.5,6.71,5.39,2011-09-01,5.39,0.0,31.0
+2012,Narayanganj,31,Lakhya Narayangonj,5.5,6.71,5.66,2012-07-23,5.66,15.0,30.0
+2013,Narayanganj,31,Lakhya Narayangonj,5.5,6.71,5.27,2013-09-13,5.27,0.0,33.0
+2014,Narayanganj,31,Lakhya Narayangonj,5.5,6.71,5.9,2014-08-31,5.9,14.0,33.0
+2015,Narayanganj,31,Lakhya Narayangonj,5.5,6.71,5.6,2015-09-02,5.6,,34.0
+2016,Narayanganj,31,Lakhya Narayangonj,5.5,6.71,5.82,2016-08-04,5.82,12.0,34.0
+2017,Narayanganj,31,Lakhya Narayangonj,5.5,6.93,5.74,2017-08-22,5.74,10.0,36.0
+2018,Narayanganj,31,Lakhya Narayangonj,5.5,6.93,4.95,2018-09-12,4.95,0.0,40.0
+2019,Narayanganj,31,Lakhya Narayangonj,5.5,6.93,5.33,2019-07-29,5.33,0.0,40.0
+2020,Narayanganj,31,Lakhya Narayanganj,5.5,6.93,5.87,2020-08-06,5.87,25.0,42.0
+2021,Narayanganj,31,Lakhya Narayangonj,5.5,6.93,5.6,2021-09-07,5.6,3.0,40.0
+2010,Narayanhat,13,Halda Narayanhat,15.25,18.05,16.35,,,3.0,46.0
+2011,Narayanhat,13,Halda Narayanhat,15.25,18.05,15.95,2011-07-01,15.95,4.0,39.0
+2012,Narayanhat,13,Halda Narayanhat,15.25,18.05,17.05,2012-07-15,17.05,6.0,37.0
+2013,Narayanhat,13,Halda Narayanhat,15.25,18.05,16.32,2013-07-28,16.32,2.0,40.0
+2014,Narayanhat,13,Halda Narayanhat,15.25,18.05,16.7,2014-08-14,16.7,6.0,40.0
+2015,Narayanhat,13,Halda Narayanhat,15.25,18.05,16.5,2015-06-24,16.5,8.0,41.0
+2016,Narayanhat,13,Halda Narayanhat,15.25,18.05,15.82,2016-08-04,5.82,3.0,41.0
+2017,Narayanhat,13,Halda Narayanhat,15.25,19.3,16.85,2017-06-13,16.85,11.0,45.0
+2018,Narayanhat,13,Halda Narayanhat,15.25,19.3,16.92,2018-06-12,16.92,5.0,50.0
+2019,Narayanhat,13,Halda Narayanhat,15.25,19.3,15.6,2019-07-13,15.6,3.0,51.0
+2020,Narayanhat,13,Halda Narayanhat,15.25,19.3,14.47,2020-07-12,14.47,0.0,51.0
+2021,Narayanhat,13,Halda Narayanhat,15.25,19.3,13.85,2021-07-01,13.85,0.0,49.0
+2014,Narsingdi,98,,,,,2014-09-01,5.36,,
+2015,Narsingdi,98,,,,,2015-09-04,5.5,,
+2016,Narsingdi,98,,,,,2016-08-03,5.36,,
+2017,Narsingdi,98,Meghna Narsingdi,5.7,7.01,5.32,2017-08-23,5.32,0.0,43.0
+2018,Narsingdi,98,Meghna Narsingdi,5.7,7.01,4.27,2018-08-15,4.27,0.0,48.0
+2019,Narsingdi,98,Meghna Narsingdi,5.7,7.01,4.57,2019-07-21,4.57,0.0,49.0
+2020,Narsingdi,98,Meghna Narsingdi,5.7,7.01,5.15,2020-07-25,5.15,0.0,49.0
+2021,Narsingdi,98,Meghna Narsingdi,5.7,7.01,4.75,2021-09-07,4.75,0.0,47.0
+2011,Nayarhat,44,,,,,2011-09-04,5.91,,
+2012,Nayarhat,44,,,,,2012-07-15,17.05,,
+2013,Nayarhat,44,,,,,2013-09-15,5.26,,
+2014,Nayarhat,44,,,,,2014-09-02,5.82,,
+2016,Nayarhat,44,,,,,2016-08-07,6.48,,
+2017,Nayarhat,44,Banshi Nayarhat,7.32,8.39,5.93,2017-09-11,5.93,0.0,36.0
+2018,Nayarhat,44,Banshi Nayarhat,7.32,8.39,5.23,2018-09-23,5.23,0.0,40.0
+2019,Nayarhat,44,Banshi Nayarhat,7.32,8.39,5.59,2019-07-30,5.59,0.0,40.0
+2020,Nayarhat,44,Banshi Nayarhat,7.32,8.39,7.58,2020-08-02,7.58,11.0,42.0
+2021,Nayarhat,44,Banshi Nayarhat,7.32,8.39,6.24,2021-09-09,6.24,0.0,40.0
+2010,Noonkhawa,78,Brahmaputra Noonkhawa,27.25,28.1,26.36,,,0.0,41.0
+2011,Noonkhawa,78,Brahmaputra Noonkhawa,27.25,28.1,26.2,2011-07-24,26.2,0.0,31.0
+2012,Noonkhawa,78,Brahmaputra Noonkhawa,27.25,28.1,27.6,2012-06-30,27.6,2.0,30.0
+2013,Noonkhawa,78,Brahmaputra Noonkhawa,27.25,28.1,26.56,2013-09-10,26.56,0.0,33.0
+2014,Noonkhawa,78,Brahmaputra Noonkhawa,27.25,28.1,27.25,2014-08-28,27.25,1.0,33.0
+2015,Noonkhawa,78,Brahmaputra Noonkhawa,27.25,28.1,26.89,2015-09-06,26.89,0.0,34.0
+2016,Noonkhawa,78,Brahmaputra Noonkhawa,27.25,28.1,27.31,2016-07-28,27.31,2.0,34.0
+2017,Noonkhawa,78,Brahmaputra Noonkhawa,27.25,28.1,27.39,2017-08-15,27.39,3.0,36.0
+2018,Noonkhawa,78,Brahmaputra Noonkhawa,26.5,28.1,25.78,2018-09-18,25.78,0.0,40.0
+2019,Noonkhawa,78,Brahmaputra Noonkhawa,26.5,28.1,27.53,2019-07-17,27.53,10.0,40.0
+2020,Noonkhawa,78,Brahmaputra Noonkhawa,26.5,28.1,27.46,2020-07-15,27.46,28.0,42.0
+2021,Noonkhawa,78,Brahmaputra Noonkhawa,26.5,28.1,26.5,2021-09-03,26.5,0.0,40.0
+2011,Panchagarh,81,,,,,2011-08-17,69.9,,
+2012,Panchagarh,81,,,,,2012-09-16,70.2,,
+2013,Panchagarh,81,,,,,2013-07-10,70.8,,
+2014,Panchagarh,81,,,,,2014-06-09,69.6,,
+2015,Panchagarh,81,,,,,2015-09-01,69.85,,
+2016,Panchagarh,81,,,,,2016-07-25,69.81,,
+2017,Panchagarh,81,Karatoa Panchgarh,70.75,72.65,70.81,2017-08-12,70.81,1.0,39.0
+2018,Panchagarh,81,Karatoa Panchgarh,70.75,72.65,69.95,2018-07-05,69.95,0.0,43.0
+2019,Panchagarh,81,Karatoa Panchgarh,70.75,72.65,69.99,2019-07-14,69.99,0.0,44.0
+2020,Panchagarh,81,Karatoa Panchagarh,70.75,72.65,70.25,2020-07-13,70.25,0.0,45.0
+2021,Panchagarh,81,Karatoa Panchgarh,70.75,72.65,68.8,2021-08-21,68.8,0.0,43.0
+2010,Panchpukuria,10,Halda Panchpukuria,7.0,11.55,8.72,,,,46.0
+2011,Panchpukuria,10,Halda Panchpukuria,7.0,11.55,7.95,2011-07-01,7.95,,39.0
+2012,Panchpukuria,10,Halda Panchpukuria,7.0,11.55,8.44,2012-07-18,8.44,,37.0
+2013,Panchpukuria,10,Halda Panchpukuria,9.5,11.55,7.28,2013-07-28,7.28,0.0,40.0
+2014,Panchpukuria,10,Halda Panchpukuria,9.5,11.55,9.01,2014-06-23,9.01,0.0,40.0
+2015,Panchpukuria,10,Halda Panchpukuria,9.5,11.55,7.33,2015-07-26,7.33,0.0,41.0
+2016,Panchpukuria,10,Halda Panchpukuria,9.5,11.55,7.61,2016-07-04,7.61,0.0,41.0
+2017,Panchpukuria,10,Halda Panchpukuria,9.5,12.54,9.7,2017-06-14,9.7,2.0,45.0
+2018,Panchpukuria,10,Halda Panchpukuria,9.5,12.54,10.9,2018-06-12,10.9,2.0,50.0
+2019,Panchpukuria,10,Halda Panchpukuria,9.5,12.54,9.96,2019-07-13,9.96,2.0,51.0
+2020,Panchpukuria,10,Halda Panchpukuria,9.5,12.54,7.65,2020-10-24,7.65,0.0,51.0
+2021,Panchpukuria,10,Halda Panchpukuria,9.5,12.54,6.13,2021-08-25,6.13,0.0,49.0
+2010,Pankha,82,Ganges Pankha,21.5,22.97,21.51,,,0.0,42.0
+2011,Pankha,82,Ganges Pankha,25.5,22.97,22.21,2011-08-21,22.21,0.0,34.0
+2012,Pankha,82,Ganges Pankha,25.5,22.97,21.59,2012-09-24,21.59,0.0,33.0
+2013,Pankha,82,Ganges Pankha,22.5,22.97,22.66,2013-09-06,22.66,5.0,36.0
+2014,Pankha,82,Ganges Pankha,22.5,22.97,20.94,2014-08-21,20.94,0.0,36.0
+2015,Pankha,82,Ganges Pankha,22.5,22.97,21.19,2015-08-27,21.19,0.0,37.0
+2016,Pankha,82,Ganges Pankha,22.5,22.97,22.44,2016-08-28,22.44,0.0,37.0
+2017,Pankha,82,Ganges Pankha,22.5,24.14,21.48,2017-08-22,21.48,0.0,39.0
+2018,Pankha,82,Ganges Pankha,22.5,24.14,21.65,2018-09-17,21.65,0.0,43.0
+2019,Pankha,82,Ganges Pankha,22.5,24.14,22.23,2019-10-02,22.23,0.0,44.0
+2020,Pankha,82,Ganges Pankha,22.5,24.14,20.87,2020-08-23,20.87,0.0,45.0
+2021,Pankha,82,Ganges Pankha,22.5,24.14,22.32,2021-08-19,22.32,0.0,43.0
+2010,Parshuram,21,Muhuri Parshuram,13.0,15.03,13.9,,,2.0,46.0
+2011,Parshuram,21,Muhuri Parshuram,13.0,15.03,12.84,2011-11-18,88.67,0.0,39.0
+2012,Parshuram,21,Muhuri Parshuram,13.0,15.03,13.9,2012-06-24,13.9,2.0,37.0
+2013,Parshuram,21,Muhuri Parshuram,13.0,15.03,13.23,2013-07-28,13.23,1.0,40.0
+2014,Parshuram,21,Muhuri Parshuram,13.0,15.03,13.68,2014-08-14,13.68,7.0,40.0
+2015,Parshuram,21,Muhuri Parshuram,13.0,15.03,15.35,2015-08-20,15.35,6.0,41.0
+2016,Parshuram,21,Muhuri Parshuram,13.0,15.03,14.5,2016-08-21,14.5,3.0,41.0
+2017,Parshuram,21,Muhuri Parshuram,13.0,16.33,15.2,2017-07-21,15.2,5.0,45.0
+2018,Parshuram,21,Muhuri Parshuram,13.0,16.33,16.3,2018-06-13,16.3,6.0,50.0
+2019,Parshuram,21,Muhuri Parshuram,13.0,16.33,14.7,2019-07-09,14.7,2.0,51.0
+2020,Parshuram,21,Muhuri Parshuram,13.0,16.33,14.32,2020-07-12,14.32,4.0,51.0
+2021,Parshuram,21,Muhuri Parshuram,13.0,16.33,14.34,2021-09-06,14.34,7.0,49.0
+2011,Phulbari,79,,,,,2011-08-19,29.43,,
+2012,Phulbari,79,,,,,2012-07-07,28.01,,
+2013,Phulbari,79,,,,,2013-10-16,28.48,,
+2014,Phulbari,79,,,,,2014-09-23,28.55,,
+2015,Phulbari,79,,,,,2015-08-24,28.7,,
+2016,Phulbari,79,,,,,2016-07-23,28.37,,
+2017,Phulbari,79,Ich-Jamuna Phulbari,29.95,,30.12,2017-08-15,30.12,3.0,39.0
+2018,Phulbari,79,Ich-Jamuna Phulbari,29.95,30.47,27.59,2018-09-12,27.59,0.0,43.0
+2019,Phulbari,79,Ich-Jamuna Phulbari,29.95,30.47,28.7,2019-07-16,28.7,0.0,44.0
+2020,Phulbari,79,Ich-Jamuna Phulbari,29.95,30.47,29.36,2020-09-28,29.36,0.0,45.0
+2021,Phulbari,79,Ich-Jamuna Phulbari,29.95,30.47,28.48,2021-10-06,28.48,0.0,43.0
+2010,Rajshahi,45,Ganges Rajshahi,18.5,20.0,17.2,,,0.0,42.0
+2011,Rajshahi,45,Ganges Rajshahi,18.5,20.0,18.17,2011-08-22,18.17,0.0,34.0
+2012,Rajshahi,45,Ganges Rajshahi,18.5,20.0,17.87,2012-09-26,17.87,0.0,33.0
+2013,Rajshahi,45,Ganges Rajshahi,18.5,20.0,18.7,2013-09-07,18.7,7.0,36.0
+2014,Rajshahi,45,Ganges Rajshahi,18.5,20.0,17.45,2014-08-22,17.45,0.0,36.0
+2015,Rajshahi,45,Ganges Rajshahi,18.5,20.0,17.3,2015-08-27,17.3,0.0,37.0
+2016,Rajshahi,45,Ganges Rajshahi,18.5,20.0,18.46,2016-08-28,18.46,0.0,37.0
+2017,Rajshahi,45,Ganges Rajshahi,18.5,20.0,17.54,2017-08-21,17.54,0.0,39.0
+2018,Rajshahi,45,Ganges Rajshahi,18.5,20.0,17.34,2018-09-17,17.34,0.0,43.0
+2019,Rajshahi,45,Ganges Rajshahi,18.5,20.0,18.19,2019-10-03,18.19,0.0,44.0
+2020,Rajshahi,45,Ganges Rajshahi,18.5,20.0,16.94,2020-07-29,16.94,0.0,45.0
+2021,Rajshahi,45,Ganges Rajshahi,18.5,20.0,17.85,2021-08-20,17.85,0.0,43.0
+2010,Ramgarh,17,Feni Ramgarh,17.37,21.41,15.88,,,0.0,46.0
+2011,Ramgarh,17,Feni Ramgarh,17.37,21.41,15.38,2011-05-26,15.38,0.0,39.0
+2012,Ramgarh,17,Feni Ramgarh,17.37,21.41,15.72,2012-07-15,15.72,0.0,37.0
+2013,Ramgarh,17,Feni Ramgarh,17.37,21.41,14.78,2013-08-30,14.78,0.0,40.0
+2014,Ramgarh,17,Feni Ramgarh,17.37,21.41,16.93,2014-08-14,16.93,0.0,40.0
+2015,Ramgarh,17,Feni Ramgarh,17.37,21.41,16.43,2015-07-26,16.43,0.0,41.0
+2016,Ramgarh,17,Feni Ramgarh,17.37,21.41,16.32,2016-07-05,16.32,0.0,41.0
+2017,Ramgarh,17,Feni Ramgarh,17.37,21.42,16.2,2017-07-24,16.2,0.0,45.0
+2018,Ramgarh,17,Feni Ramgarh,17.35,21.42,18.36,2018-06-13,18.36,2.0,50.0
+2019,Ramgarh,17,Feni Ramgarh,17.35,21.42,16.6,2019-07-13,16.6,0.0,51.0
+2020,Ramgarh,17,Feni Ramgarh,17.35,21.42,15.08,2020-07-21,15.08,0.0,51.0
+2021,Ramgarh,17,Feni Ramgarh,17.35,21.42,16.31,2021-08-25,16.31,0.0,49.0
+2011,Rekabi-Bazar,91,,,,,2011-08-31,5.08,,
+2012,Rekabi-Bazar,91,,,,,2012-07-24,4.86,,
+2013,Rekabi-Bazar,91,,,,,2013-09-10,4.83,,
+2014,Rekabi-Bazar,91,,,,,2014-08-31,5.07,,
+2015,Rekabi-Bazar,91,,,,,2015-09-02,5.19,,
+2016,Rekabi-Bazar,91,,,,,2016-08-04,5.12,,
+2017,Rekabi-Bazar,91,Dhaleswari Rekabi Bazar,5.18,7.66,5.07,2017-08-23,5.07,0.0,36.0
+2018,Rekabi-Bazar,91,Dhaleswari Rekabi Bazar,5.18,7.66,4.52,2018-08-14,4.52,0.0,40.0
+2019,Rekabi-Bazar,91,Dhaleswari Rekabi Bazar,5.18,7.66,4.67,2019-07-22,4.67,0.0,40.0
+2020,Rekabi-Bazar,91,Dhaleswari Rekabi Bazar,5.18,7.66,5.2,2020-08-06,5.2,1.0,42.0
+2021,Rekabi-Bazar,91,Dhaleswari Rekabi Bazar,5.18,7.66,4.99,2021-09-07,4.99,0.0,40.0
+2011,Rohanpur,58,,,,,2011-08-25,21.65,,
+2012,Rohanpur,58,,,,,2012-09-26,20.45,,
+2013,Rohanpur,58,,,,,2013-09-08,21.4,,
+2014,Rohanpur,58,,,,,2014-08-23,20.03,,
+2015,Rohanpur,58,,,,,2015-09-06,20.55,,
+2016,Rohanpur,58,,,,,2016-08-28,20.89,,
+2017,Rohanpur,58,Mohananda Rohanpur,22.0,23.83,22.7,2017-08-23,22.7,14.0,39.0
+2018,Rohanpur,58,Mohananda Rohanpur,22.0,23.83,20.33,2018-09-17,20.33,0.0,43.0
+2019,Rohanpur,58,Mohananda Rohanpur,22.0,23.83,21.47,2019-10-04,21.47,0.0,44.0
+2020,Rohanpur,58,Mohananda Rohanpur,22.0,23.83,21.45,2020-10-05,21.45,0.0,45.0
+2021,Rohanpur,58,Mohananda Rohanpur,22.0,23.83,21.0,2021-08-21,21.0,0.0,43.0
+2014,Sariakandi,95,,,,,2014-08-29,17.69,,
+2015,Sariakandi,95,,,,,2015-09-06,17.49,,
+2016,Sariakandi,95,,,,,2016-07-29,17.69,,
+2017,Sariakandi,95,Jamuna Sariakandi,16.7,19.07,17.96,2017-08-16,17.96,24.0,36.0
+2018,Sariakandi,95,Jamuna Sariakandi,16.7,19.07,16.91,2018-09-20,16.91,9.0,40.0
+2019,Sariakandi,95,Jamuna Sariakandi,16.7,19.07,17.98,2019-07-18,17.98,15.0,40.0
+2020,Sariakandi,95,Jamuna Sariakandi,16.7,19.07,17.98,2020-07-17,17.98,55.0,42.0
+2021,Sariakandi,95,Jamuna Sariakandi,16.7,19.07,17.39,2021-09-03,17.39,12.0,40.0
+2011,Sarighat,68,,,,,2011-07-02,12.78,,
+2012,Sarighat,68,,,,,2012-06-26,14.22,,
+2013,Sarighat,68,,,,,2013-10-06,12.56,,
+2014,Sarighat,68,,,,,2014-09-23,13.3,,
+2015,Sarighat,68,,,,,2015-06-01,13.55,,
+2016,Sarighat,68,,,,,2016-04-24,13.7,,
+2017,Sarighat,68,Sarigowain Sarighat,12.8,14.48,13.6,2017-08-12,13.6,9.0,43.0
+2018,Sarighat,68,Sarigowain Sarighat,12.8,14.48,13.04,2018-07-04,13.04,2.0,48.0
+2019,Sarighat,68,Sarigowain Sarighat,12.8,14.48,12.76,2019-06-28,12.76,0.0,49.0
+2020,Sarighat,68,Sarigowain Sarighat,12.8,14.48,13.26,2020-07-21,13.26,12.0,49.0
+2021,Sarighat,68,Sarigowain Sarighat,12.8,14.48,13.06,2021-06-29,13.06,2.0,47.0
+2010,Serajganj,48,Jamuna Serajganj,13.75,15.12,13.83,,,15.0,41.0
+2011,Serajganj,48,Jamuna Serajgonj,13.75,15.12,13.42,2011-07-25,13.42,0.0,31.0
+2012,Serajganj,48,Jamuna Serajgonj,13.75,15.12,13.98,2012-09-28,13.98,10.0,30.0
+2013,Serajganj,48,Jamuna Serajgonj,13.35,15.12,13.51,2013-09-11,13.51,3.0,33.0
+2014,Serajganj,48,Jamuna Serajgonj,13.35,15.12,13.79,2014-08-29,13.79,13.0,33.0
+2015,Serajganj,48,Jamuna Serajgonj,13.35,15.12,14.13,2015-09-07,14.13,21.0,34.0
+2016,Serajganj,48,Jamuna Serajgonj,13.35,15.12,14.24,2016-07-29,14.24,12.0,34.0
+2017,Serajganj,48,Jamuna Serajgonj,13.35,15.12,14.87,2017-08-16,14.87,33.0,36.0
+2018,Serajganj,48,Jamuna Serajgonj,13.35,15.12,13.34,2018-07-08,13.34,0.0,40.0
+2019,Serajganj,48,Jamuna Serajganj,13.35,15.12,14.34,2019-07-19,14.34,12.0,40.0
+2020,Serajganj,48,Jamuna Serajganj,13.35,15.12,14.36,2020-07-17,14.36,37.0,42.0
+2021,Serajganj,48,Jamuna Serajgonj,13.35,15.12,14.02,2021-09-03,14.02,13.0,40.0
+2010,Sheola,61,Kushiyara Sheola,13.5,14.6,14.61,,,113.0,45.0
+2011,Sheola,61,Kushiyara Sheola,13.5,14.6,14.18,2011-08-26,14.18,18.0,37.0
+2012,Sheola,61,Kushiyara Sheola,13.5,14.6,14.47,2012-06-28,14.47,10.0,35.0
+2013,Sheola,61,Kushiyara Sheola,13.5,14.6,14.31,2013-08-18,14.31,13.0,38.0
+2014,Sheola,61,Kushiyara Sheola,13.5,14.6,13.55,2014-09-09,13.55,1.0,39.0
+2015,Sheola,61,Kushiyara Sheola,13.5,14.6,14.49,2015-08-27,14.49,29.0,40.0
+2016,Sheola,61,Kushiyara Sheola,13.5,14.6,14.51,2016-05-20,14.51,27.0,40.0
+2017,Sheola,61,Kushiyara Sheola,13.5,14.6,14.57,2017-06-28,14.57,88.0,43.0
+2018,Sheola,61,Kushiyara Sheola,13.5,14.6,14.09,2018-06-16,14.09,7.0,48.0
+2019,Sheola,61,Kushiyara Sheola,13.5,14.6,13.96,2019-07-14,13.96,5.0,49.0
+2020,Sheola,61,Kushiyara Sheola,13.5,14.6,13.66,2020-07-17,13.66,3.0,49.0
+2021,Sheola,61,Kushiyara Sheola,13.5,14.6,12.49,2021-08-29,12.49,0.0,47.0
+2010,Sherpur-Sylhet,52,Kushiyara Sherpur,9.0,9.68,9.52,,,92.0,45.0
+2011,Sherpur-Sylhet,52,Kushiyara Sherpur,9.0,9.68,9.12,2011-08-24,9.12,6.0,37.0
+2012,Sherpur-Sylhet,52,Kushiyara Sherpur,9.0,9.68,9.28,2012-06-17,9.28,13.0,35.0
+2013,Sherpur-Sylhet,52,Kushiyara Sherpur,9.0,9.68,8.91,2013-08-20,8.91,0.0,38.0
+2014,Sherpur-Sylhet,52,Kushiyara Sherpur,9.0,9.68,9.18,2014-09-08,9.18,10.0,39.0
+2015,Sherpur-Sylhet,52,Kushiyara Sherpur,9.0,9.68,8.85,2015-08-29,8.85,0.0,40.0
+2016,Sherpur-Sylhet,52,Kushiyara Sherpur,9.0,9.68,9.29,2016-05-22,9.29,18.0,40.0
+2017,Sherpur-Sylhet,52,Kushiyara Sherpur,9.0,9.68,9.45,2017-06-20,9.45,76.0,43.0
+2018,Sherpur-Sylhet,52,Kushiyara Sherpur,9.0,9.68,9.06,2018-05-11,9.06,2.0,48.0
+2019,Sherpur-Sylhet,52,Kushiyara Sherpur,9.0,9.68,9.05,2019-07-16,9.05,3.0,49.0
+2020,Sherpur-Sylhet,52,Kushiyara Sherpur,9.0,9.68,8.89,2020-07-13,8.89,0.0,49.0
+2021,Sherpur-Sylhet,52,Kushiyara Sherpur,9.0,9.68,8.85,2021-09-02,8.85,0.0,47.0
+2014,Singra,105,,,,,2014-09-26,12.27,,
+2015,Singra,105,,,,,2015-09-06,12.87,,
+2016,Singra,105,,,,,2016-07-30,12.83,,
+2017,Singra,105,Gur Singra,12.65,13.53,13.67,2017-08-22,13.67,24.0,36.0
+2018,Singra,105,Gur Singra,12.65,13.67,12.27,2018-07-09,12.27,0.0,40.0
+2019,Singra,105,Gur Singra,12.65,13.67,12.51,2019-10-05,12.51,0.0,40.0
+2020,Singra,105,Gur Singra,12.65,13.67,13.76,2020-10-01,13.76,63.0,42.0
+2021,Singra,105,Gur Singra,12.65,13.67,12.62,2021-09-04,12.62,0.0,40.0
+2010,Sunamganj,65,Surma Sunamganj,8.25,9.46,8.87,,,41.0,45.0
+2011,Sunamganj,65,Surma Sunamgonj,8.25,9.46,8.56,2011-08-17,8.56,10.0,37.0
+2012,Sunamganj,65,Surma Sunamgonj,8.25,9.46,9.19,2012-07-16,9.19,21.0,35.0
+2013,Sunamganj,65,Surma Sunamgonj,8.25,9.46,7.96,2013-07-10,7.96,0.0,38.0
+2014,Sunamganj,65,Surma Sunamgonj,8.25,9.46,9.18,2014-08-25,9.18,27.0,39.0
+2015,Sunamganj,65,Surma Sunamgonj,8.25,9.46,9.08,2015-08-20,9.08,31.0,40.0
+2016,Sunamganj,65,Surma Sunamgonj,8.25,9.46,9.15,2016-07-21,9.15,9.0,40.0
+2017,Sunamganj,65,Surma Sunamgonj,8.25,9.75,9.19,2017-08-14,9.19,15.0,43.0
+2018,Sunamganj,65,Surma Sunamgonj,8.25,9.75,8.47,2018-07-05,8.47,3.0,48.0
+2019,Sunamganj,65,Surma Sunamgonj,8.25,9.75,8.64,2019-07-11,8.64,7.0,49.0
+2020,Sunamganj,65,Surma Sunamganj,8.25,9.75,8.96,2020-06-28,8.96,20.0,49.0
+2021,Sunamganj,65,Surma Sunamgonj,8.25,9.75,8.41,2021-08-14,8.41,1.0,47.0
+2014,Sureshswar,22,,,,,2014-09-01,4.85,,
+2015,Sureshswar,22,,,,,2015-08-29,4.75,,
+2016,Sureshswar,22,Padma Sureswar,4.45,7.5,5.16,2016-08-03,5.16,22.0,37.0
+2017,Sureshswar,22,Padma Sureswar,4.45,7.5,5.04,2017-08-20,5.04,13.0,39.0
+2018,Sureshswar,22,Padma Sureswar,4.45,7.5,4.41,2018-08-16,4.41,0.0,43.0
+2019,Sureshswar,22,Padma Sureswar,4.45,7.5,4.56,2019-10-02,4.56,11.0,44.0
+2020,Sureshswar,22,Padma Sureswar,4.99,7.5,4.89,2020-08-05,4.99,0.0,45.0
+2021,Sureshswar,22,Padma Sureswar,4.45,7.5,5.25,2021-09-06,5.25,36.0,43.0
+2010,Sylhet,59,Surma Sylhet,11.25,11.95,11.54,,,18.0,45.0
+2011,Sylhet,59,Surma Sylhet,11.25,11.95,10.66,2011-07-10,10.9,0.0,37.0
+2012,Sylhet,59,Surma Sylhet,11.25,11.95,11.97,2012-06-27,11.97,10.0,35.0
+2013,Sylhet,59,Surma Sylhet,11.25,11.95,10.58,2013-08-18,10.58,0.0,38.0
+2014,Sylhet,59,Surma Sylhet,11.25,11.95,11.35,2014-08-26,11.35,1.0,39.0
+2015,Sylhet,59,Surma Sylhet,11.25,11.95,11.76,2015-09-01,11.76,19.0,40.0
+2016,Sylhet,59,Surma Sylhet,11.25,11.95,11.27,2016-07-26,11.27,2.0,40.0
+2017,Sylhet,59,Surma Sylhet,11.25,12.44,11.7,2017-08-15,11.7,11.0,43.0
+2018,Sylhet,59,Surma Sylhet,11.25,12.44,11.07,2018-06-18,11.07,0.0,48.0
+2019,Sylhet,59,Surma Sylhet,11.25,12.44,11.3,2019-07-15,11.3,1.0,49.0
+2020,Sylhet,59,Surma Sylhet,11.25,12.44,11.36,2020-07-12,11.36,5.0,49.0
+2021,Sylhet,59,Surma Sylhet,11.25,12.44,10.92,2021-08-15,10.92,0.0,47.0
+2020,Talbaria,92,Ganges Talbaria,13.5,14.53,13.07,2020-07-27,13.07,0.0,45.0
+2010,Taraghat,37,Kaliganga Taraghat,8.38,10.39,8.0,,,0.0,41.0
+2011,Taraghat,37,Kaliganga Taraghat,8.38,10.39,7.82,2011-08-24,7.86,0.0,31.0
+2012,Taraghat,37,,,,,2012-09-30,8.14,,
+2013,Taraghat,37,,,,,2013-09-14,7.89,,
+2014,Taraghat,37,,,,,2014-09-02,8.81,,
+2015,Taraghat,37,,,,,2015-09-10,8.75,,
+2016,Taraghat,37,,,,,2016-08-02,9.44,,
+2017,Taraghat,37,Kaliganga Taraghat,8.38,10.39,9.34,2017-08-20,9.34,14.0,36.0
+2018,Taraghat,37,Kaliganga Taraghat,8.38,10.39,7.44,2018-09-22,7.44,0.0,40.0
+2019,Taraghat,37,Kaliganga Taraghat,8.38,10.39,8.33,2019-07-23,8.33,0.0,40.0
+2020,Taraghat,37,Kaliganga Taraghat,8.38,10.39,9.58,2020-07-28,9.58,26.0,42.0
+2021,Taraghat,37,Kaliganga Taraghat,8.38,10.39,9.2,2021-09-06,8.72,8.0,40.0
+2011,Thakurgaon,93,,,,,2011-08-18,50.33,,
+2012,Thakurgaon,93,,,,,2012-07-07,49.77,,
+2013,Thakurgaon,93,,,,,2013-07-08,51.11,,
+2014,Thakurgaon,93,,,,,2014-09-22,49.49,,
+2015,Thakurgaon,93,,,,,2015-08-31,50.12,,
+2016,Thakurgaon,93,,,,,2016-06-25,50.1,,
+2017,Thakurgaon,93,Tangon Thakurgaon,50.4,51.26,51.3,2017-08-12,51.3,3.0,39.0
+2018,Thakurgaon,93,Tangon Thakurgaon,50.4,51.3,49.2,2018-08-24,49.2,0.0,43.0
+2019,Thakurgaon,93,Tangon Thakurgaon,50.4,51.3,49.67,2019-07-15,49.67,0.0,44.0
+2020,Thakurgaon,93,Tangon Thakurgaon,50.4,51.3,50.56,2020-09-27,50.56,1.0,45.0
+2021,Thakurgaon,93,Tangon Thakurgaon,50.4,51.3,48.43,2021-10-21,48.43,0.0,43.0
+2010,Tongi,41,Tongi Khal Tongi,6.08,7.84,5.54,,,0.0,41.0
+2011,Tongi,41,Tongi Khal Tongi,6.08,7.84,6.38,2011-08-18,6.38,29.0,31.0
+2012,Tongi,41,Tongi Khal Tongi,6.08,7.84,5.88,2012-07-26,5.88,0.0,30.0
+2013,Tongi,41,Tongi Khal Tongi,6.08,7.84,5.32,2013-09-12,5.32,0.0,33.0
+2014,Tongi,41,Tongi Khal Tongi,6.08,7.84,5.72,2014-09-02,5.72,0.0,33.0
+2015,Tongi,41,Tongi Khal Tongi,6.08,7.84,5.61,2015-09-04,5.61,0.0,34.0
+2016,Tongi,41,Tongi Khal Tongi,6.08,7.84,5.84,2016-08-06,5.84,0.0,34.0
+2017,Tongi,41,Tongi Khal Tongi,6.08,7.84,6.1,2017-08-28,6.1,2.0,36.0
+2018,Tongi,41,Tongi Khal Tongi,6.08,7.84,5.13,2018-08-16,5.13,0.0,40.0
+2019,Tongi,41,Tongi Khal Tongi,6.08,7.84,5.49,2019-07-27,5.49,0.0,40.0
+2020,Tongi,41,Tongi Khal Tongi,6.08,7.84,6.5,2020-08-08,6.5,20.0,42.0
+2021,Tongi,41,Tongi Khal Tongi,6.08,7.84,5.8,2021-09-10,5.8,0.0,40.0

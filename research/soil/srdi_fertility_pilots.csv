@@ -1,0 +1,6 @@
+site_id,ph,organic_matter,p_upland,p_wetland_rice,k_upland,k_wetland_rice,s_upland,s_wetland_rice,zn,b,ca,mg,source
+RAJ_TANORE,Strongly Acidic,Low,Low,Low,Low,Low,Low,Low,Low,Very High,Medium,Low,"SRDI Soil Fertility Atlas of Bangladesh 2020 (maps from Upazila Nirdeshika data), read by colour"
+SUN_DHARMAPASHA,Strongly Acidic,Medium,Low,Low,Low,Low,Medium,Medium,Low,Medium,Very High,Optimum,"SRDI Soil Fertility Atlas of Bangladesh 2020 (maps from Upazila Nirdeshika data), read by colour"
+KHU_BATIAGHATA,Slightly Alkaline,Medium,Very Low,Low,Very High,Very High,Very High,Very High,Medium,Very High,Very High,Very High,"SRDI Soil Fertility Atlas of Bangladesh 2020 (maps from Upazila Nirdeshika data), read by colour"
+SIR_ULLAHPARA,Slightly Acidic,Medium,Low,Low,Low,Low,Very Low,Very Low,Medium,Very High,Optimum,Very High,"SRDI Soil Fertility Atlas of Bangladesh 2020 (maps from Upazila Nirdeshika data), read by colour"
+RAN_MITHAPUKUR,Strongly Acidic,Medium,Very High,Very High,Low,Low,Medium,Low,Low,Medium,Medium,Low,"SRDI Soil Fertility Atlas of Bangladesh 2020 (maps from Upazila Nirdeshika data), read by colour"

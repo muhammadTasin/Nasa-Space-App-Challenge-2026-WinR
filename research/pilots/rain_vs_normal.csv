@@ -1,0 +1,421 @@
+site_id,window,from,to,imerg_late_mm,late_final_ratio,imerg_late_pct_of_normal,imerg_adj_pct_of_normal,merra2_pct_of_normal,imerg_late_years_drier_of_25,merra2_years_drier_of_25,verdict
+ADM2_Bagerhat,since 1 Jun,2026-06-01,2026-09-22,773.3,0.81,55,64,107,0,16,uncertain (estimates disagree)
+ADM2_Bagerhat,last 30 days,2026-08-24,2026-09-22,138.0,0.81,41,50,67,0,4,dry
+ADM2_Bagerhat,Jun,2026-06-01,2026-06-30,111.4,0.81,29,35,105,0,15,uncertain (estimates disagree)
+ADM2_Bagerhat,Jul,2026-07-01,2026-07-31,383.4,0.81,98,103,144,11,19,uncertain (estimates disagree)
+ADM2_Bagerhat,Aug,2026-08-01,2026-08-31,168.7,0.81,47,55,94,0,16,uncertain (estimates disagree)
+ADM2_Bagerhat,Sep to date,2026-09-01,2026-09-22,109.7,0.81,42,52,61,0,5,dry
+ADM2_Bandarban,since 1 Jun,2026-06-01,2026-09-22,1853.1,0.96,89,89,122,8,18,uncertain (estimates disagree)
+ADM2_Bandarban,last 30 days,2026-08-24,2026-09-22,362.6,0.96,80,88,90,9,12,uncertain (estimates disagree)
+ADM2_Bandarban,Jun,2026-06-01,2026-06-30,214.7,0.96,34,35,73,0,7,dry
+ADM2_Bandarban,Jul,2026-07-01,2026-07-31,924.7,0.96,158,147,175,21,21,wet
+ADM2_Bandarban,Aug,2026-08-01,2026-08-31,399.4,0.96,77,76,130,7,18,uncertain (estimates disagree)
+ADM2_Bandarban,Sep to date,2026-09-01,2026-09-22,314.4,0.96,92,105,75,12,8,uncertain (estimates disagree)
+ADM2_Barguna,since 1 Jun,2026-06-01,2026-09-22,1029.3,0.99,57,58,107,0,16,uncertain (estimates disagree)
+ADM2_Barguna,last 30 days,2026-08-24,2026-09-22,197.9,0.99,49,52,65,1,7,dry
+ADM2_Barguna,Jun,2026-06-01,2026-06-30,191.1,0.99,39,42,93,0,15,uncertain (estimates disagree)
+ADM2_Barguna,Jul,2026-07-01,2026-07-31,363.0,0.99,68,65,143,5,19,uncertain (estimates disagree)
+ADM2_Barguna,Aug,2026-08-01,2026-08-31,306.2,0.99,68,68,106,5,17,uncertain (estimates disagree)
+ADM2_Barguna,Sep to date,2026-09-01,2026-09-22,168.9,0.99,52,55,52,1,5,dry
+ADM2_Barisal,since 1 Jun,2026-06-01,2026-09-22,801.0,0.85,55,61,112,0,17,uncertain (estimates disagree)
+ADM2_Barisal,last 30 days,2026-08-24,2026-09-22,195.7,0.85,55,67,78,2,6,dry
+ADM2_Barisal,Jun,2026-06-01,2026-06-30,154.6,0.85,39,44,114,0,15,uncertain (estimates disagree)
+ADM2_Barisal,Jul,2026-07-01,2026-07-31,252.1,0.85,63,65,150,5,20,uncertain (estimates disagree)
+ADM2_Barisal,Aug,2026-08-01,2026-08-31,224.6,0.85,58,68,91,2,15,uncertain (estimates disagree)
+ADM2_Barisal,Sep to date,2026-09-01,2026-09-22,169.6,0.85,61,75,74,5,6,dry
+ADM2_Bhola,since 1 Jun,2026-06-01,2026-09-22,1163.0,1.01,56,56,111,0,17,uncertain (estimates disagree)
+ADM2_Bhola,last 30 days,2026-08-24,2026-09-22,253.5,1.01,54,57,69,2,6,dry
+ADM2_Bhola,Jun,2026-06-01,2026-06-30,200.6,1.01,34,36,93,0,11,uncertain (estimates disagree)
+ADM2_Bhola,Jul,2026-07-01,2026-07-31,431.0,1.01,74,68,145,5,19,uncertain (estimates disagree)
+ADM2_Bhola,Aug,2026-08-01,2026-08-31,325.1,1.01,61,62,114,1,18,uncertain (estimates disagree)
+ADM2_Bhola,Sep to date,2026-09-01,2026-09-22,206.3,1.01,56,61,59,2,6,dry
+ADM2_Bogra,since 1 Jun,2026-06-01,2026-09-22,626.8,0.82,55,65,96,0,12,uncertain (estimates disagree)
+ADM2_Bogra,last 30 days,2026-08-24,2026-09-22,107.4,0.82,40,51,73,2,5,dry
+ADM2_Bogra,Jun,2026-06-01,2026-06-30,102.6,0.82,31,37,97,0,11,uncertain (estimates disagree)
+ADM2_Bogra,Jul,2026-07-01,2026-07-31,232.9,0.82,73,85,128,11,19,uncertain (estimates disagree)
+ADM2_Bogra,Aug,2026-08-01,2026-08-31,192.3,0.82,65,78,76,4,10,dry
+ADM2_Bogra,Sep to date,2026-09-01,2026-09-22,99.1,0.82,49,61,75,3,4,dry
+ADM2_Brahamanbaria,since 1 Jun,2026-06-01,2026-09-22,983.9,0.81,65,77,105,0,17,uncertain (estimates disagree)
+ADM2_Brahamanbaria,last 30 days,2026-08-24,2026-09-22,217.2,0.81,60,78,69,2,7,dry
+ADM2_Brahamanbaria,Jun,2026-06-01,2026-06-30,184.2,0.81,41,47,89,1,9,uncertain (estimates disagree)
+ADM2_Brahamanbaria,Jul,2026-07-01,2026-07-31,366.1,0.81,88,103,152,12,21,uncertain (estimates disagree)
+ADM2_Brahamanbaria,Aug,2026-08-01,2026-08-31,268.5,0.81,71,82,103,5,15,uncertain (estimates disagree)
+ADM2_Brahamanbaria,Sep to date,2026-09-01,2026-09-22,165.1,0.81,63,83,58,3,3,uncertain (estimates disagree)
+ADM2_Chandpur,since 1 Jun,2026-06-01,2026-09-22,872.9,0.82,62,72,106,0,15,uncertain (estimates disagree)
+ADM2_Chandpur,last 30 days,2026-08-24,2026-09-22,233.1,0.82,68,88,72,4,7,uncertain (estimates disagree)
+ADM2_Chandpur,Jun,2026-06-01,2026-06-30,131.2,0.82,32,37,97,0,12,uncertain (estimates disagree)
+ADM2_Chandpur,Jul,2026-07-01,2026-07-31,304.7,0.82,83,87,144,11,18,uncertain (estimates disagree)
+ADM2_Chandpur,Aug,2026-08-01,2026-08-31,229.8,0.82,63,75,94,1,15,uncertain (estimates disagree)
+ADM2_Chandpur,Sep to date,2026-09-01,2026-09-22,207.2,0.82,81,106,68,9,7,uncertain (estimates disagree)
+ADM2_Chittagong,since 1 Jun,2026-06-01,2026-09-22,1515.3,1.03,68,66,114,0,17,uncertain (estimates disagree)
+ADM2_Chittagong,last 30 days,2026-08-24,2026-09-22,298.5,1.03,62,63,65,4,6,dry
+ADM2_Chittagong,Jun,2026-06-01,2026-06-30,229.3,1.03,35,34,82,0,9,uncertain (estimates disagree)
+ADM2_Chittagong,Jul,2026-07-01,2026-07-31,733.3,1.03,115,107,160,18,20,uncertain (estimates disagree)
+ADM2_Chittagong,Aug,2026-08-01,2026-08-31,325.1,1.03,57,56,119,2,18,uncertain (estimates disagree)
+ADM2_Chittagong,Sep to date,2026-09-01,2026-09-22,227.6,1.03,63,64,55,4,6,dry
+ADM2_Chuadanga,since 1 Jun,2026-06-01,2026-09-22,619.1,0.77,68,84,119,2,18,uncertain (estimates disagree)
+ADM2_Chuadanga,last 30 days,2026-08-24,2026-09-22,182.1,0.77,79,109,86,9,5,uncertain (estimates disagree)
+ADM2_Chuadanga,Jun,2026-06-01,2026-06-30,167.1,0.77,75,93,159,8,23,uncertain (estimates disagree)
+ADM2_Chuadanga,Jul,2026-07-01,2026-07-31,156.5,0.77,56,66,140,6,20,uncertain (estimates disagree)
+ADM2_Chuadanga,Aug,2026-08-01,2026-08-31,133.6,0.77,57,68,85,2,12,uncertain (estimates disagree)
+ADM2_Chuadanga,Sep to date,2026-09-01,2026-09-22,161.9,0.77,89,125,84,12,7,uncertain (estimates disagree)
+ADM2_Comilla,since 1 Jun,2026-06-01,2026-09-22,1028.0,0.91,75,80,103,1,15,uncertain (estimates disagree)
+ADM2_Comilla,last 30 days,2026-08-24,2026-09-22,271.3,0.91,81,99,66,7,4,uncertain (estimates disagree)
+ADM2_Comilla,Jun,2026-06-01,2026-06-30,209.3,0.91,51,52,86,2,10,uncertain (estimates disagree)
+ADM2_Comilla,Jul,2026-07-01,2026-07-31,327.6,0.91,91,91,145,14,20,uncertain (estimates disagree)
+ADM2_Comilla,Aug,2026-08-01,2026-08-31,279.1,0.91,83,86,101,9,16,normal
+ADM2_Comilla,Sep to date,2026-09-01,2026-09-22,212.1,0.91,82,104,58,10,3,uncertain (estimates disagree)
+ADM2_CoxsBazar,since 1 Jun,2026-06-01,2026-09-22,2069.9,0.94,77,81,107,1,15,uncertain (estimates disagree)
+ADM2_CoxsBazar,last 30 days,2026-08-24,2026-09-22,356.1,0.94,69,77,74,5,8,dry
+ADM2_CoxsBazar,Jun,2026-06-01,2026-06-30,268.4,0.94,33,36,71,0,7,dry
+ADM2_CoxsBazar,Jul,2026-07-01,2026-07-31,978.8,0.94,120,117,157,17,21,uncertain (estimates disagree)
+ADM2_CoxsBazar,Aug,2026-08-01,2026-08-31,573.0,0.94,88,91,122,13,18,uncertain (estimates disagree)
+ADM2_CoxsBazar,Sep to date,2026-09-01,2026-09-22,249.8,0.94,63,74,29,4,0,dry
+ADM2_Dhaka,since 1 Jun,2026-06-01,2026-09-22,833.8,0.88,69,73,107,3,15,uncertain (estimates disagree)
+ADM2_Dhaka,last 30 days,2026-08-24,2026-09-22,174.0,0.88,58,70,74,2,6,dry
+ADM2_Dhaka,Jun,2026-06-01,2026-06-30,181.6,0.88,54,56,98,3,12,uncertain (estimates disagree)
+ADM2_Dhaka,Jul,2026-07-01,2026-07-31,308.7,0.88,88,92,151,13,22,uncertain (estimates disagree)
+ADM2_Dhaka,Aug,2026-08-01,2026-08-31,208.3,0.88,71,73,90,3,15,uncertain (estimates disagree)
+ADM2_Dhaka,Sep to date,2026-09-01,2026-09-22,135.1,0.88,57,72,70,3,6,dry
+ADM2_Dinajpur,since 1 Jun,2026-06-01,2026-09-22,603.9,0.9,45,51,96,0,11,uncertain (estimates disagree)
+ADM2_Dinajpur,last 30 days,2026-08-24,2026-09-22,168.0,0.9,60,65,77,6,6,dry
+ADM2_Dinajpur,Jun,2026-06-01,2026-06-30,137.5,0.9,34,39,121,0,20,uncertain (estimates disagree)
+ADM2_Dinajpur,Jul,2026-07-01,2026-07-31,199.5,0.9,50,58,107,3,16,uncertain (estimates disagree)
+ADM2_Dinajpur,Aug,2026-08-01,2026-08-31,108.1,0.9,34,36,70,0,7,dry
+ADM2_Dinajpur,Sep to date,2026-09-01,2026-09-22,158.8,0.9,74,82,83,8,8,uncertain (estimates disagree)
+ADM2_Faridpur,since 1 Jun,2026-06-01,2026-09-22,738.3,0.71,68,89,113,2,16,uncertain (estimates disagree)
+ADM2_Faridpur,last 30 days,2026-08-24,2026-09-22,123.3,0.71,49,67,80,0,9,dry
+ADM2_Faridpur,Jun,2026-06-01,2026-06-30,190.0,0.71,67,85,114,6,16,uncertain (estimates disagree)
+ADM2_Faridpur,Jul,2026-07-01,2026-07-31,313.9,0.71,101,122,154,12,19,uncertain (estimates disagree)
+ADM2_Faridpur,Aug,2026-08-01,2026-08-31,130.9,0.71,44,62,91,1,15,uncertain (estimates disagree)
+ADM2_Faridpur,Sep to date,2026-09-01,2026-09-22,103.5,0.71,54,72,75,1,7,dry
+ADM2_Feni,since 1 Jun,2026-06-01,2026-09-22,908.9,0.99,53,53,105,0,16,uncertain (estimates disagree)
+ADM2_Feni,last 30 days,2026-08-24,2026-09-22,235.8,0.99,59,65,62,2,3,dry
+ADM2_Feni,Jun,2026-06-01,2026-06-30,119.9,0.99,24,23,85,0,11,uncertain (estimates disagree)
+ADM2_Feni,Jul,2026-07-01,2026-07-31,366.1,0.99,77,73,145,8,19,uncertain (estimates disagree)
+ADM2_Feni,Aug,2026-08-01,2026-08-31,268.3,0.99,58,61,108,4,17,uncertain (estimates disagree)
+ADM2_Feni,Sep to date,2026-09-01,2026-09-22,154.6,0.99,54,60,51,4,4,dry
+ADM2_Gaibandha,since 1 Jun,2026-06-01,2026-09-22,729.0,0.81,58,68,93,1,7,uncertain (estimates disagree)
+ADM2_Gaibandha,last 30 days,2026-08-24,2026-09-22,69.5,0.81,23,29,68,0,6,dry
+ADM2_Gaibandha,Jun,2026-06-01,2026-06-30,157.6,0.81,44,47,111,1,17,uncertain (estimates disagree)
+ADM2_Gaibandha,Jul,2026-07-01,2026-07-31,336.3,0.81,91,114,107,15,17,normal
+ADM2_Gaibandha,Aug,2026-08-01,2026-08-31,175.5,0.81,59,66,71,3,8,dry
+ADM2_Gaibandha,Sep to date,2026-09-01,2026-09-22,59.7,0.81,25,33,71,1,6,dry
+ADM2_Gazipur,since 1 Jun,2026-06-01,2026-09-22,824.2,0.86,63,69,105,0,16,uncertain (estimates disagree)
+ADM2_Gazipur,last 30 days,2026-08-24,2026-09-22,195.2,0.86,62,75,69,3,6,dry
+ADM2_Gazipur,Jun,2026-06-01,2026-06-30,214.4,0.86,57,61,90,1,9,uncertain (estimates disagree)
+ADM2_Gazipur,Jul,2026-07-01,2026-07-31,285.0,0.86,75,83,151,9,21,uncertain (estimates disagree)
+ADM2_Gazipur,Aug,2026-08-01,2026-08-31,153.1,0.86,47,51,94,1,14,uncertain (estimates disagree)
+ADM2_Gazipur,Sep to date,2026-09-01,2026-09-22,171.7,0.86,73,89,63,5,5,uncertain (estimates disagree)
+ADM2_Gopalganj,since 1 Jun,2026-06-01,2026-09-22,584.2,0.72,49,63,112,0,17,uncertain (estimates disagree)
+ADM2_Gopalganj,last 30 days,2026-08-24,2026-09-22,100.8,0.72,36,48,78,0,6,dry
+ADM2_Gopalganj,Jun,2026-06-01,2026-06-30,121.6,0.72,38,50,114,1,15,uncertain (estimates disagree)
+ADM2_Gopalganj,Jul,2026-07-01,2026-07-31,256.8,0.72,77,90,150,10,20,uncertain (estimates disagree)
+ADM2_Gopalganj,Aug,2026-08-01,2026-08-31,123.9,0.72,40,54,91,0,15,uncertain (estimates disagree)
+ADM2_Gopalganj,Sep to date,2026-09-01,2026-09-22,81.9,0.72,38,51,74,1,6,dry
+ADM2_Habiganj,since 1 Jun,2026-06-01,2026-09-22,954.5,0.88,53,58,111,0,17,uncertain (estimates disagree)
+ADM2_Habiganj,last 30 days,2026-08-24,2026-09-22,269.4,0.88,61,74,69,2,6,dry
+ADM2_Habiganj,Jun,2026-06-01,2026-06-30,230.7,0.88,40,43,100,1,16,uncertain (estimates disagree)
+ADM2_Habiganj,Jul,2026-07-01,2026-07-31,232.9,0.88,50,53,157,0,24,uncertain (estimates disagree)
+ADM2_Habiganj,Aug,2026-08-01,2026-08-31,341.6,0.88,77,80,106,5,17,uncertain (estimates disagree)
+ADM2_Habiganj,Sep to date,2026-09-01,2026-09-22,149.3,0.88,45,58,53,1,3,dry
+ADM2_Jamalpur,since 1 Jun,2026-06-01,2026-09-22,789.6,0.78,61,75,92,1,10,uncertain (estimates disagree)
+ADM2_Jamalpur,last 30 days,2026-08-24,2026-09-22,164.7,0.78,54,70,56,2,3,dry
+ADM2_Jamalpur,Jun,2026-06-01,2026-06-30,162.5,0.78,46,51,87,2,10,uncertain (estimates disagree)
+ADM2_Jamalpur,Jul,2026-07-01,2026-07-31,267.9,0.78,71,90,130,10,19,uncertain (estimates disagree)
+ADM2_Jamalpur,Aug,2026-08-01,2026-08-31,209.2,0.78,64,78,82,5,12,uncertain (estimates disagree)
+ADM2_Jamalpur,Sep to date,2026-09-01,2026-09-22,150.0,0.78,65,85,54,5,3,uncertain (estimates disagree)
+ADM2_Jessore,since 1 Jun,2026-06-01,2026-09-22,684.8,0.77,65,78,119,3,17,uncertain (estimates disagree)
+ADM2_Jessore,last 30 days,2026-08-24,2026-09-22,115.4,0.77,45,57,77,2,7,dry
+ADM2_Jessore,Jun,2026-06-01,2026-06-30,141.6,0.77,51,66,134,4,21,uncertain (estimates disagree)
+ADM2_Jessore,Jul,2026-07-01,2026-07-31,323.6,0.77,106,116,166,14,21,uncertain (estimates disagree)
+ADM2_Jessore,Aug,2026-08-01,2026-08-31,117.1,0.77,42,51,85,0,14,uncertain (estimates disagree)
+ADM2_Jessore,Sep to date,2026-09-01,2026-09-22,102.5,0.77,52,66,71,3,5,dry
+ADM2_Jhalokati,since 1 Jun,2026-06-01,2026-09-22,875.8,0.92,57,60,107,0,16,uncertain (estimates disagree)
+ADM2_Jhalokati,last 30 days,2026-08-24,2026-09-22,198.4,0.92,54,61,67,2,4,dry
+ADM2_Jhalokati,Jun,2026-06-01,2026-06-30,83.0,0.92,19,21,105,0,15,uncertain (estimates disagree)
+ADM2_Jhalokati,Jul,2026-07-01,2026-07-31,360.4,0.92,85,81,144,10,19,uncertain (estimates disagree)
+ADM2_Jhalokati,Aug,2026-08-01,2026-08-31,281.1,0.92,71,76,94,3,16,uncertain (estimates disagree)
+ADM2_Jhalokati,Sep to date,2026-09-01,2026-09-22,151.3,0.92,53,59,61,3,5,dry
+ADM2_Jhenaidah,since 1 Jun,2026-06-01,2026-09-22,652.8,0.77,69,85,120,5,18,uncertain (estimates disagree)
+ADM2_Jhenaidah,last 30 days,2026-08-24,2026-09-22,165.4,0.77,74,96,85,7,10,uncertain (estimates disagree)
+ADM2_Jhenaidah,Jun,2026-06-01,2026-06-30,169.2,0.77,75,90,134,12,20,uncertain (estimates disagree)
+ADM2_Jhenaidah,Jul,2026-07-01,2026-07-31,214.9,0.77,71,86,160,7,20,uncertain (estimates disagree)
+ADM2_Jhenaidah,Aug,2026-08-01,2026-08-31,124.8,0.77,52,63,88,1,13,uncertain (estimates disagree)
+ADM2_Jhenaidah,Sep to date,2026-09-01,2026-09-22,143.8,0.77,82,108,81,9,8,normal
+ADM2_Joypurhat,since 1 Jun,2026-06-01,2026-09-22,618.0,0.81,55,66,96,0,12,uncertain (estimates disagree)
+ADM2_Joypurhat,last 30 days,2026-08-24,2026-09-22,107.8,0.81,41,52,73,1,5,dry
+ADM2_Joypurhat,Jun,2026-06-01,2026-06-30,129.1,0.81,42,48,97,0,11,uncertain (estimates disagree)
+ADM2_Joypurhat,Jul,2026-07-01,2026-07-31,282.3,0.81,85,105,128,12,19,uncertain (estimates disagree)
+ADM2_Joypurhat,Aug,2026-08-01,2026-08-31,111.3,0.81,42,47,76,0,10,dry
+ADM2_Joypurhat,Sep to date,2026-09-01,2026-09-22,95.4,0.81,44,57,75,2,4,dry
+ADM2_Khagrachhari,since 1 Jun,2026-06-01,2026-09-22,1365.6,0.99,78,78,107,4,16,uncertain (estimates disagree)
+ADM2_Khagrachhari,last 30 days,2026-08-24,2026-09-22,346.0,0.99,78,87,75,9,7,uncertain (estimates disagree)
+ADM2_Khagrachhari,Jun,2026-06-01,2026-06-30,213.2,0.99,40,40,83,0,9,uncertain (estimates disagree)
+ADM2_Khagrachhari,Jul,2026-07-01,2026-07-31,420.7,0.99,92,86,146,13,19,uncertain (estimates disagree)
+ADM2_Khagrachhari,Aug,2026-08-01,2026-08-31,483.2,0.99,108,107,107,17,17,normal
+ADM2_Khagrachhari,Sep to date,2026-09-01,2026-09-22,248.5,0.99,76,87,70,8,8,uncertain (estimates disagree)
+ADM2_Khulna,since 1 Jun,2026-06-01,2026-09-22,731.2,0.85,55,61,112,0,17,uncertain (estimates disagree)
+ADM2_Khulna,last 30 days,2026-08-24,2026-09-22,170.2,0.85,52,61,65,1,4,dry
+ADM2_Khulna,Jun,2026-06-01,2026-06-30,157.3,0.85,44,52,118,0,18,uncertain (estimates disagree)
+ADM2_Khulna,Jul,2026-07-01,2026-07-31,286.3,0.85,77,76,159,8,22,uncertain (estimates disagree)
+ADM2_Khulna,Aug,2026-08-01,2026-08-31,145.9,0.85,41,46,87,0,15,uncertain (estimates disagree)
+ADM2_Khulna,Sep to date,2026-09-01,2026-09-22,141.7,0.85,57,66,56,1,4,dry
+ADM2_Kishoreganj,since 1 Jun,2026-06-01,2026-09-22,728.1,0.87,43,48,111,0,17,uncertain (estimates disagree)
+ADM2_Kishoreganj,last 30 days,2026-08-24,2026-09-22,154.0,0.87,36,44,69,0,6,dry
+ADM2_Kishoreganj,Jun,2026-06-01,2026-06-30,211.6,0.87,42,46,100,0,16,uncertain (estimates disagree)
+ADM2_Kishoreganj,Jul,2026-07-01,2026-07-31,172.2,0.87,38,42,157,0,24,uncertain (estimates disagree)
+ADM2_Kishoreganj,Aug,2026-08-01,2026-08-31,224.2,0.87,52,56,106,0,17,uncertain (estimates disagree)
+ADM2_Kishoreganj,Sep to date,2026-09-01,2026-09-22,120.1,0.87,40,50,53,0,3,dry
+ADM2_Kurigram,since 1 Jun,2026-06-01,2026-09-22,836.6,0.97,53,53,90,0,4,uncertain (estimates disagree)
+ADM2_Kurigram,last 30 days,2026-08-24,2026-09-22,162.0,0.97,47,47,80,2,8,dry
+ADM2_Kurigram,Jun,2026-06-01,2026-06-30,244.9,0.97,46,47,102,1,16,uncertain (estimates disagree)
+ADM2_Kurigram,Jul,2026-07-01,2026-07-31,277.7,0.97,63,65,89,6,12,uncertain (estimates disagree)
+ADM2_Kurigram,Aug,2026-08-01,2026-08-31,184.4,0.97,54,51,87,2,13,uncertain (estimates disagree)
+ADM2_Kurigram,Sep to date,2026-09-01,2026-09-22,129.6,0.97,49,51,76,4,9,dry
+ADM2_Kushtia,since 1 Jun,2026-06-01,2026-09-22,543.7,0.76,57,71,112,0,16,uncertain (estimates disagree)
+ADM2_Kushtia,last 30 days,2026-08-24,2026-09-22,141.2,0.76,59,82,93,3,9,uncertain (estimates disagree)
+ADM2_Kushtia,Jun,2026-06-01,2026-06-30,108.2,0.76,46,56,123,2,18,uncertain (estimates disagree)
+ADM2_Kushtia,Jul,2026-07-01,2026-07-31,155.5,0.76,54,65,135,4,19,uncertain (estimates disagree)
+ADM2_Kushtia,Aug,2026-08-01,2026-08-31,158.5,0.76,64,80,90,5,12,uncertain (estimates disagree)
+ADM2_Kushtia,Sep to date,2026-09-01,2026-09-22,121.6,0.76,64,91,91,6,9,uncertain (estimates disagree)
+ADM2_Lakshmipur,since 1 Jun,2026-06-01,2026-09-22,923.6,1.01,56,55,107,0,17,uncertain (estimates disagree)
+ADM2_Lakshmipur,last 30 days,2026-08-24,2026-09-22,215.8,1.01,55,59,71,3,5,dry
+ADM2_Lakshmipur,Jun,2026-06-01,2026-06-30,153.3,1.01,33,32,99,0,12,uncertain (estimates disagree)
+ADM2_Lakshmipur,Jul,2026-07-01,2026-07-31,332.7,1.01,77,67,138,6,19,uncertain (estimates disagree)
+ADM2_Lakshmipur,Aug,2026-08-01,2026-08-31,287.9,1.01,63,67,103,1,16,uncertain (estimates disagree)
+ADM2_Lakshmipur,Sep to date,2026-09-01,2026-09-22,149.6,1.01,52,56,67,2,5,dry
+ADM2_Lalmonirhat,since 1 Jun,2026-06-01,2026-09-22,924.3,1.07,50,47,98,0,12,uncertain (estimates disagree)
+ADM2_Lalmonirhat,last 30 days,2026-08-24,2026-09-22,194.0,1.07,50,45,67,0,6,dry
+ADM2_Lalmonirhat,Jun,2026-06-01,2026-06-30,300.5,1.07,48,48,130,1,20,uncertain (estimates disagree)
+ADM2_Lalmonirhat,Jul,2026-07-01,2026-07-31,257.2,1.07,48,45,93,2,12,uncertain (estimates disagree)
+ADM2_Lalmonirhat,Aug,2026-08-01,2026-08-31,204.2,1.07,51,45,85,4,10,uncertain (estimates disagree)
+ADM2_Lalmonirhat,Sep to date,2026-09-01,2026-09-22,162.4,1.07,56,51,69,3,7,dry
+ADM2_Madaripur,since 1 Jun,2026-06-01,2026-09-22,708.9,0.72,59,74,112,0,17,uncertain (estimates disagree)
+ADM2_Madaripur,last 30 days,2026-08-24,2026-09-22,149.4,0.72,51,71,78,1,6,dry
+ADM2_Madaripur,Jun,2026-06-01,2026-06-30,120.2,0.72,37,46,114,1,15,uncertain (estimates disagree)
+ADM2_Madaripur,Jul,2026-07-01,2026-07-31,321.9,0.72,92,111,150,11,20,uncertain (estimates disagree)
+ADM2_Madaripur,Aug,2026-08-01,2026-08-31,133.9,0.72,43,56,91,1,15,uncertain (estimates disagree)
+ADM2_Madaripur,Sep to date,2026-09-01,2026-09-22,132.9,0.72,59,83,74,2,6,uncertain (estimates disagree)
+ADM2_Magura,since 1 Jun,2026-06-01,2026-09-22,764.4,0.72,74,97,120,4,18,uncertain (estimates disagree)
+ADM2_Magura,last 30 days,2026-08-24,2026-09-22,158.6,0.72,67,92,85,7,10,uncertain (estimates disagree)
+ADM2_Magura,Jun,2026-06-01,2026-06-30,248.5,0.72,91,121,134,13,20,uncertain (estimates disagree)
+ADM2_Magura,Jul,2026-07-01,2026-07-31,217.7,0.72,73,87,160,9,20,uncertain (estimates disagree)
+ADM2_Magura,Aug,2026-08-01,2026-08-31,170.6,0.72,63,87,88,4,13,uncertain (estimates disagree)
+ADM2_Magura,Sep to date,2026-09-01,2026-09-22,127.7,0.72,69,93,81,7,8,uncertain (estimates disagree)
+ADM2_Manikganj,since 1 Jun,2026-06-01,2026-09-22,800.9,0.73,70,90,107,3,15,uncertain (estimates disagree)
+ADM2_Manikganj,last 30 days,2026-08-24,2026-09-22,163.4,0.73,57,81,74,1,6,uncertain (estimates disagree)
+ADM2_Manikganj,Jun,2026-06-01,2026-06-30,196.7,0.73,63,80,98,2,12,uncertain (estimates disagree)
+ADM2_Manikganj,Jul,2026-07-01,2026-07-31,280.6,0.73,88,106,151,11,22,uncertain (estimates disagree)
+ADM2_Manikganj,Aug,2026-08-01,2026-08-31,179.6,0.73,60,79,90,3,15,uncertain (estimates disagree)
+ADM2_Manikganj,Sep to date,2026-09-01,2026-09-22,144.0,0.73,65,94,70,3,6,uncertain (estimates disagree)
+ADM2_Maulvibazar,since 1 Jun,2026-06-01,2026-09-22,953.1,0.96,53,55,109,0,17,uncertain (estimates disagree)
+ADM2_Maulvibazar,last 30 days,2026-08-24,2026-09-22,230.3,0.96,55,61,67,1,4,dry
+ADM2_Maulvibazar,Jun,2026-06-01,2026-06-30,234.7,0.96,41,42,100,0,16,uncertain (estimates disagree)
+ADM2_Maulvibazar,Jul,2026-07-01,2026-07-31,263.9,0.96,57,57,154,2,24,uncertain (estimates disagree)
+ADM2_Maulvibazar,Aug,2026-08-01,2026-08-31,305.8,0.96,67,68,106,3,16,uncertain (estimates disagree)
+ADM2_Maulvibazar,Sep to date,2026-09-01,2026-09-22,148.8,0.96,48,55,49,1,3,dry
+ADM2_Meherpur,since 1 Jun,2026-06-01,2026-09-22,576.6,0.77,64,79,112,1,16,uncertain (estimates disagree)
+ADM2_Meherpur,last 30 days,2026-08-24,2026-09-22,175.4,0.77,77,106,93,6,9,uncertain (estimates disagree)
+ADM2_Meherpur,Jun,2026-06-01,2026-06-30,130.3,0.77,59,74,123,3,18,uncertain (estimates disagree)
+ADM2_Meherpur,Jul,2026-07-01,2026-07-31,154.4,0.77,55,67,135,6,19,uncertain (estimates disagree)
+ADM2_Meherpur,Aug,2026-08-01,2026-08-31,145.6,0.77,65,76,90,6,12,uncertain (estimates disagree)
+ADM2_Meherpur,Sep to date,2026-09-01,2026-09-22,146.4,0.77,81,115,91,8,9,normal
+ADM2_Munshiganj,since 1 Jun,2026-06-01,2026-09-22,683.1,0.78,56,67,106,0,15,uncertain (estimates disagree)
+ADM2_Munshiganj,last 30 days,2026-08-24,2026-09-22,184.6,0.78,62,83,72,4,7,uncertain (estimates disagree)
+ADM2_Munshiganj,Jun,2026-06-01,2026-06-30,85.1,0.78,26,29,97,0,12,uncertain (estimates disagree)
+ADM2_Munshiganj,Jul,2026-07-01,2026-07-31,254.7,0.78,71,85,144,8,18,uncertain (estimates disagree)
+ADM2_Munshiganj,Aug,2026-08-01,2026-08-31,195.8,0.78,65,76,94,3,15,uncertain (estimates disagree)
+ADM2_Munshiganj,Sep to date,2026-09-01,2026-09-22,147.5,0.78,63,86,68,6,7,uncertain (estimates disagree)
+ADM2_Mymensingh,since 1 Jun,2026-06-01,2026-09-22,798.9,0.96,53,55,102,0,13,uncertain (estimates disagree)
+ADM2_Mymensingh,last 30 days,2026-08-24,2026-09-22,185.9,0.96,53,57,60,0,3,dry
+ADM2_Mymensingh,Jun,2026-06-01,2026-06-30,246.7,0.96,56,56,89,3,10,uncertain (estimates disagree)
+ADM2_Mymensingh,Jul,2026-07-01,2026-07-31,168.1,0.96,41,42,148,0,21,uncertain (estimates disagree)
+ADM2_Mymensingh,Aug,2026-08-01,2026-08-31,223.7,0.96,57,60,96,3,16,uncertain (estimates disagree)
+ADM2_Mymensingh,Sep to date,2026-09-01,2026-09-22,160.4,0.96,63,68,53,1,3,dry
+ADM2_Naogaon,since 1 Jun,2026-06-01,2026-09-22,560.9,0.77,55,70,101,0,13,uncertain (estimates disagree)
+ADM2_Naogaon,last 30 days,2026-08-24,2026-09-22,134.8,0.77,54,73,97,2,11,uncertain (estimates disagree)
+ADM2_Naogaon,Jun,2026-06-01,2026-06-30,70.5,0.77,26,33,98,0,10,uncertain (estimates disagree)
+ADM2_Naogaon,Jul,2026-07-01,2026-07-31,268.6,0.77,90,112,124,14,17,uncertain (estimates disagree)
+ADM2_Naogaon,Aug,2026-08-01,2026-08-31,108.1,0.77,43,52,78,0,9,dry
+ADM2_Naogaon,Sep to date,2026-09-01,2026-09-22,113.6,0.77,57,80,101,3,13,uncertain (estimates disagree)
+ADM2_Narail,since 1 Jun,2026-06-01,2026-09-22,684.1,0.72,63,80,119,1,17,uncertain (estimates disagree)
+ADM2_Narail,last 30 days,2026-08-24,2026-09-22,109.0,0.72,43,56,77,1,7,dry
+ADM2_Narail,Jun,2026-06-01,2026-06-30,137.1,0.72,46,62,134,1,21,uncertain (estimates disagree)
+ADM2_Narail,Jul,2026-07-01,2026-07-31,337.1,0.72,111,125,166,15,21,uncertain (estimates disagree)
+ADM2_Narail,Aug,2026-08-01,2026-08-31,119.4,0.72,40,56,85,0,14,uncertain (estimates disagree)
+ADM2_Narail,Sep to date,2026-09-01,2026-09-22,90.4,0.72,47,61,71,4,5,dry
+ADM2_Narayanganj,since 1 Jun,2026-06-01,2026-09-22,868.5,0.82,68,78,106,0,15,uncertain (estimates disagree)
+ADM2_Narayanganj,last 30 days,2026-08-24,2026-09-22,215.7,0.82,67,87,72,3,7,uncertain (estimates disagree)
+ADM2_Narayanganj,Jun,2026-06-01,2026-06-30,123.6,0.82,35,38,97,0,12,uncertain (estimates disagree)
+ADM2_Narayanganj,Jul,2026-07-01,2026-07-31,280.7,0.82,77,87,144,10,18,uncertain (estimates disagree)
+ADM2_Narayanganj,Aug,2026-08-01,2026-08-31,274.6,0.82,88,97,94,10,15,normal
+ADM2_Narayanganj,Sep to date,2026-09-01,2026-09-22,189.5,0.82,78,103,68,8,7,uncertain (estimates disagree)
+ADM2_Narsingdi,since 1 Jun,2026-06-01,2026-09-22,887.5,0.88,62,68,105,0,16,uncertain (estimates disagree)
+ADM2_Narsingdi,last 30 days,2026-08-24,2026-09-22,194.8,0.88,57,68,69,2,6,dry
+ADM2_Narsingdi,Jun,2026-06-01,2026-06-30,210.1,0.88,49,53,90,1,9,uncertain (estimates disagree)
+ADM2_Narsingdi,Jul,2026-07-01,2026-07-31,286.9,0.88,74,78,151,10,21,uncertain (estimates disagree)
+ADM2_Narsingdi,Aug,2026-08-01,2026-08-31,226.2,0.88,63,68,94,5,14,uncertain (estimates disagree)
+ADM2_Narsingdi,Sep to date,2026-09-01,2026-09-22,164.3,0.88,65,79,63,2,5,dry
+ADM2_Natore,since 1 Jun,2026-06-01,2026-09-22,617.5,0.76,62,79,103,0,13,uncertain (estimates disagree)
+ADM2_Natore,last 30 days,2026-08-24,2026-09-22,146.2,0.76,54,80,81,2,5,uncertain (estimates disagree)
+ADM2_Natore,Jun,2026-06-01,2026-06-30,116.5,0.76,44,57,94,2,10,uncertain (estimates disagree)
+ADM2_Natore,Jul,2026-07-01,2026-07-31,228.9,0.76,82,98,141,12,19,uncertain (estimates disagree)
+ADM2_Natore,Aug,2026-08-01,2026-08-31,144.8,0.76,58,71,87,2,11,uncertain (estimates disagree)
+ADM2_Natore,Sep to date,2026-09-01,2026-09-22,127.2,0.76,60,92,81,5,5,uncertain (estimates disagree)
+ADM2_Nawabganj,since 1 Jun,2026-06-01,2026-09-22,567.1,0.75,62,79,103,1,14,uncertain (estimates disagree)
+ADM2_Nawabganj,last 30 days,2026-08-24,2026-09-22,189.5,0.75,82,112,117,9,19,normal
+ADM2_Nawabganj,Jun,2026-06-01,2026-06-30,77.7,0.75,34,45,85,2,10,uncertain (estimates disagree)
+ADM2_Nawabganj,Jul,2026-07-01,2026-07-31,211.4,0.75,77,94,117,13,18,uncertain (estimates disagree)
+ADM2_Nawabganj,Aug,2026-08-01,2026-08-31,106.0,0.75,46,55,97,1,12,uncertain (estimates disagree)
+ADM2_Nawabganj,Sep to date,2026-09-01,2026-09-22,172.0,0.75,96,135,113,11,15,uncertain (estimates disagree)
+ADM2_Netrakona,since 1 Jun,2026-06-01,2026-09-22,815.4,0.96,41,43,100,0,14,uncertain (estimates disagree)
+ADM2_Netrakona,last 30 days,2026-08-24,2026-09-22,152.7,0.96,33,36,58,0,3,dry
+ADM2_Netrakona,Jun,2026-06-01,2026-06-30,220.6,0.96,39,38,89,0,13,uncertain (estimates disagree)
+ADM2_Netrakona,Jul,2026-07-01,2026-07-31,249.4,0.96,45,47,142,0,21,uncertain (estimates disagree)
+ADM2_Netrakona,Aug,2026-08-01,2026-08-31,233.8,0.96,46,47,96,0,15,uncertain (estimates disagree)
+ADM2_Netrakona,Sep to date,2026-09-01,2026-09-22,111.7,0.96,33,37,50,0,4,dry
+ADM2_Nilphamari,since 1 Jun,2026-06-01,2026-09-22,991.4,1.01,55,54,98,0,13,uncertain (estimates disagree)
+ADM2_Nilphamari,last 30 days,2026-08-24,2026-09-22,165.5,1.01,43,40,64,1,6,dry
+ADM2_Nilphamari,Jun,2026-06-01,2026-06-30,239.6,1.01,42,44,143,1,22,uncertain (estimates disagree)
+ADM2_Nilphamari,Jul,2026-07-01,2026-07-31,407.0,1.01,77,75,94,9,12,uncertain (estimates disagree)
+ADM2_Nilphamari,Aug,2026-08-01,2026-08-31,206.3,1.01,48,47,79,3,8,dry
+ADM2_Nilphamari,Sep to date,2026-09-01,2026-09-22,138.5,1.01,50,47,69,1,7,dry
+ADM2_Noakhali,since 1 Jun,2026-06-01,2026-09-22,986.1,0.98,54,55,105,0,16,uncertain (estimates disagree)
+ADM2_Noakhali,last 30 days,2026-08-24,2026-09-22,201.3,0.98,49,53,62,0,3,dry
+ADM2_Noakhali,Jun,2026-06-01,2026-06-30,180.3,0.98,35,35,85,0,11,uncertain (estimates disagree)
+ADM2_Noakhali,Jul,2026-07-01,2026-07-31,349.1,0.98,69,65,145,4,19,uncertain (estimates disagree)
+ADM2_Noakhali,Aug,2026-08-01,2026-08-31,324.9,0.98,66,70,108,3,17,uncertain (estimates disagree)
+ADM2_Noakhali,Sep to date,2026-09-01,2026-09-22,131.8,0.98,43,47,51,2,4,dry
+ADM2_Pabna,since 1 Jun,2026-06-01,2026-09-22,582.3,0.71,57,76,111,0,17,uncertain (estimates disagree)
+ADM2_Pabna,last 30 days,2026-08-24,2026-09-22,146.3,0.71,56,84,84,0,6,uncertain (estimates disagree)
+ADM2_Pabna,Jun,2026-06-01,2026-06-30,141.8,0.71,54,71,110,4,15,uncertain (estimates disagree)
+ADM2_Pabna,Jul,2026-07-01,2026-07-31,187.3,0.71,65,81,149,10,20,uncertain (estimates disagree)
+ADM2_Pabna,Aug,2026-08-01,2026-08-31,124.4,0.71,45,62,91,1,14,uncertain (estimates disagree)
+ADM2_Pabna,Sep to date,2026-09-01,2026-09-22,128.8,0.71,64,96,80,3,6,uncertain (estimates disagree)
+ADM2_Panchagarh,since 1 Jun,2026-06-01,2026-09-22,1205.1,1.09,60,57,104,0,13,uncertain (estimates disagree)
+ADM2_Panchagarh,last 30 days,2026-08-24,2026-09-22,264.2,1.09,61,55,66,6,5,dry
+ADM2_Panchagarh,Jun,2026-06-01,2026-06-30,337.0,1.09,57,57,154,4,21,uncertain (estimates disagree)
+ADM2_Panchagarh,Jul,2026-07-01,2026-07-31,403.2,1.09,63,62,91,3,11,uncertain (estimates disagree)
+ADM2_Panchagarh,Aug,2026-08-01,2026-08-31,262.8,1.09,57,50,95,5,11,uncertain (estimates disagree)
+ADM2_Panchagarh,Sep to date,2026-09-01,2026-09-22,202.1,1.09,65,60,66,6,6,dry
+ADM2_Patuakhali,since 1 Jun,2026-06-01,2026-09-22,968.2,0.99,52,53,111,0,17,uncertain (estimates disagree)
+ADM2_Patuakhali,last 30 days,2026-08-24,2026-09-22,213.9,0.99,49,53,69,1,6,dry
+ADM2_Patuakhali,Jun,2026-06-01,2026-06-30,151.3,0.99,30,31,93,0,11,uncertain (estimates disagree)
+ADM2_Patuakhali,Jul,2026-07-01,2026-07-31,353.1,0.99,67,63,145,5,19,uncertain (estimates disagree)
+ADM2_Patuakhali,Aug,2026-08-01,2026-08-31,300.4,0.99,63,64,114,2,18,uncertain (estimates disagree)
+ADM2_Patuakhali,Sep to date,2026-09-01,2026-09-22,163.4,0.99,48,52,59,1,6,dry
+ADM2_Pirojpur,since 1 Jun,2026-06-01,2026-09-22,772.5,0.89,53,57,107,0,16,uncertain (estimates disagree)
+ADM2_Pirojpur,last 30 days,2026-08-24,2026-09-22,165.5,0.89,47,55,67,1,4,dry
+ADM2_Pirojpur,Jun,2026-06-01,2026-06-30,93.9,0.89,22,26,105,0,15,uncertain (estimates disagree)
+ADM2_Pirojpur,Jul,2026-07-01,2026-07-31,328.9,0.89,85,80,144,9,19,uncertain (estimates disagree)
+ADM2_Pirojpur,Aug,2026-08-01,2026-08-31,220.8,0.89,60,65,94,3,16,uncertain (estimates disagree)
+ADM2_Pirojpur,Sep to date,2026-09-01,2026-09-22,128.9,0.89,45,54,61,1,5,dry
+ADM2_Rajbari,since 1 Jun,2026-06-01,2026-09-22,661.6,0.72,64,83,120,2,18,uncertain (estimates disagree)
+ADM2_Rajbari,last 30 days,2026-08-24,2026-09-22,127.0,0.72,51,73,85,0,10,uncertain (estimates disagree)
+ADM2_Rajbari,Jun,2026-06-01,2026-06-30,189.0,0.72,74,91,134,6,20,uncertain (estimates disagree)
+ADM2_Rajbari,Jul,2026-07-01,2026-07-31,242.0,0.72,78,98,160,9,20,uncertain (estimates disagree)
+ADM2_Rajbari,Aug,2026-08-01,2026-08-31,116.8,0.72,41,58,88,0,13,uncertain (estimates disagree)
+ADM2_Rajbari,Sep to date,2026-09-01,2026-09-22,113.7,0.72,60,85,81,1,8,uncertain (estimates disagree)
+ADM2_Rajshahi,since 1 Jun,2026-06-01,2026-09-22,501.4,0.72,54,72,107,0,14,uncertain (estimates disagree)
+ADM2_Rajshahi,last 30 days,2026-08-24,2026-09-22,166.9,0.72,68,101,105,4,14,uncertain (estimates disagree)
+ADM2_Rajshahi,Jun,2026-06-01,2026-06-30,62.6,0.72,26,36,94,0,10,uncertain (estimates disagree)
+ADM2_Rajshahi,Jul,2026-07-01,2026-07-31,209.2,0.72,79,97,132,11,18,uncertain (estimates disagree)
+ADM2_Rajshahi,Aug,2026-08-01,2026-08-31,84.6,0.72,37,47,90,0,12,uncertain (estimates disagree)
+ADM2_Rajshahi,Sep to date,2026-09-01,2026-09-22,145.0,0.72,77,118,107,8,13,uncertain (estimates disagree)
+ADM2_Rangamati,since 1 Jun,2026-06-01,2026-09-22,1238.8,1.0,66,65,118,2,19,uncertain (estimates disagree)
+ADM2_Rangamati,last 30 days,2026-08-24,2026-09-22,371.5,1.0,80,85,102,9,13,uncertain (estimates disagree)
+ADM2_Rangamati,Jun,2026-06-01,2026-06-30,149.6,1.0,26,26,81,0,10,uncertain (estimates disagree)
+ADM2_Rangamati,Jul,2026-07-01,2026-07-31,506.4,1.0,106,97,168,16,22,uncertain (estimates disagree)
+ADM2_Rangamati,Aug,2026-08-01,2026-08-31,344.2,1.0,71,70,106,4,16,uncertain (estimates disagree)
+ADM2_Rangamati,Sep to date,2026-09-01,2026-09-22,238.5,1.0,70,76,102,6,12,uncertain (estimates disagree)
+ADM2_Rangpur,since 1 Jun,2026-06-01,2026-09-22,745.5,0.9,54,58,93,0,7,uncertain (estimates disagree)
+ADM2_Rangpur,last 30 days,2026-08-24,2026-09-22,158.6,0.9,52,56,68,1,6,dry
+ADM2_Rangpur,Jun,2026-06-01,2026-06-30,206.4,0.9,47,50,111,1,17,uncertain (estimates disagree)
+ADM2_Rangpur,Jul,2026-07-01,2026-07-31,295.6,0.9,72,83,107,10,17,uncertain (estimates disagree)
+ADM2_Rangpur,Aug,2026-08-01,2026-08-31,95.5,0.9,32,31,71,0,8,dry
+ADM2_Rangpur,Sep to date,2026-09-01,2026-09-22,148.0,0.9,62,69,71,5,6,dry
+ADM2_Satkhira,since 1 Jun,2026-06-01,2026-09-22,672.0,0.84,52,58,112,0,17,uncertain (estimates disagree)
+ADM2_Satkhira,last 30 days,2026-08-24,2026-09-22,184.4,0.84,57,68,65,1,4,dry
+ADM2_Satkhira,Jun,2026-06-01,2026-06-30,132.9,0.84,40,48,118,0,18,uncertain (estimates disagree)
+ADM2_Satkhira,Jul,2026-07-01,2026-07-31,226.2,0.84,62,63,159,5,22,uncertain (estimates disagree)
+ADM2_Satkhira,Aug,2026-08-01,2026-08-31,162.4,0.84,46,52,87,0,15,uncertain (estimates disagree)
+ADM2_Satkhira,Sep to date,2026-09-01,2026-09-22,150.5,0.84,60,72,56,1,4,dry
+ADM2_Shariatpur,since 1 Jun,2026-06-01,2026-09-22,733.1,0.77,56,68,107,0,17,uncertain (estimates disagree)
+ADM2_Shariatpur,last 30 days,2026-08-24,2026-09-22,231.7,0.77,68,95,71,5,5,uncertain (estimates disagree)
+ADM2_Shariatpur,Jun,2026-06-01,2026-06-30,96.1,0.77,27,32,99,0,12,uncertain (estimates disagree)
+ADM2_Shariatpur,Jul,2026-07-01,2026-07-31,267.5,0.77,76,84,138,8,19,uncertain (estimates disagree)
+ADM2_Shariatpur,Aug,2026-08-01,2026-08-31,171.6,0.77,51,63,103,0,16,uncertain (estimates disagree)
+ADM2_Shariatpur,Sep to date,2026-09-01,2026-09-22,197.9,0.77,76,109,67,8,5,uncertain (estimates disagree)
+ADM2_Sherpur,since 1 Jun,2026-06-01,2026-09-22,826.9,0.83,59,68,92,0,10,uncertain (estimates disagree)
+ADM2_Sherpur,last 30 days,2026-08-24,2026-09-22,115.1,0.83,36,43,56,0,3,dry
+ADM2_Sherpur,Jun,2026-06-01,2026-06-30,222.8,0.83,56,60,87,2,10,uncertain (estimates disagree)
+ADM2_Sherpur,Jul,2026-07-01,2026-07-31,261.3,0.83,64,78,130,8,19,uncertain (estimates disagree)
+ADM2_Sherpur,Aug,2026-08-01,2026-08-31,259.3,0.83,71,85,82,5,12,uncertain (estimates disagree)
+ADM2_Sherpur,Sep to date,2026-09-01,2026-09-22,83.6,0.83,35,42,54,1,3,dry
+ADM2_Sirajganj,since 1 Jun,2026-06-01,2026-09-22,526.6,0.79,48,59,103,0,13,uncertain (estimates disagree)
+ADM2_Sirajganj,last 30 days,2026-08-24,2026-09-22,137.7,0.79,46,66,81,0,5,uncertain (estimates disagree)
+ADM2_Sirajganj,Jun,2026-06-01,2026-06-30,120.7,0.79,46,51,94,1,10,uncertain (estimates disagree)
+ADM2_Sirajganj,Jul,2026-07-01,2026-07-31,171.2,0.79,55,64,141,6,19,uncertain (estimates disagree)
+ADM2_Sirajganj,Aug,2026-08-01,2026-08-31,101.5,0.79,34,42,87,0,11,uncertain (estimates disagree)
+ADM2_Sirajganj,Sep to date,2026-09-01,2026-09-22,133.3,0.79,60,86,81,3,5,uncertain (estimates disagree)
+ADM2_Sunamganj,since 1 Jun,2026-06-01,2026-09-22,1149.4,0.89,45,48,114,0,16,uncertain (estimates disagree)
+ADM2_Sunamganj,last 30 days,2026-08-24,2026-09-22,162.4,0.89,28,32,67,0,5,dry
+ADM2_Sunamganj,Jun,2026-06-01,2026-06-30,393.9,0.89,49,52,105,1,17,uncertain (estimates disagree)
+ADM2_Sunamganj,Jul,2026-07-01,2026-07-31,316.6,0.89,43,47,160,0,22,uncertain (estimates disagree)
+ADM2_Sunamganj,Aug,2026-08-01,2026-08-31,326.9,0.89,52,54,107,0,18,uncertain (estimates disagree)
+ADM2_Sunamganj,Sep to date,2026-09-01,2026-09-22,112.1,0.89,28,32,49,0,3,dry
+ADM2_Sylhet,since 1 Jun,2026-06-01,2026-09-22,1328.4,1.04,59,56,115,0,16,uncertain (estimates disagree)
+ADM2_Sylhet,last 30 days,2026-08-24,2026-09-22,360.1,1.04,73,74,70,7,8,dry
+ADM2_Sylhet,Jun,2026-06-01,2026-06-30,446.9,1.04,58,57,106,2,18,uncertain (estimates disagree)
+ADM2_Sylhet,Jul,2026-07-01,2026-07-31,278.9,1.04,47,44,160,0,22,uncertain (estimates disagree)
+ADM2_Sylhet,Aug,2026-08-01,2026-08-31,349.3,1.04,66,60,107,4,18,uncertain (estimates disagree)
+ADM2_Sylhet,Sep to date,2026-09-01,2026-09-22,253.2,1.04,69,73,53,5,4,dry
+ADM2_Tangail,since 1 Jun,2026-06-01,2026-09-22,697.7,0.84,58,66,98,0,13,uncertain (estimates disagree)
+ADM2_Tangail,last 30 days,2026-08-24,2026-09-22,241.9,0.84,84,105,62,9,2,uncertain (estimates disagree)
+ADM2_Tangail,Jun,2026-06-01,2026-06-30,158.5,0.84,50,53,87,1,8,uncertain (estimates disagree)
+ADM2_Tangail,Jul,2026-07-01,2026-07-31,180.6,0.84,54,59,142,4,21,uncertain (estimates disagree)
+ADM2_Tangail,Aug,2026-08-01,2026-08-31,147.7,0.84,44,53,87,1,13,uncertain (estimates disagree)
+ADM2_Tangail,Sep to date,2026-09-01,2026-09-22,210.9,0.84,100,123,60,14,4,uncertain (estimates disagree)
+ADM2_Thakurgaon,since 1 Jun,2026-06-01,2026-09-22,735.2,0.95,48,51,89,0,8,uncertain (estimates disagree)
+ADM2_Thakurgaon,last 30 days,2026-08-24,2026-09-22,160.9,0.95,50,51,69,3,5,dry
+ADM2_Thakurgaon,Jun,2026-06-01,2026-06-30,141.8,0.95,32,36,122,0,20,uncertain (estimates disagree)
+ADM2_Thakurgaon,Jul,2026-07-01,2026-07-31,303.4,0.95,63,69,86,6,10,uncertain (estimates disagree)
+ADM2_Thakurgaon,Aug,2026-08-01,2026-08-31,149.4,0.95,40,40,73,1,7,dry
+ADM2_Thakurgaon,Sep to date,2026-09-01,2026-09-22,140.6,0.95,59,62,73,3,8,dry
+KHU_BATIAGHATA,since 1 Jun,2026-06-01,2026-09-22,692.8,0.82,55,64,112,0,17,uncertain (estimates disagree)
+KHU_BATIAGHATA,last 30 days,2026-08-24,2026-09-22,116.6,0.82,38,46,65,0,4,dry
+KHU_BATIAGHATA,Jun,2026-06-01,2026-06-30,122.8,0.82,36,45,118,0,18,uncertain (estimates disagree)
+KHU_BATIAGHATA,Jul,2026-07-01,2026-07-31,332.2,0.82,95,98,159,10,22,uncertain (estimates disagree)
+KHU_BATIAGHATA,Aug,2026-08-01,2026-08-31,140.1,0.82,42,51,87,0,15,uncertain (estimates disagree)
+KHU_BATIAGHATA,Sep to date,2026-09-01,2026-09-22,97.7,0.82,41,50,56,1,4,dry
+RAJ_TANORE,since 1 Jun,2026-06-01,2026-09-22,467.0,0.68,50,71,107,0,14,uncertain (estimates disagree)
+RAJ_TANORE,last 30 days,2026-08-24,2026-09-22,179.6,0.68,74,116,105,9,14,uncertain (estimates disagree)
+RAJ_TANORE,Jun,2026-06-01,2026-06-30,51.2,0.68,23,31,94,0,10,uncertain (estimates disagree)
+RAJ_TANORE,Jul,2026-07-01,2026-07-31,183.5,0.68,65,89,132,8,18,uncertain (estimates disagree)
+RAJ_TANORE,Aug,2026-08-01,2026-08-31,68.6,0.68,30,40,90,0,12,uncertain (estimates disagree)
+RAJ_TANORE,Sep to date,2026-09-01,2026-09-22,163.7,0.68,85,138,107,11,13,uncertain (estimates disagree)
+RAN_MITHAPUKUR,since 1 Jun,2026-06-01,2026-09-22,769.5,0.87,60,67,93,2,7,uncertain (estimates disagree)
+RAN_MITHAPUKUR,last 30 days,2026-08-24,2026-09-22,130.3,0.87,45,52,68,1,6,dry
+RAN_MITHAPUKUR,Jun,2026-06-01,2026-06-30,230.9,0.87,57,62,111,2,17,uncertain (estimates disagree)
+RAN_MITHAPUKUR,Jul,2026-07-01,2026-07-31,327.9,0.87,90,104,107,15,17,normal
+RAN_MITHAPUKUR,Aug,2026-08-01,2026-08-31,91.6,0.87,31,33,71,0,8,dry
+RAN_MITHAPUKUR,Sep to date,2026-09-01,2026-09-22,119.2,0.87,55,63,71,4,6,dry
+SIR_ULLAHPARA,since 1 Jun,2026-06-01,2026-09-22,526.6,0.79,48,59,103,0,13,uncertain (estimates disagree)
+SIR_ULLAHPARA,last 30 days,2026-08-24,2026-09-22,137.7,0.79,46,66,81,0,5,uncertain (estimates disagree)
+SIR_ULLAHPARA,Jun,2026-06-01,2026-06-30,120.7,0.79,46,51,94,1,10,uncertain (estimates disagree)
+SIR_ULLAHPARA,Jul,2026-07-01,2026-07-31,171.2,0.79,55,64,141,6,19,uncertain (estimates disagree)
+SIR_ULLAHPARA,Aug,2026-08-01,2026-08-31,101.5,0.79,34,42,87,0,11,uncertain (estimates disagree)
+SIR_ULLAHPARA,Sep to date,2026-09-01,2026-09-22,133.3,0.79,60,86,81,3,5,uncertain (estimates disagree)
+SUN_DHARMAPASHA,since 1 Jun,2026-06-01,2026-09-22,882.9,0.93,40,41,114,0,16,uncertain (estimates disagree)
+SUN_DHARMAPASHA,last 30 days,2026-08-24,2026-09-22,125.7,0.93,23,25,67,0,5,dry
+SUN_DHARMAPASHA,Jun,2026-06-01,2026-06-30,287.1,0.93,44,44,105,0,17,uncertain (estimates disagree)
+SUN_DHARMAPASHA,Jul,2026-07-01,2026-07-31,239.3,0.93,39,41,160,0,22,uncertain (estimates disagree)
+SUN_DHARMAPASHA,Aug,2026-08-01,2026-08-31,272.5,0.93,48,49,107,0,18,uncertain (estimates disagree)
+SUN_DHARMAPASHA,Sep to date,2026-09-01,2026-09-22,83.9,0.93,22,24,49,0,3,dry
+UP_SOHRA,since 1 Jun,2026-06-01,2026-09-22,2060.0,0.91,78,85,111,4,16,uncertain (estimates disagree)
+UP_SOHRA,last 30 days,2026-08-24,2026-09-22,340.2,0.91,66,73,94,5,11,uncertain (estimates disagree)
+UP_SOHRA,Jun,2026-06-01,2026-06-30,762.4,0.91,85,94,92,10,14,normal
+UP_SOHRA,Jul,2026-07-01,2026-07-31,614.6,0.91,79,88,151,10,22,uncertain (estimates disagree)
+UP_SOHRA,Aug,2026-08-01,2026-08-31,446.6,0.91,76,76,104,9,15,uncertain (estimates disagree)
+UP_SOHRA,Sep to date,2026-09-01,2026-09-22,236.3,0.91,64,74,83,6,11,uncertain (estimates disagree)

@@ -1,0 +1,598 @@
+﻿crop_group,crop_en,crop_bn,page,occurrence,fertilizer,dose_min,dose_max,unit,basis,plausible_per_ha,snippet
+tuber,potato,আলু,25,0,urea,325.0,350.0,kg,ha,True,ইউরিয়া 325-350 কেজি
+tuber,potato,আলু,25,1,tsp,200.0,220.0,kg,ha,True,টিএসপি 200-220 কেজি
+tuber,potato,আলু,25,2,mop,250.0,300.0,kg,ha,True,এমপি 250-300 কেজি
+tuber,potato,আলু,25,3,gypsum,100.0,120.0,kg,ha,True,জিপসাম 100-120 কেজি
+tuber,potato,আলু,25,4,zinc_sulphate,8.0,10.0,kg,ha,True,জিংক সালফেট 8-10 কেজি
+tuber,potato,আলু,25,5,boron,6.0,9.0,kg,ha,True,বোরিক এসিড (প্রয়োজনবোধে) 6-9 কেজি
+tuber,potato,আলু,25,6,cowdung,10.0,10.0,t,ha,True,গোবর 10 টন
+tuber,sweet potato,মিষ্টি আলু,41,0,urea,250.0,280.0,kg,ha,True,ইউরিয়া 250-280
+tuber,sweet potato,মিষ্টি আলু,41,1,tsp,140.0,170.0,kg,ha,True,টি এস পি 140-170
+tuber,sweet potato,মিষ্টি আলু,41,2,mop,230.0,260.0,kg,ha,True,এমও পি 230-260
+tuber,sweet potato,মিষ্টি আলু,41,3,gypsum,60.0,80.0,kg,ha,True,জিপসাম 60-80
+tuber,sweet potato,মিষ্টি আলু,41,4,zinc_sulphate,10.0,12.0,kg,ha,True,জিংক সালফেট* 10-12
+tuber,sweet potato,মিষ্টি আলু,41,5,magnesium_sulphate,90.0,120.0,kg,ha,True,ম্যাগনেসিয়াম সালফেট* 90-120
+tuber,sweet potato,মিষ্টি আলু,41,6,boron,6.0,8.0,kg,ha,True,বরিক এসিড* 6-8
+tuber,sweet potato,মিষ্টি আলু,41,7,cowdung,10.0,10.0,t,ha,True,"গোবর 10,000"
+tuber,water taro (panikochu),কচু,54,0,cowdung,10.0,15.0,t,ha,True,"গোবর 10,000-15,000"
+tuber,water taro (panikochu),কচু,54,1,urea,300.0,350.0,kg,ha,True,ইউরিয়া 300 - 350
+tuber,water taro (panikochu),কচু,54,2,tsp,150.0,200.0,kg,ha,True,টিএসপি 150 - 200
+tuber,water taro (panikochu),কচু,54,3,mop,300.0,340.0,kg,ha,True,এমওপি 300-340
+tuber,water taro (panikochu),কচু,54,4,gypsum,100.0,130.0,kg,ha,True,জিপসাম 100 - 130
+tuber,water taro (panikochu),কচু,54,5,zinc_sulphate,10.0,16.0,kg,ha,True,জিংক সালফেট* 10 - 16
+tuber,water taro (panikochu),কচু,54,6,boron,10.0,12.0,kg,ha,True,বরিক এসিড* 10 - 12
+tuber,tannia (Xanthosoma),সাহেবীকচু,58,0,cowdung,8.0,8.0,kg,plant,False,গোবর 8 কেজি
+tuber,tannia (Xanthosoma),সাহেবীকচু,58,1,urea,100.0,100.0,g,plant,False,ইউরিয়া 100 গ্রাম
+tuber,tannia (Xanthosoma),সাহেবীকচু,58,2,dap,140.0,140.0,g,plant,False,ডিএপি 140 গ্রাম
+tuber,tannia (Xanthosoma),সাহেবীকচু,58,3,mop,140.0,140.0,g,plant,False,এমওপি 140 গ্রাম
+tuber,tannia (Xanthosoma),সাহেবীকচু,58,4,gypsum,12.0,12.0,g,plant,False,জিপসাম 12 গ্রাম
+tuber,taro (mukhikochu),মুখীকচু,62,0,cowdung,10.0,10.0,t,ha,True,"গোবর 10,000"
+tuber,taro (mukhikochu),মুখীকচু,62,1,urea,250.0,330.0,kg,ha,True,ইউরিয়া 250-330
+tuber,taro (mukhikochu),মুখীকচু,62,2,tsp,150.0,200.0,kg,ha,True,টিএসপি 150-200
+tuber,taro (mukhikochu),মুখীকচু,62,3,mop,250.0,350.0,kg,ha,True,এমওপি 250-350
+tuber,taro (mukhikochu),মুখীকচু,62,4,gypsum,100.0,130.0,kg,ha,True,জিপসাম 100 - 130
+tuber,taro (mukhikochu),মুখীকচু,62,5,zinc_sulphate,10.0,16.0,kg,ha,True,জিংক সালফেট* 10 - 16
+tuber,taro (mukhikochu),মুখীকচু,62,6,boron,10.0,12.0,kg,ha,True,বরিক এসিড* 10-12
+tuber,elephant foot yam,ওলকচু,64,0,urea,325.0,325.0,kg,ha,True,ইউরিয়া 325 কেজি
+tuber,elephant foot yam,ওলকচু,64,1,tsp,210.0,210.0,kg,ha,True,টিএসপি 210 কেজি
+tuber,elephant foot yam,ওলকচু,64,2,mop,175.0,175.0,kg,ha,True,এমপি 175 কেজি
+pulse,grass pea,খেসারী,72,0,urea,30.0,35.0,kg,ha,True,ইউরিয়া 30-35
+pulse,grass pea,খেসারী,72,1,tsp,53.0,60.0,kg,ha,True,টিএসপি 53-60
+pulse,grass pea,খেসারী,72,2,mop,40.0,45.0,kg,ha,True,এমওপি 40-45
+pulse,grass pea,খেসারী,72,3,gypsum,40.0,45.0,kg,ha,True,জিপসাম 40-45
+pulse,grass pea,খেসারী,72,4,boron,7.0,10.0,kg,ha,True,বোরন (প্রয়োজনবোধে) 7-10
+pulse,lentil,মসুর,77,0,urea,40.0,45.0,kg,ha,True,ইউরিয়া 40-45
+pulse,lentil,মসুর,77,1,tsp,80.0,90.0,kg,ha,True,টিএসপি 80-90
+pulse,lentil,মসুর,77,2,mop,40.0,45.0,kg,ha,True,এমওপি 40-45
+pulse,lentil,মসুর,77,3,gypsum,50.0,55.0,kg,ha,True,জিপসাম 50-55
+pulse,lentil,মসুর,77,4,boron,7.0,10.0,kg,ha,True,বোরন (প্রয়োজনবোধে) 7-10
+pulse,chickpea,ছোলা,85,0,tsp,80.0,90.0,kg,ha,True,টিএসপি 80-90
+pulse,chickpea,ছোলা,85,1,mop,40.0,45.0,kg,ha,True,এমওপি 40-45
+pulse,chickpea,ছোলা,85,2,gypsum,50.0,55.0,kg,ha,True,জিপসাম 50-55
+pulse,chickpea,ছোলা,85,3,boron,7.0,10.0,kg,ha,True,বোরন (প্রয়োজনবোধে) 7-10
+pulse,black gram,মাসকলাই,90,0,urea,40.0,45.0,kg,ha,True,ইউরিয়া 40-45
+pulse,black gram,মাসকলাই,90,1,tsp,80.0,90.0,kg,ha,True,টিএসপি 80-90
+pulse,black gram,মাসকলাই,90,2,mop,40.0,45.0,kg,ha,True,এমওপি 40 -45
+pulse,black gram,মাসকলাই,90,3,gypsum,50.0,55.0,kg,ha,True,জিপসাম 50-55
+pulse,black gram,মাসকলাই,90,4,boron,7.0,10.0,kg,ha,True,বোরন (প্রয়োজনবোধে) 7-10
+pulse,mung bean,মুগ,95,0,urea,40.0,45.0,kg,ha,True,ইউরিয়া 40-45
+pulse,mung bean,মুগ,95,1,tsp,80.0,90.0,kg,ha,True,টিএসপি 80-90
+pulse,mung bean,মুগ,95,2,mop,40.0,45.0,kg,ha,True,এমওপি 40-45
+pulse,mung bean,মুগ,95,3,gypsum,50.0,55.0,kg,ha,True,জিপসাম 50-55
+pulse,mung bean,মুগ,95,4,boron,7.0,10.0,kg,ha,True,বোরন (প্রয়োজনবোধে) 7-10
+pulse,cowpea,ফেলন,101,0,urea,30.0,40.0,kg,ha,True,ইউরিয়া 30-40 কেজি
+pulse,cowpea,ফেলন,101,1,tsp,80.0,90.0,kg,ha,True,টিএসপি 80-90 কেজি
+pulse,cowpea,ফেলন,101,2,mop,40.0,45.0,kg,ha,True,এমপি 40-45 কেজি
+pulse,field pea,মটর,104,0,urea,30.0,40.0,kg,ha,True,ইউরিয়া 30-40
+pulse,field pea,মটর,104,1,tsp,80.0,90.0,kg,ha,True,টিএসপি 80-90
+pulse,field pea,মটর,104,2,mop,40.0,45.0,kg,ha,True,এমওপি 40 -45
+pulse,field pea,মটর,104,3,gypsum,50.0,55.0,kg,ha,True,জিপসাম 50 -55
+pulse,field pea,মটর,104,4,boron,7.0,10.0,kg,ha,True,বোরন 7 -10
+oilseed,mustard,সরিষা,115,0,urea,250.0,300.0,kg,ha,True,ইউরিয়া 250-300
+oilseed,mustard,সরিষা,115,1,tsp,170.0,180.0,kg,ha,True,টিএসপি 170-180
+oilseed,mustard,সরিষা,115,2,mop,85.0,100.0,kg,ha,True,এমওপি 85-100
+oilseed,mustard,সরিষা,115,3,gypsum,150.0,180.0,kg,ha,True,জিপসাম 150-180
+oilseed,mustard,সরিষা,115,4,zinc_sulphate,5.0,7.0,kg,ha,True,জিংক সালফেট 5-7
+oilseed,mustard,সরিষা,115,5,boron,10.0,10.0,kg,ha,True,বরিক এসিড (প্রয়োজনবোধে) 10
+oilseed,mustard,সরিষা,115,6,cowdung,8.0,10.0,t,ha,True,পচা গোবর 8-10 টন
+oilseed,sesame,তিল,120,0,urea,100.0,125.0,kg,ha,True,ইউরিয়া 100-125 কেজি
+oilseed,sesame,তিল,120,1,tsp,130.0,150.0,kg,ha,True,টিএসপি 130-150 কেজি
+oilseed,sesame,তিল,120,2,mop,40.0,50.0,kg,ha,True,এমওপি 40-50 কেজি
+oilseed,sesame,তিল,120,3,gypsum,100.0,110.0,kg,ha,True,জিপসাম 100-110 কেজি
+oilseed,sesame,তিল,120,4,zinc_sulphate,0.0,5.0,kg,ha,True,জিংক সালফেট (প্রয়োজনে) 0-5 কেজি
+oilseed,sesame,তিল,120,5,boron,8.0,10.0,kg,ha,True,বরিক এসিড (প্রয়োজনে) 8-10 কেজি
+oilseed,groundnut,চীনাবাদাম,125,0,urea,25.0,25.0,kg,ha,True,ইউরিয়া 25
+oilseed,groundnut,চীনাবাদাম,125,1,tsp,160.0,160.0,kg,ha,True,টিএসপি 160
+oilseed,groundnut,চীনাবাদাম,125,2,mop,85.0,85.0,kg,ha,True,এমওপি 85
+oilseed,groundnut,চীনাবাদাম,125,3,gypsum,300.0,300.0,kg,ha,True,জিপসাম 300
+oilseed,groundnut,চীনাবাদাম,125,4,boron,10.0,10.0,kg,ha,True,বরিক এসিড(প্রয়োজনে) 10
+oilseed,sunflower,সূর্যমুখী,130,0,urea,180.0,200.0,kg,ha,True,ইউরিয়া 180-200 কেজি
+oilseed,sunflower,সূর্যমুখী,130,1,tsp,150.0,200.0,kg,ha,True,টিএসপি 150-200 কেজি
+oilseed,sunflower,সূর্যমুখী,130,2,mop,120.0,150.0,kg,ha,True,এমওপি 120-150 কেজি
+oilseed,sunflower,সূর্যমুখী,130,3,gypsum,120.0,170.0,kg,ha,True,জিপসাম 120-170 কেজি
+oilseed,sunflower,সূর্যমুখী,130,4,zinc_sulphate,8.0,10.0,kg,ha,True,জিংক সালফেট 8-10 কেজি
+oilseed,sunflower,সূর্যমুখী,130,5,boron,10.0,12.0,kg,ha,True,বরিক এসিড* 10-12 কেজি
+oilseed,sunflower,সূর্যমুখী,130,6,magnesium_sulphate,80.0,100.0,kg,ha,True,ম্যাগনেসিয়াম সালফেট* 80-100 কেজি
+oilseed,sunflower,সূর্যমুখী,130,7,urea,25.0,27.0,kg,bigha,False,ইউরিয়া 25-27
+oilseed,sunflower,সূর্যমুখী,130,8,tsp,23.0,25.0,kg,bigha,False,টিএসপি 23-25
+oilseed,sunflower,সূর্যমুখী,130,9,mop,20.0,25.0,kg,bigha,False,এমওপি 20-25
+oilseed,sunflower,সূর্যমুখী,130,10,gypsum,20.0,25.0,kg,bigha,False,জিপসাম 20-25
+oilseed,sunflower,সূর্যমুখী,130,11,zinc_sulphate,1.35,1.35,kg,bigha,False,জিংক সালফেট 1.35
+oilseed,sunflower,সূর্যমুখী,130,12,boron,1.35,1.35,kg,bigha,False,বরিক এসিড* 1.35
+oilseed,sunflower,সূর্যমুখী,130,13,cowdung,1.1,1.3,t,bigha,False,গোবর (টন) 1.1-1.3
+oilseed,soybean,সয়াবিন,134,0,urea,50.0,60.0,kg,ha,True,ইউরিয়া 50-60 কেজি
+oilseed,soybean,সয়াবিন,134,1,tsp,150.0,175.0,kg,ha,True,টিএসপি 150-175 কেজি
+oilseed,soybean,সয়াবিন,134,2,mop,100.0,120.0,kg,ha,True,এমওপি 100-120 কেজি
+oilseed,soybean,সয়াবিন,134,3,gypsum,80.0,115.0,kg,ha,True,জিপসাম 80-115 কেজি
+oilseed,soybean,সয়াবিন,134,4,boron,8.0,10.0,kg,ha,True,বোরন (প্রয়োজন বোধে) 8-10 কেজি
+oilseed,niger,গর্জন তিল,136,0,urea,70.0,80.0,kg,ha,True,ইউরিয়া 70-80 কেজি
+oilseed,niger,গর্জন তিল,136,1,tsp,110.0,130.0,kg,ha,True,টিএসপি 110-130 কেজি
+oilseed,niger,গর্জন তিল,136,2,mop,45.0,55.0,kg,ha,True,এমওপি 45-55 কেজি
+oilseed,linseed,তিসি,138,0,urea,70.0,80.0,kg,ha,True,ইউরিয়া 70-80 কেজি
+oilseed,linseed,তিসি,138,1,tsp,110.0,130.0,kg,ha,True,টিএসপি 110-130 কেজি
+oilseed,linseed,তিসি,138,2,mop,40.0,50.0,kg,ha,True,এমওপি 40-50 কেজি
+vegetable,tomato,টমেটো,142,0,cowdung,10.0,10.0,t,ha?,True,কম্পোস্ট 10000 কেজি
+vegetable,tomato,টমেটো,142,1,urea,300.0,300.0,kg,ha?,True,ইউরিয়া 300 কেজি
+vegetable,tomato,টমেটো,142,2,tsp,350.0,350.0,kg,ha?,True,টিএসপি 350 কেজি
+vegetable,tomato,টমেটো,142,3,mop,280.0,280.0,kg,ha?,True,এমওপি 280 কেজি
+vegetable,tomato,টমেটো,142,4,gypsum,100.0,100.0,kg,ha?,True,জিপসাম 100 কেজি
+vegetable,tomato,টমেটো,142,5,boron,5.0,5.0,kg,ha?,True,বোরিক এসিড 5 কেজি
+vegetable,tomato,টমেটো,142,6,zinc_sulphate,5.0,5.0,kg,ha?,True,জিঙ্ক সালফেট 5 কেজি
+vegetable,tomato,টমেটো,142,7,magnesium_sulphate,5.0,5.0,kg,ha?,True,ম্যাগনেসিয়াম 5 কেজি
+vegetable,summer hybrid tomato,বারি হাইব্রিড টমেটো-4 (গ্রীষ্মকালীন),145,0,cowdung,20.0,20.0,kg,ha?,False,কম্পোস্ট 20
+vegetable,summer hybrid tomato,বারি হাইব্রিড টমেটো-4 (গ্রীষ্মকালীন),145,1,urea,0.79,0.27,kg,ha?,False,ইউরিয়া 0.79 - 0.27
+vegetable,summer hybrid tomato,বারি হাইব্রিড টমেটো-4 (গ্রীষ্মকালীন),145,2,tsp,0.73,0.73,kg,ha?,False,টিএসপি 0.73
+vegetable,summer hybrid tomato,বারি হাইব্রিড টমেটো-4 (গ্রীষ্মকালীন),145,3,mop,0.37,0.37,kg,ha?,False,এমওপি 0.37
+vegetable,summer hybrid tomato,বারি হাইব্রিড টমেটো-4 (গ্রীষ্মকালীন),145,4,gypsum,0.38,0.38,kg,ha?,False,জিপসাম 0.38
+vegetable,summer hybrid tomato,বারি হাইব্রিড টমেটো-4 (গ্রীষ্মকালীন),145,5,zinc_sulphate,0.05,0.05,kg,ha?,False,জিংক সালফেট 0.05
+vegetable,summer hybrid tomato,বারি হাইব্রিড টমেটো-4 (গ্রীষ্মকালীন),145,6,boron,0.03,0.03,kg,ha?,False,বরিক এসিড 0.03
+vegetable,brinjal,বেগুন,150,0,cowdung,10.0,10.0,t,ha,True,"কম্পোস্ট 10,000"
+vegetable,brinjal,বেগুন,150,1,tsp,250.0,250.0,kg,ha,True,টিএসপি 250
+vegetable,brinjal,বেগুন,150,2,mop,200.0,50.0,kg,ha,True,এমওপি 200 - 50
+vegetable,brinjal,বেগুন,150,3,gypsum,100.0,100.0,kg,ha,True,জিপসাম 100
+vegetable,brinjal,বেগুন,150,4,boron,10.0,10.0,kg,ha,True,বোরিক এসিড (বোরন) 10
+vegetable,Bt brinjal,বিটি বেগুন,155,0,cowdung,10.0,10.0,t,ha,True,"কম্পোস্ট 10,000"
+vegetable,Bt brinjal,বিটি বেগুন,155,1,tsp,250.0,250.0,kg,ha,True,টিএসপি 250
+vegetable,Bt brinjal,বিটি বেগুন,155,2,mop,200.0,50.0,kg,ha,True,এমওপি 200 - 50
+vegetable,Bt brinjal,বিটি বেগুন,155,3,gypsum,100.0,100.0,kg,ha,True,জিপসাম 100
+vegetable,Bt brinjal,বিটি বেগুন,155,4,boron,10.0,10.0,kg,ha,True,বোরিক এসিড (বোরন) 10
+vegetable,sweet pepper,মিষ্টিমরিচ,161,0,zinc_sulphate,12.0,12.0,kg,ha?,True,জিঙ্ক সালফেট 12
+vegetable,hyacinth bean,শিম,166,0,cowdung,10.0,10.0,t,pit,False,গোবর 10 টন
+vegetable,hyacinth bean,শিম,166,1,urea,25.0,25.0,kg,pit,False,ইউরিয়া 25 কেজি
+vegetable,hyacinth bean,শিম,166,2,tsp,90.0,90.0,kg,pit,False,টিএসপি 90 কেজি
+vegetable,hyacinth bean,শিম,166,3,mop,60.0,60.0,kg,pit,False,এমওপি 60 কেজি
+vegetable,hyacinth bean,শিম,166,4,gypsum,60.0,60.0,kg,pit,False,জিপসাম 60 কেজি
+vegetable,hyacinth bean,শিম,166,5,boron,5.0,5.0,kg,pit,False,বোরিক এসিড 5 কেজি
+vegetable,bush bean,ঝাড় শিম,169,0,urea,200.0,250.0,kg,ha,True,ইউরিয়া 200-250 কেজি
+vegetable,bush bean,ঝাড় শিম,169,1,tsp,200.0,250.0,kg,ha,True,টিএসপি 200-250 কেজি
+vegetable,bush bean,ঝাড় শিম,169,2,mop,150.0,180.0,kg,ha,True,এমওপি 150-180 কেজি
+vegetable,bush bean,ঝাড় শিম,169,3,cowdung,5.0,5.0,t,ha,True,গোবর 5 টন
+vegetable,winged bean,কামরাঙ্গা শিম,170,0,urea,200.0,250.0,kg,ha,True,ইউরিয়া 200-250 কেজি
+vegetable,winged bean,কামরাঙ্গা শিম,170,1,tsp,200.0,250.0,kg,ha,True,টিএসপি 200-250 কেজি
+vegetable,winged bean,কামরাঙ্গা শিম,170,2,mop,150.0,180.0,kg,ha,True,এমওপি 150-180 কেজি
+vegetable,winged bean,কামরাঙ্গা শিম,170,3,cowdung,5.0,5.0,t,ha,True,গোবর 5 টন
+vegetable,yardlong bean,বরবটি,171,0,cowdung,10.0,10.0,t,ha?,True,"গোবর 10,000 কেজি"
+vegetable,yardlong bean,বরবটি,171,1,urea,50.0,50.0,kg,ha?,True,ইউরিয়া 50 কেজি
+vegetable,yardlong bean,বরবটি,171,2,tsp,150.0,150.0,kg,ha?,True,টিএসপি 150 কেজি
+vegetable,yardlong bean,বরবটি,171,3,mop,150.0,150.0,kg,ha?,True,এমওপি 150 কেজি
+vegetable,garden pea,মটরশুঁটি,176,0,cowdung,10.0,12.0,t,ha?,True,গোবর 10-12 টন
+vegetable,garden pea,মটরশুঁটি,176,1,urea,100.0,100.0,kg,ha?,True,ইউরিয়া 100 কেজি
+vegetable,garden pea,মটরশুঁটি,176,2,tsp,150.0,150.0,kg,ha?,True,টিএসপি 150 কেজি
+vegetable,garden pea,মটরশুঁটি,176,3,mop,100.0,100.0,kg,ha?,True,এমওপি 100 কেজি
+vegetable,stem amaranth,ডাঁটা,180,0,urea,188.0,188.0,kg,bigha,False,ইউরিয়া 188.0 কেজি
+vegetable,stem amaranth,ডাঁটা,180,1,tsp,112.0,112.0,kg,bigha,False,টিএসপি 112.0 কেজি
+vegetable,stem amaranth,ডাঁটা,180,2,mop,112.0,112.0,kg,bigha,False,এমওপি 112.0 কেজি
+vegetable,stem amaranth,ডাঁটা,180,3,gypsum,56.0,56.0,kg,bigha,False,জিপসাম 56.0 কেজি
+vegetable,cauliflower,ফুলকপি,184,0,cowdung,10.0,10.0,t,pit,False,গোবর 10 টন
+vegetable,cauliflower,ফুলকপি,184,1,urea,150.0,150.0,kg,pit,False,ইউরিয়া 150 কেজি
+vegetable,cauliflower,ফুলকপি,184,2,tsp,150.0,150.0,kg,pit,False,টিএসপি 150 কেজি
+vegetable,cauliflower,ফুলকপি,184,3,mop,120.0,120.0,kg,pit,False,এমওপি 120 কেজি
+vegetable,cauliflower,ফুলকপি,184,4,gypsum,100.0,100.0,kg,pit,False,জিপসাম 100 কেজি
+vegetable,cauliflower,ফুলকপি,184,5,boron,10.0,10.0,kg,pit,False,বোরিক এসিড 10 কেজি
+vegetable,spinach,পালংশাক,190,0,cowdung,10.0,10.0,t,ha,True,গোবর 10 টন
+vegetable,spinach,পালংশাক,190,1,urea,180.0,180.0,kg,ha,True,ইউরিয়া 180 কেজি
+vegetable,spinach,পালংশাক,190,2,tsp,125.0,125.0,kg,ha,True,টিএসপি 125 কেজি
+vegetable,spinach,পালংশাক,190,3,mop,125.0,125.0,kg,ha,True,এমওপি 125 কেজি
+vegetable,pak choi and Chinese cabbage,বাটিশাক ও চীনাশাক,191,0,urea,200.0,250.0,kg,ha,True,ইউরিয়া 200-250 কেজি
+vegetable,pak choi and Chinese cabbage,বাটিশাক ও চীনাশাক,191,1,tsp,100.0,150.0,kg,ha,True,টিএসপি 100-150 কেজি
+vegetable,pak choi and Chinese cabbage,বাটিশাক ও চীনাশাক,191,2,mop,150.0,200.0,kg,ha,True,এমওপি 150-200 কেজি
+vegetable,pak choi and Chinese cabbage,বাটিশাক ও চীনাশাক,191,3,cowdung,10.0,12.0,t,ha,True,গোবর 10-12 টন
+vegetable,Malabar spinach,পুঁইশাক,192,0,cowdung,10.0,12.0,t,ha,True,গোবর 10-12 টন
+vegetable,Malabar spinach,পুঁইশাক,192,1,urea,165.0,185.0,kg,ha,True,ইউরিয়া 165-185 কেজি
+vegetable,Malabar spinach,পুঁইশাক,192,2,tsp,110.0,120.0,kg,ha,True,টিএসপি 110 -120 কেজি
+vegetable,Malabar spinach,পুঁইশাক,192,3,mop,110.0,120.0,kg,ha,True,এমওপি 110 -120 কেজি
+vegetable,Malabar spinach,পুঁইশাক,192,4,boron,10.0,10.0,kg,ha,True,বোরিক এসিড 10 কেজি
+vegetable,green amaranth,সবুজ ডাঁটা শাক,197,0,cowdung,40.0,40.0,kg,decimal,False,কম্পোস্ট 40 কেজি
+vegetable,green amaranth,সবুজ ডাঁটা শাক,197,1,urea,800.0,800.0,g,decimal,False,ইউরিয়া 800 গ্রাম
+vegetable,green amaranth,সবুজ ডাঁটা শাক,197,2,tsp,500.0,500.0,g,decimal,False,টিএসপি 500 গ্রাম
+vegetable,green amaranth,সবুজ ডাঁটা শাক,197,3,mop,600.0,600.0,g,ha?,False,এমওপি 600 গ্রাম
+vegetable,okra,ঢেঁড়স,200,0,urea,150.0,150.0,kg,ha?,True,ইউরিয়া 150 কেজি
+vegetable,okra,ঢেঁড়স,200,1,tsp,100.0,100.0,kg,ha?,True,টিএসপি 100 কেজি
+vegetable,okra,ঢেঁড়স,200,2,mop,150.0,150.0,kg,ha?,True,এমওপি 150 কেজি
+vegetable,cucurbits (general),কুমড়াজাতীয় সবজি,202,0,cowdung,10.0,10.0,t,pit,False,পচা গোবর 10 টন
+vegetable,cucurbits (general),কুমড়াজাতীয় সবজি,202,1,tsp,175.0,175.0,kg,pit,False,টিএসপি 175কেজি
+vegetable,cucurbits (general),কুমড়াজাতীয় সবজি,202,2,urea,175.0,175.0,kg,pit,False,ইউরিয়া 175 কেজি
+vegetable,cucurbits (general),কুমড়াজাতীয় সবজি,202,3,mop,150.0,150.0,kg,ha,True,এমওপি 150 কেজি
+vegetable,cucurbits (general),কুমড়াজাতীয় সবজি,202,4,gypsum,100.0,100.0,kg,ha?,True,জিপসাম 100 কেজি
+vegetable,cucurbits (general),কুমড়াজাতীয় সবজি,202,5,zinc_sulphate,12.5,12.5,kg,ha?,True,জিংক সালফেট 12.5 কেজি
+vegetable,cucurbits (general),কুমড়াজাতীয় সবজি,202,6,boron,10.0,10.0,kg,ha?,True,বোরাক্স 10 কেজি
+vegetable,cucurbits (general),কুমড়াজাতীয় সবজি,202,7,magnesium_sulphate,60.0,60.0,kg,ha?,True,ম্যাগনেসিয়াম সালফেট 60 কেজি
+vegetable,bottle gourd,লাউ,206,0,cowdung,10.0,10.0,t,ha,True,গোবর 10 টন
+vegetable,bottle gourd,লাউ,206,1,urea,150.0,150.0,kg,ha,True,ইউরিয়া 150 কেজি
+vegetable,bottle gourd,লাউ,206,2,tsp,175.0,175.0,kg,ha,True,টিএসপি 175 কেজি
+vegetable,bottle gourd,লাউ,206,3,mop,150.0,150.0,kg,ha,True,এমপি 150 কেজি
+vegetable,bottle gourd,লাউ,206,4,gypsum,100.0,100.0,kg,ha,True,জিপসাম 100 কেজি
+vegetable,bottle gourd,লাউ,206,5,zinc_sulphate,12.0,12.0,kg,ha,True,জিংক 12 কেজি
+vegetable,bottle gourd,লাউ,206,6,boron,10.0,10.0,kg,ha,True,বরিক এসিড 10 কেজি
+vegetable,bottle gourd,লাউ,206,7,magnesium_sulphate,40.0,40.0,kg,ha,True,ম্যাগনেসিয়াম সালফেট 40 কেজি
+vegetable,snake gourd,চিচিঙ্গা,209,0,cowdung,10.0,10.0,t,ha?,True,পচা গোবর 10 টন
+vegetable,snake gourd,চিচিঙ্গা,209,1,tsp,175.0,175.0,kg,ha?,True,টিএসপি 175 কেজি
+vegetable,snake gourd,চিচিঙ্গা,209,2,urea,175.0,175.0,kg,ha?,True,ইউরিয়া 175 কেজি
+vegetable,snake gourd,চিচিঙ্গা,209,3,mop,150.0,150.0,kg,ha?,True,এমপি 150 কেজি
+vegetable,snake gourd,চিচিঙ্গা,209,4,gypsum,100.0,100.0,kg,ha?,True,জিপসাম 100 কেজি
+vegetable,snake gourd,চিচিঙ্গা,209,5,zinc_sulphate,12.5,12.5,kg,ha?,True,দস্তা সার 12.5 কেজি
+vegetable,snake gourd,চিচিঙ্গা,209,6,boron,10.0,10.0,kg,ha?,True,বোরাক্স 10 কেজি
+vegetable,snake gourd,চিচিঙ্গা,209,7,magnesium_sulphate,60.0,60.0,kg,ha?,True,ম্যাগনেসিয়াম 60 কেজি
+vegetable,ash gourd,চালকুমড়া,215,0,cowdung,10.0,10.0,t,ha?,True,"গোবর 10,000 কেজি"
+vegetable,ash gourd,চালকুমড়া,215,1,urea,175.0,175.0,kg,ha?,True,ইউরিয়া 175 কেজি
+vegetable,ash gourd,চালকুমড়া,215,2,tsp,175.0,175.0,kg,ha?,True,টিএসপি 175 কেজি
+vegetable,ash gourd,চালকুমড়া,215,3,mop,150.0,150.0,kg,ha?,True,এমওপি 150 কেজি
+vegetable,ash gourd,চালকুমড়া,215,4,gypsum,90.0,90.0,kg,ha?,True,জিপসাম 90 কেজি
+vegetable,ash gourd,চালকুমড়া,215,5,zinc_sulphate,12.0,12.0,kg,ha?,True,জিংক সালফেট 12 কেজি
+vegetable,ash gourd,চালকুমড়া,215,6,boron,10.0,10.0,kg,ha?,True,বোরাক্স 10 কেজি
+vegetable,squash,স্কোয়াশ,218,0,cowdung,10.0,10.0,t,pit,False,পচা গোবর 10 টন
+vegetable,squash,স্কোয়াশ,218,1,tsp,175.0,175.0,kg,pit,False,টিএসপি 175 কেজি
+vegetable,squash,স্কোয়াশ,218,2,urea,175.0,175.0,kg,pit,False,ইউরিয়া 175 কেজি
+vegetable,squash,স্কোয়াশ,218,3,mop,150.0,150.0,kg,ha,True,এমওপি 150 কেজি
+vegetable,squash,স্কোয়াশ,218,4,gypsum,100.0,100.0,kg,ha?,True,জিপসাম 100 কেজি
+vegetable,squash,স্কোয়াশ,218,5,zinc_sulphate,12.5,12.5,kg,ha?,True,দস্তা সার 12.5 কেজি
+vegetable,squash,স্কোয়াশ,218,6,boron,10.0,10.0,kg,ha?,True,বোরাক্স 10 কেজি
+vegetable,squash,স্কোয়াশ,218,7,magnesium_sulphate,40.0,40.0,kg,ha?,True,ম্যাগনেসিয়াম সালফেট 40 কেজি
+vegetable,sponge gourd,ধুন্দুল,220,0,cowdung,10.0,10.0,t,pit,False,গোবর 10 টন
+vegetable,sponge gourd,ধুন্দুল,220,1,urea,185.0,185.0,kg,pit,False,ইউরিয়া 185 কেজি
+vegetable,sponge gourd,ধুন্দুল,220,2,tsp,175.0,175.0,kg,pit,False,টিএসপি 175 কেজি
+vegetable,sponge gourd,ধুন্দুল,220,3,mop,175.0,175.0,kg,pit,False,এমপি 175 কেজি
+vegetable,sponge gourd,ধুন্দুল,220,4,gypsum,99.0,99.0,kg,pit,False,জিপসাম 99 কেজি
+vegetable,sponge gourd,ধুন্দুল,220,5,zinc_sulphate,12.0,12.0,kg,pit,False,জিঙ্ক সালফেট 12কেজি
+vegetable,sponge gourd,ধুন্দুল,220,6,boron,40.0,40.0,g,pit,False,বরিক এসিড - 40 গ্রাম
+vegetable,hybrid sponge gourd,হাইব্রিড ধুন্দুল,222,0,cowdung,10.0,10.0,t,pit,False,গোবর 10 টন
+vegetable,hybrid sponge gourd,হাইব্রিড ধুন্দুল,222,1,urea,185.0,185.0,kg,pit,False,ইউরিয়া 185কেজি
+vegetable,hybrid sponge gourd,হাইব্রিড ধুন্দুল,222,2,tsp,175.0,175.0,kg,pit,False,টিএসপি 175 কেজি
+vegetable,hybrid sponge gourd,হাইব্রিড ধুন্দুল,222,3,mop,175.0,175.0,kg,ha,True,এমপি 175 কেজি
+vegetable,hybrid sponge gourd,হাইব্রিড ধুন্দুল,222,4,gypsum,99.0,99.0,kg,ha,True,জিপসাম 99 কেজি
+vegetable,hybrid sponge gourd,হাইব্রিড ধুন্দুল,222,5,zinc_sulphate,12.0,12.0,kg,ha,True,জিঙ্ক সালফেট 12কেজি
+vegetable,hybrid sponge gourd,হাইব্রিড ধুন্দুল,222,6,boron,40.0,40.0,g,ha?,False,বরিক এসিড - 40 গ্রাম
+vegetable,hybrid sponge gourd,হাইব্রিড ধুন্দুল,222,7,magnesium_sulphate,12.0,12.0,kg,ha?,True,ম্যাগনেসিয়াম সালফেট 12কেজি
+vegetable,drumstick (moringa),সজিনা,227,0,cowdung,10.0,10.0,kg,plant,False,গোবর (কেজি) 10
+vegetable,drumstick (moringa),সজিনা,227,1,urea,200.0,200.0,g,plant,False,ইউরিয়া (গ্রাম) 200
+vegetable,drumstick (moringa),সজিনা,227,2,tsp,250.0,250.0,g,plant,False,টিএসপি (গ্রাম) 250
+vegetable,drumstick (moringa),সজিনা,227,3,mop,150.0,150.0,g,plant,False,এমওপি (গ্রাম) 150
+vegetable,drumstick (moringa),সজিনা,227,4,gypsum,15.0,15.0,g,plant,False,জিপসাম (গ্রাম) 15
+vegetable,drumstick (moringa),সজিনা,227,5,zinc_sulphate,4.0,4.0,g,plant,False,জিংক সালফেট (গ্রাম) 4
+vegetable,drumstick (moringa),সজিনা,227,6,boron,4.0,4.0,g,plant,False,বরিক এসিড (গ্রাম) 4
+vegetable,hybrid cucumber,হাইব্রিড শসা,228,0,cowdung,10.0,10.0,t,pit,False,গোবর 10 টন
+vegetable,hybrid cucumber,হাইব্রিড শসা,228,1,urea,165.0,165.0,kg,pit,False,ইউরিয়া 165 কেজি
+vegetable,hybrid cucumber,হাইব্রিড শসা,228,2,tsp,160.0,160.0,kg,pit,False,টিএসপি 160 কেজি
+vegetable,hybrid cucumber,হাইব্রিড শসা,228,3,mop,140.0,140.0,kg,pit,False,এমপি 140 কেজি
+vegetable,hybrid cucumber,হাইব্রিড শসা,228,4,gypsum,80.0,80.0,kg,pit,False,জিপসাম 80 কেজি
+vegetable,hybrid cucumber,হাইব্রিড শসা,228,5,zinc_sulphate,5.0,5.0,kg,pit,False,জিঙ্ক সালফেট 5 কেজি
+vegetable,hybrid cucumber,হাইব্রিড শসা,228,6,boron,5.0,5.0,kg,pit,False,বরিক এসিড 5 কেজি
+vegetable,hybrid cucumber,হাইব্রিড শসা,228,7,magnesium_sulphate,5.0,5.0,kg,pit,False,ম্যাগনেসিয়াম সালফেট 5কেজি
+vegetable,hybrid cucumber,হাইব্রিড শসা,228,8,cowdung,10.0,10.0,t,ha,True,কম্পোস্ট 10 টন
+vegetable,hybrid cucumber,হাইব্রিড শসা,228,9,urea,175.0,175.0,kg,ha,True,ইউরিয়া 175 কেজি
+vegetable,hybrid cucumber,হাইব্রিড শসা,228,10,tsp,150.0,150.0,kg,ha,True,ট্রিপল সুপার ফসফেট (টিএসপি) 150 কেজি
+vegetable,hybrid cucumber,হাইব্রিড শসা,228,11,gypsum,110.0,110.0,kg,ha,True,জিপসাম 110 কেজি
+vegetable,hybrid cucumber,হাইব্রিড শসা,228,12,boron,10.0,10.0,kg,ha,True,বোরিক এসিড 10 কেজি
+vegetable,hybrid cucumber,হাইব্রিড শসা,228,13,urea,300.0,300.0,kg,ha,True,ইউরিয়া 300 কেজি
+vegetable,hybrid cucumber,হাইব্রিড শসা,228,14,tsp,200.0,200.0,kg,ha,True,টিএসপি 200 কেজি
+vegetable,hybrid cucumber,হাইব্রিড শসা,228,15,mop,250.0,250.0,kg,ha,True,এমওপি 250 কেজি
+vegetable,hybrid cucumber,হাইব্রিড শসা,228,16,gypsum,150.0,150.0,kg,ha,True,জিপসাম 150 কেজি
+vegetable,hybrid cucumber,হাইব্রিড শসা,228,17,boron,10.0,10.0,kg,ha,True,বরিক এসিড 10 কেজি
+vegetable,hybrid cucumber,হাইব্রিড শসা,228,18,cowdung,5.0,5.0,t,ha,True,কম্পোস্ট 5 টন
+vegetable,hybrid cucumber,হাইব্রিড শসা,228,19,urea,350.0,350.0,kg,ha,True,ইউরিয়া 350 কেজি
+vegetable,hybrid cucumber,হাইব্রিড শসা,228,20,tsp,150.0,150.0,kg,ha,True,টিএসপি 150 কেজি
+vegetable,hybrid cucumber,হাইব্রিড শসা,228,21,mop,250.0,250.0,kg,ha,True,এমওপি 250 কেজি
+vegetable,hybrid cucumber,হাইব্রিড শসা,228,22,zinc_sulphate,10.0,10.0,kg,ha,True,জিঙ্ক সালফেট 10 কেজি
+vegetable,hybrid cucumber,হাইব্রিড শসা,228,23,boron,12.0,12.0,kg,ha,True,বরিক এসিড 12 কেজি
+vegetable,hybrid cucumber,হাইব্রিড শসা,228,24,cowdung,10.0,10.0,t,ha,True,কম্পোস্ট 10 টন
+vegetable,hybrid cucumber,হাইব্রিড শসা,228,25,urea,110.0,110.0,kg,ha?,True,ইউরিয়া 110 কেজি
+vegetable,hybrid cucumber,হাইব্রিড শসা,228,26,mop,100.0,100.0,kg,ha?,True,এমওপি 100 কেজি
+vegetable,hybrid cucumber,হাইব্রিড শসা,228,27,tsp,50.0,50.0,kg,ha?,True,টিএসপি 50 কেজি
+fruit,mango,আম,242,0,cowdung,20.0,30.0,kg,plant,False,জৈব সার 20-30 কেজি
+fruit,mango,আম,242,1,tsp,450.0,550.0,g,plant,False,টিএসপি 450-550 গ্রাম
+fruit,mango,আম,242,2,mop,200.0,300.0,g,plant,False,এমওপি 200-300 গ্রাম
+fruit,mango,আম,242,3,gypsum,200.0,230.0,g,plant,False,জিপসাম 200-230 গ্রাম
+fruit,mango,আম,242,4,zinc_sulphate,40.0,60.0,g,plant,False,জিংক সালফেট 40-60 গ্রাম
+fruit,mango,আম,242,5,cowdung,26.0,26.0,kg,plant,False,গোবর (কেজি) 26
+fruit,mango,আম,242,6,urea,437.0,437.0,g,plant,False,ইউরিয়া (গ্রাম) 437
+fruit,mango,আম,242,7,tsp,437.0,437.0,g,plant,False,টিএসপি (গ্রাম) 437
+fruit,mango,আম,242,8,mop,175.0,175.0,g,pit,False,এমওপি (গ্রাম) 175
+fruit,mango,আম,242,9,gypsum,175.0,175.0,g,pit,False,জিপসাম (গ্রাম) 175
+fruit,mango,আম,242,10,zinc_sulphate,17.0,17.0,g,plant?,False,জিংক সালফেট (গ্রাম) 17
+fruit,mango,আম,242,11,boron,35.0,35.0,g,plant?,False,বরিক এসিড (গ্রাম) 35
+fruit,mango,আম,242,12,cowdung,26.25,26.25,kg,plant?,False,গোবর (কেজি) 26.25
+fruit,mango,আম,242,13,urea,438.0,438.0,g,plant?,False,ইউরিয়া (গ্রাম) 438
+fruit,mango,আম,242,14,tsp,438.0,438.0,g,plant?,False,টিএসপি (গ্রাম) 438
+fruit,mango,আম,242,15,mop,175.0,175.0,g,plant?,False,এমওপি(গ্রাম) 175
+fruit,mango,আম,242,16,gypsum,175.0,175.0,g,plant?,False,জিপসাম (গ্রাম) 175
+fruit,mango,আম,242,17,zinc_sulphate,17.5,17.5,g,plant?,False,জিংক সালফেট (গ্রাম) 17.50
+fruit,mango,আম,242,18,boron,35.0,35.0,g,plant?,False,বোরিক এসিড (গ্রাম) 35
+fruit,jackfruit,কাঁঠাল,249,0,cowdung,20.0,30.0,kg,plant,False,কম্পোস্ট 20-30 কেজি
+fruit,jackfruit,কাঁঠাল,249,1,tsp,400.0,500.0,g,plant,False,টিএসপি 400-500 গ্রাম
+fruit,jackfruit,কাঁঠাল,249,2,mop,240.0,260.0,g,plant,False,এমওপি 240-260 গ্রাম
+fruit,banana,কলা,253,0,cowdung,10.0,10.0,kg,plant,False,গোবর 10 কেজি
+fruit,banana,কলা,253,1,urea,500.0,500.0,g,plant,False,ইউরিয়া 500 গ্রাম
+fruit,banana,কলা,253,2,tsp,400.0,400.0,g,plant,False,টিএসপি 400 গ্রাম
+fruit,banana,কলা,253,3,mop,600.0,600.0,g,plant,False,এমওপি 600 গ্রাম
+fruit,banana,কলা,253,4,gypsum,200.0,200.0,g,plant,False,জিপসাম 200 গ্রাম
+fruit,banana,কলা,253,5,zinc_sulphate,1.5,1.5,g,plant,False,জিংক সালফেট 1.5 গ্রাম
+fruit,banana,কলা,253,6,boron,2.0,2.0,g,plant,False,বোরিক এসিড 2.0 গ্রাম
+fruit,guava,পেয়ারা,260,0,cowdung,10.0,15.0,kg,plant,False,গোবর (কেজি) 10-15
+fruit,guava,পেয়ারা,260,1,urea,150.0,200.0,g,plant,False,ইউরিয়া (গ্রাম) 150-200
+fruit,guava,পেয়ারা,260,2,tsp,150.0,200.0,g,plant,False,টিএসপি (গ্রাম) 150-200
+fruit,jujube,কুল,264,0,mop,1.0,1.0,g,plant?,False,এমওপি (গ্রাম) 1
+fruit,litchi,লিচু,267,0,tsp,500.0,500.0,g,pit,False,টিএসপি 500 গ্রাম
+fruit,litchi,লিচু,267,1,mop,400.0,400.0,g,pit,False,এমওপি 400 গ্রাম
+fruit,litchi,লিচু,267,2,gypsum,200.0,300.0,g,pit,False,জিপসাম 200-300 গ্রাম
+fruit,litchi,লিচু,267,3,zinc_sulphate,40.0,60.0,g,pit,False,জিংক সালফেট 40-60 গ্রাম
+fruit,litchi,লিচু,267,4,cowdung,20.0,25.0,kg,plant,False,গোবর 20-25 কেজি
+fruit,coconut,নারিকেল,270,0,tsp,250.0,250.0,g,pit,False,টিএসপি 250 গ্রাম
+fruit,coconut,নারিকেল,270,1,mop,400.0,400.0,g,pit,False,এমওপি 400 গ্রাম
+fruit,coconut,নারিকেল,270,2,cowdung,20.0,30.0,kg,pit,False,গোবর 20-30 কেজি
+fruit,coconut,নারিকেল,270,3,zinc_sulphate,100.0,100.0,g,pit,False,জিংক সালফেট 100 গ্রাম
+fruit,coconut,নারিকেল,270,4,boron,50.0,50.0,g,pit,False,বোরিক এসিড 50 গ্রাম
+fruit,coconut,নারিকেল,270,5,cowdung,10.0,10.0,kg,pit,False,গোবর (কেজি) 10
+fruit,coconut,নারিকেল,270,6,urea,200.0,200.0,g,pit,False,ইউরিয়া (গ্রাম) 200
+fruit,coconut,নারিকেল,270,7,tsp,100.0,100.0,g,pit,False,টিএসপি (গ্রাম) 100
+fruit,coconut,নারিকেল,270,8,mop,400.0,400.0,g,pit,False,এমওপি(গ্রাম) 400
+fruit,coconut,নারিকেল,270,9,gypsum,100.0,100.0,g,pit,False,জিপসাম (গ্রাম) 100
+fruit,coconut,নারিকেল,270,10,zinc_sulphate,40.0,40.0,g,plant,False,জিংক সালফেট(গ্রাম) 40
+fruit,coconut,নারিকেল,270,11,boron,10.0,10.0,g,plant,False,বোরিক এসিড (গ্রাম) 10
+fruit,mandarin,কমলা,272,0,mop,1.0,2.0,g,plant?,False,এমওপি (গ্রাম): 1-2
+fruit,lime (kagzi),কাগজীলেবু,284,0,boron,1.0,2.0,g,plant?,False,বোরন সার (গ্রাম) 1-2
+fruit,pomelo,বাতাবিলেবু,290,0,cowdung,7.0,10.0,kg,plant,False,গোবর (কেজি) 7-10
+fruit,pomelo,বাতাবিলেবু,290,1,urea,175.0,225.0,g,plant,False,ইউরিয়া (গ্রাম) 175-225
+fruit,pomelo,বাতাবিলেবু,290,2,tsp,80.0,90.0,g,plant,False,টিএসপি (গ্রাম) 80-90
+fruit,pomelo,বাতাবিলেবু,290,3,mop,140.0,160.0,g,plant,False,এমওপি (গ্রাম) 140-160
+fruit,satkara (Citrus macroptera),সাতকরা,291,0,cowdung,7.0,10.0,kg,plant?,False,গোবর (কেজি) 7-10
+fruit,satkara (Citrus macroptera),সাতকরা,291,1,urea,175.0,225.0,g,plant?,False,ইউরিয়া (গ্রাম) 175-225
+fruit,satkara (Citrus macroptera),সাতকরা,291,2,tsp,80.0,90.0,g,plant?,False,টিএসপি (গ্রাম) 80-90
+fruit,satkara (Citrus macroptera),সাতকরা,291,3,mop,140.0,160.0,g,plant?,False,এমওপি (গ্রাম) 140-160
+fruit,wax apple,জামরুল,296,0,mop,1.0,3.0,g,plant?,False,এমওপি (গ্রাম) 1-3
+fruit,sapodilla,সফেদা,298,0,tsp,250.0,300.0,g,pit,False,টিএসপি 250-300 গ্রাম
+fruit,sapodilla,সফেদা,298,1,mop,240.0,250.0,g,pit,False,এমওপি 240-250 গ্রাম
+fruit,sapodilla,সফেদা,298,2,cowdung,10.0,15.0,kg,pit,False,গোবর 10-15 কেজি
+fruit,sapodilla,সফেদা,298,3,cowdung,20.0,20.0,kg,pit,False,কম্পোস্ট (কেজি) 20
+fruit,sapodilla,সফেদা,298,4,urea,100.0,200.0,g,pit,False,ইউরিয়া (গ্রাম) 100-200
+fruit,sapodilla,সফেদা,298,5,tsp,200.0,200.0,g,pit,False,টিএসপি (গ্রাম) 200
+fruit,sapodilla,সফেদা,298,6,mop,150.0,150.0,g,pit,False,এমপি (গ্রাম) 150
+fruit,sapodilla,সফেদা,298,7,gypsum,50.0,50.0,g,pit,False,জিপসাম (গ্রাম) 50
+fruit,carambola,কামরাঙ্গা,299,0,cowdung,10.0,15.0,kg,plant,False,জৈব সার (কেজি) 10-15
+fruit,carambola,কামরাঙ্গা,299,1,urea,300.0,400.0,g,plant,False,ইউরিয়া (গ্রাম) 300-400
+fruit,carambola,কামরাঙ্গা,299,2,tsp,250.0,300.0,g,plant,False,টিএসপি (গ্রাম) 250-300
+fruit,carambola,কামরাঙ্গা,299,3,mop,250.0,300.0,g,plant,False,এমওপি (গ্রাম) 250-300
+fruit,tikoi (Garcinia),তৈকর,301,0,mop,1.0,2.0,g,plant,False,এমওপি (গ্রাম) 1-2
+fruit,Burmese grape (latkan),লটকন,302,0,cowdung,10.0,10.0,kg,plant,False,গোবর (কেজি) 10
+fruit,Burmese grape (latkan),লটকন,302,1,urea,300.0,300.0,g,plant,False,ইউরিয়া (গ্রাম) 300
+fruit,Burmese grape (latkan),লটকন,302,2,tsp,200.0,200.0,g,plant,False,টিএসপি (গ্রাম) 200
+fruit,Burmese grape (latkan),লটকন,302,3,mop,200.0,200.0,g,plant,False,এমওপি (গ্রাম) 200
+fruit,Burmese grape (latkan),লটকন,302,4,gypsum,100.0,100.0,g,plant,False,জিপসাম (গ্রাম) 100
+fruit,rambutan,রাম্বুতান,308,0,mop,1.0,1.0,g,plant?,False,এমওপি (গ্রাম) 1
+fruit,strawberry,স্ট্রবেরি,310,0,cowdung,30.0,30.0,kg,ha,False,পচা গোবর 30
+fruit,strawberry,স্ট্রবেরি,310,1,urea,250.0,250.0,kg,ha,True,ইউরিয়া 250
+fruit,strawberry,স্ট্রবেরি,310,2,tsp,200.0,200.0,kg,ha,True,টিএসপি 200
+fruit,strawberry,স্ট্রবেরি,310,3,mop,220.0,220.0,kg,ha,True,এমওপি 220
+fruit,strawberry,স্ট্রবেরি,310,4,gypsum,150.0,150.0,kg,ha,True,জিপসাম 150
+fruit,velvet apple,বিলাতি গাব,313,0,cowdung,10.0,15.0,kg,plant?,False,কম্পোস্ট 10-15
+fruit,velvet apple,বিলাতি গাব,313,1,urea,200.0,300.0,g,plant?,False,ইউরিয়া (গ্রাম) 200-300
+fruit,velvet apple,বিলাতি গাব,313,2,tsp,150.0,200.0,g,plant?,False,টিএসপি (গ্রাম) 150-200
+fruit,velvet apple,বিলাতি গাব,313,3,mop,150.0,200.0,g,plant?,False,এমওপি (গ্রাম) 150-200
+fruit,wood apple,কদবেল,315,0,cowdung,10.0,15.0,kg,plant,False,গোবর (কেজি) 10 -15
+fruit,wood apple,কদবেল,315,1,urea,150.0,300.0,g,plant,False,ইউরিয়া (গ্রাম) 150 -300
+fruit,wood apple,কদবেল,315,2,tsp,150.0,200.0,g,plant,False,টিএসপি (গ্রাম) 150 - 200
+fruit,wood apple,কদবেল,315,3,mop,150.0,200.0,g,plant,False,এমওপি (গ্রাম) 150 - 200
+fruit,wood apple,কদবেল,315,4,gypsum,100.0,100.0,g,plant,False,জিপসাম (গ্রাম) 100
+fruit,bael,বেল,316,0,urea,250.0,250.0,g,plant,False,ইউরিয়া সার 250 গ্রাম
+fruit,bael,বেল,316,1,tsp,200.0,200.0,g,plant,False,টিএসপি সার 200 গ্রাম
+fruit,bael,বেল,316,2,mop,150.0,150.0,g,plant,False,এমওপি সার 150 গ্রাম
+fruit,bael,বেল,316,3,gypsum,100.0,100.0,g,plant,False,জিপসাম 100 গ্রাম
+fruit,bael,বেল,316,4,zinc_sulphate,20.0,20.0,g,plant,False,জিংক সালফেট 20 গ্রাম
+fruit,Indian olive,জলপাই,317,0,cowdung,10.0,15.0,kg,plant,False,গোবর (কেজি) 10-15
+fruit,Indian olive,জলপাই,317,1,urea,300.0,300.0,g,plant,False,ইউরিয়া (গ্রাম) 300
+fruit,Indian olive,জলপাই,317,2,tsp,300.0,300.0,g,plant,False,টিএসপি (গ্রাম) 300
+fruit,Indian olive,জলপাই,317,3,mop,300.0,300.0,g,plant,False,এমওপি (গ্রাম) 300
+fruit,Indian olive,জলপাই,317,4,gypsum,100.0,100.0,g,plant,False,জিপসাম (গ্রাম) 100
+fruit,tamarind,তেঁতুল,324,0,cowdung,20.0,25.0,kg,plant?,False,পচা গোবর 20-25 কেজি
+fruit,tamarind,তেঁতুল,324,1,tsp,400.0,500.0,g,plant?,False,টিএসপি 400-500 গ্রাম
+fruit,tamarind,তেঁতুল,324,2,mop,500.0,600.0,g,plant?,False,এমপি 500-600 গ্রাম
+fruit,tamarind,তেঁতুল,324,3,gypsum,200.0,300.0,g,plant?,False,জিপসাম 200-300 গ্রাম
+fruit,tamarind,তেঁতুল,324,4,zinc_sulphate,40.0,60.0,g,plant?,False,জিঙ্ক সালফেট 40-60 গ্রাম
+fruit,watermelon,তরমুজ,330,0,cowdung,8.0,8.0,t,ha,True,পচা গোবর 8000 কেজি
+fruit,watermelon,তরমুজ,330,1,cowdung,2.0,2.0,t,ha,True,কম্পোস্ট 2000 কেজি
+fruit,watermelon,তরমুজ,330,2,tsp,250.0,250.0,kg,ha,True,টিএসপি 250 কেজি
+fruit,watermelon,তরমুজ,330,3,urea,250.0,250.0,kg,ha,True,ইউরিয়া 250 কেজি
+fruit,watermelon,তরমুজ,330,4,mop,250.0,250.0,kg,ha,True,এমওপি 250 কেজি
+fruit,watermelon,তরমুজ,330,5,gypsum,100.0,100.0,kg,ha,True,জিপসাম 100 কেজি
+fruit,watermelon,তরমুজ,330,6,zinc_sulphate,5.0,5.0,kg,ha,True,দস্তা সার 5 কেজি
+fruit,watermelon,তরমুজ,330,7,boron,5.0,5.0,kg,ha,True,বোরাক্স 5 কেজি
+fruit,watermelon,তরমুজ,330,8,mop,3.0,3.0,kg,pit,False,এমওপি সার 3
+fruit,phalsa,ফলসা,335,0,cowdung,15.0,20.0,kg,plant,False,পচা গোবর (কেজি) 15-20
+fruit,phalsa,ফলসা,335,1,urea,250.0,300.0,g,plant,False,ইউরিয়া (গ্রাম) 250-300
+fruit,phalsa,ফলসা,335,2,tsp,200.0,250.0,g,plant,False,টিএসপি (গ্রাম) 200-250
+fruit,phalsa,ফলসা,335,3,mop,100.0,150.0,g,plant,False,এমওপি (গ্রাম) 100-150
+fruit,phalsa,ফলসা,335,4,gypsum,50.0,100.0,g,plant,False,জিপসাম (গ্রাম) 50-100
+fruit,custard apple,আতা,337,0,cowdung,10.0,15.0,kg,plant,False,পচা গোবর (ওকেজি) 10-15
+fruit,custard apple,আতা,337,1,urea,150.0,300.0,g,plant,False,ইউরিয়া (গ্রাম) 150-300
+fruit,custard apple,আতা,337,2,tsp,150.0,200.0,g,plant,False,টি এস পি (গ্রাম) 150-200
+fruit,custard apple,আতা,337,3,mop,100.0,150.0,g,plant,False,এমওপি (গ্রাম) 100-150
+fruit,custard apple,আতা,337,4,gypsum,100.0,100.0,g,plant,False,জিপসাম (গ্রাম) 100
+fruit,black plum (jamun),জাম,340,0,gypsum,1.0,1.0,g,plant,False,জিপসাম (গ্রাম) 1
+fruit,black plum (jamun),জাম,340,1,mop,4.0,4.0,kg,plant?,False,এমওপি সার 4
+flower,bougainvillea,বাগান বিলাস,366,0,cowdung,5.0,8.0,kg,ha?,False,গোবর (কেজি) 5-8
+flower,bougainvillea,বাগান বিলাস,366,1,urea,120.0,150.0,g,ha?,False,ইউরিয়া (গ্রাম) 120-150
+flower,bougainvillea,বাগান বিলাস,366,2,tsp,60.0,70.0,kg,ha?,True,টিএসপি 60-70
+flower,bougainvillea,বাগান বিলাস,366,3,mop,100.0,120.0,g,ha?,False,এমওপি (গ্রাম) 100-120
+flower,bougainvillea,বাগান বিলাস,366,4,zinc_sulphate,8.0,8.0,g,ha?,False,জিংক সালফেট (গ্রাম) 8
+flower,bougainvillea,বাগান বিলাস,366,5,boron,10.0,10.0,g,ha?,False,বোরিক এসিড (গ্রাম) 10
+spice,"onion, winter (rabi)",শীতকালীন পেঁয়াজ,377,0,cowdung,5.0,5.0,t,ha,True,কম্পোস্ট 5 টন
+spice,"onion, winter (rabi)",শীতকালীন পেঁয়াজ,377,1,urea,240.0,240.0,kg,ha,True,ইউরিয়া 240 কেজি
+spice,"onion, winter (rabi)",শীতকালীন পেঁয়াজ,377,2,tsp,260.0,260.0,kg,ha,True,টিএসপি 260 কেজি
+spice,"onion, winter (rabi)",শীতকালীন পেঁয়াজ,377,3,mop,150.0,150.0,kg,ha,True,এমওপি 150 কেজি
+spice,"onion, winter (rabi)",শীতকালীন পেঁয়াজ,377,4,gypsum,150.0,150.0,kg,ha,True,জিপসাম 150 কেজি
+spice,"onion, winter (rabi)",শীতকালীন পেঁয়াজ,377,5,zinc_sulphate,11.0,11.0,kg,ha,True,জিংক সালফেট 11 কেজি
+spice,"onion, summer (kharif)",গ্রীষ্ম/খরিফ পেঁয়াজ,378,0,cowdung,10.0,10.0,t,ha,True,গোবর 10 টন
+spice,"onion, summer (kharif)",গ্রীষ্ম/খরিফ পেঁয়াজ,378,1,urea,261.0,261.0,kg,ha,True,ইউরিয়া 261 কেজি
+spice,"onion, summer (kharif)",গ্রীষ্ম/খরিফ পেঁয়াজ,378,2,mop,150.0,150.0,kg,ha,True,এমওপি 150 কেজি
+spice,"onion, summer (kharif)",গ্রীষ্ম/খরিফ পেঁয়াজ,378,3,tsp,260.0,260.0,kg,ha,True,টিএসপি 260 কেজি
+spice,"onion, summer (kharif)",গ্রীষ্ম/খরিফ পেঁয়াজ,378,4,gypsum,150.0,150.0,kg,ha,True,জিপসাম 150 কেজি
+spice,"onion, summer (kharif)",গ্রীষ্ম/খরিফ পেঁয়াজ,378,5,zinc_sulphate,11.0,11.0,kg,ha,True,জিংক সালফেট 11 কেজি
+spice,"onion, summer (kharif)",গ্রীষ্ম/খরিফ পেঁয়াজ,378,6,boron,11.0,11.0,kg,ha,True,বরিক এসিড 11 কেজি
+spice,"onion, summer (kharif)",গ্রীষ্ম/খরিফ পেঁয়াজ,378,7,cowdung,10.0,10.0,t,ha,True,গোবর 10 টন
+spice,"onion, summer (kharif)",গ্রীষ্ম/খরিফ পেঁয়াজ,378,8,tsp,415.0,415.0,kg,ha,True,টিএসপি 415 কেজি
+spice,"onion, summer (kharif)",গ্রীষ্ম/খরিফ পেঁয়াজ,378,9,mop,270.0,270.0,kg,ha,True,এমওপি 270 কেজি
+spice,"onion, summer (kharif)",গ্রীষ্ম/খরিফ পেঁয়াজ,378,10,urea,320.0,320.0,kg,ha,True,ইউরিয়া 320 কেজি
+spice,"onion, summer (kharif)",গ্রীষ্ম/খরিফ পেঁয়াজ,378,11,gypsum,140.0,140.0,kg,ha,True,জিপসাম 140 কেজি
+spice,"onion, summer (kharif)",গ্রীষ্ম/খরিফ পেঁয়াজ,378,12,zinc_sulphate,10.0,10.0,kg,ha,True,জিংক সালফেট 10 কেজি
+spice,"onion, summer (kharif)",গ্রীষ্ম/খরিফ পেঁয়াজ,378,13,boron,11.0,11.0,kg,ha,True,বরিক এসিড 11 কেজি
+spice,leaf onion,পাতা পেঁয়াজ,388,0,cowdung,10.0,10.0,t,ha,True,গোবর 10 টন
+spice,leaf onion,পাতা পেঁয়াজ,388,1,tsp,275.0,275.0,kg,ha,True,টিএসপি 275 কেজি
+spice,leaf onion,পাতা পেঁয়াজ,388,2,mop,150.0,150.0,kg,ha,True,এমওপি 150 কেজি
+spice,leaf onion,পাতা পেঁয়াজ,388,3,urea,250.0,250.0,kg,ha,True,ইউরিয়া 250 কেজি
+spice,leaf onion,পাতা পেঁয়াজ,388,4,gypsum,110.0,110.0,kg,ha,True,জিপসাম 110 কেজি
+spice,leaf onion,পাতা পেঁয়াজ,388,5,zinc_sulphate,3.0,3.0,kg,ha,True,জিংক সালফেট 3 কেজি
+spice,leaf onion,পাতা পেঁয়াজ,388,6,boron,5.0,5.0,kg,ha,True,বরিক এসিড 5 কেজি
+spice,chilli,মরিচ,395,0,cowdung,10.0,10.0,t,ha,True,গোবর 10 টন
+spice,chilli,মরিচ,395,1,urea,240.0,240.0,kg,ha,True,ইউরিয়া 240 কেজি
+spice,chilli,মরিচ,395,2,tsp,260.0,260.0,kg,ha,True,টিএসপি 260 কেজি
+spice,chilli,মরিচ,395,3,mop,330.0,330.0,kg,ha,True,এমওপি 330 কেজি
+spice,chilli,মরিচ,395,4,gypsum,150.0,150.0,kg,ha,True,জিপসাম 150 কেজি
+spice,chilli,মরিচ,395,5,zinc_sulphate,12.0,12.0,kg,ha,True,জিংক সালফেট 12 কেজি
+spice,chilli,মরিচ,395,6,boron,14.0,14.0,kg,ha,True,বরিক এসিড 14 কেজি
+spice,garlic,রসুন,408,0,cowdung,5.0,5.0,t,ha?,True,গোবর 5 টন
+spice,garlic,রসুন,408,1,ash,3.0,3.0,t,ha?,True,ছাই 3 টন
+spice,garlic,রসুন,408,2,tsp,267.0,267.0,kg,ha?,True,টিএসপি 267 কেজি
+spice,garlic,রসুন,408,3,mop,333.0,333.0,kg,ha?,True,এমওপি 333 কেজি
+spice,ginger,আদা,413,0,mop,2.0,2.0,kg,ha,False,এমওপি সার 2
+spice,ginger,আদা,413,1,cowdung,5.0,5.0,t,ha?,True,গোবর 5 টন
+spice,ginger,আদা,413,2,urea,304.0,152.0,kg,ha?,True,ইউরিয়া 304 - 152
+spice,ginger,আদা,413,3,tsp,267.0,267.0,kg,ha?,True,টিএসপি 267
+spice,ginger,আদা,413,4,mop,233.0,233.0,kg,ha?,True,এমওপি 233
+spice,ginger,আদা,413,5,zinc_sulphate,3.0,3.0,kg,ha?,True,জিংক সালফেট 3
+spice,ginger,আদা,413,6,gypsum,111.0,111.0,kg,ha?,True,জিপসাম 111
+spice,ginger,আদা,413,7,boron,3.0,3.0,kg,ha?,True,বরিক এসিড 3
+spice,turmeric,হলুদ,418,0,cowdung,5.0,5.0,t,ha,True,গোবর 5 টন
+spice,turmeric,হলুদ,418,1,urea,325.0,325.0,kg,ha,True,ইউরিয়া 325 কেজি
+spice,turmeric,হলুদ,418,2,tsp,300.0,300.0,kg,ha,True,টিএসপি 300 কেজি
+spice,turmeric,হলুদ,418,3,mop,280.0,280.0,kg,ha,True,এমওপি 280 কেজি
+spice,turmeric,হলুদ,418,4,gypsum,140.0,140.0,kg,ha,True,জিপসাম 140 কেজি
+spice,turmeric,হলুদ,418,5,boron,8.0,8.0,kg,ha,True,বরিক এসিড 8 কেজি
+spice,turmeric,হলুদ,418,6,zinc_sulphate,14.0,14.0,kg,ha,True,জিংক সালফেট 14 কেজি
+spice,coriander,ধনিয়া,422,0,cowdung,5.0,5.0,t,ha,True,গোবর 5 টন
+spice,coriander,ধনিয়া,422,1,urea,180.0,180.0,kg,ha,True,ইউরিয়া 180 কেজি
+spice,coriander,ধনিয়া,422,2,tsp,15.0,15.0,kg,ha,True,টিএসপি 15 কেজি
+spice,coriander,ধনিয়া,422,3,mop,120.0,120.0,kg,ha,True,এমওপি 120 কেজি
+spice,coriander,ধনিয়া,422,4,gypsum,110.0,110.0,kg,ha,True,জিপসাম 110 কেজি
+spice,coriander,ধনিয়া,422,5,zinc_sulphate,10.0,10.0,kg,ha,True,জিংক সালফেট 10 কেজি
+spice,coriander,ধনিয়া,422,6,boron,8.0,8.0,kg,ha,True,বরিক এসিড 8 কেজি
+spice,fenugreek,মেথী,425,0,cowdung,5.0,5.0,t,ha,True,গোবর 5 টন
+spice,fenugreek,মেথী,425,1,urea,175.0,175.0,kg,ha,True,ইউরিয়া 175 কেজি
+spice,fenugreek,মেথী,425,2,tsp,175.0,175.0,kg,ha,True,টিএসপি 175 কেজি
+spice,fenugreek,মেথী,425,3,mop,135.0,135.0,kg,ha,True,এমওপি 135 কেজি
+spice,fenugreek,মেথী,425,4,gypsum,110.0,110.0,kg,ha,True,জিপসাম 110 কেজি
+spice,fenugreek,মেথী,425,5,zinc_sulphate,10.0,10.0,kg,ha,True,জিংক সালফেট 10 কেজি
+spice,fenugreek,মেথী,425,6,boron,8.0,8.0,kg,ha,True,বরিক এসিড 8 কেজি
+spice,black cumin (nigella),কালোজিরা,426,0,cowdung,5.0,5.0,t,ha,True,গোবর 5 টন
+spice,black cumin (nigella),কালোজিরা,426,1,urea,140.0,140.0,kg,ha,True,ইউরিয়া 140 কেজি
+spice,black cumin (nigella),কালোজিরা,426,2,tsp,150.0,150.0,kg,ha,True,টিএসপি 150 কেজি
+spice,black cumin (nigella),কালোজিরা,426,3,mop,120.0,120.0,kg,ha,True,এমওপি 120 কেজি
+spice,black cumin (nigella),কালোজিরা,426,4,gypsum,85.0,85.0,kg,ha,True,জিপসাম 85 কেজি
+spice,black cumin (nigella),কালোজিরা,426,5,zinc_sulphate,10.0,10.0,kg,ha,True,জিংক সালফেট 10 কেজি
+spice,black cumin (nigella),কালোজিরা,426,6,boron,8.0,8.0,kg,ha,True,বরিক এসিড 8 কেজি
+spice,fennel,মৌরি,430,0,cowdung,5.0,5.0,t,ha,True,গোবর 5 টন
+spice,fennel,মৌরি,430,1,urea,180.0,180.0,kg,ha,True,ইউরিয়া 180 কেজি
+spice,fennel,মৌরি,430,2,tsp,175.0,175.0,kg,ha?,True,টিএসপি 175 কেজি
+spice,fennel,মৌরি,430,3,mop,14.0,14.0,kg,ha?,True,এমওপি 14
+spice,fennel,মৌরি,430,4,gypsum,110.0,110.0,kg,ha?,True,জিপসাম 110 কেজি
+spice,fennel,মৌরি,430,5,zinc_sulphate,10.0,10.0,kg,ha?,True,জিংক সালফেট 10 কেজি
+spice,fennel,মৌরি,430,6,boron,8.0,8.0,kg,ha?,True,বরিক এসিড 8 কেজি
+spice,firingi (spice),ফিরিঙ্গি,432,0,cowdung,5.0,5.0,t,ha?,True,গোবর 5 টন
+spice,firingi (spice),ফিরিঙ্গি,432,1,urea,125.0,125.0,kg,ha?,True,ইউরিয়া 125 কেজি
+spice,firingi (spice),ফিরিঙ্গি,432,2,tsp,125.0,125.0,kg,ha?,True,টিএসপি 125 কেজি
+spice,firingi (spice),ফিরিঙ্গি,432,3,mop,90.0,90.0,kg,ha?,True,এমওপি 90 কেজি
+spice,firingi (spice),ফিরিঙ্গি,432,4,gypsum,80.0,80.0,kg,ha?,True,জিপসাম 80 কেজি
+spice,firingi (spice),ফিরিঙ্গি,432,5,boron,80.0,80.0,kg,ha?,True,বরিক এসিড 80
+spice,dill (shaluk),শলুক,433,0,urea,170.0,170.0,kg,ha?,True,ইউরিয়া 170 কেজি
+spice,dill (shaluk),শলুক,433,1,tsp,17.0,17.0,kg,ha?,True,টিএসপি 17
+spice,dill (shaluk),শলুক,433,2,mop,120.0,120.0,kg,ha?,True,এমওপি 120 কেজি
+spice,dill (shaluk),শলুক,433,3,gypsum,85.0,85.0,kg,ha?,True,জিপসাম 85 কেজি
+spice,black pepper,গোল মরিচ,435,0,cowdung,10.0,10.0,kg,plant,False,কম্পোস্ট (কেজি) 10
+spice,black pepper,গোল মরিচ,435,1,oil_cake,250.0,250.0,g,plant,False,খৈল (গ্রাম) 250
+spice,black pepper,গোল মরিচ,435,2,tsp,115.0,115.0,g,plant,False,টিএসপি (গ্রাম) 115
+spice,black pepper,গোল মরিচ,435,3,urea,50.0,50.0,g,plant,False,ইউরিয়া (গ্রাম) - 50
+spice,black pepper,গোল মরিচ,435,4,mop,115.0,115.0,g,plant,False,মিউরেট অব পটাশ (গ্রাম) 115
+spice,black pepper,গোল মরিচ,435,5,cowdung,5.0,5.0,kg,plant,False,কম্পোস্ট (কেজি) - 5 - 5
+spice,black pepper,গোল মরিচ,435,6,tsp,250.0,250.0,g,ha?,False,টিএসপি (গ্রাম) - 250
+spice,black pepper,গোল মরিচ,435,7,urea,75.0,75.0,g,ha?,False,ইউরিয়া (গ্রাম) 75
+spice,black pepper,গোল মরিচ,435,8,mop,50.0,50.0,g,ha?,False,মিউরেট অব পটাশ (গ্রাম) 50
+spice,betel leaf,পান,439,0,tsp,3.0,3.0,kg,ha,False,টিএসপি 3 কেজি
+spice,betel leaf,পান,439,1,mop,3.0,3.0,kg,ha,False,এমওপি 3 কেজি
+spice,betel leaf,পান,439,2,oil_cake,20.0,20.0,kg,ha,False,খৈল 20 কেজি
+spice,betel leaf,পান,439,3,cowdung,10.0,15.0,t,ha,True,গোবর 10-15 টন
+spice,betel leaf,পান,439,4,oil_cake,6.0,6.0,t,ha,False,খৈল 6 টন
+spice,betel leaf,পান,439,5,urea,217.0,217.0,kg,ha,True,ইউরিয়া 217 কেজি
+spice,betel leaf,পান,439,6,tsp,220.0,220.0,kg,ha,True,টিএসপি 220 কেজি
+spice,betel leaf,পান,439,7,mop,84.0,84.0,kg,ha,True,এমওপি 84 কেজি
+spice,betel leaf,পান,439,8,gypsum,50.0,50.0,kg,ha,True,জিপসাম 50 কেজি
+spice,betel leaf,পান,439,9,zinc_sulphate,15.0,15.0,kg,ha,True,জিংক সালফেট 15 কেজি
+spice,betel leaf,পান,439,10,oil_cake,4.0,4.0,t,ha,False,খৈল 4 টন
+spice,betel leaf,পান,439,11,urea,180.0,180.0,kg,ha,True,ইউরিয়া 180 কেজি
+spice,betel leaf,পান,439,12,tsp,150.0,150.0,kg,ha,True,টিএসপি 150 কেজি
+spice,betel leaf,পান,439,13,mop,75.0,75.0,kg,ha,True,এমওপি 75 কেজি
+spice,betel leaf,পান,439,14,gypsum,50.0,50.0,kg,ha,True,জিপসাম 50 কেজি
+spice,betel leaf,পান,439,15,zinc_sulphate,15.0,15.0,kg,ha,True,জিংক সালফেট 15 কেজি
+spice,Indian bay leaf,তেজপাতা,446,0,gypsum,1.0,1.0,kg,plant,False,জিপসাম: 1
+spice,plum (alubokhara),আলুবোখারা,449,0,cowdung,10.0,15.0,kg,ha?,False,কম্পোস্ট 10-15 কেজি
+spice,plum (alubokhara),আলুবোখারা,449,1,tsp,300.0,300.0,g,ha?,False,টিএসপি 300 গ্রাম
+spice,plum (alubokhara),আলুবোখারা,449,2,mop,250.0,250.0,g,ha?,False,এমওপি 250 গ্রাম
+spice,plum (alubokhara),আলুবোখারা,449,3,urea,100.0,100.0,g,ha?,False,ইউরিয়া 100 গ্রাম
+spice,plum (alubokhara),আলুবোখারা,449,4,gypsum,150.0,150.0,g,ha?,False,জিপসাম 150 গ্রাম
+spice,plum (alubokhara),আলুবোখারা,449,5,zinc_sulphate,10.0,10.0,g,ha?,False,দস্তা 10 গ্রাম
+spice,plum (alubokhara),আলুবোখারা,449,6,boron,1.0,1.0,g,ha?,False,বোরন 1 গ্রাম
+spice,plum (alubokhara),আলুবোখারা,449,7,cowdung,10.0,15.0,kg,plant,False,কম্পোস্ট (কেজি) 10-15
+spice,plum (alubokhara),আলুবোখারা,449,8,urea,200.0,300.0,g,plant,False,ইউরিয়া (গ্রাম) 200-300
+spice,plum (alubokhara),আলুবোখারা,449,9,tsp,150.0,200.0,g,plant,False,টিএসপি (গ্রাম) 150-200
+spice,plum (alubokhara),আলুবোখারা,449,10,mop,150.0,200.0,g,plant,False,এমওপি (গ্রাম) 150-200
+spice,aromatic ginger (Kaempferia),একাঙ্গী,451,0,cowdung,5.0,5.0,t,ha?,True,গোবর 5 টন
+spice,aromatic ginger (Kaempferia),একাঙ্গী,451,1,urea,260.0,260.0,kg,ha?,True,ইউরিয়া 260 কেজি
+spice,aromatic ginger (Kaempferia),একাঙ্গী,451,2,tsp,230.0,230.0,kg,ha?,True,টিএসপি 230 কেজি
+spice,aromatic ginger (Kaempferia),একাঙ্গী,451,3,mop,190.0,190.0,kg,ha?,True,এমওপি 190 কেজি
+spice,aromatic ginger (Kaempferia),একাঙ্গী,451,4,gypsum,110.0,110.0,kg,ha?,True,জিপসাম 110 কেজি
+spice,aromatic ginger (Kaempferia),একাঙ্গী,451,5,zinc_sulphate,3.0,3.0,kg,ha?,True,জিংক সালফেট 3 কেজি
+spice,chives,চিভ,454,0,cowdung,5.0,5.0,t,ha?,True,গোবর 5 টন
+spice,chives,চিভ,454,1,urea,140.0,140.0,kg,ha?,True,ইউরিয়া 140 কেজি
+spice,chives,চিভ,454,2,tsp,200.0,200.0,kg,ha?,True,টিএসপি 200 কেজি
+spice,chives,চিভ,454,3,mop,90.0,90.0,kg,ha?,True,এমওপি 90 কেজি
+spice,chives,চিভ,454,4,gypsum,50.0,50.0,kg,ha?,True,জিপসাম 50 কেজি
+spice,mint,পুদিনা,456,0,cowdung,5.0,5.0,t,ha,True,গোবর 5 টন
+spice,mint,পুদিনা,456,1,urea,225.0,225.0,kg,ha,True,ইউরিয়া 225 কেজি
+spice,mint,পুদিনা,456,2,tsp,275.0,275.0,kg,ha,True,টিএসপি 275 কেজি
+spice,mint,পুদিনা,456,3,mop,180.0,180.0,kg,ha,True,এমওপি 180 কেজি
+spice,mint,পুদিনা,456,4,gypsum,110.0,110.0,kg,ha,True,জিপসাম 110 কেজি
+grain,barley,বার্লি,463,0,urea,150.0,180.0,kg,ha,True,ইউরিয়া 150-180 কেজি
+grain,barley,বার্লি,463,1,tsp,100.0,125.0,kg,ha,True,টিএসপি 100-125 কেজি
+grain,barley,বার্লি,463,2,mop,100.0,120.0,kg,ha,True,এমওপি 100-120 কেজি
+grain,barley,বার্লি,463,3,gypsum,40.0,60.0,kg,ha,True,জিপসাম 40-60 কেজি
+grain,barley,বার্লি,463,4,zinc_sulphate,3.0,5.0,kg,ha,True,জিংক সালফেট 3-5 কেজি
+grain,proso millet,চিনা,464,0,urea,130.0,170.0,kg,ha,True,ইউরিয়া 130-170 কেজি
+grain,proso millet,চিনা,464,1,tsp,100.0,125.0,kg,ha,True,টিএসপি 100-125 কেজি
+grain,proso millet,চিনা,464,2,mop,80.0,90.0,kg,ha,True,এমওপি 80-90 কেজি
+grain,proso millet,চিনা,464,3,gypsum,45.0,55.0,kg,ha,True,জিপসাম 45-55 কেজি
+grain,proso millet,চিনা,464,4,zinc_sulphate,3.0,4.0,kg,ha,True,জিংক সালফেট 3-4 কেজি
+grain,chia,চিয়ার,468,0,urea,150.0,150.0,kg,ha,True,ইউরিয়া: 150 কেজি
+grain,chia,চিয়ার,468,1,mop,60.0,60.0,kg,ha,True,মিউরেট অব পটাশ: 60 কেজি
+grain,chia,চিয়ার,468,2,tsp,80.0,80.0,kg,ha,True,টিএসপি: 80 কেজি
+grain,chia,চিয়ার,468,3,tsp,1.0,1.0,kg,ha,False,টিএসপি সার 1
+grain,sorghum,জোয়ার,469,0,cowdung,5.0,7.0,t,ha,True,গোবর সার 5-7 টন
+grain,sorghum,জোয়ার,469,1,urea,260.0,260.0,kg,ha,True,ইউরিয়া 260 কেজি
+grain,sorghum,জোয়ার,469,2,tsp,300.0,300.0,kg,ha,True,টিএসপি 300 কেজি
+grain,sorghum,জোয়ার,469,3,mop,100.0,100.0,kg,ha,True,এমওপি 100 কেজি
+grain,sorghum,জোয়ার,469,4,gypsum,45.0,55.0,kg,ha,True,জিপসাম 45-55 কেজি
+grain,sorghum,জোয়ার,469,5,zinc_sulphate,3.0,4.0,kg,ha,True,জিংক সালফেট 3-4 কেজি
+grain,finger millet,রাঘী,471,0,urea,120.0,120.0,kg,ha,True,ইউরিয়া 120
+grain,finger millet,রাঘী,471,1,mop,40.0,40.0,kg,ha,True,মিউরেট অব পটাশ 40
+grain,finger millet,রাঘী,471,2,tsp,150.0,150.0,kg,ha,True,টিএসপি 150
+grain,finger millet,রাঘী,471,3,tsp,1.0,1.0,kg,ha,False,টিএসপি সার 1
+grain,oat,ওট,472,0,urea,190.0,200.0,kg,ha,True,ইউরিয়া 190-200
+grain,oat,ওট,472,1,tsp,120.0,130.0,kg,ha,True,টিএসপি 120-130
+grain,oat,ওট,472,2,mop,40.0,50.0,kg,ha,True,এমওপি 40-50
+grain,oat,ওট,472,3,cowdung,5.0,10.0,t,ha,True,জৈব সার 5000-10000
+grain,buckwheat,ঢেমশী,474,0,urea,130.0,130.0,kg,ha,True,ইউরিয়া 130 কেজি
+grain,buckwheat,ঢেমশী,474,1,tsp,20.0,20.0,kg,ha,True,টিএসপি 20 কেজি
+grain,buckwheat,ঢেমশী,474,2,mop,40.0,40.0,kg,ha,True,মিউরেট অব পটাশ 40 কেজি
+grain,quinoa,কিনোয়া,475,0,urea,130.0,130.0,kg,ha,True,ইউরিয়া 130 কেজি
+grain,quinoa,কিনোয়া,475,1,tsp,20.0,20.0,kg,ha,True,টিএসপি 20 কেজি
+grain,quinoa,কিনোয়া,475,2,mop,40.0,40.0,kg,ha,True,মিউরেট অব পটাশ 40 কেজি
+grain,quinoa,কিনোয়া,475,3,urea,120.0,120.0,kg,ha,True,ইউরিয়া 120 কেজি
+grain,quinoa,কিনোয়া,475,4,tsp,150.0,150.0,kg,ha,True,টিএসপি 150 কেজি
+grain,quinoa,কিনোয়া,475,5,mop,40.0,40.0,kg,ha,True,মিউরেট অব পটাশ 40 কেজি
+grain,quinoa,কিনোয়া,475,6,tsp,1.0,1.0,kg,ha,False,টিএসপি সার 1

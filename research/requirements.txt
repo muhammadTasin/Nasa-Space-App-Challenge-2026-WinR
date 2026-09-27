@@ -1,0 +1,11 @@
+# no-login pulls (power, ndvi_modis, soilgrids, boundaries, gibs_snapshots) + first_look
+requests>=2.31
+pandas>=2.1
+pyarrow>=14
+numpy>=1.26
+scipy>=1.11
+
+# Earthdata-login pulls (grace_fo.py); appeears_points.py needs only requests
+earthaccess>=0.11
+xarray>=2024.1
+netCDF4>=1.6

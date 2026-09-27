@@ -1,0 +1,6 @@
+site_id,elev_p10_m,elev_median_m,elev_p90_m,share_never_water,share_water_ge10pct,share_water_ge50pct,share_water_ge3months_2021,share_water_ge6months_2021,n_cells,site_elev_m,site_above_local_p10_m,source
+RAJ_TANORE,12.0,20.0,23.0,0.818,0.153,0.058,0.103,0.049,9143,21.0,9.0,"NASA NASADEM (Planetary Computer) and JRC Global Surface Water 1984-2021, read at 90 m; research/acquire/landtype_proxy.py"
+SUN_DHARMAPASHA,6.0,8.0,12.0,0.573,0.191,0.047,0.061,0.001,9143,10.0,4.0,"NASA NASADEM (Planetary Computer) and JRC Global Surface Water 1984-2021, read at 90 m; research/acquire/landtype_proxy.py"
+KHU_BATIAGHATA,0.0,1.0,3.0,0.682,0.198,0.121,0.14,0.122,9143,2.0,2.0,"NASA NASADEM (Planetary Computer) and JRC Global Surface Water 1984-2021, read at 90 m; research/acquire/landtype_proxy.py"
+SIR_ULLAHPARA,9.0,12.0,15.0,0.799,0.08,0.009,0.022,0.001,9143,15.0,6.0,"NASA NASADEM (Planetary Computer) and JRC Global Surface Water 1984-2021, read at 90 m; research/acquire/landtype_proxy.py"
+RAN_MITHAPUKUR,25.0,27.0,30.0,0.971,0.011,0.0,0.004,0.0,9143,30.0,5.0,"NASA NASADEM (Planetary Computer) and JRC Global Surface Water 1984-2021, read at 90 m; research/acquire/landtype_proxy.py"

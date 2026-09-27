@@ -1,0 +1,1173 @@
+item,year,Area harvested,Production,Stocks,Yield
+Buffalo,1961,,,500000.0,
+Buffalo,1962,,,550000.0,
+Buffalo,1963,,,600000.0,
+Buffalo,1964,,,641000.0,
+Buffalo,1965,,,630000.0,
+Buffalo,1966,,,650000.0,
+Buffalo,1967,,,700000.0,
+Buffalo,1968,,,780000.0,
+Buffalo,1969,,,800000.0,
+Buffalo,1970,,,835000.0,
+Buffalo,1971,,,700000.0,
+Buffalo,1972,,,580000.0,
+Buffalo,1973,,,445000.0,
+Buffalo,1974,,,445000.0,
+Buffalo,1975,,,445000.0,
+Buffalo,1976,,,445000.0,
+Buffalo,1977,,,469000.0,
+Buffalo,1978,,,429000.0,
+Buffalo,1979,,,529000.0,
+Buffalo,1980,,,475000.0,
+Buffalo,1981,,,476000.0,
+Buffalo,1982,,,478000.0,
+Buffalo,1983,,,479000.0,
+Buffalo,1984,,,578209.0,
+Buffalo,1985,,,605000.0,
+Buffalo,1986,,,634000.0,
+Buffalo,1987,,,664000.0,
+Buffalo,1988,,,698000.0,
+Buffalo,1989,,,733000.0,
+Buffalo,1990,,,772000.0,
+Buffalo,1991,,,807000.0,
+Buffalo,1992,,,832000.0,
+Buffalo,1993,,,866000.0,
+Buffalo,1994,,,874000.0,
+Buffalo,1995,,,882000.0,
+Buffalo,1996,,,860000.0,
+Buffalo,1997,,,854000.0,
+Buffalo,1998,,,820000.0,
+Buffalo,1999,,,850000.0,
+Buffalo,2000,,,890000.0,
+Buffalo,2001,,,920000.0,
+Buffalo,2002,,,970000.0,
+Buffalo,2003,,,1010000.0,
+Buffalo,2004,,,1060000.0,
+Buffalo,2005,,,1110000.0,
+Buffalo,2006,,,1160000.0,
+Buffalo,2007,,,1210000.0,
+Buffalo,2008,,,1260000.0,
+Buffalo,2009,,,1304000.0,
+Buffalo,2010,,,1349000.0,
+Buffalo,2011,,,1394000.0,
+Buffalo,2012,,,1443000.0,
+Buffalo,2013,,,1465000.0,
+Buffalo,2014,,,1457000.0,
+Buffalo,2015,,,1464000.0,
+Buffalo,2016,,,1471000.0,
+Buffalo,2017,,,1478000.0,
+Buffalo,2018,,,1485000.0,
+Buffalo,2019,,,1490000.0,
+Buffalo,2020,,,1493000.0,
+Buffalo,2021,,,1500000.0,
+Buffalo,2022,,,1508000.0,
+Buffalo,2023,,,1516000.0,
+Buffalo,2024,,,1524000.0,
+Cattle,1961,,,19850000.0,
+Cattle,1962,,,20500000.0,
+Cattle,1963,,,21150000.0,
+Cattle,1964,,,22986000.0,
+Cattle,1965,,,22370000.0,
+Cattle,1966,,,23500000.0,
+Cattle,1967,,,24000000.0,
+Cattle,1968,,,24500000.0,
+Cattle,1969,,,25000000.0,
+Cattle,1970,,,25686000.0,
+Cattle,1971,,,25500000.0,
+Cattle,1972,,,25500000.0,
+Cattle,1973,,,24430000.0,
+Cattle,1974,,,24959008.0,
+Cattle,1975,,,25500000.0,
+Cattle,1976,,,26057008.0,
+Cattle,1977,,,26624000.0,
+Cattle,1978,,,30520000.0,
+Cattle,1979,,,31741008.0,
+Cattle,1980,,,21556000.0,
+Cattle,1981,,,21863008.0,
+Cattle,1982,,,22174000.0,
+Cattle,1983,,,22490000.0,
+Cattle,1984,,,21920176.0,
+Cattle,1985,,,22132000.0,
+Cattle,1986,,,22348000.0,
+Cattle,1987,,,22567008.0,
+Cattle,1988,,,22789008.0,
+Cattle,1989,,,23015008.0,
+Cattle,1990,,,23244000.0,
+Cattle,1991,,,23259008.0,
+Cattle,1992,,,23480000.0,
+Cattle,1993,,,23569000.0,
+Cattle,1994,,,23769000.0,
+Cattle,1995,,,23977000.0,
+Cattle,1996,,,22020000.0,
+Cattle,1997,,,22090000.0,
+Cattle,1998,,,22160000.0,
+Cattle,1999,,,22230000.0,
+Cattle,2000,,,22310000.0,
+Cattle,2001,,,22380000.0,
+Cattle,2002,,,22460000.0,
+Cattle,2003,,,22580000.0,
+Cattle,2004,,,22600000.0,
+Cattle,2005,,,22670000.0,
+Cattle,2006,,,22800000.0,
+Cattle,2007,,,22870000.0,
+Cattle,2008,,,22900000.0,
+Cattle,2009,,,22976000.0,
+Cattle,2010,,,23051000.0,
+Cattle,2011,,,23121000.0,
+Cattle,2012,,,23195000.0,
+Cattle,2013,,,23341000.0,
+Cattle,2014,,,23488000.0,
+Cattle,2015,,,23636000.0,
+Cattle,2016,,,23785000.0,
+Cattle,2017,,,23935000.0,
+Cattle,2018,,,24086000.0,
+Cattle,2019,,,24187000.0,
+Cattle,2020,,,24391000.0,
+Cattle,2021,,,24545000.0,
+Cattle,2022,,,24700000.0,
+Cattle,2023,,,24856000.0,
+Cattle,2024,,,25013000.0,
+"Chick peas, dry",1961,60299.0,36576.0,,606.6
+"Chick peas, dry",1962,57466.0,37592.0,,654.2
+"Chick peas, dry",1963,55847.0,34544.0,,618.5
+"Chick peas, dry",1964,51800.0,33528.0,,647.3
+"Chick peas, dry",1965,51396.0,37592.0,,731.4
+"Chick peas, dry",1966,54600.0,43700.0,,800.4
+"Chick peas, dry",1967,59100.0,48800.0,,825.7
+"Chick peas, dry",1968,61500.0,47800.0,,777.2
+"Chick peas, dry",1969,68400.0,54900.0,,802.6
+"Chick peas, dry",1970,70000.0,57900.0,,827.1
+"Chick peas, dry",1971,73200.0,61000.0,,833.3
+"Chick peas, dry",1972,71669.0,59520.0,,830.5
+"Chick peas, dry",1973,90000.0,60000.0,,666.7
+"Chick peas, dry",1974,110000.0,75000.0,,681.8
+"Chick peas, dry",1975,130000.0,90000.0,,692.3
+"Chick peas, dry",1976,160000.0,112000.0,,700.0
+"Chick peas, dry",1977,191000.0,125000.0,,654.5
+"Chick peas, dry",1978,140000.0,105000.0,,750.0
+"Chick peas, dry",1979,127000.0,95000.0,,748.0
+"Chick peas, dry",1980,128000.0,85000.0,,664.1
+"Chick peas, dry",1981,128000.0,81000.0,,632.8
+"Chick peas, dry",1982,116000.0,78000.0,,672.4
+"Chick peas, dry",1983,118000.0,87000.0,,737.3
+"Chick peas, dry",1984,113300.0,86800.0,,766.1
+"Chick peas, dry",1985,108900.0,81200.0,,745.6
+"Chick peas, dry",1986,103634.0,77579.0,,748.6
+"Chick peas, dry",1987,103691.0,81710.0,,788.0
+"Chick peas, dry",1988,103044.0,74568.0,,723.7
+"Chick peas, dry",1989,102759.0,66156.0,,643.8
+"Chick peas, dry",1990,102867.0,70120.0,,681.7
+"Chick peas, dry",1991,96714.0,71005.0,,734.2
+"Chick peas, dry",1992,92145.0,64680.0,,701.9
+"Chick peas, dry",1993,90470.0,67375.0,,744.7
+"Chick peas, dry",1994,85400.0,62000.0,,726.0
+"Chick peas, dry",1995,85000.0,62000.0,,729.4
+"Chick peas, dry",1996,85400.0,62000.0,,726.0
+"Chick peas, dry",1997,84435.0,61485.0,,728.2
+"Chick peas, dry",1998,84025.0,59900.0,,712.9
+"Chick peas, dry",1999,18219.0,15000.0,,823.3
+"Chick peas, dry",2000,18219.0,14000.0,,768.4
+"Chick peas, dry",2001,17004.0,14000.0,,823.3
+"Chick peas, dry",2002,15378.0,11000.0,,715.3
+"Chick peas, dry",2003,14974.0,11000.0,,734.6
+"Chick peas, dry",2004,13759.0,10000.0,,726.8
+"Chick peas, dry",2005,13089.0,9630.0,,735.7
+"Chick peas, dry",2006,12727.0,9760.0,,766.9
+"Chick peas, dry",2007,12586.0,9810.0,,779.4
+"Chick peas, dry",2008,9349.0,7168.0,,766.7
+"Chick peas, dry",2009,8177.0,6551.0,,801.1
+"Chick peas, dry",2010,7224.0,5744.0,,795.1
+"Chick peas, dry",2011,8229.0,6605.0,,802.6
+"Chick peas, dry",2012,7700.0,7000.0,,909.1
+"Chick peas, dry",2013,7284.0,7000.0,,961.0
+"Chick peas, dry",2014,6878.0,6000.0,,872.3
+"Chick peas, dry",2015,7072.0,6672.0,,943.4
+"Chick peas, dry",2016,6083.0,6382.0,,1049.2
+"Chick peas, dry",2017,5917.0,6237.0,,1054.1
+"Chick peas, dry",2018,5027.0,4964.0,,987.5
+"Chick peas, dry",2019,4812.0,5347.0,,1111.1
+"Chick peas, dry",2020,4632.0,4942.0,,1066.9
+"Chick peas, dry",2021,4580.0,5008.0,,1093.4
+"Chick peas, dry",2022,4335.0,4846.0,,1117.9
+"Chick peas, dry",2023,6978.0,7707.0,,1104.5
+"Chick peas, dry",2024,3946.0,5048.0,,1279.3
+Goats,1961,,,7600000.0,
+Goats,1962,,,7950000.0,
+Goats,1963,,,8310000.0,
+Goats,1964,,,8978000.0,
+Goats,1965,,,9150000.0,
+Goats,1966,,,8200000.0,
+Goats,1967,,,8400000.0,
+Goats,1968,,,8600000.0,
+Goats,1969,,,8800000.0,
+Goats,1970,,,9057000.0,
+Goats,1971,,,9400000.0,
+Goats,1972,,,9800000.0,
+Goats,1973,,,10200000.0,
+Goats,1974,,,10600000.0,
+Goats,1975,,,11000000.0,
+Goats,1976,,,11600000.0,
+Goats,1977,,,12000000.0,
+Goats,1978,,,12339000.0,
+Goats,1979,,,13079000.0,
+Goats,1980,,,9208000.0,
+Goats,1981,,,9420000.0,
+Goats,1982,,,9636000.0,
+Goats,1983,,,9858000.0,
+Goats,1984,,,13558000.0,
+Goats,1985,,,14800000.0,
+Goats,1986,,,15878000.0,
+Goats,1987,,,17034000.0,
+Goats,1988,,,18274000.0,
+Goats,1989,,,19604000.0,
+Goats,1990,,,21031008.0,
+Goats,1991,,,22352000.0,
+Goats,1992,,,23979008.0,
+Goats,1993,,,25967008.0,
+Goats,1994,,,28050000.0,
+Goats,1995,,,30330000.0,
+Goats,1996,,,33312000.0,
+Goats,1997,,,34478000.0,
+Goats,1998,,,33500000.0,
+Goats,1999,,,31730820.0,
+Goats,2000,,,29600283.0,
+Goats,2001,,,27237611.0,
+Goats,2002,,,24855840.0,
+Goats,2003,,,22491188.0,
+Goats,2004,,,20956474.0,
+Goats,2005,,,20042017.0,
+Goats,2006,,,19940000.0,
+Goats,2007,,,20750000.0,
+Goats,2008,,,21560000.0,
+Goats,2009,,,22401000.0,
+Goats,2010,,,23275000.0,
+Goats,2011,,,24149000.0,
+Goats,2012,,,25116000.0,
+Goats,2013,,,25277000.0,
+Goats,2014,,,25439000.0,
+Goats,2015,,,25602000.0,
+Goats,2016,,,25766000.0,
+Goats,2017,,,25931000.0,
+Goats,2018,,,26100000.0,
+Goats,2019,,,26267000.0,
+Goats,2020,,,26435000.0,
+Goats,2021,,,26604000.0,
+Goats,2022,,,26774000.0,
+Goats,2023,,,26945000.0,
+Goats,2024,,,27117000.0,
+"Groundnuts, excluding shelled",1961,11736.0,13208.0,,1125.4
+"Groundnuts, excluding shelled",1962,9308.0,13208.0,,1419.0
+"Groundnuts, excluding shelled",1963,8094.0,12192.0,,1506.3
+"Groundnuts, excluding shelled",1964,9308.0,12192.0,,1309.8
+"Groundnuts, excluding shelled",1965,10117.0,14224.0,,1406.0
+"Groundnuts, excluding shelled",1966,16600.0,24400.0,,1469.9
+"Groundnuts, excluding shelled",1967,28300.0,41700.0,,1473.5
+"Groundnuts, excluding shelled",1968,33600.0,52800.0,,1571.4
+"Groundnuts, excluding shelled",1969,32400.0,52800.0,,1629.6
+"Groundnuts, excluding shelled",1970,28300.0,46700.0,,1650.2
+"Groundnuts, excluding shelled",1971,26657.0,36390.0,,1365.1
+"Groundnuts, excluding shelled",1972,22893.0,31498.0,,1375.9
+"Groundnuts, excluding shelled",1973,20823.0,28099.0,,1349.4
+"Groundnuts, excluding shelled",1974,19462.0,26356.0,,1354.2
+"Groundnuts, excluding shelled",1975,22250.0,31599.0,,1420.2
+"Groundnuts, excluding shelled",1976,20975.0,23336.0,,1112.6
+"Groundnuts, excluding shelled",1977,23472.0,27692.0,,1179.8
+"Groundnuts, excluding shelled",1978,24971.0,28023.0,,1122.2
+"Groundnuts, excluding shelled",1979,24000.0,27000.0,,1125.0
+"Groundnuts, excluding shelled",1980,26000.0,30000.0,,1153.8
+"Groundnuts, excluding shelled",1981,26000.0,26000.0,,1000.0
+"Groundnuts, excluding shelled",1982,24000.0,26000.0,,1083.3
+"Groundnuts, excluding shelled",1983,24000.0,26000.0,,1083.3
+"Groundnuts, excluding shelled",1984,32191.0,33335.0,,1035.5
+"Groundnuts, excluding shelled",1985,28104.0,32228.0,,1146.7
+"Groundnuts, excluding shelled",1986,29546.0,34522.0,,1168.4
+"Groundnuts, excluding shelled",1987,29832.0,34167.0,,1145.3
+"Groundnuts, excluding shelled",1988,38473.0,48519.0,,1261.1
+"Groundnuts, excluding shelled",1989,38198.0,45496.0,,1191.1
+"Groundnuts, excluding shelled",1990,38579.0,41724.0,,1081.5
+"Groundnuts, excluding shelled",1991,38484.0,35780.0,,929.7
+"Groundnuts, excluding shelled",1992,39008.0,42583.0,,1091.6
+"Groundnuts, excluding shelled",1993,35750.0,39966.0,,1117.9
+"Groundnuts, excluding shelled",1994,35488.0,40095.0,,1129.8
+"Groundnuts, excluding shelled",1995,35628.0,40215.0,,1128.7
+"Groundnuts, excluding shelled",1996,35539.0,40340.0,,1135.1
+"Groundnuts, excluding shelled",1997,34622.0,39525.0,,1141.6
+"Groundnuts, excluding shelled",1998,34818.0,39000.0,,1120.1
+"Groundnuts, excluding shelled",1999,34008.0,42000.0,,1235.0
+"Groundnuts, excluding shelled",2000,29150.0,32000.0,,1097.8
+"Groundnuts, excluding shelled",2001,25900.0,27000.0,,1042.5
+"Groundnuts, excluding shelled",2002,26710.0,34000.0,,1272.9
+"Groundnuts, excluding shelled",2003,25900.0,34240.0,,1322.0
+"Groundnuts, excluding shelled",2004,26034.0,34075.0,,1308.9
+"Groundnuts, excluding shelled",2005,28852.0,38880.0,,1347.6
+"Groundnuts, excluding shelled",2006,29394.0,37980.0,,1292.1
+"Groundnuts, excluding shelled",2007,33666.0,45910.0,,1363.7
+"Groundnuts, excluding shelled",2008,31084.0,44268.0,,1424.1
+"Groundnuts, excluding shelled",2009,32540.0,47160.0,,1449.3
+"Groundnuts, excluding shelled",2010,33591.0,53467.0,,1591.7
+"Groundnuts, excluding shelled",2011,31755.0,53664.0,,1689.9
+"Groundnuts, excluding shelled",2012,31182.0,51944.0,,1665.8
+"Groundnuts, excluding shelled",2013,28750.0,49791.0,,1731.9
+"Groundnuts, excluding shelled",2014,29560.0,56439.0,,1909.3
+"Groundnuts, excluding shelled",2015,31753.0,56713.0,,1786.1
+"Groundnuts, excluding shelled",2016,35712.0,62264.0,,1743.5
+"Groundnuts, excluding shelled",2017,36903.0,66060.0,,1790.1
+"Groundnuts, excluding shelled",2018,38043.0,66828.0,,1756.6
+"Groundnuts, excluding shelled",2019,35260.0,62832.0,,1782.0
+"Groundnuts, excluding shelled",2020,32710.0,60314.0,,1843.9
+"Groundnuts, excluding shelled",2021,31175.0,66745.0,,2141.0
+"Groundnuts, excluding shelled",2022,36139.0,74748.0,,2068.3
+"Groundnuts, excluding shelled",2023,35526.0,67173.0,,1890.8
+"Groundnuts, excluding shelled",2024,39081.0,75364.0,,1928.4
+"Jute, raw or retted",1961,834000.0,1314540.0,,1576.2
+"Jute, raw or retted",1962,697300.0,1190160.0,,1706.8
+"Jute, raw or retted",1963,688000.0,1105200.0,,1606.4
+"Jute, raw or retted",1964,671800.0,983880.0,,1464.5
+"Jute, raw or retted",1965,886000.0,1319220.0,,1489.0
+"Jute, raw or retted",1966,876200.0,1255680.0,,1433.1
+"Jute, raw or retted",1967,971000.0,1264140.0,,1301.9
+"Jute, raw or retted",1968,897000.0,1055160.0,,1176.3
+"Jute, raw or retted",1969,976000.0,1340820.0,,1373.8
+"Jute, raw or retted",1970,918000.0,1233900.0,,1344.1
+"Jute, raw or retted",1971,694000.0,777600.0,,1120.5
+"Jute, raw or retted",1972,896261.0,1201860.0,,1341.0
+"Jute, raw or retted",1973,888857.0,1115820.0,,1255.3
+"Jute, raw or retted",1974,583000.0,725760.0,,1244.9
+"Jute, raw or retted",1975,511000.0,788580.0,,1543.2
+"Jute, raw or retted",1976,650000.0,872000.0,,1341.5
+"Jute, raw or retted",1977,735000.0,972000.0,,1322.4
+"Jute, raw or retted",1978,835000.0,1170000.0,,1401.2
+"Jute, raw or retted",1979,760000.0,1080000.0,,1421.1
+"Jute, raw or retted",1980,635000.0,896000.0,,1411.0
+"Jute, raw or retted",1981,570000.0,842000.0,,1477.2
+"Jute, raw or retted",1982,575000.0,885000.0,,1539.1
+"Jute, raw or retted",1983,581000.0,946000.0,,1628.2
+"Jute, raw or retted",1984,676000.0,928000.0,,1372.8
+"Jute, raw or retted",1985,924000.0,1378000.0,,1491.3
+"Jute, raw or retted",1986,1057942.0,1571019.0,,1485.0
+"Jute, raw or retted",1987,772300.0,1225149.0,,1586.4
+"Jute, raw or retted",1988,512304.0,877080.0,,1712.0
+"Jute, raw or retted",1989,543386.0,827810.0,,1523.4
+"Jute, raw or retted",1990,541704.0,841733.0,,1553.9
+"Jute, raw or retted",1991,583439.0,961939.0,,1648.7
+"Jute, raw or retted",1992,588097.0,956751.0,,1626.9
+"Jute, raw or retted",1993,478300.0,808000.0,,1689.3
+"Jute, raw or retted",1994,559700.0,964000.0,,1722.4
+"Jute, raw or retted",1995,458500.0,739000.0,,1611.8
+"Jute, raw or retted",1996,507236.0,882942.0,,1740.7
+"Jute, raw or retted",1997,577493.0,1057000.0,,1830.3
+"Jute, raw or retted",1998,477939.0,812000.0,,1699.0
+"Jute, raw or retted",1999,407928.0,711000.0,,1743.0
+"Jute, raw or retted",2000,448335.0,821000.0,,1831.2
+"Jute, raw or retted",2001,456680.0,858740.0,,1880.4
+"Jute, raw or retted",2002,436661.0,800000.0,,1832.1
+"Jute, raw or retted",2003,407920.0,794000.0,,1946.5
+"Jute, raw or retted",2004,390526.0,730000.0,,1869.3
+"Jute, raw or retted",2005,402000.0,836000.0,,2079.6
+"Jute, raw or retted",2006,419000.0,884000.0,,2109.8
+"Jute, raw or retted",2007,440492.0,838682.0,,1904.0
+"Jute, raw or retted",2008,420473.0,848715.0,,2018.5
+"Jute, raw or retted",2009,416000.0,923500.0,,2220.0
+"Jute, raw or retted",2010,416346.0,923464.0,,2218.0
+"Jute, raw or retted",2011,708723.0,1523315.0,,2149.4
+"Jute, raw or retted",2012,760427.0,1452044.0,,1909.5
+"Jute, raw or retted",2013,681000.0,1391000.0,,2042.6
+"Jute, raw or retted",2014,665699.0,1349000.0,,2026.4
+"Jute, raw or retted",2015,677575.0,1399000.0,,2064.7
+"Jute, raw or retted",2016,677678.0,1344000.0,,1983.2
+"Jute, raw or retted",2017,737770.0,1496216.0,,2028.0
+"Jute, raw or retted",2018,758218.0,1613762.0,,2128.4
+"Jute, raw or retted",2019,749658.0,1600474.0,,2134.9
+"Jute, raw or retted",2020,679493.0,1751635.0,,2577.9
+"Jute, raw or retted",2021,682170.0,1681938.57,,2465.6
+"Jute, raw or retted",2022,727382.0,1835937.0,,2524.0
+"Jute, raw or retted",2023,729891.0,1881441.0,,2577.7
+"Jute, raw or retted",2024,723639.0,2086101.0,,2882.8
+"Lentils, dry",1961,62727.0,42672.0,,680.3
+"Lentils, dry",1962,64346.0,47752.0,,742.1
+"Lentils, dry",1963,72035.0,48768.0,,677.0
+"Lentils, dry",1964,67583.0,47752.0,,706.6
+"Lentils, dry",1965,66369.0,44704.0,,673.6
+"Lentils, dry",1966,68000.0,46700.0,,686.8
+"Lentils, dry",1967,70800.0,49800.0,,703.4
+"Lentils, dry",1968,68400.0,47800.0,,698.8
+"Lentils, dry",1969,71600.0,51800.0,,723.5
+"Lentils, dry",1970,90000.0,63000.0,,700.0
+"Lentils, dry",1971,100000.0,69000.0,,690.0
+"Lentils, dry",1972,120000.0,83000.0,,691.7
+"Lentils, dry",1973,150000.0,104000.0,,693.3
+"Lentils, dry",1974,180000.0,124000.0,,688.9
+"Lentils, dry",1975,200000.0,138000.0,,690.0
+"Lentils, dry",1976,250000.0,173000.0,,692.0
+"Lentils, dry",1977,291000.0,172000.0,,591.1
+"Lentils, dry",1978,293000.0,175000.0,,597.3
+"Lentils, dry",1979,295000.0,176000.0,,596.6
+"Lentils, dry",1980,289000.0,169000.0,,584.8
+"Lentils, dry",1981,285000.0,169000.0,,593.0
+"Lentils, dry",1982,248000.0,161000.0,,649.2
+"Lentils, dry",1983,240000.0,147000.0,,612.5
+"Lentils, dry",1984,240400.0,161200.0,,670.5
+"Lentils, dry",1985,233400.0,164200.0,,703.5
+"Lentils, dry",1986,222500.0,159600.0,,717.3
+"Lentils, dry",1987,212700.0,149000.0,,700.5
+"Lentils, dry",1988,216308.0,158715.0,,733.7
+"Lentils, dry",1989,215297.0,158040.0,,734.1
+"Lentils, dry",1990,209085.0,155120.0,,741.9
+"Lentils, dry",1991,210078.0,157280.0,,748.7
+"Lentils, dry",1992,208915.0,152820.0,,731.5
+"Lentils, dry",1993,207444.0,163425.0,,787.8
+"Lentils, dry",1994,207600.0,168000.0,,809.2
+"Lentils, dry",1995,207600.0,167945.0,,809.0
+"Lentils, dry",1996,206000.0,169945.0,,825.0
+"Lentils, dry",1997,206347.0,170505.0,,826.3
+"Lentils, dry",1998,205775.0,162700.0,,790.7
+"Lentils, dry",1999,205485.0,165315.0,,804.5
+"Lentils, dry",2000,166802.0,128000.0,,767.4
+"Lentils, dry",2001,164372.0,126000.0,,766.6
+"Lentils, dry",2002,157085.0,115000.0,,732.1
+"Lentils, dry",2003,154187.0,116000.0,,752.3
+"Lentils, dry",2004,154590.0,122200.0,,790.5
+"Lentils, dry",2005,153831.0,121065.0,,787.0
+"Lentils, dry",2006,134635.0,115370.0,,856.9
+"Lentils, dry",2007,137553.0,116810.0,,849.2
+"Lentils, dry",2008,72581.0,71535.0,,985.6
+"Lentils, dry",2009,70952.0,60537.0,,853.2
+"Lentils, dry",2010,77287.0,71100.0,,919.9
+"Lentils, dry",2011,82969.0,80442.0,,969.5
+"Lentils, dry",2012,86248.0,80125.0,,929.0
+"Lentils, dry",2013,89840.0,93000.0,,1035.2
+"Lentils, dry",2014,124617.0,157000.0,,1259.9
+"Lentils, dry",2015,145492.0,167261.0,,1149.6
+"Lentils, dry",2016,154515.0,158228.0,,1024.0
+"Lentils, dry",2017,154746.0,168837.0,,1091.1
+"Lentils, dry",2018,155963.0,176633.0,,1132.5
+"Lentils, dry",2019,142418.0,175384.0,,1231.5
+"Lentils, dry",2020,141282.0,177354.0,,1255.3
+"Lentils, dry",2021,145972.0,185500.0,,1270.8
+"Lentils, dry",2022,144454.0,190743.0,,1320.4
+"Lentils, dry",2023,135396.0,196829.0,,1453.7
+"Lentils, dry",2024,124892.0,184819.0,,1479.8
+Maize (corn),1961,8903.0,7112.0,,798.8
+Maize (corn),1962,6880.0,5080.0,,738.4
+Maize (corn),1963,5261.0,4064.0,,772.5
+Maize (corn),1964,4047.0,3048.0,,753.2
+Maize (corn),1965,4047.0,3048.0,,753.2
+Maize (corn),1966,3600.0,3000.0,,833.3
+Maize (corn),1967,3200.0,3000.0,,937.5
+Maize (corn),1968,3200.0,3000.0,,937.5
+Maize (corn),1969,3200.0,3000.0,,937.5
+Maize (corn),1970,3200.0,3000.0,,937.5
+Maize (corn),1971,2800.0,2000.0,,714.3
+Maize (corn),1972,2800.0,2000.0,,714.3
+Maize (corn),1973,2724.0,2382.0,,874.4
+Maize (corn),1974,2656.0,2358.0,,887.8
+Maize (corn),1975,2481.0,2239.0,,902.5
+Maize (corn),1976,2398.0,2152.0,,897.4
+Maize (corn),1977,2333.0,1961.0,,840.5
+Maize (corn),1978,2215.0,1770.0,,799.1
+Maize (corn),1979,2004.0,1456.0,,726.5
+Maize (corn),1980,1927.0,1377.0,,714.6
+Maize (corn),1981,1841.0,1344.0,,730.0
+Maize (corn),1982,1588.0,1173.0,,738.7
+Maize (corn),1983,1230.0,963.0,,782.9
+Maize (corn),1984,1131.0,925.0,,817.9
+Maize (corn),1985,3772.0,3270.0,,866.9
+Maize (corn),1986,3158.0,2920.0,,924.6
+Maize (corn),1987,3102.0,2934.0,,945.8
+Maize (corn),1988,3369.0,3072.0,,911.8
+Maize (corn),1989,3567.0,3359.0,,941.7
+Maize (corn),1990,3345.0,3350.0,,1001.5
+Maize (corn),1991,3108.0,3040.0,,978.1
+Maize (corn),1992,2924.0,2725.0,,931.9
+Maize (corn),1993,2914.0,2725.0,,935.1
+Maize (corn),1994,3080.0,2785.0,,904.2
+Maize (corn),1995,2500.0,2675.0,,1070.0
+Maize (corn),1996,2651.0,2695.0,,1016.6
+Maize (corn),1997,2428.0,2650.0,,1091.4
+Maize (corn),1998,4047.0,2970.0,,733.9
+Maize (corn),1999,3240.0,4000.0,,1234.6
+Maize (corn),2000,4855.0,10000.0,,2059.7
+Maize (corn),2001,19970.0,64335.0,,3221.6
+Maize (corn),2002,29060.0,117255.0,,4034.9
+Maize (corn),2003,29071.0,117255.0,,4033.4
+Maize (corn),2004,50051.0,241460.0,,4824.3
+Maize (corn),2005,66830.0,356280.0,,5331.1
+Maize (corn),2006,98404.0,521525.0,,5299.8
+Maize (corn),2007,150832.0,902150.0,,5981.2
+Maize (corn),2008,223770.0,1346470.0,,6017.2
+Maize (corn),2009,128386.0,729629.0,,5683.1
+Maize (corn),2010,152009.0,887391.0,,5837.8
+Maize (corn),2011,165542.0,1018287.0,,6151.2
+Maize (corn),2012,197108.0,1297717.0,,6583.8
+Maize (corn),2013,234714.0,1548000.0,,6595.3
+Maize (corn),2014,307152.0,2124000.0,,6915.1
+Maize (corn),2015,325308.0,2271998.0,,6984.1
+Maize (corn),2016,334974.0,2445576.0,,7300.8
+Maize (corn),2017,389878.0,3025392.0,,7759.8
+Maize (corn),2018,400478.0,3288102.0,,8210.4
+Maize (corn),2019,445099.0,3569321.0,,8019.2
+Maize (corn),2020,471709.0,4015306.0,,8512.3
+Maize (corn),2021,479826.0,4116438.0,,8579.0
+Maize (corn),2022,478227.0,4261845.0,,8911.8
+Maize (corn),2023,496882.0,4592507.0,,9242.7
+Maize (corn),2024,496681.0,4592508.0,,9246.4
+"Meat of cattle with the bone, fresh or chilled",1961,,117900.0,,
+"Meat of cattle with the bone, fresh or chilled",1962,,120600.0,,
+"Meat of cattle with the bone, fresh or chilled",1963,,122850.0,,
+"Meat of cattle with the bone, fresh or chilled",1964,,125100.0,,
+"Meat of cattle with the bone, fresh or chilled",1965,,125100.0,,
+"Meat of cattle with the bone, fresh or chilled",1966,,130500.0,,
+"Meat of cattle with the bone, fresh or chilled",1967,,132750.0,,
+"Meat of cattle with the bone, fresh or chilled",1968,,135000.0,,
+"Meat of cattle with the bone, fresh or chilled",1969,,139500.0,,
+"Meat of cattle with the bone, fresh or chilled",1970,,142200.0,,
+"Meat of cattle with the bone, fresh or chilled",1971,,141300.0,,
+"Meat of cattle with the bone, fresh or chilled",1972,,141300.0,,
+"Meat of cattle with the bone, fresh or chilled",1973,,135397.0,,
+"Meat of cattle with the bone, fresh or chilled",1974,,138383.0,,
+"Meat of cattle with the bone, fresh or chilled",1975,,141407.0,,
+"Meat of cattle with the bone, fresh or chilled",1976,,145913.0,,
+"Meat of cattle with the bone, fresh or chilled",1977,,149048.0,,
+"Meat of cattle with the bone, fresh or chilled",1978,,170885.0,,
+"Meat of cattle with the bone, fresh or chilled",1979,,178000.0,,
+"Meat of cattle with the bone, fresh or chilled",1980,,120934.0,,
+"Meat of cattle with the bone, fresh or chilled",1981,,122499.0,,
+"Meat of cattle with the bone, fresh or chilled",1982,,124076.0,,
+"Meat of cattle with the bone, fresh or chilled",1983,,125700.0,,
+"Meat of cattle with the bone, fresh or chilled",1984,,122753.0,,
+"Meat of cattle with the bone, fresh or chilled",1985,,133184.0,,
+"Meat of cattle with the bone, fresh or chilled",1986,,134528.0,,
+"Meat of cattle with the bone, fresh or chilled",1987,,135834.0,,
+"Meat of cattle with the bone, fresh or chilled",1988,,137178.0,,
+"Meat of cattle with the bone, fresh or chilled",1989,,138620.0,,
+"Meat of cattle with the bone, fresh or chilled",1990,,139921.0,,
+"Meat of cattle with the bone, fresh or chilled",1991,,140070.0,,
+"Meat of cattle with the bone, fresh or chilled",1992,,141377.0,,
+"Meat of cattle with the bone, fresh or chilled",1993,,144029.0,,
+"Meat of cattle with the bone, fresh or chilled",1994,,146740.0,,
+"Meat of cattle with the bone, fresh or chilled",1995,,147916.0,,
+"Meat of cattle with the bone, fresh or chilled",1996,,152500.0,,
+"Meat of cattle with the bone, fresh or chilled",1997,,165600.0,,
+"Meat of cattle with the bone, fresh or chilled",1998,,161000.0,,
+"Meat of cattle with the bone, fresh or chilled",1999,,170500.0,,
+"Meat of cattle with the bone, fresh or chilled",2000,,172500.0,,
+"Meat of cattle with the bone, fresh or chilled",2001,,174400.0,,
+"Meat of cattle with the bone, fresh or chilled",2002,,178400.0,,
+"Meat of cattle with the bone, fresh or chilled",2003,,180000.0,,
+"Meat of cattle with the bone, fresh or chilled",2004,,181000.0,,
+"Meat of cattle with the bone, fresh or chilled",2005,,183000.0,,
+"Meat of cattle with the bone, fresh or chilled",2006,,184000.0,,
+"Meat of cattle with the bone, fresh or chilled",2007,,186000.0,,
+"Meat of cattle with the bone, fresh or chilled",2008,,187000.0,,
+"Meat of cattle with the bone, fresh or chilled",2009,,188000.0,,
+"Meat of cattle with the bone, fresh or chilled",2010,,188152.09,,
+"Meat of cattle with the bone, fresh or chilled",2011,,190514.63,,
+"Meat of cattle with the bone, fresh or chilled",2012,,190783.91,,
+"Meat of cattle with the bone, fresh or chilled",2013,,192012.62,,
+"Meat of cattle with the bone, fresh or chilled",2014,,192869.9,,
+"Meat of cattle with the bone, fresh or chilled",2015,,191649.18,,
+"Meat of cattle with the bone, fresh or chilled",2016,,192689.62,,
+"Meat of cattle with the bone, fresh or chilled",2017,,193999.01,,
+"Meat of cattle with the bone, fresh or chilled",2018,,196508.35,,
+"Meat of cattle with the bone, fresh or chilled",2019,,197971.99,,
+"Meat of cattle with the bone, fresh or chilled",2020,,199203.18,,
+"Meat of cattle with the bone, fresh or chilled",2021,,200496.22,,
+"Meat of cattle with the bone, fresh or chilled",2022,,201766.34,,
+"Meat of cattle with the bone, fresh or chilled",2023,,203220.54,,
+"Meat of cattle with the bone, fresh or chilled",2024,,204685.25,,
+"Onions and shallots, dry (excluding dehydrated)",1961,22300.0,136500.0,,6121.1
+"Onions and shallots, dry (excluding dehydrated)",1962,23500.0,130600.0,,5557.4
+"Onions and shallots, dry (excluding dehydrated)",1963,25500.0,140300.0,,5502.0
+"Onions and shallots, dry (excluding dehydrated)",1964,25500.0,132100.0,,5180.4
+"Onions and shallots, dry (excluding dehydrated)",1965,27500.0,145200.0,,5280.0
+"Onions and shallots, dry (excluding dehydrated)",1966,28300.0,150400.0,,5314.5
+"Onions and shallots, dry (excluding dehydrated)",1967,34400.0,198100.0,,5758.7
+"Onions and shallots, dry (excluding dehydrated)",1968,34400.0,198100.0,,5758.7
+"Onions and shallots, dry (excluding dehydrated)",1969,33200.0,185900.0,,5599.4
+"Onions and shallots, dry (excluding dehydrated)",1970,32800.0,181900.0,,5545.7
+"Onions and shallots, dry (excluding dehydrated)",1971,33200.0,178800.0,,5385.5
+"Onions and shallots, dry (excluding dehydrated)",1972,30800.0,159500.0,,5178.6
+"Onions and shallots, dry (excluding dehydrated)",1973,31160.0,155455.0,,4988.9
+"Onions and shallots, dry (excluding dehydrated)",1974,30916.0,148916.0,,4816.8
+"Onions and shallots, dry (excluding dehydrated)",1975,31145.0,145578.0,,4674.2
+"Onions and shallots, dry (excluding dehydrated)",1976,33172.0,149975.0,,4521.1
+"Onions and shallots, dry (excluding dehydrated)",1977,31912.0,138347.0,,4335.3
+"Onions and shallots, dry (excluding dehydrated)",1978,33036.0,147732.0,,4471.8
+"Onions and shallots, dry (excluding dehydrated)",1979,31535.0,135527.0,,4297.7
+"Onions and shallots, dry (excluding dehydrated)",1980,32051.0,141652.0,,4419.6
+"Onions and shallots, dry (excluding dehydrated)",1981,30099.0,95088.0,,3159.2
+"Onions and shallots, dry (excluding dehydrated)",1982,33528.0,131607.0,,3925.3
+"Onions and shallots, dry (excluding dehydrated)",1983,33872.0,140438.0,,4146.1
+"Onions and shallots, dry (excluding dehydrated)",1984,33374.0,135878.0,,4071.4
+"Onions and shallots, dry (excluding dehydrated)",1985,34058.0,140695.0,,4131.0
+"Onions and shallots, dry (excluding dehydrated)",1986,33775.0,136615.0,,4044.9
+"Onions and shallots, dry (excluding dehydrated)",1987,33095.0,130125.0,,3931.9
+"Onions and shallots, dry (excluding dehydrated)",1988,33919.0,140545.0,,4143.5
+"Onions and shallots, dry (excluding dehydrated)",1989,34036.0,138589.0,,4071.8
+"Onions and shallots, dry (excluding dehydrated)",1990,35235.0,147845.0,,4196.0
+"Onions and shallots, dry (excluding dehydrated)",1991,34762.0,143305.0,,4122.5
+"Onions and shallots, dry (excluding dehydrated)",1992,34430.0,144040.0,,4183.6
+"Onions and shallots, dry (excluding dehydrated)",1993,34191.0,139880.0,,4091.1
+"Onions and shallots, dry (excluding dehydrated)",1994,34523.0,144170.0,,4176.1
+"Onions and shallots, dry (excluding dehydrated)",1995,34165.0,144000.0,,4214.8
+"Onions and shallots, dry (excluding dehydrated)",1996,34031.0,138190.0,,4060.7
+"Onions and shallots, dry (excluding dehydrated)",1997,34406.0,141835.0,,4122.4
+"Onions and shallots, dry (excluding dehydrated)",1998,34454.0,138430.0,,4017.8
+"Onions and shallots, dry (excluding dehydrated)",1999,33184.0,131000.0,,3947.7
+"Onions and shallots, dry (excluding dehydrated)",2000,33994.0,134000.0,,3941.9
+"Onions and shallots, dry (excluding dehydrated)",2001,34000.0,127000.0,,3735.3
+"Onions and shallots, dry (excluding dehydrated)",2002,36842.0,150000.0,,4071.4
+"Onions and shallots, dry (excluding dehydrated)",2003,37654.0,153455.0,,4075.4
+"Onions and shallots, dry (excluding dehydrated)",2004,51968.0,272230.0,,5238.4
+"Onions and shallots, dry (excluding dehydrated)",2005,86429.0,589410.0,,6819.6
+"Onions and shallots, dry (excluding dehydrated)",2006,115741.0,768655.0,,6641.2
+"Onions and shallots, dry (excluding dehydrated)",2007,128723.0,894255.0,,6947.1
+"Onions and shallots, dry (excluding dehydrated)",2008,125171.0,889260.0,,7104.4
+"Onions and shallots, dry (excluding dehydrated)",2009,107748.0,735140.0,,6822.8
+"Onions and shallots, dry (excluding dehydrated)",2010,117560.0,872081.0,,7418.2
+"Onions and shallots, dry (excluding dehydrated)",2011,127940.0,1051523.0,,8218.9
+"Onions and shallots, dry (excluding dehydrated)",2012,135721.0,1159259.0,,8541.5
+"Onions and shallots, dry (excluding dehydrated)",2013,134354.0,1168000.0,,8693.5
+"Onions and shallots, dry (excluding dehydrated)",2014,150915.0,1387000.0,,9190.6
+"Onions and shallots, dry (excluding dehydrated)",2015,169609.0,1704402.0,,10049.0
+"Onions and shallots, dry (excluding dehydrated)",2016,177492.0,1735334.0,,9777.0
+"Onions and shallots, dry (excluding dehydrated)",2017,185735.0,1866502.0,,10049.3
+"Onions and shallots, dry (excluding dehydrated)",2018,178506.0,1737714.0,,9734.8
+"Onions and shallots, dry (excluding dehydrated)",2019,172456.0,1802868.0,,10454.1
+"Onions and shallots, dry (excluding dehydrated)",2020,185273.0,1953800.0,,10545.5
+"Onions and shallots, dry (excluding dehydrated)",2021,194296.0,2268754.0,,11676.8
+"Onions and shallots, dry (excluding dehydrated)",2022,205405.0,2517070.0,,12254.2
+"Onions and shallots, dry (excluding dehydrated)",2023,203606.0,2546994.0,,12509.4
+"Onions and shallots, dry (excluding dehydrated)",2024,207822.0,2917354.0,,14037.8
+"Peas, dry",1961,38000.0,25000.0,,657.9
+"Peas, dry",1962,40000.0,26000.0,,650.0
+"Peas, dry",1963,40000.0,26000.0,,650.0
+"Peas, dry",1964,50000.0,33000.0,,660.0
+"Peas, dry",1965,50000.0,33000.0,,660.0
+"Peas, dry",1966,55000.0,36000.0,,654.5
+"Peas, dry",1967,60000.0,39000.0,,650.0
+"Peas, dry",1968,65000.0,43000.0,,661.5
+"Peas, dry",1969,68000.0,45000.0,,661.8
+"Peas, dry",1970,70000.0,46000.0,,657.1
+"Peas, dry",1971,80000.0,53000.0,,662.5
+"Peas, dry",1972,85000.0,59000.0,,694.1
+"Peas, dry",1973,90000.0,59000.0,,655.6
+"Peas, dry",1974,100000.0,66000.0,,660.0
+"Peas, dry",1975,110000.0,73000.0,,663.6
+"Peas, dry",1976,115000.0,72000.0,,626.1
+"Peas, dry",1977,126000.0,79000.0,,627.0
+"Peas, dry",1978,100000.0,66000.0,,660.0
+"Peas, dry",1979,68000.0,44000.0,,647.1
+"Peas, dry",1980,62000.0,42000.0,,677.4
+"Peas, dry",1981,58000.0,38000.0,,655.2
+"Peas, dry",1982,48000.0,31000.0,,645.8
+"Peas, dry",1983,46000.0,29000.0,,630.4
+"Peas, dry",1984,45100.0,27800.0,,616.4
+"Peas, dry",1985,46100.0,29900.0,,648.6
+"Peas, dry",1986,43700.0,29600.0,,677.3
+"Peas, dry",1987,42800.0,29000.0,,677.6
+"Peas, dry",1988,45300.0,31100.0,,686.5
+"Peas, dry",1989,43700.0,29000.0,,663.6
+"Peas, dry",1990,42213.0,27645.0,,654.9
+"Peas, dry",1991,41666.0,29310.0,,703.5
+"Peas, dry",1992,40914.0,28675.0,,700.9
+"Peas, dry",1993,39718.0,26385.0,,664.3
+"Peas, dry",1994,39660.0,25000.0,,630.4
+"Peas, dry",1995,40060.0,25000.0,,624.1
+"Peas, dry",1996,39250.0,25000.0,,636.9
+"Peas, dry",1997,39254.0,24000.0,,611.4
+"Peas, dry",1998,38850.0,24000.0,,617.8
+"Peas, dry",1999,23877.0,13300.0,,557.0
+"Peas, dry",2000,23877.0,18000.0,,753.9
+"Peas, dry",2001,22258.0,17000.0,,763.8
+"Peas, dry",2002,21449.0,16000.0,,746.0
+"Peas, dry",2003,19830.0,15000.0,,756.4
+"Peas, dry",2004,21043.0,17000.0,,807.9
+"Peas, dry",2005,18211.0,14000.0,,768.8
+"Peas, dry",2006,14973.0,12000.0,,801.4
+"Peas, dry",2007,12500.0,9840.0,,787.2
+"Peas, dry",2008,12673.0,10656.0,,840.8
+"Peas, dry",2009,13779.0,12406.0,,900.4
+"Peas, dry",2010,13335.0,12747.0,,955.9
+"Peas, dry",2011,13264.0,12622.0,,951.6
+"Peas, dry",2012,14160.0,12000.0,,847.5
+"Peas, dry",2013,13269.0,12622.0,,951.2
+"Peas, dry",2014,14834.0,14659.0,,988.2
+"Peas, dry",2015,14747.0,16939.0,,1148.6
+"Peas, dry",2016,16294.0,18562.0,,1139.2
+"Peas, dry",2017,16529.0,18415.0,,1114.1
+"Peas, dry",2018,7181.0,8139.0,,1133.4
+"Peas, dry",2019,7097.0,7439.0,,1048.2
+"Peas, dry",2020,8333.0,8777.0,,1053.3
+"Peas, dry",2021,7487.0,8051.0,,1075.3
+"Peas, dry",2022,7396.0,8131.0,,1099.4
+"Peas, dry",2023,6978.0,7707.0,,1104.5
+"Peas, dry",2024,6891.0,7994.0,,1160.1
+Potatoes,1961,55847.0,343408.0,,6149.1
+Potatoes,1962,55847.0,336296.0,,6021.7
+Potatoes,1963,57871.0,362712.0,,6267.6
+Potatoes,1964,55442.0,324104.0,,5845.8
+Potatoes,1965,55442.0,401320.0,,7238.6
+Potatoes,1966,60700.0,493800.0,,8135.1
+Potatoes,1967,70400.0,600500.0,,8529.8
+Potatoes,1968,76100.0,712300.0,,9360.1
+Potatoes,1969,84200.0,799600.0,,9496.4
+Potatoes,1970,85400.0,864700.0,,10125.3
+Potatoes,1971,86600.0,862600.0,,9960.7
+Potatoes,1972,76236.0,752797.0,,9874.6
+Potatoes,1973,79554.0,758710.0,,9537.0
+Potatoes,1974,80058.0,730067.0,,9119.2
+Potatoes,1975,93864.0,880372.0,,9379.2
+Potatoes,1976,95932.0,903025.0,,9413.2
+Potatoes,1977,77377.0,735336.0,,9503.3
+Potatoes,1978,90031.0,913846.0,,10150.3
+Potatoes,1979,96676.0,909319.0,,9405.8
+Potatoes,1980,96482.0,917120.0,,9505.6
+Potatoes,1981,102128.0,998909.0,,9781.0
+Potatoes,1982,107665.0,1095151.0,,10171.8
+Potatoes,1983,110085.0,1131098.0,,10274.8
+Potatoes,1984,110194.0,1147686.0,,10415.1
+Potatoes,1985,111280.0,1159385.0,,10418.6
+Potatoes,1986,108410.0,1102790.0,,10172.4
+Potatoes,1987,106360.0,1069295.0,,10053.5
+Potatoes,1988,123393.0,1275650.0,,10338.1
+Potatoes,1989,111312.0,1089298.0,,9786.0
+Potatoes,1990,116582.0,1065680.0,,9141.0
+Potatoes,1991,123844.0,1236805.0,,9986.8
+Potatoes,1992,127796.0,1379320.0,,10793.1
+Potatoes,1993,129605.0,1384010.0,,10678.7
+Potatoes,1994,131245.0,1438055.0,,10957.0
+Potatoes,1995,131500.0,1468400.0,,11166.5
+Potatoes,1996,132300.0,1491560.0,,11274.1
+Potatoes,1997,133971.0,1507860.0,,11255.1
+Potatoes,1998,136277.0,1553180.0,,11397.2
+Potatoes,1999,244837.0,2762000.0,,11281.0
+Potatoes,2000,243219.0,2933000.0,,12059.1
+Potatoes,2001,248988.0,3216000.0,,12916.3
+Potatoes,2002,237600.0,2994000.0,,12601.0
+Potatoes,2003,245318.0,3385910.0,,13802.1
+Potatoes,2004,270740.0,3907120.0,,14431.3
+Potatoes,2005,326291.0,4855377.0,,14880.5
+Potatoes,2006,373200.0,5368400.0,,14384.8
+Potatoes,2007,345000.0,5167000.0,,14976.8
+Potatoes,2008,402000.0,6648000.0,,16537.3
+Potatoes,2009,395000.0,5268000.0,,13336.7
+Potatoes,2010,435000.0,7930000.0,,18229.9
+Potatoes,2011,460197.0,8326389.0,,18093.1
+Potatoes,2012,430446.0,8205470.0,,19062.7
+Potatoes,2013,443934.0,8603000.0,,19379.0
+Potatoes,2014,461710.0,8950000.0,,19384.5
+Potatoes,2015,471013.0,9254285.0,,19647.6
+Potatoes,2016,475488.0,9474099.0,,19925.0
+Potatoes,2017,499725.0,10215957.0,,20443.2
+Potatoes,2018,477419.0,9744412.0,,20410.6
+Potatoes,2019,468395.0,9655082.0,,20613.1
+Potatoes,2020,461351.0,9606000.0,,20821.5
+Potatoes,2021,468699.0,9887242.0,,21095.1
+Potatoes,2022,464011.0,10144835.0,,21863.4
+Potatoes,2023,455523.0,10431736.0,,22900.6
+Potatoes,2024,456979.0,10601182.0,,23198.4
+Rape or colza seed,1961,225817.0,98552.0,,436.4
+Rape or colza seed,1962,238767.0,104648.0,,438.3
+Rape or colza seed,1963,233101.0,105664.0,,453.3
+Rape or colza seed,1964,202345.0,90424.0,,446.9
+Rape or colza seed,1965,185753.0,91440.0,,492.3
+Rape or colza seed,1966,191800.0,96500.0,,503.1
+Rape or colza seed,1967,197100.0,103600.0,,525.6
+Rape or colza seed,1968,214500.0,121900.0,,568.3
+Rape or colza seed,1969,223400.0,130100.0,,582.4
+Rape or colza seed,1970,217700.0,128000.0,,588.0
+Rape or colza seed,1971,214900.0,138200.0,,643.1
+Rape or colza seed,1972,188721.0,113945.0,,603.8
+Rape or colza seed,1973,191481.0,107864.0,,563.3
+Rape or colza seed,1974,176469.0,99070.0,,561.4
+Rape or colza seed,1975,196194.0,116251.0,,592.5
+Rape or colza seed,1976,192928.0,111557.0,,578.2
+Rape or colza seed,1977,194284.0,114270.0,,588.2
+Rape or colza seed,1978,205795.0,134103.0,,651.6
+Rape or colza seed,1979,356000.0,220000.0,,618.0
+Rape or colza seed,1980,352000.0,240000.0,,681.8
+Rape or colza seed,1981,372000.0,214000.0,,575.3
+Rape or colza seed,1982,364000.0,231000.0,,634.6
+Rape or colza seed,1983,356000.0,238000.0,,668.5
+Rape or colza seed,1984,364075.0,253654.0,,696.7
+Rape or colza seed,1985,385149.0,285444.0,,741.1
+Rape or colza seed,1986,369616.0,260565.0,,705.0
+Rape or colza seed,1987,342703.0,228573.0,,667.0
+Rape or colza seed,1988,317863.0,222008.0,,698.4
+Rape or colza seed,1989,333959.0,206943.0,,619.7
+Rape or colza seed,1990,338406.0,217410.0,,642.5
+Rape or colza seed,1991,339127.0,227530.0,,670.9
+Rape or colza seed,1992,339764.0,243040.0,,715.3
+Rape or colza seed,1993,338176.0,244300.0,,722.4
+Rape or colza seed,1994,336544.0,239080.0,,710.4
+Rape or colza seed,1995,337100.0,245365.0,,727.9
+Rape or colza seed,1996,335976.0,245885.0,,731.9
+Rape or colza seed,1997,336087.0,249355.0,,741.9
+Rape or colza seed,1998,343630.0,253640.0,,738.1
+Rape or colza seed,1999,343986.0,253000.0,,735.5
+Rape or colza seed,2000,328609.0,249000.0,,757.7
+Rape or colza seed,2001,317814.0,238000.0,,748.9
+Rape or colza seed,2002,303113.0,233000.0,,768.7
+Rape or colza seed,2003,297555.0,217980.0,,732.6
+Rape or colza seed,2004,279235.0,210570.0,,754.1
+Rape or colza seed,2005,241545.0,191375.0,,792.3
+Rape or colza seed,2006,216814.0,183465.0,,846.2
+Rape or colza seed,2007,210545.0,188880.0,,897.1
+Rape or colza seed,2008,233596.0,227930.0,,975.7
+Rape or colza seed,2009,233916.0,202717.0,,866.6
+Rape or colza seed,2010,242101.0,221928.0,,916.7
+Rape or colza seed,2011,252000.0,246000.0,,976.2
+Rape or colza seed,2012,276000.0,262000.0,,949.3
+Rape or colza seed,2013,294550.0,294000.0,,998.1
+Rape or colza seed,2014,293920.0,296000.0,,1007.1
+Rape or colza seed,2015,324908.0,359452.0,,1106.3
+Rape or colza seed,2016,318633.0,361909.0,,1135.8
+Rape or colza seed,2017,336393.0,362860.0,,1078.7
+Rape or colza seed,2018,307504.0,351537.0,,1143.2
+Rape or colza seed,2019,270018.0,311740.0,,1154.5
+Rape or colza seed,2020,309115.0,358249.0,,1159.0
+Rape or colza seed,2021,329538.0,396594.0,,1203.5
+Rape or colza seed,2022,330730.0,409659.0,,1238.7
+Rape or colza seed,2023,383251.0,547425.0,,1428.4
+Rape or colza seed,2024,462996.0,637745.0,,1377.4
+Raw milk of cattle,1961,,592500.0,,
+Raw milk of cattle,1962,,595000.0,,
+Raw milk of cattle,1963,,600000.0,,
+Raw milk of cattle,1964,,600000.0,,
+Raw milk of cattle,1965,,620000.0,,
+Raw milk of cattle,1966,,620000.0,,
+Raw milk of cattle,1967,,635000.0,,
+Raw milk of cattle,1968,,650000.0,,
+Raw milk of cattle,1969,,665000.0,,
+Raw milk of cattle,1970,,685235.0,,
+Raw milk of cattle,1971,,685000.0,,
+Raw milk of cattle,1972,,684411.0,,
+Raw milk of cattle,1973,,684768.0,,
+Raw milk of cattle,1974,,696497.0,,
+Raw milk of cattle,1975,,705908.0,,
+Raw milk of cattle,1976,,779993.0,,
+Raw milk of cattle,1977,,792497.0,,
+Raw milk of cattle,1978,,914595.0,,
+Raw milk of cattle,1979,,943103.0,,
+Raw milk of cattle,1980,,768695.0,,
+Raw milk of cattle,1981,,786597.0,,
+Raw milk of cattle,1982,,788863.0,,
+Raw milk of cattle,1983,,799155.0,,
+Raw milk of cattle,1984,,700000.0,,
+Raw milk of cattle,1985,,706604.0,,
+Raw milk of cattle,1986,,713806.0,,
+Raw milk of cattle,1987,,721008.0,,
+Raw milk of cattle,1988,,728415.0,,
+Raw milk of cattle,1989,,735330.0,,
+Raw milk of cattle,1990,,743796.0,,
+Raw milk of cattle,1991,,744752.0,,
+Raw milk of cattle,1992,,752377.0,,
+Raw milk of cattle,1993,,767198.0,,
+Raw milk of cattle,1994,,1000000.0,,
+Raw milk of cattle,1995,,1000000.0,,
+Raw milk of cattle,1996,,1300000.0,,
+Raw milk of cattle,1997,,1500000.0,,
+Raw milk of cattle,1998,,1600000.0,,
+Raw milk of cattle,1999,,1700000.0,,
+Raw milk of cattle,2000,,1800000.0,,
+Raw milk of cattle,2001,,1800000.0,,
+Raw milk of cattle,2002,,1800000.0,,
+Raw milk of cattle,2003,,2000000.0,,
+Raw milk of cattle,2004,,2000000.0,,
+Raw milk of cattle,2005,,2000000.0,,
+Raw milk of cattle,2006,,2043000.0,,
+Raw milk of cattle,2007,,2052000.0,,
+Raw milk of cattle,2008,,2385000.0,,
+Raw milk of cattle,2009,,2061000.0,,
+Raw milk of cattle,2010,,2133000.0,,
+Raw milk of cattle,2011,,2655000.0,,
+Raw milk of cattle,2012,,3114000.0,,
+Raw milk of cattle,2013,,4563000.0,,
+Raw milk of cattle,2014,,5482800.0,,
+Raw milk of cattle,2015,,6273000.0,,
+Raw milk of cattle,2016,,6547500.0,,
+Raw milk of cattle,2017,,8354700.0,,
+Raw milk of cattle,2018,,8465400.0,,
+Raw milk of cattle,2019,,8928900.0,,
+Raw milk of cattle,2020,,9612000.0,,
+Raw milk of cattle,2021,,10786500.0,,
+Raw milk of cattle,2022,,11766600.0,,
+Raw milk of cattle,2023,,12661200.0,,
+Raw milk of cattle,2024,,13539600.0,,
+Rice,1961,8483516.0,14426184.0,,1700.5
+Rice,1962,8694360.0,13304520.0,,1530.2
+Rice,1963,9007995.0,15934944.0,,1769.0
+Rice,1964,9228955.0,15753588.0,,1707.0
+Rice,1965,9360480.0,15750540.0,,1682.7
+Rice,1966,9075000.0,14363000.0,,1582.7
+Rice,1967,9889400.0,16757000.0,,1694.4
+Rice,1968,9742100.0,17015504.0,,1746.6
+Rice,1969,10314000.0,18007296.0,,1745.9
+Rice,1970,9912800.0,16714900.0,,1686.2
+Rice,1971,9297682.0,14896689.0,,1602.2
+Rice,1972,9629708.0,15133678.0,,1571.6
+Rice,1973,9878297.0,17862704.0,,1808.3
+Rice,1974,9792191.0,16929568.0,,1728.9
+Rice,1975,10329868.0,19142624.0,,1853.1
+Rice,1976,9882050.0,17628320.0,,1783.9
+Rice,1977,10027652.0,19451488.0,,1939.8
+Rice,1978,10101807.0,19582160.0,,1938.5
+Rice,1979,10159848.0,19109472.0,,1880.9
+Rice,1980,10308931.0,20821008.0,,2019.7
+Rice,1981,10460925.0,20445872.0,,1954.5
+Rice,1982,10585735.0,21324640.0,,2014.5
+Rice,1983,9738460.0,21761008.0,,2234.5
+Rice,1984,10223443.0,21933456.0,,2145.4
+Rice,1985,10398170.0,22556288.0,,2169.3
+Rice,1986,10609152.0,23110032.0,,2178.3
+Rice,1987,10322186.0,23120624.0,,2239.9
+Rice,1988,10224232.0,23316464.0,,2280.5
+Rice,1989,10478188.0,26784480.0,,2556.2
+Rice,1990,10435340.0,26777904.0,,2566.1
+Rice,1991,10165000.0,26710171.02,,2627.7
+Rice,1992,10216000.0,27841284.13,,2725.3
+Rice,1993,9831000.0,26786678.67,,2724.7
+Rice,1994,9840000.0,25615061.51,,2603.2
+Rice,1995,9865000.0,25508550.86,,2585.8
+Rice,1996,10149000.0,27967296.73,,2755.7
+Rice,1997,10157000.0,27280228.02,,2685.9
+Rice,1998,9478000.0,26237623.76,,2768.3
+Rice,1999,10583000.0,33891389.14,,3202.4
+Rice,2000,10687000.0,36291629.16,,3395.9
+Rice,2001,10643000.0,36686168.62,,3447.0
+Rice,2002,10697000.0,37100210.02,,3468.3
+Rice,2003,10725000.0,38366336.63,,3577.3
+Rice,2004,10249000.0,36239123.91,,3535.9
+Rice,2005,10527000.0,39605460.55,,3762.3
+Rice,2006,10388000.0,39495949.59,,3802.1
+Rice,2007,10225000.0,39204920.49,,3834.2
+Rice,2008,11171000.0,46909690.97,,4199.2
+Rice,2009,11363000.0,47592259.23,,4188.4
+Rice,2010,11466000.0,49480948.09,,4315.4
+Rice,2011,11488200.0,50626012.6,,4406.8
+Rice,2012,11473200.0,50726372.64,,4421.3
+Rice,2013,11341000.0,51195619.56,,4514.2
+Rice,2014,11365000.0,51792679.27,,4557.2
+Rice,2015,11448500.0,52451545.15,,4581.5
+Rice,2016,11297533.0,52096116.11,,4611.3
+Rice,2017,11230393.0,52079606.96,,4637.4
+Rice,2018,11586644.0,54614714.97,,4713.6
+Rice,2019,11443428.0,54784186.92,,4787.4
+Rice,2020,11693246.0,56056815.18,,4793.9
+Rice,2021,11666205.0,56772472.25,,4866.4
+Rice,2022,11600658.0,57776021.6,,4980.4
+Rice,2023,11637915.0,60601180.62,,5207.2
+Rice,2024,11448789.0,60570453.05,,5290.6
+Sesame seed,1961,57466.0,26416.0,,459.7
+Sesame seed,1962,53014.0,26416.0,,498.3
+Sesame seed,1963,52205.0,25400.0,,486.5
+Sesame seed,1964,50991.0,22352.0,,438.4
+Sesame seed,1965,50182.0,24384.0,,485.9
+Sesame seed,1966,50200.0,27400.0,,545.8
+Sesame seed,1967,52200.0,30500.0,,584.3
+Sesame seed,1968,53000.0,31500.0,,594.3
+Sesame seed,1969,50200.0,30500.0,,607.6
+Sesame seed,1970,44900.0,27400.0,,610.2
+Sesame seed,1971,47515.0,28977.0,,609.8
+Sesame seed,1972,47723.0,25869.0,,542.1
+Sesame seed,1973,43530.0,25447.0,,584.6
+Sesame seed,1974,51062.0,28439.0,,557.0
+Sesame seed,1975,54301.0,28876.0,,531.8
+Sesame seed,1976,51568.0,27743.0,,538.0
+Sesame seed,1977,54838.0,29958.0,,546.3
+Sesame seed,1978,80000.0,52000.0,,650.0
+Sesame seed,1979,95000.0,50000.0,,526.3
+Sesame seed,1980,90000.0,48000.0,,533.3
+Sesame seed,1981,100000.0,55000.0,,550.0
+Sesame seed,1982,100000.0,58000.0,,580.0
+Sesame seed,1983,102298.0,56643.0,,553.7
+Sesame seed,1984,85566.0,46251.0,,540.5
+Sesame seed,1985,92001.0,53716.0,,583.9
+Sesame seed,1986,84551.0,49059.0,,580.2
+Sesame seed,1987,81987.0,49027.0,,598.0
+Sesame seed,1988,81487.0,45239.0,,555.2
+Sesame seed,1989,86386.0,49290.0,,570.6
+Sesame seed,1990,83088.0,48610.0,,585.0
+Sesame seed,1991,80561.0,45220.0,,561.3
+Sesame seed,1992,82487.0,49463.0,,599.6
+Sesame seed,1993,65900.0,58000.0,,880.1
+Sesame seed,1994,79758.0,48440.0,,607.3
+Sesame seed,1995,80086.0,49595.0,,619.3
+Sesame seed,1996,84200.0,48745.0,,578.9
+Sesame seed,1997,79725.0,48925.0,,613.7
+Sesame seed,1998,79654.0,49030.0,,615.5
+Sesame seed,1999,37300.0,22000.0,,589.8
+Sesame seed,2000,36800.0,22000.0,,597.8
+Sesame seed,2001,36800.0,22000.0,,597.8
+Sesame seed,2002,39000.0,25000.0,,641.0
+Sesame seed,2003,39000.0,25500.0,,653.8
+Sesame seed,2004,38900.0,37200.0,,956.3
+Sesame seed,2005,30700.0,39200.0,,1276.9
+Sesame seed,2006,36043.0,29180.0,,809.6
+Sesame seed,2007,33525.0,27038.0,,806.5
+Sesame seed,2008,32932.0,28461.0,,864.2
+Sesame seed,2009,35551.0,32306.0,,908.7
+Sesame seed,2010,36000.0,32000.0,,888.9
+Sesame seed,2011,37000.0,33000.0,,891.9
+Sesame seed,2012,33331.0,29965.0,,899.0
+Sesame seed,2013,34118.0,30972.0,,907.8
+Sesame seed,2014,34248.0,30447.0,,889.0
+Sesame seed,2015,38205.0,35764.0,,936.1
+Sesame seed,2016,40320.0,36921.0,,915.7
+Sesame seed,2017,37518.0,33999.0,,906.2
+Sesame seed,2018,37567.0,34859.0,,927.9
+Sesame seed,2019,34206.0,31613.0,,924.2
+Sesame seed,2020,33657.0,31786.0,,944.4
+Sesame seed,2021,34701.0,32434.0,,934.7
+Sesame seed,2022,33047.0,31060.0,,939.9
+Sesame seed,2023,31771.0,30714.0,,966.7
+Sesame seed,2024,30735.0,29997.0,,976.0
+Soya beans,2005,25810.0,36515.0,,1414.8
+Soya beans,2006,40600.0,61485.0,,1514.4
+Soya beans,2007,39220.0,57720.0,,1471.7
+Soya beans,2008,39371.0,59158.0,,1502.6
+Soya beans,2009,40177.0,58899.0,,1466.0
+Soya beans,2010,40681.0,69522.0,,1709.0
+Soya beans,2011,41440.0,65883.0,,1589.8
+Soya beans,2012,40561.0,64143.0,,1581.4
+Soya beans,2013,39403.0,58037.0,,1472.9
+Soya beans,2014,60893.0,112024.0,,1839.7
+Soya beans,2015,47884.0,91496.0,,1910.8
+Soya beans,2016,50299.0,92181.0,,1832.7
+Soya beans,2017,62870.0,96921.0,,1541.6
+Soya beans,2018,59442.0,98699.0,,1660.4
+Soya beans,2019,62481.0,110785.0,,1773.1
+Soya beans,2020,61273.0,104761.0,,1709.7
+Soya beans,2021,57648.0,91176.0,,1581.6
+Soya beans,2022,58564.0,98646.0,,1684.4
+Soya beans,2023,58940.0,107307.0,,1820.6
+Soya beans,2024,57212.0,106833.0,,1867.3
+Sweet potatoes,1961,37000.0,330000.0,,8918.9
+Sweet potatoes,1962,39000.0,350000.0,,8974.4
+Sweet potatoes,1963,41000.0,370000.0,,9024.4
+Sweet potatoes,1964,44000.0,400000.0,,9090.9
+Sweet potatoes,1965,46000.0,440000.0,,9565.2
+Sweet potatoes,1966,44100.0,454000.0,,10294.8
+Sweet potatoes,1967,58700.0,733000.0,,12487.2
+Sweet potatoes,1968,66800.0,772000.0,,11556.9
+Sweet potatoes,1969,69969.0,805926.0,,11518.3
+Sweet potatoes,1970,72741.0,852054.0,,11713.5
+Sweet potatoes,1971,72735.0,831896.0,,11437.4
+Sweet potatoes,1972,67233.0,747117.0,,11112.4
+Sweet potatoes,1973,63704.0,691366.0,,10852.8
+Sweet potatoes,1974,60578.0,636845.0,,10512.8
+Sweet potatoes,1975,66557.0,718678.0,,10797.9
+Sweet potatoes,1976,71547.0,790599.0,,11050.1
+Sweet potatoes,1977,70590.0,755565.0,,10703.6
+Sweet potatoes,1978,71839.0,782826.0,,10897.0
+Sweet potatoes,1979,72901.0,794952.0,,10904.5
+Sweet potatoes,1980,72355.0,791270.0,,10935.9
+Sweet potatoes,1981,67907.0,704377.0,,10372.7
+Sweet potatoes,1982,66225.0,691527.0,,10442.1
+Sweet potatoes,1983,66070.0,713555.0,,10800.0
+Sweet potatoes,1984,65266.0,713033.0,,10925.0
+Sweet potatoes,1985,61485.0,682600.0,,11101.9
+Sweet potatoes,1986,55840.0,611980.0,,10959.5
+Sweet potatoes,1987,51560.0,548155.0,,10631.4
+Sweet potatoes,1988,51040.0,557545.0,,10923.7
+Sweet potatoes,1989,52203.0,543920.0,,10419.3
+Sweet potatoes,1990,52045.0,511687.0,,9831.6
+Sweet potatoes,1991,50024.0,482635.0,,9648.1
+Sweet potatoes,1992,48736.0,470190.0,,9647.7
+Sweet potatoes,1993,45296.0,433545.0,,9571.4
+Sweet potatoes,1994,44765.0,426935.0,,9537.3
+Sweet potatoes,1995,45700.0,435000.0,,9518.6
+Sweet potatoes,1996,45285.0,435105.0,,9608.1
+Sweet potatoes,1997,43203.0,405875.0,,9394.6
+Sweet potatoes,1998,41712.0,397620.0,,9532.5
+Sweet potatoes,1999,41278.0,383000.0,,9278.6
+Sweet potatoes,2000,40874.0,378000.0,,9247.9
+Sweet potatoes,2001,39271.0,357000.0,,9090.7
+Sweet potatoes,2002,38056.0,346000.0,,9091.9
+Sweet potatoes,2003,36773.0,332030.0,,9029.2
+Sweet potatoes,2004,35826.0,320495.0,,8945.9
+Sweet potatoes,2005,35110.0,311440.0,,8870.4
+Sweet potatoes,2006,34092.0,307695.0,,9025.4
+Sweet potatoes,2007,33609.0,304090.0,,9047.9
+Sweet potatoes,2008,31578.0,307221.0,,9729.0
+Sweet potatoes,2009,31697.0,305025.0,,9623.2
+Sweet potatoes,2010,31071.0,306633.0,,9868.8
+Sweet potatoes,2011,30373.0,297539.0,,9796.2
+Sweet potatoes,2012,24567.0,252891.0,,10293.9
+Sweet potatoes,2013,27108.0,263000.0,,9701.9
+Sweet potatoes,2014,25890.0,259472.0,,10022.1
+Sweet potatoes,2015,25260.0,254633.0,,10080.5
+Sweet potatoes,2016,24886.0,259372.0,,10422.4
+Sweet potatoes,2017,25750.0,262702.0,,10202.0
+Sweet potatoes,2018,23975.0,246816.0,,10294.7
+Sweet potatoes,2019,23014.0,235881.0,,10249.5
+Sweet potatoes,2020,24543.0,245719.0,,10011.8
+Sweet potatoes,2021,26517.0,279801.0,,10551.8
+Sweet potatoes,2022,28940.0,303710.0,,10494.5
+Sweet potatoes,2023,28951.0,303717.0,,10490.7
+Sweet potatoes,2024,27953.0,302073.0,,10806.5
+Wheat,1961,56657.0,32512.0,,573.8
+Wheat,1962,58680.0,39624.0,,675.3
+Wheat,1963,73654.0,44704.0,,606.9
+Wheat,1964,57466.0,34544.0,,601.1
+Wheat,1965,53419.0,34544.0,,646.7
+Wheat,1966,55000.0,35600.0,,647.3
+Wheat,1967,68000.0,53900.0,,792.6
+Wheat,1968,77700.0,58900.0,,758.0
+Wheat,1969,117400.0,93500.0,,796.4
+Wheat,1970,119800.0,104700.0,,874.0
+Wheat,1971,125900.0,111800.0,,888.0
+Wheat,1972,127259.0,115012.0,,903.8
+Wheat,1973,120132.0,90963.0,,757.2
+Wheat,1974,123437.0,110929.0,,898.7
+Wheat,1975,126037.0,116714.0,,926.0
+Wheat,1976,150102.0,218174.0,,1453.5
+Wheat,1977,160047.0,259456.0,,1621.1
+Wheat,1978,188938.0,347997.0,,1841.9
+Wheat,1979,264753.0,494031.0,,1866.0
+Wheat,1980,433221.0,822706.0,,1899.0
+Wheat,1981,591216.0,1092513.0,,1847.9
+Wheat,1982,534068.0,967389.0,,1811.4
+Wheat,1983,519385.0,1095370.0,,2109.0
+Wheat,1984,526097.0,1211132.0,,2302.1
+Wheat,1985,676125.0,1463630.0,,2164.7
+Wheat,1986,540310.0,1041825.0,,1928.2
+Wheat,1987,584766.0,1090990.0,,1865.7
+Wheat,1988,597422.0,1048015.0,,1754.2
+Wheat,1989,560096.0,1021950.0,,1824.6
+Wheat,1990,592000.0,890000.0,,1503.4
+Wheat,1991,598955.0,1004290.0,,1676.7
+Wheat,1992,574650.0,1065050.0,,1853.4
+Wheat,1993,636947.0,1175630.0,,1845.7
+Wheat,1994,615000.0,1131000.0,,1839.0
+Wheat,1995,639000.0,1244990.0,,1948.3
+Wheat,1996,701000.0,1369130.0,,1953.1
+Wheat,1997,707802.0,1454100.0,,2054.4
+Wheat,1998,804523.0,1802815.0,,2240.8
+Wheat,1999,882224.0,1908000.0,,2162.7
+Wheat,2000,832447.0,1840000.0,,2210.4
+Wheat,2001,773000.0,1673000.0,,2164.3
+Wheat,2002,742000.0,1606000.0,,2164.4
+Wheat,2003,706475.0,1506710.0,,2132.7
+Wheat,2004,641875.0,1253380.0,,1952.7
+Wheat,2005,558413.0,975985.0,,1747.8
+Wheat,2006,479000.0,735000.0,,1534.4
+Wheat,2007,399000.0,737000.0,,1847.1
+Wheat,2008,388000.0,844000.0,,2175.3
+Wheat,2009,394612.0,849046.0,,2151.6
+Wheat,2010,376256.0,901490.0,,2395.9
+Wheat,2011,373708.0,972085.0,,2601.2
+Wheat,2012,358181.0,995356.0,,2778.9
+Wheat,2013,416416.0,1255000.0,,3013.8
+Wheat,2014,429770.0,1303000.0,,3031.9
+Wheat,2015,436814.0,1348000.0,,3086.0
+Wheat,2016,444805.0,1348186.0,,3031.0
+Wheat,2017,415339.0,1311473.0,,3157.6
+Wheat,2018,351213.0,1099373.0,,3130.2
+Wheat,2019,330348.0,1016811.0,,3078.0
+Wheat,2020,332254.0,1029000.0,,3097.0
+Wheat,2021,328938.0,1085368.0,,3299.6
+Wheat,2022,314738.0,1085834.0,,3450.0
+Wheat,2023,316832.0,1107195.0,,3494.6
+Wheat,2024,311677.0,1172242.0,,3761.1
