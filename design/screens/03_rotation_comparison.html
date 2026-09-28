@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+
+<html class="light" lang="bn"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EDEN | ফসল চক্র তুলনামূলক বিশ্লেষণ (Crop Rotation Comparison)</title>
+<!-- Google Fonts: Inter & Hind Siliguri -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "inverse-on-surface": "#ecf1ff",
+            "secondary-fixed": "#6ffbbe",
+            "surface-container-high": "#dee8ff",
+            "on-secondary-fixed": "#002113",
+            "on-primary-fixed-variant": "#155041",
+            "outline-variant": "#bfc9c3",
+            "on-error-container": "#93000a",
+            "on-tertiary-fixed-variant": "#6e3900",
+            "on-error": "#ffffff",
+            "primary-fixed-dim": "#99d2be",
+            "on-tertiary": "#ffffff",
+            "tertiary-fixed-dim": "#ffb77d",
+            "surface-container-highest": "#d8e3fb",
+            "surface-tint": "#316858",
+            "surface-bright": "#f9f9ff",
+            "on-secondary-container": "#00714d",
+            "tertiary-container": "#6c3800",
+            "primary-fixed": "#b5efda",
+            "on-primary-container": "#86beab",
+            "on-background": "#111c2d",
+            "on-tertiary-container": "#ff9b3e",
+            "primary-container": "#134e3f",
+            "on-tertiary-fixed": "#2f1500",
+            "inverse-primary": "#99d2be",
+            "on-surface": "#111c2d",
+            "surface": "#f9f9ff",
+            "surface-container-low": "#f0f3ff",
+            "tertiary-fixed": "#ffdcc3",
+            "error-container": "#ffdad6",
+            "secondary-container": "#6cf8bb",
+            "on-secondary": "#ffffff",
+            "error": "#ba1a1a",
+            "surface-variant": "#d8e3fb",
+            "surface-container": "#e7eeff",
+            "outline": "#707975",
+            "on-primary": "#ffffff",
+            "surface-dim": "#cfdaf2",
+            "secondary": "#006c49",
+            "on-surface-variant": "#404945",
+            "on-primary-fixed": "#002018",
+            "background": "#f9f9ff",
+            "surface-container-lowest": "#ffffff",
+            "secondary-fixed-dim": "#4edea3",
+            "on-secondary-fixed-variant": "#005236",
+            "tertiary": "#4b2500",
+            "primary": "#00362a",
+            "inverse-surface": "#263143"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "space-2xl": "2rem",
+            "space-xs": "0.25rem",
+            "gutter-sm": "0.75rem",
+            "gutter": "1rem",
+            "margin-lg": "1.5rem",
+            "space-sm": "0.5rem",
+            "space-lg": "1rem",
+            "margin": "1rem",
+            "space-md": "0.75rem",
+            "space-xl": "1.5rem"
+          },
+          "fontFamily": {
+            "headline-md": ["Inter", "Hind Siliguri", "sans-serif"],
+            "display-lg": ["Inter", "Hind Siliguri", "sans-serif"],
+            "body-lg": ["Inter", "Hind Siliguri", "sans-serif"],
+            "body-md": ["Inter", "Hind Siliguri", "sans-serif"],
+            "label-sm": ["Inter", "Hind Siliguri", "sans-serif"],
+            "headline-sm": ["Inter", "Hind Siliguri", "sans-serif"],
+            "headline-lg": ["Inter", "Hind Siliguri", "sans-serif"],
+            "code-sm": ["Inter", "Hind Siliguri", "sans-serif"],
+            "body-sm": ["Inter", "Hind Siliguri", "sans-serif"],
+            "label-md": ["Inter", "Hind Siliguri", "sans-serif"]
+          },
+          "fontSize": {
+            "headline-md": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "label-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.06em", "fontWeight": "600" }],
+            "headline-sm": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "600" }],
+            "headline-lg": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "code-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "body-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined.fill-icon {
+      font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+    }
+    body {
+      background-color: #f8faf8;
+      color: #111c2d;
+      font-family: 'Hind Siliguri', 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .tabular-nums {
+      font-variant-numeric: tabular-nums;
+    }
+    /* Hairline border enforcement */
+    .field-card {
+      border: 1px solid #e2e8f0;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-[#f8faf8] text-on-surface antialiased flex flex-col">
+<!-- ================= TOP APP BAR (Shared Components JSON Anchor) ================= -->
+<header class="w-full px-6 py-2.5 flex items-center justify-between bg-surface-container-lowest border-b border-outline-variant select-none sticky top-0 z-50">
+<!-- Brand & Cluster -->
+<div class="flex items-center space-x-6">
+<div class="flex items-center space-x-2.5">
+<div class="w-8 h-8 rounded-lg bg-primary-container flex items-center justify-center text-primary-fixed">
+<span class="material-symbols-outlined text-[20px] fill-icon">compost</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center space-x-2">
+<span class="text-headline-md font-headline-md font-black tracking-tight text-primary">EDEN</span>
+<span class="text-body-sm font-label-md text-on-surface-variant font-semibold">| ইডেন</span>
+</div>
+<span class="text-label-sm font-label-sm text-outline tracking-wider uppercase">Earth Data &amp; Environment Navigator</span>
+</div>
+</div>
+<!-- Navigation Links from JSON: Rotation Planner is ACTIVE -->
+<nav class="hidden md:flex items-center space-x-1 pl-4 border-l border-outline-variant">
+<a class="text-on-surface-variant hover:text-on-surface py-2 px-3 text-label-md font-label-md transition-colors duration-150 ease-in-out" href="#">Overview</a>
+<a class="border-b-2 border-primary text-primary font-bold py-2 px-3 text-label-md font-label-md transition-colors duration-150 ease-in-out" href="#">Rotation Planner</a>
+<a class="text-on-surface-variant hover:text-on-surface py-2 px-3 text-label-md font-label-md transition-colors duration-150 ease-in-out" href="#">Advice &amp; Calls</a>
+<a class="text-on-surface-variant hover:text-on-surface py-2 px-3 text-label-md font-label-md transition-colors duration-150 ease-in-out" href="#">Alerts</a>
+<a class="text-on-surface-variant hover:text-on-surface py-2 px-3 text-label-md font-label-md transition-colors duration-150 ease-in-out" href="#">Farmer Feedback</a>
+<a class="text-on-surface-variant hover:text-on-surface py-2 px-3 text-label-md font-label-md transition-colors duration-150 ease-in-out" href="#">Data Quality</a>
+</nav>
+</div>
+<!-- Trailing Actions & Officer Profile -->
+<div class="flex items-center space-x-4">
+<!-- Trailing Secondary Action (Context Tag) -->
+<div class="hidden sm:flex items-center space-x-1.5 px-3 py-1 bg-surface-container-low border border-outline-variant rounded-lg">
+<span class="material-symbols-outlined text-[16px] text-primary">location_on</span>
+<span class="text-label-md font-label-md text-on-surface font-semibold">Talanda Union</span>
+<span class="text-label-sm font-label-sm text-outline">• তানোর</span>
+</div>
+<!-- Trailing Primary Action: Sync Now -->
+<button class="inline-flex items-center space-x-1.5 px-3.5 py-1.5 bg-primary-container text-on-primary hover:bg-primary transition-colors duration-150 rounded-lg text-label-md font-label-md shadow-sm">
+<span class="material-symbols-outlined text-[16px]">sync</span>
+<span>Sync Now</span>
+</button>
+<!-- Trailing Icon Actions -->
+<div class="flex items-center space-x-1 border-l border-outline-variant pl-3">
+<button class="p-1.5 text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg transition-colors" title="Cloud Status">
+<span class="material-symbols-outlined text-[20px]">cloud_done</span>
+</button>
+<button class="p-1.5 text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg transition-colors relative" title="Notifications">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+<span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-error"></span>
+</button>
+<button class="p-1.5 text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg transition-colors" title="Help &amp; Manual">
+<span class="material-symbols-outlined text-[20px]">help</span>
+</button>
+</div>
+<!-- SAAO Officer Profile Avatar -->
+<div class="flex items-center space-x-2 pl-2 border-l border-outline-variant">
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary font-bold text-label-md flex items-center justify-center border border-outline-variant" title="SAAO Officer Profile Avatar">
+<span>তহ</span>
+</div>
+<div class="hidden xl:flex flex-col text-left">
+<span class="text-label-md font-label-md text-on-surface leading-tight">তৌহিদ হোসেন</span>
+<span class="text-label-sm font-label-sm text-outline">উপ-সহকারী কৃষি কর্মকর্তা (SAAO)</span>
+</div>
+</div>
+</div>
+</header>
+<!-- ================= SUB-HEADER & CONTEXT STRIP ================= -->
+<section class="bg-surface-container-lowest border-b border-[#e2e8f0] px-6 py-3">
+<div class="max-w-[1440px] mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+<!-- Breadcrumb & Title Area -->
+<div class="flex flex-col">
+<div class="flex items-center space-x-2 text-body-sm font-body-sm text-outline mb-1">
+<span class="hover:text-primary cursor-pointer">রাজশাহী</span>
+<span>→</span>
+<span class="hover:text-primary cursor-pointer">তানোর</span>
+<span>→</span>
+<span class="text-on-surface font-semibold">তালন্দ ইউনিয়ন (Talanda Union, Block-04, Medium-High Land)</span>
+</div>
+<div class="flex items-center space-x-3">
+<h1 class="text-headline-lg font-headline-lg text-primary tracking-tight font-bold">
+            ফসল চক্র তুলনামূলক বিশ্লেষণ <span class="text-body-md font-body-md text-on-surface-variant font-normal">(Crop Rotation Comparison Matrix)</span>
+</h1>
+<span class="inline-flex items-center px-2 py-0.5 rounded text-label-sm font-label-sm bg-[#ECFDF5] text-[#065F46] border border-[#A7F3D0]">
+<span class="w-1.5 h-1.5 rounded-full bg-[#10b981] mr-1.5 animate-pulse"></span>
+            অনলাইন • সিমুলেশন ভেরিফাইড
+          </span>
+</div>
+</div>
+<!-- System Telemetry Badges & Primary Flow Actions -->
+<div class="flex flex-wrap items-center gap-2.5">
+<div class="flex items-center space-x-2 bg-[#f0f4f1] px-3 py-1.5 rounded-lg border border-[#e2e8f0] text-code-sm font-code-sm text-on-surface-variant">
+<span>build: <strong>bd-pilots-2026.10.1</strong></span>
+<span class="text-outline">•</span>
+<span>লেটেন্সি: <strong>১২ মি.সে.</strong></span>
+</div>
+<button class="inline-flex items-center space-x-1.5 px-3 py-2 bg-surface-container-lowest border border-[#134E3F] text-primary hover:bg-[#F0F4F1] rounded-lg text-label-md font-label-md transition-colors">
+<span class="material-symbols-outlined text-[16px]">arrow_back</span>
+<span>প্ল্যানারে ফিরে যান</span>
+</button>
+<button class="inline-flex items-center space-x-1.5 px-4 py-2 bg-primary-container text-on-primary hover:bg-primary rounded-lg text-label-md font-label-md transition-colors shadow-sm">
+<span>প্রমাণ ও বিশদ বিশ্লেষণ (View Evidence Details)</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</section>
+<!-- ================= MAIN CONTENT CANVAS ================= -->
+<main class="max-w-[1440px] w-full mx-auto px-6 py-6 space-y-6 flex-1">
+<!-- ================= SECTION 1: SIDE-BY-SIDE CANDIDATE PATH CARDS ================= -->
+<section>
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-primary text-[22px]">compare_arrows</span>
+<h2 class="text-headline-md font-headline-md text-on-background">পাশাপাশি দুটি ফসল চক্রের সরাসরি তুলনা (Side-by-Side Analysis)</h2>
+</div>
+<span class="text-body-sm font-body-sm text-outline">তানোর বরেন্দ্র খরাপ্রবণ অঞ্চলের জলবায়ু ও ভূগর্ভস্থ পানি মডেল ভিত্তিক স্কোর</span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+<!-- CARD 1: PATH A (RECOMMENDED ⭐) -->
+<div class="bg-surface-container-lowest field-card rounded-lg border-2 border-primary-container relative overflow-hidden flex flex-col justify-between">
+<!-- Top Accent Ribbon -->
+<div class="bg-primary-container text-white px-4 py-2 flex items-center justify-between">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-[18px] text-amber-300 fill-icon">star</span>
+<span class="text-label-md font-label-md tracking-wide">Path A - প্রস্তাবিত / Recommended (Rank #1)</span>
+<span class="bg-[#10b981] text-white px-2 py-0.5 rounded text-[10px] font-bold">সেরা পছন্দ</span>
+</div>
+<div class="flex items-baseline space-x-1">
+<span class="text-headline-md font-headline-md text-white font-extrabold tabular-nums">৯০</span>
+<span class="text-body-sm text-primary-fixed-dim">/১০০ সামগ্রিক স্কোর</span>
+</div>
+</div>
+<div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+<!-- Crop Sequence Flow -->
+<div>
+<div class="text-label-sm font-label-sm text-outline uppercase tracking-wider mb-1.5">প্রস্তাবিত ফসল অনুক্রম (Optimized Crop Sequence)</div>
+<div class="flex flex-wrap items-center gap-2 p-2.5 bg-[#ECFDF5] border border-[#A7F3D0] rounded-lg">
+<span class="inline-flex items-center px-2.5 py-1 bg-surface-container-lowest text-primary font-bold text-body-sm rounded border border-[#A7F3D0]">
+<span class="material-symbols-outlined text-[16px] mr-1 text-[#059669]">eco</span> রোপা আমন (ব্রি ধান৭১)
+                </span>
+<span class="material-symbols-outlined text-[#059669] text-[18px]">arrow_forward</span>
+<span class="inline-flex items-center px-2.5 py-1 bg-surface-container-lowest text-primary font-bold text-body-sm rounded border border-[#A7F3D0]">
+<span class="material-symbols-outlined text-[16px] mr-1 text-[#d97706]">grain</span> বারি মসুর-৮ (বা সরিষা-১৪)
+                </span>
+<span class="material-symbols-outlined text-[#059669] text-[18px]">arrow_forward</span>
+<span class="inline-flex items-center px-2.5 py-1 bg-surface-container-lowest text-on-surface-variant text-body-sm rounded border border-[#e2e8f0]">
+<span class="material-symbols-outlined text-[16px] mr-1 text-outline">bedtime</span> পতিত / খরিফ-১ বিশ্রাম
+                </span>
+</div>
+</div>
+<!-- Key Metrics Grid -->
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
+<div class="p-3 bg-[#f8faf8] border border-[#e2e8f0] rounded">
+<div class="text-label-sm font-label-sm text-outline mb-1">জমি মুক্ত হওয়ার তারিখ</div>
+<div class="text-body-md font-headline-sm text-primary font-bold tabular-nums">১০ নভেম্বর ২০২৬</div>
+<div class="text-[11px] text-[#059669] font-medium mt-0.5">✓ ডাল বপনের সর্বোত্তম সময়</div>
+</div>
+<div class="p-3 bg-[#ECFDF5] border border-[#A7F3D0] rounded">
+<div class="text-label-sm font-label-sm text-outline mb-1">মোট সেচ চাহিদা (Rabi)</div>
+<div class="text-body-md font-headline-sm text-[#065F46] font-bold tabular-nums">২০০ মিমি <span class="text-xs font-normal">(Nov-Feb)</span></div>
+<div class="text-[11px] text-[#065F46] font-medium mt-0.5">৭৫% সেচ সাশ্রয়ী (৫৯৮ মিমি কম)</div>
+</div>
+<div class="p-3 bg-[#f8faf8] border border-[#e2e8f0] rounded">
+<div class="text-label-sm font-label-sm text-outline mb-1">আমন খরা ঝুঁকি (ফুল ফোটা)</div>
+<div class="text-body-md font-headline-sm text-on-surface font-bold tabular-nums">৭ / ২৫ মৌসুম <span class="text-xs text-outline font-normal">(২৮%)</span></div>
+<div class="text-[11px] text-[#059669] font-medium mt-0.5">অক্টোবর খরার পূর্বেই কর্তন</div>
+</div>
+<div class="p-3 bg-[#f8faf8] border border-[#e2e8f0] rounded">
+<div class="text-label-sm font-label-sm text-outline mb-1">আনুমানিক নিট খামার আয়</div>
+<div class="text-body-md font-headline-sm text-primary font-bold tabular-nums">৳ ৮৬,৫০০ / বিঘা</div>
+<div class="text-[11px] text-[#059669] font-medium mt-0.5">+১৬.৮% বেশি মুনাফা</div>
+</div>
+<div class="p-3 bg-[#f8faf8] border border-[#e2e8f0] rounded col-span-2">
+<div class="text-label-sm font-label-sm text-outline mb-1">মাটির স্বাস্থ্য ও নাইট্রোজেন ব্যালেন্স</div>
+<div class="text-body-md font-headline-sm text-primary font-bold tabular-nums">+১৮ কেজি / হেক্টর জৈব N₂ সংযোজন</div>
+<div class="text-[11px] text-on-surface-variant font-medium mt-0.5">রাইজোবিয়াম নডিউল ও কম চাষের মাধ্যমে জমির গঠন রক্ষা</div>
+</div>
+</div>
+<!-- Path A Strategic Advantage Footer -->
+<div class="pt-3 border-t border-[#e2e8f0] flex items-center justify-between text-body-sm">
+<span class="text-[#065F46] flex items-center font-medium">
+<span class="material-symbols-outlined text-[18px] mr-1 text-[#10b981]">verified</span>
+                বরেন্দ্র একুইফার রিচার্জ সুরক্ষা ও শূন্য ডিপ-টিউবওয়েল নির্ভরতা
+              </span>
+<button class="text-label-md font-label-md text-primary font-bold hover:underline flex items-center">
+                প্রস্তাব নির্বাচন করুন <span class="material-symbols-outlined text-[16px] ml-0.5">check_circle</span>
+</button>
+</div>
+</div>
+</div>
+<!-- CARD 2: PATH B (TRADITIONAL) -->
+<div class="bg-surface-container-lowest field-card rounded-lg border border-[#e2e8f0] relative overflow-hidden flex flex-col justify-between">
+<!-- Top Accent Ribbon -->
+<div class="bg-[#475569] text-white px-4 py-2 flex items-center justify-between">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-[18px] text-slate-300">history</span>
+<span class="text-label-md font-label-md tracking-wide">Path B - ঐতিহ্যবাহী প্রচলিত বিকল্প / Traditional (Rank #2)</span>
+<span class="bg-[#FFFBEB] text-[#92400E] border border-[#FDE68A] px-2 py-0.5 rounded text-[10px] font-bold">উচ্চ পানি ঝুঁকি</span>
+</div>
+<div class="flex items-baseline space-x-1">
+<span class="text-headline-md font-headline-md text-white font-extrabold tabular-nums">৫৮</span>
+<span class="text-body-sm text-slate-300">/১০০ স্কোর</span>
+</div>
+</div>
+<div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+<!-- Crop Sequence Flow -->
+<div>
+<div class="text-label-sm font-label-sm text-outline uppercase tracking-wider mb-1.5">ঐতিহ্যবাহী ফসল অনুক্রম (Conventional Sequence)</div>
+<div class="flex flex-wrap items-center gap-2 p-2.5 bg-[#f8faf8] border border-[#e2e8f0] rounded-lg">
+<span class="inline-flex items-center px-2.5 py-1 bg-surface-container-lowest text-on-surface font-semibold text-body-sm rounded border border-[#e2e8f0]">
+<span class="material-symbols-outlined text-[16px] mr-1 text-outline">eco</span> রোপা আমন (ব্রি ধান৪৯)
+                </span>
+<span class="material-symbols-outlined text-outline text-[18px]">arrow_forward</span>
+<span class="inline-flex items-center px-2.5 py-1 bg-[#FFFBEB] text-[#92400E] font-semibold text-body-sm rounded border border-[#FDE68A]">
+<span class="material-symbols-outlined text-[16px] mr-1 text-[#d97706]">warning</span> জমি পতিত (উইন্ডো মিসড)
+                </span>
+<span class="material-symbols-outlined text-outline text-[18px]">arrow_forward</span>
+<span class="inline-flex items-center px-2.5 py-1 bg-surface-container-lowest text-error font-semibold text-body-sm rounded border border-[#ffdad6]">
+<span class="material-symbols-outlined text-[16px] mr-1 text-error">water_loss</span> বোরো ধান (ব্রি ধান২৮)
+                </span>
+</div>
+</div>
+<!-- Key Metrics Grid -->
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
+<div class="p-3 bg-[#f8faf8] border border-[#e2e8f0] rounded">
+<div class="text-label-sm font-label-sm text-outline mb-1">জমি মুক্ত হওয়ার তারিখ</div>
+<div class="text-body-md font-headline-sm text-on-surface font-bold tabular-nums">২০ নভেম্বর ২০২৬</div>
+<div class="text-[11px] text-error font-medium mt-0.5">✗ ডাল বপনের সময় পেরিয়ে যায়</div>
+</div>
+<div class="p-3 bg-[#FFF1F2] border border-[#FFE4E6] rounded">
+<div class="text-label-sm font-label-sm text-outline mb-1">মোট সেচ চাহিদা (Boro)</div>
+<div class="text-body-md font-headline-sm text-error font-bold tabular-nums">৭৯৮ মিমি <span class="text-xs font-normal">(Feb-May)</span></div>
+<div class="text-[11px] text-error font-medium mt-0.5">অতিমাত্রায় ভূগর্ভস্থ পানি উত্তোলন</div>
+</div>
+<div class="p-3 bg-[#f8faf8] border border-[#e2e8f0] rounded">
+<div class="text-label-sm font-label-sm text-outline mb-1">আমন খরা ঝুঁকি (ফুল ফোটা)</div>
+<div class="text-body-md font-headline-sm text-on-surface font-bold tabular-nums">৯ / ২৫ মৌসুম <span class="text-xs text-outline font-normal">(৩৬%)</span></div>
+<div class="text-[11px] text-[#b45309] font-medium mt-0.5">দেরিতে ফুল আসায় খরা ঝুঁকি</div>
+</div>
+<div class="p-3 bg-[#f8faf8] border border-[#e2e8f0] rounded">
+<div class="text-label-sm font-label-sm text-outline mb-1">আনুমানিক নিট খামার আয়</div>
+<div class="text-body-md font-headline-sm text-on-surface font-bold tabular-nums">৳ ৭৪,০০০ / বিঘা</div>
+<div class="text-[11px] text-outline font-medium mt-0.5">উচ্চ সেচ ও ডিজেল খরচে কম লাভ</div>
+</div>
+<div class="p-3 bg-[#f8faf8] border border-[#e2e8f0] rounded col-span-2">
+<div class="text-label-sm font-label-sm text-outline mb-1">মাটির স্বাস্থ্য ও নাইট্রোজেন ব্যালেন্স</div>
+<div class="text-body-md font-headline-sm text-error font-bold tabular-nums">জৈব পদার্থের ক্রমাগত ক্ষয়</div>
+<div class="text-[11px] text-on-surface-variant font-medium mt-0.5">ধারাবাহিক পানি নিমজ্জন ও নিবিড় রাসায়নিক ইউরিয়া নির্ভরতা</div>
+</div>
+</div>
+<!-- Path B Strategic Risk Footer -->
+<div class="pt-3 border-t border-[#e2e8f0] flex items-center justify-between text-body-sm">
+<span class="text-[#b45309] flex items-center font-medium">
+<span class="material-symbols-outlined text-[18px] mr-1 text-[#d97706]">priority_high</span>
+                বিদ্যুৎ বিভ্রাট ও ভূগর্ভস্থ পানির স্তর ৩ ফুট/বছর নেমে যাওয়ার ঝুঁকি
+              </span>
+<span class="text-label-md font-label-md text-outline">প্রচলিত ধারা বহাল</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= SECTION 2: TIMELINE & SOWING CUTOFF WINDOW (GANTT CHART) ================= -->
+<section class="bg-surface-container-lowest field-card rounded-lg p-5">
+<div class="flex flex-col md:flex-row md:items-center justify-between mb-4 pb-3 border-b border-[#e2e8f0] gap-2">
+<div>
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-primary text-[20px]">date_range</span>
+<h2 class="text-headline-md font-headline-md text-on-surface">জুলাই থেকে মে ফসল সময়রেখা ও রবি কাট-অফ উইন্ডো (Timeline &amp; Sowing Cutoff)</h2>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-0.5">
+            বরেন্দ্র অঞ্চলে রবি ডাল/তৈলবীজের সাফল্য পুরোপুরি নির্ভর করে রোপা আমন দ্রুত কর্তন ও ১০-২০ নভেম্বরের মধ্যে বীজ বোনার ওপর।
+          </p>
+</div>
+<!-- Sowing Window Alert Callout -->
+<div class="inline-flex items-center space-x-2 bg-[#FFFBEB] border border-[#FDE68A] px-3.5 py-1.5 rounded-lg text-[#92400E]">
+<span class="material-symbols-outlined text-[20px] text-[#d97706] fill-icon">crisis_alert</span>
+<div class="text-label-md font-label-md">
+<strong class="font-bold">১০ - ২০ নভেম্বর:</strong> রবি ডাল বপনের সংকটাপন্ন সময়সীমা (Critical Sowing Window)
+          </div>
+</div>
+</div>
+<!-- Gantt Timeline Visual Matrix -->
+<div class="overflow-x-auto pb-2">
+<div class="min-w-[900px]">
+<!-- Month Axis Grid Header (11 Months: Jul to May) -->
+<div class="grid grid-cols-11 text-center font-code-sm text-label-md border-b border-[#cbd5e1] pb-2 text-outline">
+<div class="border-r border-[#f1f5f9]">জুলাই (Jul)</div>
+<div class="border-r border-[#f1f5f9]">আগস্ট (Aug)</div>
+<div class="border-r border-[#f1f5f9]">সেপ্টেম্বর (Sep)</div>
+<div class="border-r border-[#f1f5f9]">অক্টোবর (Oct)</div>
+<div class="border-r border-[#f1f5f9] bg-[#ecfdf5] text-[#065f46] font-bold">নভেম্বর (Nov)</div>
+<div class="border-r border-[#f1f5f9]">ডিসেম্বর (Dec)</div>
+<div class="border-r border-[#f1f5f9]">জানুয়ারি (Jan)</div>
+<div class="border-r border-[#f1f5f9]">ফেব্রুয়ারি (Feb)</div>
+<div class="border-r border-[#f1f5f9]">মার্চ (Mar)</div>
+<div class="border-r border-[#f1f5f9]">এপ্রিল (Apr)</div>
+<div>মে (May)</div>
+</div>
+<!-- SEQUENCE 1 (PATH A) -->
+<div class="py-3 border-b border-[#f1f5f9]">
+<div class="flex items-center justify-between mb-1.5">
+<span class="text-label-md font-label-md text-primary font-bold flex items-center">
+<span class="w-2.5 h-2.5 rounded-full bg-[#10b981] mr-1.5"></span>
+                Path A (প্রস্তাবিত): ব্রি ধান৭১ ➔ বারি মসুর-৮ ➔ বিশ্রাম
+              </span>
+<span class="text-label-sm font-label-sm text-[#065F46] font-semibold">১০ নভেম্বরে জমি মুক্ত • জো অবস্থা অক্ষুণ্ণ</span>
+</div>
+<!-- Bars Grid Container -->
+<div class="grid grid-cols-11 h-9 gap-1 items-center bg-[#f8faf8] p-1 rounded border border-[#e2e8f0] relative">
+<!-- Aman BRRI-71: Jul (mid) to Nov (early) - span col 1 to 5 (~4.3 cols) -->
+<div class="col-span-4 bg-[#134e3f] text-white text-[11px] font-medium h-7 rounded flex items-center px-2 justify-between overflow-hidden shadow-xs" title="রোপা আমন (ব্রি ধান৭১): ২৪ জুলাই - ১০ নভেম্বর">
+<span class="truncate">ব্রি ধান৭১ (আমন)</span>
+<span class="text-[9px] bg-[#00362a] px-1 py-0.5 rounded text-primary-fixed">১০ নভে কর্তন</span>
+</div>
+<!-- Critical Sowing Window Marker on Month 5 (Nov) -->
+<div class="col-span-1 bg-[#10b981] text-white text-[10px] font-bold h-7 rounded flex items-center justify-center text-center animate-pulse shadow-xs border border-white" title="১০-২০ নভেম্বর: মসুর/সরিষা দ্রুত বপন">
+                বপন জো
+              </div>
+<!-- Lentil / Mustard: Nov to Feb - span cols 6, 7, 8 -->
+<div class="col-span-3 bg-[#d97706] text-white text-[11px] font-medium h-7 rounded flex items-center px-2 justify-between overflow-hidden shadow-xs" title="বারি মসুর-৮: ১০ নভেম্বর - ২৫ ফেব্রুয়ারি">
+<span class="truncate">বারি মসুর-৮ (ডাল)</span>
+<span class="text-[9px] bg-[#6c3800] px-1 py-0.5 rounded text-[#ffdcc3]">২৫ ফেব শেষ</span>
+</div>
+<!-- Fallow / Soil Rest: Mar to May - span col 9, 10, 11 -->
+<div class="col-span-3 bg-[#e2e8f0] text-outline text-[11px] font-medium h-7 rounded flex items-center justify-center border border-dashed border-[#cbd5e1]" title="প্রাক-খরিফ জমি বিশ্রাম / একুইফার সুরক্ষা">
+                পতিত / একুইফার রিচার্জ সুরক্ষা
+              </div>
+</div>
+</div>
+<!-- SEQUENCE 2 (PATH B) -->
+<div class="py-3">
+<div class="flex items-center justify-between mb-1.5">
+<span class="text-label-md font-label-md text-on-surface-variant font-bold flex items-center">
+<span class="w-2.5 h-2.5 rounded-full bg-slate-400 mr-1.5"></span>
+                Path B (প্রচলিত): ব্রি ধান৪৯ ➔ পতিত ➔ সেচ বোরো (ব্রি ধান২৮)
+              </span>
+<span class="text-label-sm font-label-sm text-error font-semibold">২০ নভেম্বরে কর্তন • ডাল বপন অসম্ভব • ভূগর্ভস্থ পানি শোষণ</span>
+</div>
+<!-- Bars Grid Container -->
+<div class="grid grid-cols-11 h-9 gap-1 items-center bg-[#f8faf8] p-1 rounded border border-[#e2e8f0] relative">
+<!-- Aman BRRI-49: Jul to late Nov - spans 5 full cols -->
+<div class="col-span-5 bg-[#475569] text-white text-[11px] font-medium h-7 rounded flex items-center px-2 justify-between overflow-hidden" title="রোপা আমন (ব্রি ধান৪৯): ২৪ জুলাই - ২০ নভেম্বর">
+<span class="truncate">ব্রি ধান৪৯ (দেরিতে পরিপক্ক)</span>
+<span class="text-[9px] bg-slate-700 px-1 py-0.5 rounded text-white">২০ নভে কর্তন</span>
+</div>
+<!-- Unused Window / Missed Pulse: Late Nov to mid Jan - spans col 6, 7 -->
+<div class="col-span-2 bg-[#FFF1F2] text-error text-[10px] font-medium h-7 rounded flex items-center justify-center text-center border border-[#ffdad6]" title="উইন্ডো মিসড: মসুর বপনের জো শেষ, জমি অলস পতিত">
+                উইন্ডো মিসড (পতিত)
+              </div>
+<!-- Intensive Irrigation Boro: Mid Jan to May - spans cols 8, 9, 10, 11 -->
+<div class="col-span-4 bg-[#ba1a1a] text-white text-[11px] font-medium h-7 rounded flex items-center px-2 justify-between overflow-hidden" title="বোরো ধান (ব্রি ধান২৮): ১৫ জানুয়ারি - মে (চরম সেচ)">
+<span class="truncate">বোরো ধান (ব্রি ধান২৮)</span>
+<span class="text-[9px] bg-[#93000a] px-1 py-0.5 rounded text-white">৭৯৮ মিমি সেচ</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Timeline Sub-Annotation Legend -->
+<div class="mt-3 pt-3 border-t border-[#f1f5f9] flex flex-wrap items-center justify-between text-body-sm text-on-surface-variant gap-2">
+<div class="flex items-center space-x-4">
+<div class="flex items-center space-x-1.5">
+<span class="w-3 h-3 rounded bg-[#134e3f]"></span>
+<span>স্বল্পমেয়াদী আমন (১১৫-১২০ দিন)</span>
+</div>
+<div class="flex items-center space-x-1.5">
+<span class="w-3 h-3 rounded bg-[#d97706]"></span>
+<span>স্বল্প সেচ রবি ডাল (৮৫-৯০ দিন)</span>
+</div>
+<div class="flex items-center space-x-1.5">
+<span class="w-3 h-3 rounded bg-[#ba1a1a]"></span>
+<span>উচ্চ সেচ বোরো (১৪০-১৪৫ দিন)</span>
+</div>
+</div>
+<div class="text-label-sm font-label-sm text-[#065F46] bg-[#ECFDF5] px-2.5 py-1 rounded border border-[#A7F3D0]">
+          * ব্রি ধান৭১ নির্বাচন করলে মাটিতে সংরক্ষিত রসে বিনা সেচে বা ১টি হালকা সেচেই মসুর অঙ্কুরোদগম নিশ্চিত হয়
+        </div>
+</div>
+</section>
+<!-- ================= SECTION 3: DETERMINISTIC HISTORICAL REPLAY EVIDENCE ================= -->
+<section class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+<!-- CARD A: HISTORICAL AMAN REPLAY (2001-2025) -->
+<div class="bg-surface-container-lowest field-card rounded-lg p-5">
+<div class="flex items-start justify-between pb-3 border-b border-[#e2e8f0]">
+<div>
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-primary text-[20px]">history_edu</span>
+<h3 class="text-headline-sm font-headline-sm text-on-surface">আমন মৌসুম ফুল ফোটার সময় খরা ও সম্পূরক সেচ</h3>
+</div>
+<div class="text-body-sm text-outline mt-0.5">Historical Aman Replay (2001–2025 Simulated Reanalysis)</div>
+</div>
+<span class="text-code-sm font-code-sm px-2.5 py-1 rounded bg-[#f1f5f9] text-[#475569] border border-[#cbd5e1] font-bold">
+            ডিনোমিনেটর: ২৫টি আমন মৌসুম
+          </span>
+</div>
+<div class="mt-4 space-y-4">
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+            বরেন্দ্র অঞ্চলে ২০ সেপ্টেম্বর থেকে ২০ অক্টোবরের মধ্যে ‘আমন টার্মিনাল খরা’ সবচেয়ে মারাত্মক। ফুল ফোটার সময় বৃষ্টিপাত ঘাটতি বিশ্লেষণ:
+          </p>
+<!-- Path A Aman Stat Bar -->
+<div class="space-y-1.5 p-3 rounded-lg bg-[#ECFDF5] border border-[#A7F3D0]">
+<div class="flex justify-between items-center text-body-sm">
+<span class="font-bold text-primary flex items-center">
+<span class="material-symbols-outlined text-[16px] text-[#10b981] mr-1">check_circle</span>
+                ব্রি ধান৭১ (Path A): ৭ / ২৫ মৌসুমে সম্পূরক সেচ লেগেছে
+              </span>
+<span class="font-headline-sm text-primary font-bold tabular-nums">২৮% মৌসুম ঝুঁকি</span>
+</div>
+<!-- Progress Track -->
+<div class="w-full bg-[#A7F3D0] h-2.5 rounded-full overflow-hidden">
+<div class="bg-primary-container h-full rounded-full" style="width: 28%"></div>
+</div>
+<div class="text-label-sm font-label-sm text-[#065F46]">
+              ✓ ফুল ফোটে ২০ সেপ্টেম্বর - ০৩ অক্টোবর (অক্টোবরের চরম খরার আগেই দানা বাঁধে)
+            </div>
+</div>
+<!-- Path B Aman Stat Bar -->
+<div class="space-y-1.5 p-3 rounded-lg bg-[#f8faf8] border border-[#e2e8f0]">
+<div class="flex justify-between items-center text-body-sm">
+<span class="font-semibold text-on-surface flex items-center">
+<span class="material-symbols-outlined text-[16px] text-[#d97706] mr-1">warning</span>
+                ব্রি ধান৪৯ (Path B): ৯ / ২৫ মৌসুমে সম্পূরক সেচ লেগেছে
+              </span>
+<span class="font-headline-sm text-[#b45309] font-bold tabular-nums">৩৬% মৌসুম ঝুঁকি</span>
+</div>
+<!-- Progress Track -->
+<div class="w-full bg-[#e2e8f0] h-2.5 rounded-full overflow-hidden">
+<div class="bg-[#d97706] h-full rounded-full" style="width: 36%"></div>
+</div>
+<div class="text-label-sm font-label-sm text-[#92400E]">
+              ✗ ফুল ফোটে ১২ - ২৫ অক্টোবর (দেরিতে ফুল আসায় প্রজনন পর্যায়ে তীব্র খরার ঝুঁকিতে পড়ে)
+            </div>
+</div>
+<div class="text-label-sm font-label-sm text-outline flex items-center space-x-1 pt-1">
+<span class="material-symbols-outlined text-[14px]">info</span>
+<span>উৎস: ২৫ বছরের NASA IMERG ও বিআরআরআই রাজশাহী আঞ্চলিক গবেষণা কেন্দ্রের ঐতিহাসিক বৃষ্টিপাত ডাটা।</span>
+</div>
+</div>
+</div>
+<!-- CARD B: NET RABI IRRIGATION REQUIREMENT (2001/02-2024/25) -->
+<div class="bg-surface-container-lowest field-card rounded-lg p-5">
+<div class="flex items-start justify-between pb-3 border-b border-[#e2e8f0]">
+<div>
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-primary text-[20px]">water_drop</span>
+<h3 class="text-headline-sm font-headline-sm text-on-surface">রবি মৌসুম ফসলের নিট সেচ চাহিদা</h3>
+</div>
+<div class="text-body-sm text-outline mt-0.5">Net Rabi Irrigation Requirement (2001/02–2024/25 Historical Run)</div>
+</div>
+<span class="text-code-sm font-code-sm px-2.5 py-1 rounded bg-[#f1f5f9] text-[#475569] border border-[#cbd5e1] font-bold">
+            ডিনোমিনেটর: ২৪টি রবি/শীত মৌসুম
+          </span>
+</div>
+<div class="mt-4 space-y-4">
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+            বরেন্দ্র অঞ্চলে ভূগর্ভস্থ পানির গভীরতা আশঙ্কাজনকভাবে হ্রাস পাচ্ছে। শীতকালীন ফসলের পানি গ্রহণের তুলনামূলক হার:
+          </p>
+<!-- Water Consumption Visual Bars -->
+<div class="space-y-3">
+<!-- Boro Rice -->
+<div class="p-2.5 bg-[#FFF1F2] border border-[#FFE4E6] rounded-lg">
+<div class="flex justify-between items-center text-body-sm mb-1">
+<span class="font-bold text-error flex items-center">
+<span class="material-symbols-outlined text-[16px] mr-1">grain</span> বোরো ধান (ব্রি ধান২৮/২৯ - Path B)
+                </span>
+<span class="font-headline-sm text-error font-extrabold tabular-nums">৭৯৮ মিমি / হেক্টর</span>
+</div>
+<div class="w-full bg-[#fecdd3] h-2.5 rounded-full overflow-hidden">
+<div class="bg-error h-full rounded-full" style="width: 100%"></div>
+</div>
+<div class="text-label-sm font-label-sm text-[#93000a] mt-1">
+                গভীর নলকূপে ৩৫-৪০ বার সেচ পাম্পিং প্রয়োজন • মারাত্মক বিদ্যুৎ ও ডিজেল খরচ
+              </div>
+</div>
+<!-- Bari Lentil-8 -->
+<div class="p-2.5 bg-[#ECFDF5] border border-[#A7F3D0] rounded-lg">
+<div class="flex justify-between items-center text-body-sm mb-1">
+<span class="font-bold text-primary flex items-center">
+<span class="material-symbols-outlined text-[16px] mr-1 text-[#10b981]">spa</span> বারি মসুর-৮ (Path A - প্রস্তাবিত)
+                </span>
+<span class="font-headline-sm text-[#065F46] font-extrabold tabular-nums">২০০ মিমি / হেক্টর</span>
+</div>
+<div class="w-full bg-[#A7F3D0] h-2.5 rounded-full overflow-hidden">
+<div class="bg-primary-container h-full rounded-full" style="width: 25%"></div>
+</div>
+<div class="text-label-sm font-label-sm text-[#065F46] mt-1 font-semibold">
+                ✓ ৫৯৮ মিমি (৭৫%) পানি সাশ্রয় • মাত্র ১-২টি সম্পূরক সেচেই রেকর্ড ফলন
+              </div>
+</div>
+<!-- Bari Mustard-14 -->
+<div class="p-2 bg-[#f8faf8] border border-[#e2e8f0] rounded">
+<div class="flex justify-between items-center text-body-sm">
+<span class="font-medium text-on-surface-variant text-[13px] flex items-center">
+<span class="material-symbols-outlined text-[15px] mr-1 text-outline">nature</span> বারি সরিষা-১৪ (বিকল্প পছন্দ)
+                </span>
+<span class="font-headline-sm text-on-surface font-bold tabular-nums text-[13px]">১১৪ মিমি / হেক্টর (৮৫% সাশ্রয়)</span>
+</div>
+</div>
+</div>
+<div class="text-label-sm font-label-sm text-outline flex items-center space-x-1 pt-1">
+<span class="material-symbols-outlined text-[14px]">info</span>
+<span>উৎস: FAO Penman-Monteith এবং বরেন্দ্র বহুমুখী উন্নয়ন কর্তৃপক্ষ (BMDA) এর মাঠ পর্যবেক্ষণ ডাটা।</span>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= SECTION 4: SIX EVIDENCE DIMENSION DETAILED SCORING TABLE ================= -->
+<section class="bg-surface-container-lowest field-card rounded-lg p-5">
+<div class="flex flex-col md:flex-row md:items-center justify-between pb-3 mb-4 border-b border-[#e2e8f0] gap-2">
+<div>
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-primary text-[22px]">analytics</span>
+<h2 class="text-headline-md font-headline-md text-on-surface">ছয়টি তুলনামূলক মাত্রা ও কৃষি-বৈজ্ঞানিক যৌক্তিকতা (Evidence Scoring Table)</h2>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-0.5">
+            মাটির গুণমান, পানি স্থায়িত্ব, তাপসহনশীলতা এবং অর্থনৈতিক মার্জিনের ভিত্তিতে সুনির্দিষ্ট গ্রেডিং।
+          </p>
+</div>
+<div class="text-label-sm font-label-sm bg-[#f0f4f1] text-primary px-3 py-1.5 rounded-lg border border-[#e2e8f0] font-semibold">
+          তালন্দ ইউনিয়ন: বরেন্দ্র মৃত্তিকা সিরিজ (সিল্টি ক্লে লোম)
+        </div>
+</div>
+<!-- High-Density Agronomic Comparison Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left text-body-sm border-collapse">
+<thead>
+<tr class="bg-[#f8faf8] border-b border-[#cbd5e1] text-outline text-label-md font-label-md">
+<th class="py-3 px-4 w-[28%]">তুলনামূলক মাত্রা (Dimension)</th>
+<th class="py-3 px-4 w-[16%] text-center bg-[#ECFDF5] text-primary font-bold border-l border-r border-[#A7F3D0]">
+                Path A (প্রস্তাবিত)
+              </th>
+<th class="py-3 px-4 w-[16%] text-center border-r border-[#e2e8f0]">
+                Path B (প্রচলিত)
+              </th>
+<th class="py-3 px-4 w-[40%]">কৃষি-তাত্ত্বিক বিশদ বিশ্লেষণ ও সুবিধা (Agronomic Rationale)</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#e2e8f0] text-on-surface">
+<!-- Dimension 1: Water Security -->
+<tr class="hover:bg-[#f8faf8] transition-colors">
+<td class="py-3 px-4 font-semibold">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-[18px] text-[#0284c7]">water</span>
+<span>১. পানির স্থায়িত্ব ও ভূগর্ভস্থ রিজার্ভ</span>
+</div>
+<span class="text-[11px] text-outline pl-6">Aquifer Sustainability</span>
+</td>
+<td class="py-3 px-4 text-center bg-[#ECFDF5] font-bold border-l border-r border-[#A7F3D0]">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-headline-sm font-bold text-[#065F46] tabular-nums">
+                  ৯২ / ১০০
+                </span>
+</td>
+<td class="py-3 px-4 text-center border-r border-[#e2e8f0]">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-headline-sm font-bold text-error tabular-nums">
+                  ৩৫ / ১০০
+                </span>
+</td>
+<td class="py-3 px-4 text-body-sm text-on-surface-variant">
+                বোরো চাষে এক বিঘাতে <strong>৫৯৮ মিমি অতিরিক্ত সেচ</strong> প্রয়োজন হয়। Path A অনুসরণে গভীর নলকূপ পাম্পিং ৭৫% হ্রাস পায় এবং তলানির পানির স্তর সুরক্ষিত থাকে।
+              </td>
+</tr>
+<!-- Dimension 2: Heat Tolerance -->
+<tr class="hover:bg-[#f8faf8] transition-colors">
+<td class="py-3 px-4 font-semibold">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-[18px] text-[#ea580c]">thermostat</span>
+<span>২. তাপমাত্রা সহনশীলতা ও খরা ঝুঁকি</span>
+</div>
+<span class="text-[11px] text-outline pl-6">Heat Stress &amp; Terminal Drought</span>
+</td>
+<td class="py-3 px-4 text-center bg-[#ECFDF5] font-bold border-l border-r border-[#A7F3D0]">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-headline-sm font-bold text-[#065F46] tabular-nums">
+                  ৮৫ / ১০০
+                </span>
+</td>
+<td class="py-3 px-4 text-center border-r border-[#e2e8f0]">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-headline-sm font-bold text-[#b45309] tabular-nums">
+                  ৭০ / ১০০
+                </span>
+</td>
+<td class="py-3 px-4 text-body-sm text-on-surface-variant">
+                মার্চ-মে মাসের তীব্র বরেন্দ্র দাবদাহের পূর্বেই ২৫ ফেব্রুয়ারির মধ্যে বারি মসুর-৮ কর্তন সমাপ্ত হয়। অন্যদিকে এপ্রিল-মে মাসে বোরোর ফুল ফোটার সময় লু-হাওয়া ও শিষ ব্লাস্টের ঝুঁকি থাকে।
+              </td>
+</tr>
+<!-- Dimension 3: Drainage & Flood -->
+<tr class="hover:bg-[#f8faf8] transition-colors">
+<td class="py-3 px-4 font-semibold">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-[18px] text-[#0d9488]">waves</span>
+<span>৩. প্লাবন ও নিষ্কাশন যোগ্যতা</span>
+</div>
+<span class="text-[11px] text-outline pl-6">Drainage Adaptation</span>
+</td>
+<td class="py-3 px-4 text-center bg-[#ECFDF5] font-bold border-l border-r border-[#A7F3D0]">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-headline-sm font-bold text-[#065F46] tabular-nums">
+                  ৯০ / ১০০
+                </span>
+</td>
+<td class="py-3 px-4 text-center border-r border-[#e2e8f0]">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-headline-sm font-bold text-[#065F46] tabular-nums">
+                  ৮৫ / ১০০
+                </span>
+</td>
+<td class="py-3 px-4 text-body-sm text-on-surface-variant">
+                তালন্দ ব্লকের মাঝারি-উঁচু দোআঁশ জমিতে পানি জমে থাকার আশঙ্কা নেই। ১০ নভেম্বরের মধ্যে জমি দ্রুত শুকিয়ে মসুরের জন্য চমৎকার ‘জো’ অবস্থা তৈরি হয়।
+              </td>
+</tr>
+<!-- Dimension 4: Soil Health & Nitrogen -->
+<tr class="hover:bg-[#f8faf8] transition-colors">
+<td class="py-3 px-4 font-semibold">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-[18px] text-[#16a34a]">compost</span>
+<span>৪. মাটির উর্বরতা ও পুষ্টি সমৃদ্ধি</span>
+</div>
+<span class="text-[11px] text-outline pl-6">Soil Organic Matter &amp; Rhizobium</span>
+</td>
+<td class="py-3 px-4 text-center bg-[#ECFDF5] font-bold border-l border-r border-[#A7F3D0]">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-headline-sm font-bold text-[#065F46] tabular-nums">
+                  ৮৮ / ১০০
+                </span>
+</td>
+<td class="py-3 px-4 text-center border-r border-[#e2e8f0]">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-headline-sm font-bold text-error tabular-nums">
+                  ৫০ / ১০০
+                </span>
+</td>
+<td class="py-3 px-4 text-body-sm text-on-surface-variant">
+                ডাল জাতীয় ফসলের শিকড়ে রাইজোবিয়াম ব্যাকটেরিয়ার মাধ্যমে <strong>+১৮ কেজি/হেক্টর জৈব নাইট্রোজেন</strong> সংযুক্ত হয়। পরবর্তী আমন মৌসুমে ইউরিয়া সারের খরচ ২৫% কমে যাবে।
+              </td>
+</tr>
+<!-- Dimension 5: Livestock Fodder & Straw -->
+<tr class="hover:bg-[#f8faf8] transition-colors">
+<td class="py-3 px-4 font-semibold">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-[18px] text-[#ca8a04]">cruelty_free</span>
+<span>৫. গো-খাদ্য ও খড় সরবরাহ</span>
+</div>
+<span class="text-[11px] text-outline pl-6">Fodder &amp; Biomass</span>
+</td>
+<td class="py-3 px-4 text-center bg-[#ECFDF5] font-bold border-l border-r border-[#A7F3D0]">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-headline-sm font-bold text-[#065F46] tabular-nums">
+                  ৭৮ / ১০০
+                </span>
+</td>
+<td class="py-3 px-4 text-center border-r border-[#e2e8f0]">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-headline-sm font-bold text-[#065F46] tabular-nums">
+                  ৮০ / ১০০
+                </span>
+</td>
+<td class="py-3 px-4 text-body-sm text-on-surface-variant">
+                ব্রি-৪৯ এ খড়ের পরিমাণ কিছুটা বেশি পাওয়া গেলেও মসুরের ভুসি ও পাতার অবশিষ্টাংশ গবাদি পশুর জন্য উচ্চ প্রোটিনযুক্ত পুষ্টিকর খাদ্য হিসেবে বাজারে চড়া দামে বিক্রি হয়।
+              </td>
+</tr>
+<!-- Dimension 6: Net Farm Profit -->
+<tr class="hover:bg-[#f8faf8] transition-colors">
+<td class="py-3 px-4 font-semibold">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-[18px] text-[#059669]">payments</span>
+<span>৬. নিট খামার লাভ ও বাজার সক্ষমতা</span>
+</div>
+<span class="text-[11px] text-outline pl-6">Economic Net Margin</span>
+</td>
+<td class="py-3 px-4 text-center bg-[#ECFDF5] font-bold border-l border-r border-[#A7F3D0]">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-headline-sm font-bold text-[#065F46] tabular-nums">
+                  ৮৪ / ১০০
+                </span>
+</td>
+<td class="py-3 px-4 text-center border-r border-[#e2e8f0]">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-headline-sm font-bold text-[#b45309] tabular-nums">
+                  ৬৫ / ১০০
+                </span>
+</td>
+<td class="py-3 px-4 text-body-sm text-on-surface-variant">
+                বোরো চাষে বিঘাপ্রতি সেচ ও ডিজেল বাবদ ৪,৫০০ - ৫,০০০ টাকা ব্যয় হয়। ডালে সেচ খরচ নেই বললেই চলে এবং বাজারে মসুরের মণপ্রতি দর (৳ ৩,৮০০-৪,২০০) থাকায় নিট মুনাফা উল্লেখযোগ্যভাবে বেশি।
+              </td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- ================= SECTION 5: DATA PROVENANCE, METHODOLOGY & DISCLAIMER ================= -->
+<section class="space-y-4">
+<!-- Scientific Methodology & Satellite Telemetry Source Badges -->
+<div class="bg-surface-container-lowest field-card rounded-lg p-4">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-3">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-primary text-[20px]">science</span>
+<span class="text-label-md font-label-md text-on-surface font-bold uppercase tracking-wider">
+              অনুমোদিত বৈজ্ঞানিক ডাটা পার্টনার ও মডেল অডিট (Data Provenance &amp; Engine):
+            </span>
+</div>
+<div class="flex flex-wrap items-center gap-2">
+<span class="px-2.5 py-1 rounded bg-[#f1f5f9] text-[#1e293b] text-code-sm font-code-sm border border-[#cbd5e1]">NASA POWER (Solar/ETO)</span>
+<span class="px-2.5 py-1 rounded bg-[#f1f5f9] text-[#1e293b] text-code-sm font-code-sm border border-[#cbd5e1]">NASA GPM IMERG 0.1°</span>
+<span class="px-2.5 py-1 rounded bg-[#f1f5f9] text-[#1e293b] text-code-sm font-code-sm border border-[#cbd5e1]">Sentinel-2 MSI (NDVI/NDWI)</span>
+<span class="px-2.5 py-1 rounded bg-[#f1f5f9] text-[#1e293b] text-code-sm font-code-sm border border-[#cbd5e1]">SMAP L4 Root-Zone</span>
+<span class="px-2.5 py-1 rounded bg-[#ecfdf5] text-[#065f46] text-code-sm font-code-sm border border-[#a7f3d0] font-bold">BRRI/BARI Protocol</span>
+<span class="px-2.5 py-1 rounded bg-[#ecfdf5] text-[#065f46] text-code-sm font-code-sm border border-[#a7f3d0] font-bold">SRDI Tanore Lab</span>
+</div>
+</div>
+</div>
+<!-- Institutional Guardrail / Regulatory Disclaimer -->
+<div class="bg-surface-container-lowest border-l-4 border-primary p-4 rounded-r-lg field-card shadow-xs">
+<div class="flex items-start space-x-3">
+<div class="p-1.5 rounded-full bg-[#ECFDF5] text-primary mt-0.5">
+<span class="material-symbols-outlined text-[20px]">policy</span>
+</div>
+<div class="flex-1">
+<h4 class="text-label-md font-label-md font-bold text-primary mb-0.5">
+              সতর্কতা ও নীতিগত স্বচ্ছতা (Transparency Guardrail &amp; Advisory Scope):
+            </h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant leading-relaxed">
+              এটি নাসা স্যাটেলাইট, বাংলাদেশ ধান গবেষণা ইনস্টিটিউট (BRRI) ও বিএআরআই-এর ইউনিয়ন পর্যায়ের ২৫ বছরের আবহাওয়ার তথ্যভিত্তিক প্রেডিক্টিভ মডেল; কোনো একক নির্দিষ্ট জমির মাটির তাৎক্ষণিক ল্যাব পরীক্ষা নয়। স্থানীয় বৃষ্টিপাতের তারতম্য, ড্রেনেজ নালা এবং বীজ মজুদের ওপর ভিত্তি করে মাঠ পরিদর্শনের সময় কৃষকের সাথে সরাসরি পরামর্শ করে চূড়ান্ত সিদ্ধান্ত নিন।
+            </p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- ================= PERSISTENT BOTTOM ACTION FOOTER ================= -->
+<footer class="bg-surface-container-lowest border-t border-[#e2e8f0] px-6 py-3.5 sticky bottom-0 z-40">
+<div class="max-w-[1440px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+<!-- Left Metadata -->
+<div class="flex items-center space-x-3 text-body-sm font-body-sm text-outline">
+<span class="flex items-center">
+<span class="material-symbols-outlined text-[16px] mr-1 text-[#10b981]">lock</span>
+          অধিদপ্তর স্বাক্ষরিত ডিজিটাল রেকর্ড
+        </span>
+<span>•</span>
+<span class="font-code-sm text-code-sm">ID: BD-RAJS-TAN-TAL-04</span>
+</div>
+<!-- Right Action Group -->
+<div class="flex items-center space-x-3">
+<button class="inline-flex items-center space-x-1.5 px-3.5 py-2 bg-surface-container-lowest border border-[#cbd5e1] text-on-surface hover:bg-[#f1f5f9] rounded-lg text-label-md font-label-md transition-colors">
+<span class="material-symbols-outlined text-[18px]">picture_as_pdf</span>
+<span>পিডিএফ রিপোর্ট ডাউনলোড (Export PDF)</span>
+</button>
+<button class="inline-flex items-center space-x-1.5 px-3.5 py-2 bg-surface-container-lowest border border-[#cbd5e1] text-on-surface hover:bg-[#f1f5f9] rounded-lg text-label-md font-label-md transition-colors">
+<span class="material-symbols-outlined text-[18px]">save</span>
+<span>খসড়া সংরক্ষণ (Save Draft)</span>
+</button>
+<button class="inline-flex items-center space-x-2 px-5 py-2 bg-primary-container text-on-primary hover:bg-primary rounded-lg text-label-md font-label-md transition-colors font-bold shadow-sm">
+<span>পরামর্শ ও বিশদ প্রমাণে যান (Proceed to Evidence &amp; Advice)</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</footer>
+</body></html>

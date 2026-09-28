@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+
+<html class="light" lang="bn"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EDEN | কৃষক প্রোফাইল ও তথ্য সম্মতি (Farmer Profile &amp; Consent)</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700;900&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-primary-fixed": "#002018",
+            "background": "#f9f9ff",
+            "tertiary-fixed": "#ffdcc3",
+            "inverse-surface": "#263143",
+            "on-background": "#111c2d",
+            "on-secondary-container": "#00714d",
+            "secondary-container": "#6cf8bb",
+            "secondary-fixed-dim": "#4edea3",
+            "on-secondary-fixed": "#002113",
+            "on-primary-container": "#86beab",
+            "secondary": "#006c49",
+            "on-surface": "#111c2d",
+            "tertiary": "#4b2500",
+            "error": "#ba1a1a",
+            "on-tertiary": "#ffffff",
+            "tertiary-fixed-dim": "#ffb77d",
+            "surface-container-low": "#f0f3ff",
+            "surface-dim": "#cfdaf2",
+            "primary-container": "#134e3f",
+            "on-secondary-fixed-variant": "#005236",
+            "on-primary-fixed-variant": "#155041",
+            "on-tertiary-fixed": "#2f1500",
+            "tertiary-container": "#6c3800",
+            "secondary-fixed": "#6ffbbe",
+            "inverse-primary": "#99d2be",
+            "primary-fixed-dim": "#99d2be",
+            "on-secondary": "#ffffff",
+            "primary-fixed": "#b5efda",
+            "on-primary": "#ffffff",
+            "primary": "#00362a",
+            "surface-container-highest": "#d8e3fb",
+            "surface-container": "#e7eeff",
+            "outline": "#707975",
+            "on-surface-variant": "#404945",
+            "on-error": "#ffffff",
+            "inverse-on-surface": "#ecf1ff",
+            "outline-variant": "#bfc9c3",
+            "surface-bright": "#f9f9ff",
+            "on-tertiary-fixed-variant": "#6e3900",
+            "on-error-container": "#93000a",
+            "surface-container-lowest": "#ffffff",
+            "surface-variant": "#d8e3fb",
+            "surface-tint": "#316858",
+            "surface": "#f9f9ff",
+            "error-container": "#ffdad6",
+            "surface-container-high": "#dee8ff",
+            "on-tertiary-container": "#ff9b3e"
+          },
+          borderRadius: {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          spacing: {
+            "space-md": "0.75rem",
+            "space-lg": "1rem",
+            "space-xl": "1.5rem",
+            "space-2xl": "2rem",
+            "margin-lg": "1.5rem",
+            "gutter-sm": "0.75rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "margin": "1rem",
+            "gutter": "1rem"
+          },
+          fontFamily: {
+            "body-lg": ["Hind Siliguri", "Inter", "sans-serif"],
+            "headline-sm": ["Hind Siliguri", "Inter", "sans-serif"],
+            "label-sm": ["Inter", "Hind Siliguri", "sans-serif"],
+            "code-sm": ["ui-monospace", "SFMono-Regular", "Menlo", "Inter", "monospace"],
+            "label-md": ["Hind Siliguri", "Inter", "sans-serif"],
+            "headline-md": ["Hind Siliguri", "Inter", "sans-serif"],
+            "display-lg": ["Hind Siliguri", "Inter", "sans-serif"],
+            "body-md": ["Hind Siliguri", "Inter", "sans-serif"],
+            "headline-lg": ["Hind Siliguri", "Inter", "sans-serif"],
+            "body-sm": ["Hind Siliguri", "Inter", "sans-serif"]
+          },
+          fontSize: {
+            "body-lg": ["16px", { lineHeight: "24px", letterSpacing: "0em", fontWeight: "400" }],
+            "headline-sm": ["16px", { lineHeight: "24px", letterSpacing: "0em", fontWeight: "600" }],
+            "label-sm": ["10px", { lineHeight: "14px", letterSpacing: "0.06em", fontWeight: "600" }],
+            "code-sm": ["12px", { lineHeight: "16px", letterSpacing: "0.02em", fontWeight: "500" }],
+            "label-md": ["12px", { lineHeight: "16px", letterSpacing: "0.04em", fontWeight: "600" }],
+            "headline-md": ["20px", { lineHeight: "28px", letterSpacing: "-0.01em", fontWeight: "600" }],
+            "display-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "700" }],
+            "body-md": ["14px", { lineHeight: "20px", letterSpacing: "0em", fontWeight: "400" }],
+            "headline-lg": ["24px", { lineHeight: "32px", letterSpacing: "-0.015em", fontWeight: "600" }],
+            "body-sm": ["12px", { lineHeight: "16px", letterSpacing: "0.01em", fontWeight: "400" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 20;
+      font-size: 20px;
+      line-height: 1;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .material-symbols-outlined.fill-icon {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 20;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased min-h-screen flex flex-col selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- ================= TOP APP BAR (from Shared Components JSON) ================= -->
+<header class="bg-surface-container-lowest dark:bg-inverse-surface border-b border-outline-variant dark:border-outline sticky top-0 z-50">
+<div class="w-full px-6 py-2.5 flex items-center justify-between">
+<!-- Brand & Hub Identity -->
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2">
+<span class="text-headline-md font-headline-md font-black tracking-tight text-primary dark:text-primary-fixed">EDEN</span>
+<span class="text-label-sm font-label-sm uppercase tracking-wider px-1.5 py-0.5 rounded bg-surface-container text-on-surface-variant font-code-sm border border-outline-variant">SAAO Portal</span>
+</div>
+<!-- Global Module Navigation Links -->
+<nav class="hidden md:flex items-center space-x-6 text-label-md font-label-md">
+<a class="text-on-surface-variant dark:text-inverse-on-surface hover:text-on-surface dark:hover:text-inverse-surface py-2 transition-colors duration-150 ease-in-out" href="#">Overview</a>
+<a class="text-on-surface-variant dark:text-inverse-on-surface hover:text-on-surface dark:hover:text-inverse-surface py-2 transition-colors duration-150 ease-in-out" href="#">Rotation Planner</a>
+<a class="border-b-2 border-primary dark:border-primary-fixed text-primary dark:text-primary-fixed font-bold py-2 transition-colors duration-150 ease-in-out" href="#">Advice &amp; Calls</a>
+<a class="text-on-surface-variant dark:text-inverse-on-surface hover:text-on-surface dark:hover:text-inverse-surface py-2 transition-colors duration-150 ease-in-out" href="#">Alerts</a>
+<a class="text-on-surface-variant dark:text-inverse-on-surface hover:text-on-surface dark:hover:text-inverse-surface py-2 transition-colors duration-150 ease-in-out" href="#">Farmer Feedback</a>
+<a class="text-on-surface-variant dark:text-inverse-on-surface hover:text-on-surface dark:hover:text-inverse-surface py-2 transition-colors duration-150 ease-in-out" href="#">Data Quality</a>
+</nav>
+</div>
+<!-- Trailing Action Controls -->
+<div class="flex items-center gap-3">
+<div class="hidden lg:flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface border border-outline-variant text-label-sm font-label-sm text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-code-sm">Talanda Union</span>
+</div>
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-primary-container text-on-primary text-label-md font-label-md hover:bg-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">cloud_done</span>
+<span>Sync Now</span>
+</button>
+<div class="h-5 w-px bg-outline-variant mx-1"></div>
+<button class="p-1.5 rounded text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-colors" title="Notifications" type="button">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-1.5 rounded text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-colors" title="Help &amp; Protocol Docs" type="button">
+<span class="material-symbols-outlined">help</span>
+</button>
+<div class="flex items-center gap-2 pl-1">
+<div class="w-8 h-8 rounded bg-primary-fixed text-on-primary-fixed flex items-center justify-center font-bold text-label-md border border-outline-variant" title="SAAO Officer Profile Avatar">
+            AI
+          </div>
+</div>
+</div>
+</div>
+</header>
+<!-- ================= SUB-HEADER: Context Bar & Flow Actions ================= -->
+<section class="bg-surface-container-lowest border-b border-outline-variant px-6 py-3">
+<div class="max-w-[1440px] mx-auto flex flex-wrap items-center justify-between gap-4">
+<!-- Screen Identity & Location Chain -->
+<div>
+<div class="flex items-center gap-2 text-label-sm font-label-sm text-on-surface-variant mb-0.5">
+<span class="text-primary font-semibold">EDEN | ইডেন • Earth Data &amp; Environment Navigator</span>
+<span>/</span>
+<span>রাজশাহী</span>
+<span>→</span>
+<span>তানোর</span>
+<span>→</span>
+<span class="font-semibold text-on-surface">তালন্দ ইউনিয়ন (Talanda Union, Block-04, Medium-High Land)</span>
+</div>
+<div class="flex items-center gap-3">
+<h1 class="text-headline-lg font-headline-lg text-primary tracking-tight">
+            কৃষক প্রোফাইল ও তথ্য সম্মতি <span class="text-headline-sm font-headline-sm text-on-surface-variant font-normal">(Farmer Profile &amp; Consent)</span>
+</h1>
+<span class="px-2 py-0.5 rounded text-label-sm font-code-sm bg-surface-container text-on-surface-variant border border-outline-variant">bd-pilots-2026.10.1</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-label-sm font-label-sm bg-secondary-container text-on-secondary-fixed font-semibold border border-secondary-fixed-dim">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+            অনলাইন (Online)
+          </span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-label-sm font-label-sm bg-surface-container-low text-primary font-semibold border border-outline-variant">
+<span class="material-symbols-outlined fill-icon text-[14px]">verified_user</span>
+            ডেটা প্রটেকশন ভেরিফাইড
+          </span>
+</div>
+</div>
+<!-- Action Cluster -->
+<div class="flex items-center gap-2">
+<button class="inline-flex items-center gap-1.5 px-3 py-2 rounded bg-surface-container-lowest border border-outline-variant text-on-surface text-label-md font-label-md hover:bg-surface-container-low transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+<span>প্রমাণ ও বিশ্লেষণে ফিরুন (Back to Evidence)</span>
+</button>
+<button class="inline-flex items-center gap-2 px-4 py-2 rounded bg-primary-container text-on-primary text-label-md font-label-md hover:bg-primary transition-colors shadow-sm" type="button">
+<span>প্রোফাইল সংরক্ষণ ও পরামর্শ প্রেরণ</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</section>
+<!-- ================= MAIN DESKTOP 2-COLUMN VIEWPORT (1440px) ================= -->
+<main class="flex-1 max-w-[1440px] w-full mx-auto px-6 py-6">
+<div class="grid grid-cols-12 gap-6 items-start">
+<!-- ================= LEFT COLUMN: Master Agronomic & Consent (65% -> 8 of 12 cols) ================= -->
+<div class="col-span-12 lg:col-span-8 space-y-6">
+<!-- 1. Confidential Contact Info (Protected PII) -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded p-5">
+<!-- Section Banner -->
+<div class="flex items-start justify-between pb-3.5 mb-4 border-b border-surface-container-high">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded bg-surface-container-low text-primary flex items-center justify-center border border-outline-variant">
+<span class="material-symbols-outlined fill-icon">shield_lock</span>
+</div>
+<div>
+<h2 class="text-headline-sm font-headline-sm text-primary flex items-center gap-2">
+                  ব্যক্তিগত তথ্যের সুরক্ষা
+                  <span class="text-label-sm font-label-sm text-on-surface-variant font-normal">(Protected PII - Not Shared Commercially)</span>
+</h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant">জাতীয় পরিচয়পত্র ও মোবাইল নম্বর ফিল্ড সম্পূর্ণ এনক্রিপ্টেড ও রোল-বেসড এক্সেস দ্বারা সুরক্ষিত</p>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded text-label-sm font-code-sm bg-surface-container text-on-surface-variant border border-outline-variant">
+              AES-256 ENCRYPTED
+            </span>
+</div>
+<!-- Form Fields Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Farmer Name Field -->
+<div class="space-y-1.5">
+<div class="flex items-center justify-between">
+<label class="text-label-md font-label-md text-on-surface flex items-center gap-1.5">
+<span>কৃষকের পুরো নাম (Farmer Name)</span>
+<span class="text-error font-bold">*</span>
+</label>
+<label class="inline-flex items-center gap-1 text-label-sm font-label-sm text-on-surface-variant cursor-pointer">
+<input class="rounded border-outline-variant text-primary focus:ring-0 w-3.5 h-3.5" type="checkbox"/>
+<span>তথ্য অজানা</span>
+</label>
+</div>
+<div class="relative">
+<input class="w-full h-11 px-3 bg-surface-container-lowest border border-outline-variant rounded text-body-md font-body-md text-on-surface focus:outline-none focus:border-primary-container pr-10" readonly="" type="text" value="মোঃ রফিকুল ইসলাম"/>
+<span class="material-symbols-outlined fill-icon text-secondary absolute right-3 top-3 text-[18px]" title="যাচাইকৃত">check_circle</span>
+</div>
+</div>
+<!-- Mobile Phone Field with OTP unlock -->
+<div class="space-y-1.5">
+<div class="flex items-center justify-between">
+<label class="text-label-md font-label-md text-on-surface flex items-center gap-1.5">
+<span>মোবাইল নম্বর (IVR Voice Alert Destination)</span>
+<span class="text-error font-bold">*</span>
+</label>
+<label class="inline-flex items-center gap-1 text-label-sm font-label-sm text-on-surface-variant cursor-pointer">
+<input class="rounded border-outline-variant text-primary focus:ring-0 w-3.5 h-3.5" type="checkbox"/>
+<span>তথ্য অজানা</span>
+</label>
+</div>
+<div class="flex gap-2">
+<div class="relative flex-1">
+<input class="w-full h-11 px-3 bg-surface-container-low border border-outline-variant rounded font-code-sm text-on-surface focus:outline-none tracking-wider" readonly="" type="text" value="01712-XXXXXX"/>
+<span class="material-symbols-outlined text-outline text-[16px] absolute right-3 top-3.5">lock</span>
+</div>
+<button class="px-3 h-11 bg-surface-container-lowest border border-primary text-primary hover:bg-surface-container-low rounded text-label-md font-label-md whitespace-nowrap transition-colors flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px]">key</span>
+<span>OTP আনলক</span>
+</button>
+</div>
+</div>
+<!-- Village & Union -->
+<div class="space-y-1.5">
+<div class="flex items-center justify-between">
+<label class="text-label-md font-label-md text-on-surface">গ্রাম ও ইউনিয়ন (Location)</label>
+<label class="inline-flex items-center gap-1 text-label-sm font-label-sm text-on-surface-variant cursor-pointer">
+<input class="rounded border-outline-variant text-primary focus:ring-0 w-3.5 h-3.5" type="checkbox"/>
+<span>তথ্য অজানা</span>
+</label>
+</div>
+<input class="w-full h-11 px-3 bg-surface-container-lowest border border-outline-variant rounded text-body-md font-body-md text-on-surface focus:outline-none focus:border-primary-container" readonly="" type="text" value="বিলশহর, তালন্দ ইউনিয়ন, তানোর, রাজশাহী"/>
+</div>
+<!-- NID / Krishi Card -->
+<div class="space-y-1.5">
+<div class="flex items-center justify-between">
+<label class="text-label-md font-label-md text-on-surface">জাতীয় পরিচয়পত্র / কৃষি কার্ড (NID or Krishi Card)</label>
+<label class="inline-flex items-center gap-1 text-label-sm font-label-sm text-on-surface-variant cursor-pointer">
+<input class="rounded border-outline-variant text-primary focus:ring-0 w-3.5 h-3.5" type="checkbox"/>
+<span>তথ্য অজানা</span>
+</label>
+</div>
+<div class="relative">
+<input class="w-full h-11 px-3 bg-surface-container-lowest border border-outline-variant rounded font-code-sm text-on-surface focus:outline-none focus:border-primary-container pr-24 tracking-wide" readonly="" type="text" value="NID: **********5482"/>
+<span class="absolute right-2 top-2.5 px-2 py-0.5 rounded text-label-sm font-label-sm bg-secondary-container text-on-secondary-fixed font-semibold">যাচাইকৃত</span>
+</div>
+</div>
+</div>
+<!-- Institutional Assurance Callout -->
+<div class="mt-4 p-3 rounded bg-surface-container-low border border-outline-variant flex items-start gap-2.5">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5 shrink-0">verified</span>
+<p class="text-body-sm font-body-sm text-on-surface">
+<strong class="font-semibold text-primary">প্রাতিষ্ঠানিক নিশ্চয়তা:</strong> এই ফোন নম্বর ও তথ্য কেবল কৃষি বিষয়ক জরুরি আবহাওয়া সতর্কতা ও ইউনিয়ন SAAO পরামর্শের জন্য ব্যবহৃত হবে। কোনো বাণিজ্যিক বা বিজ্ঞাপন সংস্থাকে হস্তান্তর করা হবে না।
+            </p>
+</div>
+</section>
+<!-- 2. Standalone Formal Consent Card (Verified Consent Step) -->
+<section class="bg-surface-container-lowest border-2 border-primary-container rounded p-5">
+<div class="flex items-center justify-between mb-3 pb-3 border-b border-surface-container-high">
+<div class="flex items-center gap-2">
+<span class="w-7 h-7 rounded-full bg-secondary-container text-on-secondary-fixed flex items-center justify-center font-bold">
+<span class="material-symbols-outlined fill-icon text-[18px]">verified</span>
+</span>
+<h2 class="text-headline-sm font-headline-sm text-primary">সুনির্দিষ্ট সম্মতিপত্র যাচাই (Verified Consent Step)</h2>
+</div>
+<span class="px-2.5 py-1 rounded text-label-sm font-label-sm bg-secondary-container text-on-secondary-fixed font-bold border border-secondary-fixed-dim">
+              কৃষকের আনুষ্ঠানিক সম্মতি গৃহীত হয়েছে (Farmer Consent Verified)
+            </span>
+</div>
+<!-- Consent Agreement Box -->
+<div class="p-3.5 bg-surface rounded border border-outline-variant mb-4">
+<p class="text-body-md font-body-md text-on-surface leading-relaxed">
+<span class="text-primary font-bold text-[18px] mr-1">“</span>কৃষকের মোবাইল নম্বর ও পছন্দসমূহ কেবলমাত্র EDEN কৃষি পরামর্শ, জরুরি আবহাওয়া অ্যালার্ট এবং ইউনিয়ন এসএএও ফলো-আপ কলের জন্য ব্যবহৃত হবে। কোনো তৃতীয় পক্ষ বা বাণিজ্যিক প্রতিষ্ঠানে দেওয়া হবে না।<span class="text-primary font-bold text-[18px] ml-1">”</span>
+</p>
+</div>
+<!-- Consent Provenance Metadata Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-body-sm font-body-sm mb-4">
+<div class="p-2.5 rounded bg-surface-container-low border border-outline-variant">
+<span class="block text-label-sm font-label-sm text-on-surface-variant">অডিও সম্মতি কল রেকর্ড</span>
+<span class="font-code-sm font-bold text-primary flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[16px]">mic</span>
+                #REC-TAL-842
+              </span>
+</div>
+<div class="p-2.5 rounded bg-surface-container-low border border-outline-variant">
+<span class="block text-label-sm font-label-sm text-on-surface-variant">সম্মতি গ্রহণের তারিখ</span>
+<span class="font-body-sm font-semibold text-on-surface flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[16px]">calendar_today</span>
+                ২৮ সেপ্টেম্বর ২০২৬
+              </span>
+</div>
+<div class="p-2.5 rounded bg-surface-container-low border border-outline-variant">
+<span class="block text-label-sm font-label-sm text-on-surface-variant">ভেরিফিকেশন মোড</span>
+<span class="font-body-sm font-semibold text-on-surface flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[16px]">assignment_turned_in</span>
+                মাঠ পরিদর্শনকালে সরাসরি (SAAO আরিফুল ইসলাম)
+              </span>
+</div>
+</div>
+<!-- Withdrawal Rights Callout -->
+<div class="flex items-center justify-between text-body-sm font-body-sm text-on-surface-variant bg-surface-container-lowest px-3 py-2 rounded border border-outline-variant">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-[18px]">undo</span>
+<span><strong>প্রত্যাহার অধিকার:</strong> কৃষক যেকোনো সময় ১৬১২৩ নম্বরে টোল-ফ্রি কল করে অথবা সরাসরি মাঠ কর্মকর্তার মাধ্যমে সম্মতি প্রত্যাহার ও প্রোফাইল ডেটা মুছে ফেলতে পারেন।</span>
+</div>
+<span class="text-label-sm font-code-sm font-semibold text-primary">Toll-Free 16123</span>
+</div>
+</section>
+<!-- 3. Guided Agronomic Profile with "Why Needed?" Explainers -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded p-5 space-y-4">
+<div class="flex items-center justify-between pb-3 border-b border-surface-container-high">
+<div>
+<h2 class="text-headline-sm font-headline-sm text-primary">মাঠ-পর্যায়ের কৃষি ও জমির তথ্য (Agronomic Profile)</h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant">ফসল চক্র ও ডাল/তৈলবীজ আবর্তনের উপযুক্ততা যাচাই সংক্রান্ত ফিল্ড ডেটা</p>
+</div>
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-surface-container text-on-surface-variant font-code-sm border border-outline-variant">4 FIELD ATTRIBUTES</span>
+</div>
+<!-- 4 Core Attribute Cards Grid -->
+<div class="space-y-3.5">
+<!-- Attribute 1: Land Type & Soil Texture -->
+<div class="p-3.5 rounded border border-outline-variant bg-surface hover:border-primary transition-colors">
+<div class="flex flex-wrap items-center justify-between gap-2 mb-1.5">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded bg-primary-container text-on-primary text-label-sm font-code-sm flex items-center justify-center">1</span>
+<span class="text-headline-sm font-headline-sm text-on-surface">জমির শ্রেণি ও মাটির গঠন (Land Type &amp; Soil Texture)</span>
+</div>
+<span class="px-2 py-0.5 rounded text-label-sm font-code-sm bg-surface-container-lowest border border-outline-variant font-semibold text-primary">
+                  মাঝারি-উঁচু দোআঁশ জমি (Medium-High Loam) • প্লাবন ঝুঁকি: শূন্য
+                </span>
+</div>
+<div class="mt-2.5 p-2.5 rounded bg-surface-container-low border border-outline-variant flex items-start gap-2">
+<span class="px-1.5 py-0.5 rounded text-label-sm font-label-sm bg-primary text-on-primary font-bold shrink-0 mt-0.5">কেন প্রয়োজন?</span>
+<p class="text-body-sm font-body-sm text-on-surface">
+                  মাটির আর্দ্রতা ধারণ ক্ষমতা ও বর্ষার পর জমি শুকাতে কত দিন লাগবে তা নির্ধারণে এবং রবি ডালের শিকড় পচন রোধে প্রয়োজন।
+                </p>
+</div>
+</div>
+<!-- Attribute 2: Recent Crop History -->
+<div class="p-3.5 rounded border border-outline-variant bg-surface hover:border-primary transition-colors">
+<div class="flex flex-wrap items-center justify-between gap-2 mb-1.5">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded bg-primary-container text-on-primary text-label-sm font-code-sm flex items-center justify-center">2</span>
+<span class="text-headline-sm font-headline-sm text-on-surface">সাম্প্রতিক ফসল ইতিহাস (Recent Crop History)</span>
+</div>
+<span class="px-2 py-0.5 rounded text-label-sm font-code-sm bg-surface-container-lowest border border-outline-variant font-semibold text-primary">
+                  রোপা আমন (ব্রি ধান৭১) ➔ পতিত (Fallow) • কর্তন সম্ভাব্য: ১৫ নভেম্বর
+                </span>
+</div>
+<div class="mt-2.5 p-2.5 rounded bg-surface-container-low border border-outline-variant flex items-start gap-2">
+<span class="px-1.5 py-0.5 rounded text-label-sm font-label-sm bg-primary text-on-primary font-bold shrink-0 mt-0.5">কেন প্রয়োজন?</span>
+<p class="text-body-sm font-body-sm text-on-surface">
+                  মাটির অবশিষ্ট আর্দ্রতা (Residual Moisture) এবং জমি মুক্ত হওয়ার সঠিক দিনক্ষণ জেনে জো অবস্থায় বীজ বপনের সময় নির্ধারণ করতে প্রয়োজন।
+                </p>
+</div>
+</div>
+<!-- Attribute 3: Irrigation Access & Source -->
+<div class="p-3.5 rounded border border-outline-variant bg-surface hover:border-primary transition-colors">
+<div class="flex flex-wrap items-center justify-between gap-2 mb-1.5">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded bg-primary-container text-on-primary text-label-sm font-code-sm flex items-center justify-center">3</span>
+<span class="text-headline-sm font-headline-sm text-on-surface">সেচ সুবিধা ও গভীর নলকূপ (Irrigation Access &amp; Source)</span>
+</div>
+<span class="px-2 py-0.5 rounded text-label-sm font-code-sm bg-surface-container-lowest border border-outline-variant font-semibold text-primary">
+                  BMDA প্রিপেইড কার্ড মিটার #DTW-714
+                </span>
+</div>
+<div class="mt-2.5 p-2.5 rounded bg-surface-container-low border border-outline-variant flex items-start gap-2">
+<span class="px-1.5 py-0.5 rounded text-label-sm font-label-sm bg-primary text-on-primary font-bold shrink-0 mt-0.5">কেন প্রয়োজন?</span>
+<p class="text-body-sm font-body-sm text-on-surface">
+                  ভূগর্ভস্থ পানির পাম্পিং খরচ ও প্রিপেইড কার্ডের লোড অনুযায়ী বোরো ধান বনাম রবি ডাল/সরিষার তুলনামূলক পানির ব্যয় নির্ধারণ করতে প্রয়োজন।
+                </p>
+</div>
+</div>
+<!-- Attribute 4: Livestock & Fodder Needs -->
+<div class="p-3.5 rounded border border-outline-variant bg-surface hover:border-primary transition-colors">
+<div class="flex flex-wrap items-center justify-between gap-2 mb-1.5">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded bg-primary-container text-on-primary text-label-sm font-code-sm flex items-center justify-center">4</span>
+<span class="text-headline-sm font-headline-sm text-on-surface">গবাদিপশু ও খড় চাহিদা (Livestock &amp; Fodder Needs)</span>
+</div>
+<span class="px-2 py-0.5 rounded text-label-sm font-code-sm bg-surface-container-lowest border border-outline-variant font-semibold text-primary">
+                  ৩টি দেশি গরু ও ২টি বাছুর • দৈনিক খড় চাহিদা: ১২ কেজি
+                </span>
+</div>
+<div class="mt-2.5 p-2.5 rounded bg-surface-container-low border border-outline-variant flex items-start gap-2">
+<span class="px-1.5 py-0.5 rounded text-label-sm font-label-sm bg-primary text-on-primary font-bold shrink-0 mt-0.5">কেন প্রয়োজন?</span>
+<p class="text-body-sm font-body-sm text-on-surface">
+                  ব্রি ধান৭১-এর খড় সংরক্ষণ এবং রবি ডালের ভুষি ও পাতার পুষ্টিকর পশুখাদ্য স্থানীয় চাহিদা পূরণে কাজে লাগবে কি না তা মূল্যায়নে প্রয়োজন।
+                </p>
+</div>
+</div>
+</div>
+<!-- 5. Farmer Priority Weights Summary (Multi-Criteria Decision Matrix) -->
+<div class="mt-4 pt-4 border-t border-surface-container-high">
+<div class="flex items-center justify-between mb-3">
+<span class="text-label-md font-label-md text-primary flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+                কৃষকের অগ্রাধিকার ওজন (Multi-Criteria Priority Weights Summary)
+              </span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">মোট মূল্যায়ন ১০০%</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+<div class="p-3 rounded border border-secondary-fixed-dim bg-surface-container-low">
+<div class="flex justify-between items-baseline mb-1">
+<span class="text-body-sm font-body-sm font-semibold text-primary">১. পানির নিরাপত্তা ও সেচ সাশ্রয়</span>
+<span class="text-headline-sm font-headline-sm font-bold text-secondary">৬০%</span>
+</div>
+<div class="w-full bg-outline-variant rounded-full h-1.5">
+<div class="bg-secondary h-1.5 rounded-full" style="width: 60%"></div>
+</div>
+<span class="block mt-1 text-label-sm font-label-sm text-on-surface-variant font-code-sm">Water Security Priority</span>
+</div>
+<div class="p-3 rounded border border-outline-variant bg-surface">
+<div class="flex justify-between items-baseline mb-1">
+<span class="text-body-sm font-body-sm font-semibold text-on-surface">২. নিট খামার আয় ও লাভ</span>
+<span class="text-headline-sm font-headline-sm font-bold text-primary">২৫%</span>
+</div>
+<div class="w-full bg-outline-variant rounded-full h-1.5">
+<div class="bg-primary h-1.5 rounded-full" style="width: 25%"></div>
+</div>
+<span class="block mt-1 text-label-sm font-label-sm text-on-surface-variant font-code-sm">Economic Return</span>
+</div>
+<div class="p-3 rounded border border-outline-variant bg-surface">
+<div class="flex justify-between items-baseline mb-1">
+<span class="text-body-sm font-body-sm font-semibold text-on-surface">৩. মাটির স্বাস্থ্য ও জৈব উর্বরতা</span>
+<span class="text-headline-sm font-headline-sm font-bold text-primary">১৫%</span>
+</div>
+<div class="w-full bg-outline-variant rounded-full h-1.5">
+<div class="bg-primary h-1.5 rounded-full" style="width: 15%"></div>
+</div>
+<span class="block mt-1 text-label-sm font-label-sm text-on-surface-variant font-code-sm">Soil Organic Health</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- ================= RIGHT COLUMN: Sticky IVR & Feature-Phone Keypad Simulator (35% -> 4 of 12 cols) ================= -->
+<div class="col-span-12 lg:col-span-4 space-y-4 lg:sticky lg:top-20">
+<!-- Keypad Simulator Card -->
+<div class="bg-surface-container-lowest border-2 border-outline-variant rounded p-4 shadow-sm">
+<!-- Simulator Header -->
+<div class="pb-3 border-b border-surface-container-high mb-3">
+<div class="flex items-center justify-between mb-1">
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-primary-container text-on-primary font-bold">
+                স্বয়ংক্রিয় আইভিআর ভয়েস কল
+              </span>
+<span class="text-label-sm font-code-sm text-on-surface-variant">IVR SIMULATOR</span>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-primary">সাধারণ ফোনে কিপ্যাড নির্বাচন নির্দেশিকা</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Feature Phone Keypad Mapping for Field SAAO Walkthrough</p>
+</div>
+<!-- IVR Voice Previewer -->
+<div class="p-3 rounded bg-surface-container-low border border-outline-variant mb-4">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[18px]">record_voice_over</span>
+<span class="text-label-md font-label-md text-on-surface font-semibold">ভয়েস নির্দেশনা প্রিভিউ</span>
+</div>
+<span class="text-label-sm font-code-sm bg-surface-container-lowest px-1.5 py-0.5 rounded border border-outline-variant text-on-surface-variant">০:৪৫ সেকেন্ড</span>
+</div>
+<!-- Audio Waveform Graphic Mockup -->
+<div class="h-8 flex items-center justify-between gap-1 px-1 bg-surface-container-lowest rounded border border-outline-variant mb-2">
+<span class="w-1 h-3 bg-secondary rounded-full"></span>
+<span class="w-1 h-5 bg-secondary rounded-full"></span>
+<span class="w-1 h-6 bg-primary rounded-full"></span>
+<span class="w-1 h-4 bg-primary rounded-full"></span>
+<span class="w-1 h-7 bg-secondary rounded-full"></span>
+<span class="w-1 h-3 bg-secondary rounded-full"></span>
+<span class="w-1 h-5 bg-primary rounded-full"></span>
+<span class="w-1 h-2 bg-outline-variant rounded-full"></span>
+<span class="w-1 h-4 bg-outline-variant rounded-full"></span>
+<span class="w-1 h-6 bg-outline-variant rounded-full"></span>
+<span class="w-1 h-3 bg-outline-variant rounded-full"></span>
+<span class="w-1 h-2 bg-outline-variant rounded-full"></span>
+<span class="w-1 h-5 bg-outline-variant rounded-full"></span>
+<span class="w-1 h-4 bg-outline-variant rounded-full"></span>
+<span class="w-1 h-3 bg-outline-variant rounded-full"></span>
+<span class="w-1 h-1 bg-outline-variant rounded-full"></span>
+</div>
+<!-- Dialect Toggle & Audio Button -->
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-1 bg-surface rounded border border-outline-variant p-0.5 text-label-sm font-label-sm">
+<button class="px-2 py-0.5 rounded bg-primary text-on-primary font-medium" type="button">বরেন্দ্রী উপভাষা</button>
+<button class="px-2 py-0.5 rounded text-on-surface-variant hover:text-on-surface" type="button">শুদ্ধ বাংলা</button>
+</div>
+<button class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-surface-container-lowest border border-primary text-primary hover:bg-surface-container-low text-label-sm font-label-sm transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">play_arrow</span>
+<span>প্লে করুন</span>
+</button>
+</div>
+</div>
+<!-- Interactive Keypad Options (Feature Phone Simulation) -->
+<div class="space-y-2.5">
+<!-- Button 1 -->
+<div class="p-2.5 rounded border-2 border-secondary bg-surface-container-low flex items-start gap-3">
+<div class="w-9 h-9 rounded bg-primary-container text-on-primary flex flex-col items-center justify-center shrink-0 border border-outline-variant shadow-sm">
+<span class="font-code-sm font-bold text-[16px] leading-none">১</span>
+<span class="text-[8px] font-code-sm text-secondary-fixed leading-none">KEY 1</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center justify-between">
+<h4 class="text-label-md font-label-md text-primary font-bold">পানির নিরাপত্তা ও সেচ সাশ্রয়</h4>
+<span class="text-label-sm font-code-sm text-secondary font-bold">নির্বাচিত</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-0.5">
+                  “ভূগর্ভস্থ পানির অপচয় কমাতে এবং কম সেচনির্ভর ডাল/তৈলবীজ অগ্রাধিকার দিতে ১ চাপুন”
+                </p>
+</div>
+</div>
+<!-- Button 2 -->
+<div class="p-2.5 rounded border border-outline-variant bg-surface flex items-start gap-3 hover:border-outline transition-colors">
+<div class="w-9 h-9 rounded bg-surface-container-lowest text-on-surface flex flex-col items-center justify-center shrink-0 border border-outline-variant">
+<span class="font-code-sm font-bold text-[16px] leading-none">২</span>
+<span class="text-[8px] font-code-sm text-on-surface-variant leading-none">KEY 2</span>
+</div>
+<div class="flex-1">
+<h4 class="text-label-md font-label-md text-on-surface font-semibold">সর্বোচ্চ নিট আয় ও লাভজনকতা</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-0.5">
+                  “সরিষা ও স্বল্পমেয়াদি উচ্চফলনশীল জাত প্রাধান্য দিতে ২ চাপুন”
+                </p>
+</div>
+</div>
+<!-- Button 3 -->
+<div class="p-2.5 rounded border border-outline-variant bg-surface flex items-start gap-3 hover:border-outline transition-colors">
+<div class="w-9 h-9 rounded bg-surface-container-lowest text-on-surface flex flex-col items-center justify-center shrink-0 border border-outline-variant">
+<span class="font-code-sm font-bold text-[16px] leading-none">৩</span>
+<span class="text-[8px] font-code-sm text-on-surface-variant leading-none">KEY 3</span>
+</div>
+<div class="flex-1">
+<h4 class="text-label-md font-label-md text-on-surface font-semibold">মাটির স্বাস্থ্য ও উর্বরতা বৃদ্ধি</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-0.5">
+                  “ডাল ও সবুজ সার (ধৈঞ্চা) চক্রে জৈব কার্বন বৃদ্ধিতে ৩ চাপুন”
+                </p>
+</div>
+</div>
+<!-- Button 9 -->
+<div class="p-2.5 rounded border border-outline-variant bg-surface flex items-start gap-3 hover:border-outline transition-colors">
+<div class="w-9 h-9 rounded bg-surface-container-lowest text-primary flex flex-col items-center justify-center shrink-0 border border-outline-variant">
+<span class="font-code-sm font-bold text-[16px] leading-none">৯</span>
+<span class="text-[8px] font-code-sm text-on-surface-variant leading-none">KEY 9</span>
+</div>
+<div class="flex-1">
+<h4 class="text-label-md font-label-md text-primary font-semibold flex items-center gap-1">
+<span>কৃষি কর্মকর্তার সাথে সরাসরি কথা</span>
+<span class="material-symbols-outlined text-[14px]">phone_in_talk</span>
+</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-0.5">
+                  “এসএএও আরিফুল ইসলাম-এর সরাসরি মোবাইল কল সংযোগের জন্য ৯ চাপুন”
+                </p>
+</div>
+</div>
+</div>
+<!-- Feature-Phone Usability Guarantee -->
+<div class="mt-4 p-2.5 rounded bg-surface-container border border-outline-variant text-body-sm font-body-sm text-on-surface flex items-start gap-2">
+<span class="material-symbols-outlined text-primary text-[18px] mt-0.5 shrink-0">signal_cellular_alt</span>
+<p>
+<strong class="font-semibold text-primary">কৃষক প্রান্তিকতা নিশ্চয়তা:</strong> ইন্টারনেট সংযোগ বা স্মার্টফোন ছাড়াই যেকোনো সাধারণ বাটন ফোনে এই ভয়েস আইভিআর ও এসএমএস সার্ভিস সম্পূর্ণ কাজ করবে।
+            </p>
+</div>
+<!-- Audio Test Trigger -->
+<button class="w-full mt-3 py-2.5 px-3 rounded bg-surface-container-low border border-primary text-primary hover:bg-surface-container text-label-md font-label-md transition-colors flex items-center justify-center gap-2" type="button">
+<span class="material-symbols-outlined text-[18px]">volume_up</span>
+<span>স্পিকার অডিও পরীক্ষা শুনুন (Sample Voice Prompt)</span>
+</button>
+</div>
+<!-- Field Assistant Quick Notes Card -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded p-3 text-body-sm font-body-sm">
+<div class="flex items-center gap-1.5 text-label-sm font-label-sm text-on-surface-variant mb-1 font-semibold">
+<span class="material-symbols-outlined text-[16px]">info</span>
+<span>মাঠ সহকারী নির্দেশিকা</span>
+</div>
+<p class="text-on-surface-variant">
+            কৃষককে বাটন ১-এর পানি সাশ্রয়ী প্রভাব ব্যাখ্যা করুন। বরেন্দ্র এলাকায় প্রতি হেক্টর বোরোতে প্রায় ৩৫-৪০ লাখ লিটার পানি ব্যয় হয়, যেখানে রবি ডালে মাত্র ৩-৪ লাখ লিটার লাগে।
+          </p>
+</div>
+</div>
+</div>
+</main>
+<!-- ================= STICKY BOTTOM ACTIONS FOOTER ================= -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant py-3 px-6 mt-8">
+<div class="max-w-[1440px] mx-auto flex flex-wrap items-center justify-between gap-4">
+<!-- Officer Session & Audit Status -->
+<div class="flex items-center gap-3">
+<span class="flex items-center gap-1 text-label-sm font-code-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-secondary">verified</span>
+          SAAO Session: Arifur.Islam #7842
+        </span>
+<span class="text-outline-variant">•</span>
+<span class="text-label-sm font-code-sm text-on-surface-variant">Talanda Union Office (Tanor, Rajshahi)</span>
+<span class="text-outline-variant">•</span>
+<span class="inline-flex items-center gap-1 text-label-sm font-code-sm bg-surface-container px-2 py-0.5 rounded border border-outline-variant text-on-surface">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+          অডিট ট্রেইল এনক্রিপ্টেড
+        </span>
+</div>
+<!-- Footer Buttons -->
+<div class="flex items-center gap-3">
+<button class="px-4 py-2 rounded bg-surface-container-lowest border border-outline-variant text-on-surface text-label-md font-label-md hover:bg-surface-container-low transition-colors" type="button">
+          খসড়া সংরক্ষণ (Save Draft)
+        </button>
+<button class="inline-flex items-center gap-2 px-5 py-2.5 rounded bg-primary-container text-on-primary text-label-md font-label-md hover:bg-primary transition-colors shadow" type="button">
+<span>সংরক্ষণ ও পরামর্শ প্রিভিউতে যান (Save &amp; Proceed to Voice/SMS Preview)</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</footer>
+</body></html>
