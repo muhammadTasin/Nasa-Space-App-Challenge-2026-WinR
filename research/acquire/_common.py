@@ -44,6 +44,26 @@ def write_provenance(path: Path, **fields) -> None:
         json.dumps(fields, indent=1, ensure_ascii=False), encoding="utf-8")
 
 
+GIOVANNI = "https://api.giovanni.earthdata.nasa.gov/timeseries"
+
+
+def giovanni_series(s, data: str, lat: float, lon: float, start: str, end: str):
+    """A whole daily series at one point from NASA GES DISC's Giovanni time-series service (NaN where undefined).
+    `s` must carry an Earthdata bearer token (earthaccess.get_requests_https_session()); one call returns decades
+    in seconds, because the service reads the cell's time series instead of one file per day."""
+    import re
+
+    import pandas as pd
+    r = s.get(GIOVANNI, params={"data": data, "location": f"[{lat},{lon}]",
+                                "time": f"{start}T00:00:00/{end}T23:59:59"}, timeout=600)
+    r.raise_for_status()
+    head, _, body = r.text.partition("Timestamp (UTC),Data")
+    undef = float(re.search(r"^undef,(.+)$", head, re.M).group(1))
+    rows = [line.split(",") for line in body.strip().splitlines()]
+    v = pd.Series([float(x[1]) for x in rows], index=pd.to_datetime([x[0][:10] for x in rows]))
+    return v.where(v != undef)
+
+
 def load_dotenv(path: Path = RESEARCH.parent / ".env") -> None:
     """Minimal .env reader so the Earthdata scripts need no extra dependency."""
     if not path.exists():

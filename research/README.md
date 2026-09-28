@@ -1,7 +1,8 @@
 # Pre-event research: data access and a first look
 
 This folder is **research, not the product.** The NASA Space Apps FAQ asks teams to start the actual
-project work when the hackathon begins (Bangladesh local events 13–14 Nov 2026). Everything here
+project work when the hackathon begins (Bangladesh local events 13–14 Nov 2026 per the local guide; the global
+FAQ gives 14–15 Nov, so confirm with the organisers). Everything here
 checks which data we can get, how, and whether it says what we think it says. Product code gets
 written at the event. Disclose this folder, and any AI help with it, in `docs/AI_USE.md`.
 
@@ -127,6 +128,27 @@ it refused the SMAP L4 name we tried), for a gridded cut-out **Harmony** (listed
 and AppEEARS only for MODIS/VIIRS/SMAP points, where jobs queue for hours. NASA's official **Earthdata MCP
 server** (<https://cmr.earthdata.nasa.gov/mcp/v1>, tools `get_collections`, `get_granules`, `get_services`,
 `get_variables` ...) only searches the catalogue; it finds these services but downloads nothing.
+
+## NASA signals behind the rotation scores (added 28 Sep 2026)
+
+One command rebuilds them from the cache: `python research/run_analyses.py` (after `acquire/gldas_da.py`, which
+pulls GLDAS through Giovanni in about 12 minutes for 70 sites). Each row turns a NASA dataset into something a
+rotation choice depends on.
+
+| Script | NASA data | Informs | Result | Output |
+|---|---|---|---|---|
+| `acquire/gldas_da.py` + `explore/groundwater.py` | GRACE/GRACE-FO mascons; GLDAS-2.2 groundwater with GRACE data assimilation (daily, 25 km, 2003 to Jun 2026) | the water ledger | Bangladesh's water storage falls 0.40 cm a year (p 0.002), the north-west Barind's is 7 cm lower than in 2003-07. Groundwater under Tanore falls 7.4 mm a year (147 mm since 2003-07); it falls significantly in 50 of 64 districts, fastest in Naogaon, Nawabganj, Thakurgaon, Rajshahi and Natore. The haor's is not falling | `pilots/groundwater_trend.csv` |
+| `explore/soil_moisture.py` | GLDAS-2.2 root-zone moisture 2003-2025, checked against SMAP L4 (Spearman 0.86-0.96 over 1,008 days) | sowing and relay crops after Aman | the top metre holds about 290 mm at Tanore on 10 November; harvesting nine days earlier keeps 8-16 mm more (median by pilot), small next to the sowing window and heat | `pilots/soil_moisture_rotation.csv` |
+| `explore/heat_windows.py` | POWER daily, corrected by month against each pilot's nearest BMD station | the heat score | days at 35 C or more around Boro flowering: about 10 of 15 at Tanore and Batiaghata, 2 at Mithapukur and Dharmapasha. Nights at Aman flowering warm 0.24-0.43 C a decade (significant at every pilot for BRRI dhan71). Wheat sown on 10 December meets two to three times the hot days of wheat sown on 20 November. Mithapukur's April correction is large (+4.9 C against Rangpur) | `pilots/heat_windows.csv`, `heat_trends.csv` |
+| `explore/flash_flood_hindcast.py` | IMERG Final at Sohra (Meghalaya), Sunamganj and Dharmapasha, with FFWC's flood years | the haor flood trigger and the Boro variety | 200 mm or more in 3 days at Sohra (15 Mar-15 May) flags 2004, 2010 and 2017 and no labelled no-flood year (8 of 25 springs), and misses the small late floods of 2018-19. At 250 mm, BRRI dhan28 was still in the field for 4 of 5 bursts, BRRI dhan88, 81 and 89 for 1 (2017), and for none when sown two weeks early | `floods/flash_flood_hindcast.csv`, `flash_flood_thresholds.csv`, `boro_flood_escape.csv` |
+| `explore/field_cycles.py` | MODIS MOD13Q1 NDVI (9 x 9 pixels) | what the fields do; targeting and the soil ledger | crops a year, 2001-05 to 2020-24: Tanore 1.8 to 2.8, Batiaghata 2.0 to 1.6. Winter greenness (15 Jan-15 Mar): Batiaghata 0.33 to 0.44, still mostly fallow; Tanore 0.53 to 0.82 | `pilots/field_cycles.csv` |
+| `explore/cattle_heat.py` | POWER hourly 2023-2025 | the cows inside the rotation | from June to September no night cools below THI 72 at any pilot; 60-76% of hours fall in the danger band for crossbred cows; the coolest hours are 02:00-05:00 | `pilots/cattle_heat.csv` |
+| `explore/productivity_check.py` | SMAP L4 carbon: GPP and soil organic carbon, 2015-2025 | checking the replay; the soil ledger | does **not** confirm the replay's dry-at-flowering seasons at Tanore (rho +0.26, n 11): Barind farmers likely irrigate, so the ledger counts rescue water as a cost, not a lost crop. Wetter monsoons cut Aman productivity (rho -0.56 across pilots). Soil carbon 4,320 g/m2 (Batiaghata) to 5,389 (Dharmapasha) | `pilots/productivity_check.csv`, `soil_carbon.csv` |
+| `explore/environment_ledger.py` | all of the above | the ledger per rotation | Tanore: BRRI dhan49 then Boro pumps 7,975 m3/ha a winter, keeps rice flooded 182 days and takes 595 kg/ha of urea; BRRI dhan71 then lentil 1,995 m3/ha, 80 days, 283 kg/ha and a legume; BRRI dhan71 then mustard 1,140 m3/ha | `pilots/environment_ledger_tanore.csv` |
+
+Not used yet, because they need new downloads or methods: HLS 30 m field maps, Sentinel-1, OPERA and NISAR radar,
+ECOSTRESS and land-surface temperature, FIRMS fires and NASA's GEOS-S2S seasonal outlooks. The SMAP L4 archive
+(NSIDC) is not in Giovanni, so its long record needs AppEEARS or Harmony; GLDAS stands in for it here.
 
 ## What needs a free Earthdata Login
 

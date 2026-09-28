@@ -30,10 +30,9 @@ from datetime import date, timedelta
 import numpy as np
 import pandas as pd
 
-from _common import load_dotenv, load_sites, out_dir, write_provenance
+from _common import GIOVANNI, giovanni_series, load_dotenv, load_sites, out_dir, write_provenance
 
 OPENDAP = "https://gpm1.gesdisc.eosdis.nasa.gov/opendap/GPM_L3"
-GIOVANNI = "https://api.giovanni.earthdata.nasa.gov/timeseries"
 RUNS = [("L", "GPM_3IMERGDL.07"), ("E", "GPM_3IMERGDE.07")]  # Late preferred, Early for the newest days
 LON0, LON1, LAT0, LAT1 = 2679, 2728, 1104, 1168  # indices: 87.95-92.85 E, 20.45-26.85 N
 LONS = -179.95 + 0.1 * np.arange(LON0, LON1 + 1)
@@ -50,18 +49,6 @@ def sites() -> list[dict]:
     return load_sites("pilot_sites") + load_sites("upstream_points") + load_sites("districts")
 
 
-def point_series(s, data: str, lat: float, lon: float, start: str, end: str) -> pd.Series:
-    """A whole daily series at one point from the Giovanni time-series service (mm/day, NaN where undefined)."""
-    r = s.get(GIOVANNI, params={"data": data, "location": f"[{lat},{lon}]",
-                                "time": f"{start}T00:00:00/{end}T23:59:59"}, timeout=600)
-    r.raise_for_status()
-    head, _, body = r.text.partition("Timestamp (UTC),Data")
-    undef = float(re.search(r"^undef,(.+)$", head, re.M).group(1))
-    rows = [line.split(",") for line in body.strip().splitlines()]
-    v = pd.Series([float(x[1]) for x in rows], index=pd.to_datetime([x[0][:10] for x in rows]))
-    return v.where(v != undef)
-
-
 def baseline(s, y0: int, y1: int) -> None:
     """Late-run daily series for whole years at the cell the near-real-time feed reads for each site (the cell
     centre is sent, so both read the same cell)."""
@@ -70,8 +57,8 @@ def baseline(s, y0: int, y1: int) -> None:
         i, j = cell(x["lon"], x["lat"])
         for attempt in range(4):
             try:
-                v = point_series(s, "GPM_3IMERGDL_07_precipitation", round(float(LATS[j]), 2),
-                                 round(float(LONS[i]), 2), f"{y0}-01-01", f"{y1}-12-31")
+                v = giovanni_series(s, "GPM_3IMERGDL_07_precipitation", round(float(LATS[j]), 2),
+                                    round(float(LONS[i]), 2), f"{y0}-01-01", f"{y1}-12-31")
                 break
             except Exception:  # transient server error: wait and retry
                 if attempt == 3:
