@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project EDEN — Earth Data &amp; Environment Navigator · ফসল চক্র সিদ্ধান্ত সহায়ক সেবা</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- TOP NAVIGATION BAR -->
+  <header class="app-header">
+    <div class="header-left">
+      <div class="brand">
+        <span class="brand-icon">🌱</span>
+        <div class="brand-text">
+          <h1 class="brand-title">EDEN</h1>
+          <span class="brand-subtitle">Project EDEN • Earth Data & Environment Navigator • নাসা স্যাটেলাইট ও কৃষি তথ্য সেবা</span>
+        </div>
+      </div>
+
+      <!-- LOCATION HIERARCHY SELECTOR -->
+      <div class="location-badge">
+        <span class="geo-icon">📍</span>
+        <div class="geo-hierarchy">
+          <span class="district">রাজশাহী</span>
+          <span class="sep">›</span>
+          <span class="upazila">তানোর</span>
+          <span class="sep">›</span>
+          <span class="union active">তালন্দ ইউনিয়ন</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="header-right">
+      <!-- DATA RELEASE BADGE -->
+      <div class="release-status" title="সর্বশেষ ডেটা রিলিজ সংস্করণ">
+        <span class="status-dot pulse"></span>
+        <span class="release-tag">রিলিজ: bd-pilots-2026.10.1</span>
+      </div>
+
+      <!-- LANGUAGE TOGGLE -->
+      <div class="lang-switch">
+        <button id="langBn" class="lang-btn active">বাংলা</button>
+        <button id="langEn" class="lang-btn">EN</button>
+      </div>
+
+      <!-- SAAO PROFILE -->
+      <div class="saao-profile">
+        <div class="avatar">উপ</div>
+        <div class="profile-info">
+          <span class="saao-name">নমুনা কর্মকর্তা</span>
+          <span class="saao-role">SAAO, তালন্দ ব্লক</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- SCREEN TABS NAVIGATION -->
+  <nav class="screen-nav">
+    <button class="nav-tab active" data-screen="screen-overview">
+      <span class="tab-num">১</span> ড্যাশবোর্ড ওভারভিউ
+    </button>
+    <button class="nav-tab" data-screen="screen-planner">
+      <span class="tab-num">২</span> রোটেশন প্ল্যানার
+    </button>
+    <button class="nav-tab" data-screen="screen-comparison">
+      <span class="tab-num">৩</span> ৬-ডাইমেনশন তুলনা
+    </button>
+    <button class="nav-tab" data-screen="screen-evidence">
+      <span class="tab-num">৪</span> স্যাটেলাইট প্রমাণ ও যুক্তি
+    </button>
+    <button class="nav-tab" data-screen="screen-farmer">
+      <span class="tab-num">৫</span> কৃষক প্রোফাইল ও কিপ্যাড
+    </button>
+    <button class="nav-tab" data-screen="screen-delivery">
+      <span class="tab-num">৬</span> অডিও প্রিভিউ ও কল ডেলিভারি
+    </button>
+    <button class="nav-tab" data-screen="screen-companion">
+      <span class="tab-num">৭</span> কৃষক মোবাইল সাথী
+    </button>
+    <button class="nav-tab" data-screen="screen-quality">
+      <span class="tab-num">৮</span> ডেটা মান ও ফ্রেশনেস
+    </button>
+  </nav>
+
+  <!-- MAIN CONTAINER -->
+  <main class="main-content">
+
+    <!-- ========================================== -->
+    <!-- SCREEN 1: SAAO OVERVIEW DASHBOARD         -->
+    <!-- ========================================== -->
+    <section id="screen-overview" class="screen-section active">
+      <div class="overview-grid">
+        <!-- LEFT COLUMN: SUMMARY & ACTIONS -->
+        <div class="overview-left">
+          <div class="card banner-card">
+            <div class="banner-content">
+              <span class="season-badge">বর্তমান মৌসুম: আমন ২০২৬</span>
+              <h2>তালন্দ ইউনিয়ন: আমন থেকে রবি ফসল চক্র সিদ্ধান্ত</h2>
+              <p>বরেন্দ্র অঞ্চলের মাঝারি উঁচু জমিতে ভূগর্ভস্থ পানির চাপ কমাতে এবং মার্চের গরমের আগে রবি ডাল/সরিষা নিশ্চিত করতে ২৫ বছরের ঐতিহাসিক নাসা ডেটার ভিত্তিতে প্রস্তুতকৃত মডেল।</p>
+              <div class="banner-actions">
+                <button class="btn btn-primary" onclick="switchScreen('screen-planner')">
+                  + নতুন ফসল চক্র তুলনা শুরু করুন
+                </button>
+                <button class="btn btn-secondary" onclick="switchScreen('screen-evidence')">
+                  স্যাটেলাইট প্রমাণাবলী দেখুন
+                </button>
+              </div>
+            </div>
+            <div class="banner-stat">
+              <span class="stat-number">২৫</span>
+              <span class="stat-label">মৌসুমের হিস্টোরিক্যাল রি-প্লে</span>
+            </div>
+          </div>
+
+          <!-- SUMMARY METRIC CARDS -->
+          <div class="stats-row">
+            <div class="stat-card">
+              <div class="stat-icon water">💧</div>
+              <div class="stat-body">
+                <span class="stat-title">পানির স্থিতি (NASA IMERG)</span>
+                <span class="stat-value">স্বাভাবিক (Normal)</span>
+                <span class="stat-sub">শেষ ৭ দিনে ১৪.২ মিমি বৃষ্টি</span>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon soil">🌱</div>
+              <div class="stat-body">
+                <span class="stat-title">মাটির আর্দ্রতা (NASA SMAP)</span>
+                <span class="stat-value">০.২৪৫ m³/m³</span>
+                <span class="stat-sub">শিকড় অঞ্চলে পর্যাপ্ত রস রয়েছে</span>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon crop">🌾</div>
+              <div class="stat-body">
+                <span class="stat-title">প্রস্তাবিত আমন জাত</span>
+                <span class="stat-value">ব্রি ধান৭১</span>
+                <span class="stat-sub">১০ নভেম্বরের মধ্যে জমি মুক্ত</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- RECENT ADVICE LOG -->
+          <div class="card">
+            <div class="card-header">
+              <h3>সাম্প্রতিক সুপারিশ ও কৃষক ফলো-আপ (Talanda Block)</h3>
+              <span class="badge badge-success">সক্রিয় কৃষক: ৩৪২ জন</span>
+            </div>
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>কৃষকের নাম</th>
+                    <th>গ্রাম ও জমি</th>
+                    <th>সুপারিশকৃত চক্র</th>
+                    <th>ডেলিভারি মোড</th>
+                    <th>কিপ্যাড রেসপন্স</th>
+                    <th>অ্যাকশন</th>
+                  </tr>
+                </thead>
+                <tbody id="recentFarmersTable">
+                  <tr>
+                    <td><strong>নমুনা কৃষক ০১</strong></td>
+                    <td>নমুনা গ্রাম ০১ (মাঝারি উঁচু)</td>
+                    <td><span class="tag tag-green">ধান৭১ → মসুর-৮</span></td>
+                    <td>স্বয়ংক্রিয় ফোন কল (IVR)</td>
+                    <td><span class="badge badge-primary">১ (পানি সাশ্রয়)</span></td>
+                    <td><button class="btn btn-sm" onclick="switchScreen('screen-delivery')">বিস্তারিত</button></td>
+                  </tr>
+                  <tr>
+                    <td><strong>নমুনা কৃষক ০২</strong></td>
+                    <td>নমুনা গ্রাম ০২ (উঁচু জমি)</td>
+                    <td><span class="tag tag-green">ধান৭১ → সরিষা-১৪</span></td>
+                    <td>বাংলা এসএমএস</td>
+                    <td><span class="badge badge-neutral">পঠিত</span></td>
+                    <td><button class="btn btn-sm" onclick="switchScreen('screen-delivery')">বিস্তারিত</button></td>
+                  </tr>
+                  <tr>
+                    <td><strong>তরিকুল ইসলাম</strong></td>
+                    <td>কচুয়া (মাঝারি উঁচু)</td>
+                    <td><span class="tag tag-yellow">ধান৮৭ → গম ৩৩</span></td>
+                    <td>সরাসরি SAAO কল</td>
+                    <td><span class="badge badge-primary">২ (আয় বৃদ্ধি)</span></td>
+                    <td><button class="btn btn-sm" onclick="switchScreen('screen-delivery')">বিস্তারিত</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN: WEATHER & MAP -->
+        <div class="overview-right">
+          <!-- SATELLITE RADAR / WEATHER -->
+          <div class="card">
+            <div class="card-header">
+              <h3>স্যাটেলাইট নজরদারি (তানোর গ্রিড)</h3>
+              <span class="badge badge-live">LIVE FEED</span>
+            </div>
+            <div class="tanore-map-panel">
+              <div class="map-placeholder">
+                <div class="map-grid"></div>
+                <div class="map-pin">
+                  <div class="pin-pulse"></div>
+                  <span>তালন্দ ইউনিয়ন (২৪.৬২° N, ৮৮.৫৮° E)</span>
+                </div>
+              </div>
+              <div class="map-specs">
+                <div class="spec-item">
+                  <span class="label">নাসা সেল সাইজ:</span>
+                  <span class="val">০.১° (~১০ কিমি গ্রিড)</span>
+                </div>
+                <div class="spec-item">
+                  <span class="label">ভূমি উচ্চতা (NASADEM):</span>
+                  <span class="val">২১.০ মিটার (বরেন্দ্র উঁচু ভূমি)</span>
+                </div>
+                <div class="spec-item">
+                  <span class="label">BMD গ্রাউন্ড স্টেশন:</span>
+                  <span class="val">রাজশাহী স্টেশন (২৫ কিমি)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ACTIVE AGROMET ALERT -->
+          <div class="card alert-card">
+            <div class="alert-icon">⚠️</div>
+            <div class="alert-content">
+              <h4>সক্রিয় সতর্কতা: অক্টোবরের শেষে খরা ঝুঁকি</h4>
+              <p>নাসার ২৫ বছরের মডেলে দেখা যায়, ২০ অক্টোবরের পর বৃষ্টি কমে যায়। নাবি আমন (যেমন ধান৪৯) ফুল আসার সময়ে খরায় পড়ার সম্ভাবনা ৩৬%।</p>
+              <div class="alert-solution">
+                <strong>সমাধান:</strong> ব্রি ধান৭১ লাগালে ৫ অক্টোবরের মধ্যে ফুল এসে খরা এড়ানো যায়।
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SCREEN 2: ROTATION PLANNER                 -->
+    <!-- ========================================== -->
+    <section id="screen-planner" class="screen-section">
+      <div class="planner-layout">
+        <div class="planner-controls card">
+          <h2>রোটেশন প্ল্যানার কনফিগারেশন</h2>
+          <p class="subtitle">কৃষকের জমি, বর্তমান অবস্থা এবং কাঙ্ক্ষিত অগ্রাধিকার নির্বাচন করুন</p>
+
+          <div class="form-group">
+            <label>ইউনিয়ন ও অবস্থান</label>
+            <select id="planUnion" class="form-control" disabled>
+              <option value="talanda_tanore">তালন্দ ইউনিয়ন, তানোর, রাজশাহী</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>জমির ধরন (Land Type)</label>
+            <select id="planLandType" class="form-control">
+              <option value="medium_high" selected>মাঝারি উঁচু জমি (Medium-High Land — প্রধানত দোআঁশ)</option>
+              <option value="high">উঁচু জমি (High Land — লাল বরেন্দ্র মাটি)</option>
+              <option value="medium_low">মাঝারি নিচু জমি (Medium-Low Land)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>বর্তমান আমন ধানের জাত</label>
+            <select id="planAmanCrop" class="form-control">
+              <option value="BRRI dhan71" selected>ব্রি ধান৭১ (স্বল্পমেয়াদি ১১৫ দিন — খরা সহনশীল)</option>
+              <option value="BRRI dhan87">ব্রি ধান৮৭ (১২৭ দিন — উচ্চ ফলনশীল)</option>
+              <option value="BRRI dhan49">ব্রি ধান৪৯ (দীর্ঘমেয়াদি ১৩৫ দিন — প্রচলিত)</option>
+              <option value="Late dhan75">দেরিতে রোপণকৃত ধান (১২০ দিন)</option>
+            </select>
+          </div>
+
+          <div class="priority-sliders">
+            <label><strong>কৃষকের অগ্রাধিকার নির্ধারণ (Priorities Weighting):</strong></label>
+
+            <div class="slider-group">
+              <div class="slider-header">
+                <span>💧 পানির সাশ্রয় ও সেচ নিরাপত্তা</span>
+                <span id="valWeightWater" class="slider-val">৫০%</span>
+              </div>
+              <input type="range" id="weightWater" min="0" max="100" value="50" oninput="updateWeights()">
+            </div>
+
+            <div class="slider-group">
+              <div class="slider-header">
+                <span>💰 নিট মুনাফা ও অর্থনৈতিক স্থায়িত্ব</span>
+                <span id="valWeightIncome" class="slider-val">৩০%</span>
+              </div>
+              <input type="range" id="weightIncome" min="0" max="100" value="30" oninput="updateWeights()">
+            </div>
+
+            <div class="slider-group">
+              <div class="slider-header">
+                <span>🌱 মাটির পুষ্টি ও জৈব পদার্থ</span>
+                <span id="valWeightSoil" class="slider-val">২০%</span>
+              </div>
+              <input type="range" id="weightSoil" min="0" max="100" value="20" oninput="updateWeights()">
+            </div>
+          </div>
+
+          <button class="btn btn-primary btn-block" onclick="runPlannerCalculation()">
+            ⚡ ৬-ডাইমেনশন সিমুলেশন ও রি-প্লে রান করুন
+          </button>
+        </div>
+
+        <div class="planner-preview card">
+          <div class="card-header">
+            <h3>সিমুলেটেড ফসল চক্রের প্রাকদর্শন</h3>
+            <span class="badge badge-neutral">৪টি বিকল্প তৈরি হয়েছে</span>
+          </div>
+          <div id="plannerResultsContainer" class="candidate-list">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SCREEN 3: ROTATION COMPARISON              -->
+    <!-- ========================================== -->
+    <section id="screen-comparison" class="screen-section">
+      <div class="comparison-header card">
+        <div class="comp-title-area">
+          <h2>৬টি ডাইমেনশনের বিস্তারিত তুলনা (Multi-Dimension Comparison)</h2>
+          <p>পানি, তাপ, বন্যা, মাটি, পশুখাদ্য এবং আয়ের ভিত্তিতে তৈরি বৈজ্ঞানিক ট্রেড-অফ বিশ্লেষণ। শুধুমাত্র রঙের ওপর নির্ভর না করে প্রতিটি স্কোরের সাথে সংখ্যা ও ব্যাখ্যা দেওয়া হয়েছে।</p>
+        </div>
+        <div class="comp-actions">
+          <button class="btn btn-secondary" onclick="switchScreen('screen-evidence')">প্রমাণ ও উপগ্রহ ডেটা দেখুন</button>
+          <button class="btn btn-primary" onclick="switchScreen('screen-delivery')">পরামর্শ পাঠান (Voice/SMS)</button>
+        </div>
+      </div>
+
+      <!-- COMPARISON CARDS ROW -->
+      <div id="comparisonCardsGrid" class="comparison-grid">
+        <!-- Dynamically rendered options comparison -->
+      </div>
+
+      <!-- MONTH-BY-MONTH CROP OCCUPANCY TIMELINE -->
+      <div class="card timeline-card">
+        <div class="card-header">
+          <h3>মাসভিত্তিক জমি ব্যবহারের টাইমলাইন (Month-by-Month Field Occupancy)</h3>
+          <span class="badge badge-info">কখন জমি খালি হচ্ছে তা দেখুন</span>
+        </div>
+        <p class="timeline-desc">আমন ধান কাটার তারিখ নির্ধারণ করে রবি ফসল সময়ে বোনা যাবে কি না। ১০ নভেম্বর জমি খালি হলে রবি ফসল সর্বোচ্চ ফলন দেয়।</p>
+        <div id="timelineContainer" class="timeline-visual">
+          <!-- Dynamically populated timeline -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SCREEN 4: EVIDENCE AND ADVICE DETAIL       -->
+    <!-- ========================================== -->
+    <section id="screen-evidence" class="screen-section">
+      <div class="card evidence-hero">
+        <div class="evidence-header-tag">বৈজ্ঞানিক প্রমাণ ও তথ্যসূত্র (NASA & National Agricultural Data)</div>
+        <h2>ব্রি ধান৭১ কেন তালন্দ ইউনিয়নের জন্য সর্বোচ্চ সুপারিশকৃত?</h2>
+        <p class="evidence-intro">
+          EDEN কোনো সংখ্যা বা যুক্তি কল্পনা করে না। প্রতিটি সুপারিশ ২৫ বছরের নাসা স্যাটেলাইট টাইম-সিরিজ, বাংলাদেশ ধান গবেষণা ইনস্টিটিউট (BRRI), কৃষি গবেষণা ইনস্টিটিউট (BARI) এবং মৃত্তিকা সম্পদ উন্নয়ন ইনস্টিটিউট (SRDI)-এর ফিল্ড ডেটার সাথে মিলিয়ে প্রমাণিত।
+        </p>
+      </div>
+
+      <div class="evidence-grid">
+        <!-- 25-SEASON REPLAY EVIDENCE -->
+        <div class="card evidence-card">
+          <div class="card-header">
+            <h3>১. ২৫ বছরের খরা রি-প্লে সিমুলেশন (Water Balance)</h3>
+            <span class="badge badge-success">উচ্চ আত্মবিশ্বাস (High Confidence)</span>
+          </div>
+          <div class="evidence-body">
+            <div class="evidence-highlight">
+              <span class="big-metric">৬ / ২৫</span>
+              <p>২০০১ থেকে ২০২৫ সালের মধ্যে ব্রি ধান৭১-এ ফুল আসার সংবেদনশীল সময়ে সম্পূরক সেচ লেগেছে <strong>মাত্র ৬ মৌসুমে</strong>।</p>
+            </div>
+            <ul class="evidence-list">
+              <li><strong>ব্রি ধান৪৯ (প্রচলিত):</strong> ফুল আসতে দেরি হওয়ায় ২৫ মৌসুমে <strong>৯ বার</strong> সেচ লেগেছে।</li>
+              <li><strong>দেরিতে বোনা ধান:</strong> ২৫ মৌসুমে <strong>২০ বার</strong> তীব্র খরায় পড়েছে।</li>
+              <li><strong>তথ্যসূত্র:</strong> NASA POWER (ET0) + NASA GPM IMERG Daily Rain (Rajshahi BMD স্টেশন দ্বারা ক্যালিব্রেটেড)।</li>
+              <li><strong>স্থানিক স্কেল:</strong> তানোর গ্রিড সেল (০.১° বা ~১০ কিমি), এটি পুরো ইউনিয়নের গড় পরিমাপ, একক জমির নয়।</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- SOIL & RESIDUAL MOISTURE -->
+        <div class="card evidence-card">
+          <div class="card-header">
+            <h3>২. মাটির পুষ্টি ও অবশিষ্ট আর্দ্রতা (Soil & SMAP)</h3>
+            <span class="badge badge-success">পরিমাপকৃত (Measured)</span>
+          </div>
+          <div class="evidence-body">
+            <div class="evidence-highlight">
+              <span class="big-metric">+১৮ কেজি</span>
+              <p>ব্রি ধান৭১ কাটার পর বারি মসুর-৮ চাষ করলে হেক্টর প্রতি <strong>১৮ কেজি প্রাকৃতিক নাইট্রোজেন</strong> মাটিতে যুক্ত হয়।</p>
+            </div>
+            <ul class="evidence-list">
+              <li><strong>নাসা SMAP ডেটা:</strong> ১০ নভেম্বর জমি ফাঁকা হলে মাটির শিকড় অঞ্চলে ০.২৪ m³/m³ আর্দ্রতা থাকে, যা মসুরের অঙ্কুরোদগমের জন্য যথেষ্ট।</li>
+              <li><strong>মাটির কার্ড:</strong> SRDI তালন্দ ইউনিয়ন সার নির্দেশিকা কার্ড (#RAJ_TAN_TAL_04) অনুযায়ী দোআঁশ মাটিতে ডাল ফসল মাটির উর্বরতা বাড়ায়।</li>
+              <li><strong>বোরোর তুলনা:</strong> টানা দুই ধান চাষে মাটির দস্তা ও জৈব পদার্থ দ্রুত হ্রাস পায়।</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- ECONOMIC AND FODDER -->
+        <div class="card evidence-card">
+          <div class="card-header">
+            <h3>৩. অর্থনৈতিক ও গবাদিপশুর নিরাপত্তা (Income & Fodder)</h3>
+            <span class="badge badge-success">মডেলভিত্তিক (Modeled)</span>
+          </div>
+          <div class="evidence-body">
+            <div class="evidence-highlight">
+              <span class="big-metric">১,১০,০০০ ৳</span>
+              <p>ধান৭১ + মসুর চক্রে হেক্টর প্রতি আনুমানিক নিট আয় <strong>১,১০,০০০ টাকা</strong> (সেচ খরচ ৭০% সাশ্রয়)।</p>
+            </div>
+            <ul class="evidence-list">
+              <li><strong>বিসিএস প্যানেল ডেটা:</strong> তানোর উপজেলায় বোরো ধানে সেচেই চলে যায় মোট খরচের ৩৮%, মসুরে মাত্র ১২%।</li>
+              <li><strong>গবাদিপশু ঘনত্ব:</strong> রাজশাহী জেলায় প্রতি বর্গকিমিতে ১৯৭টি গরু রয়েছে (FAO GLW4); আমনের শুকনো খড় ও মসুরের ভূষি সারা বছরের গোখাদ্য নিশ্চিত করে।</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- UNCERTAINTY & LIMITATIONS -->
+        <div class="card evidence-card uncertainty-box">
+          <div class="card-header">
+            <h3>৪. তথ্যের সীমাবদ্ধতা ও অনিশ্চয়তা নির্দেশক (Data Transparency)</h3>
+            <span class="badge badge-warning">সতর্কবার্তা</span>
+          </div>
+          <div class="evidence-body">
+            <p><strong>উপগ্রহ অনুমানের সীমা:</strong> উপগ্রহ থেকে প্রাপ্ত বৃষ্টি ও বাষ্পীভবন ইউনিয়ন পর্যায়ের প্রক্সি। যদি কৃষকের জমিতে স্থানীয় বাঁধ ভাঙা থাকে বা অতিরিক্ত বালুময় মাটি থাকে, তবে সেচ চাহিদা ভিন্ন হতে পারে।</p>
+            <p><strong>দাম অনুমান:</strong> বাজার দর BBS ও WFP-এর বিগত মৌসুমের পাইকারি গড় দরের ওপর নির্ভরশীল। চলমান মৌসুমের বাজার দর পরিবর্তনশীল।</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SCREEN 5: FARMER PRIORITIES AND PROFILE    -->
+    <!-- ========================================== -->
+    <section id="screen-farmer" class="screen-section">
+      <div class="farmer-layout">
+        <div class="card farmer-profile-card">
+          <h2>কৃষক প্রোফাইল ও সম্মতিপত্র (Farmer Profile & Consent)</h2>
+          <p class="subtitle">সাধারণ ফোন কল বা ফিল্ড ভিজিটে সংগৃহীত তথ্য</p>
+
+          <div class="profile-details-grid">
+            <div class="profile-field">
+              <span class="field-label">কৃষকের নাম</span>
+              <span class="field-val">নমুনা কৃষক ০১</span>
+            </div>
+            <div class="profile-field">
+              <span class="field-label">মোবাইল নম্বর</span>
+              <span class="field-val">01712-XXXXXX (গোপনীয় ও সুরক্ষিত)</span>
+            </div>
+            <div class="profile-field">
+              <span class="field-label">গ্রাম ও ইউনিয়ন</span>
+              <span class="field-val">তালন্দ পূর্বপাড়া, তানোর, রাজশাহী</span>
+            </div>
+            <div class="profile-field">
+              <span class="field-label">জমির পরিমাণ ও ধরন</span>
+              <span class="field-val">২.৫ বিঘা (মাঝারি উঁচু দোআঁশ জমি)</span>
+            </div>
+            <div class="profile-field">
+              <span class="field-label">প্রধান পানির উৎস</span>
+              <span class="field-val">বৃষ্টিপাত + প্রয়োজনবোধে গভীর নলকূপ (ভাড়া)</span>
+            </div>
+            <div class="profile-field">
+              <span class="field-label">গবাদিপশু</span>
+              <span class="field-val">৩টি দেশি গরু ও ২টি ছাগল</span>
+            </div>
+          </div>
+
+          <div class="consent-box">
+            <div class="consent-check">
+              <input type="checkbox" id="farmerConsent" checked disabled>
+              <label for="farmerConsent"><strong>কৃষকের সম্মতি গৃহীত হয়েছে:</strong> এই তথ্য শুধুমাত্র সঠিক ফসল পরামর্শের জন্য ব্যবহৃত হবে এবং কোনো বাণিজ্যিক প্রতিষ্ঠানে দেওয়া হবে না।</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="card keypad-interaction-card">
+          <div class="card-header">
+            <h3>সাধারণ বাটন ফোনের কিপ্যাড ইন্টারঅ্যাকশন (IVR DTMF Mapping)</h3>
+            <span class="badge badge-primary">স্মার্টফোন প্রয়োজন নেই</span>
+          </div>
+          <p>কৃষক যখন 'EDEN' টোল-ফ্রি নম্বরে কল দেন বা স্বয়ংক্রিয় ফোন পান, তখন তিনি কিপ্যাডের বোতাম চেপে নিজের পছন্দ জানান:</p>
+
+          <div class="keypad-mapping-list">
+            <div class="keypad-item">
+              <span class="keypad-btn">১</span>
+              <div class="keypad-text">
+                <strong>পানির নিরাপত্তা ও সেচ খরচ সাশ্রয়</strong>
+                <span>"পানির চিন্তা কমাতে ১ চাপুন"</span>
+              </div>
+            </div>
+            <div class="keypad-item">
+              <span class="keypad-btn">২</span>
+              <div class="keypad-text">
+                <strong>সর্বোচ্চ ফলন ও নিট আয় বৃদ্ধি</strong>
+                <span>"বেশি আয়ের জন্য ২ চাপুন"</span>
+              </div>
+            </div>
+            <div class="keypad-item">
+              <span class="keypad-btn">৩</span>
+              <div class="keypad-text">
+                <strong>মাটির স্বাস্থ্য ও উর্বরতা রক্ষা</strong>
+                <span>"মাটি ভালো রাখতে ৩ চাপুন"</span>
+              </div>
+            </div>
+            <div class="keypad-item">
+              <span class="keypad-btn">৯</span>
+              <div class="keypad-text">
+                <strong>উপজেলা কৃষি কর্মকর্তার (SAAO) সাথে সরাসরি কথা</strong>
+                <span>"অফিসারের সাথে কথা বলতে ৯ চাপুন"</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SCREEN 6: ADVICE PREVIEW AND CALL DELIVERY -->
+    <!-- ========================================== -->
+    <section id="screen-delivery" class="screen-section">
+      <div class="delivery-layout">
+        <!-- LEFT: SAAO AUDIT & PREVIEW -->
+        <div class="card delivery-preview-card">
+          <div class="card-header">
+            <h2>অনুমোদিত বাংলা পরামর্শ ও অডিও প্রিভিউ</h2>
+            <div class="narration-badge-group">
+              <span id="narrationEngineTag" class="badge badge-success">✓ ভেরিফাইড টেমপ্লেট (Verified Template)</span>
+              <span class="badge badge-neutral">হ্যালুসিনেশন ঝুঁকি: ০%</span>
+            </div>
+          </div>
+          <p class="subtitle">কৃষককে ফোন কল বা এসএমএস পাঠানোর আগে হুবহু অনুমোদিত বাংলা টেক্সট যাচাই করুন</p>
+
+          <div class="preview-speech-box">
+            <div class="speech-quote-icon">📢</div>
+            <p id="previewBanglaText" class="speech-text">
+              EDEN থেকে বলছি। তালন্দ ইউনিয়নের মাঝারি উঁচু জমির জন্য আপনার অনুমোদিত ফসল চক্র: ব্রি ধান৭১ → বারি মসুর-৮ → পতিত। ব্রি ধান৭১ লাগালে ২৫ মৌসুমে মাত্র ৬ বার বাড়তি সেচের প্রয়োজন হয়েছিল। ১০ নভেম্বরের মধ্যে ধান কেটে ফেললে রবি মৌসুমে মসুর চাষে সেচ সাশ্রয় হবে এবং মাত্র ১৯৮ মিলিমিটার পানির প্রয়োজন হবে। পরামর্শটি ভালো লাগলে বা কোনো প্রশ্ন থাকলে আপনার ইউনিয়ন কৃষি কর্মকর্তা (SAAO)-এর সাথে কথা বলুন। ধন্যবাদ।
+            </p>
+          </div>
+
+          <!-- AUDIO SIMULATOR -->
+          <div class="audio-player-mock">
+            <button id="btnPlayAudio" class="btn btn-audio" onclick="toggleAudioPreview()">
+              <span id="audioPlayIcon">▶</span> <span id="audioPlayText">বাংলা ভয়েস শুনুন (Audio Preview)</span>
+            </button>
+            <div class="audio-progress-bar">
+              <div id="audioProgress" class="audio-progress-fill"></div>
+            </div>
+            <span class="audio-time">০০:৪২ সেকেন্ড</span>
+          </div>
+
+          <!-- DUAL-GATE AUDIT TRAIL -->
+          <div class="audit-trail-panel">
+            <h4>ডুয়েল-গেট অ্যান্টি-হ্যালুসিনেশন অডিট রিপোর্ট (Dual-Gate Audit)</h4>
+            <div class="audit-grid">
+              <div class="audit-item">
+                <span class="audit-status pass">✓</span>
+                <span>গেট ১: অনুমোদিত ফ্যাক্টস ও স্লট যাচাইকৃত</span>
+              </div>
+              <div class="audit-item">
+                <span class="audit-status pass">✓</span>
+                <span>গেট ২: কোনো অননুমোদিত সংখ্যা পাওয়া যায়নি (Passed)</span>
+              </div>
+              <div class="audit-item">
+                <span class="audit-status pass">✓</span>
+                <span>নিষিদ্ধ বাণিজ্যিক শব্দ ফিল্টার: নিরাপদ</span>
+              </div>
+              <div class="audit-item">
+                <span class="audit-status pass">✓</span>
+                <span>লেটেন্সি: &lt; ২ মিলিসেকেন্ড</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: DISPATCH SIMULATOR -->
+        <div class="card dispatch-card">
+          <h3>ডেলিভারি মাধ্যম ও সিমুলেশন</h3>
+          <p class="subtitle">কৃষকের ফোনে পরামর্শ পাঠানোর চ্যানেল নির্বাচন করুন</p>
+
+          <div class="delivery-channel-toggle">
+            <label class="channel-option active">
+              <input type="radio" name="deliveryChannel" value="ivr" checked>
+              <div class="channel-body">
+                <strong>📞 স্বয়ংক্রিয় ফোন কল (IVR)</strong>
+                <span>সাধারণ বাটন ফোনে বাংলায় স্বয়ংক্রিয় কথা বলবে</span>
+              </div>
+            </label>
+            <label class="channel-option">
+              <input type="radio" name="deliveryChannel" value="sms">
+              <div class="channel-body">
+                <strong>💬 বাংলা এসএমএস (SMS)</strong>
+                <span>ইউনিকোড বাংলায় সংক্ষিপ্ত বার্তা প্রেরণ</span>
+              </div>
+            </label>
+            <label class="channel-option">
+              <input type="radio" name="deliveryChannel" value="saao_call">
+              <div class="channel-body">
+                <strong>👨‍🌾 SAAO সরাসরি কল</strong>
+                <span>মাঠ কর্মকর্তা নিজে ফোনে কথা বলে পরামর্শ দেবেন</span>
+              </div>
+            </label>
+          </div>
+
+          <div class="ivr-simulator-box">
+            <h4>লাইভ কিপ্যাড রেসপন্স টেস্ট (Simulate Farmer Keypad)</h4>
+            <div class="keypad-buttons">
+              <button class="btn btn-key" onclick="simulateFarmerKeypad('1')">১ (পানি)</button>
+              <button class="btn btn-key" onclick="simulateFarmerKeypad('2')">২ (আয়)</button>
+              <button class="btn btn-key" onclick="simulateFarmerKeypad('3')">৩ (মাটি)</button>
+              <button class="btn btn-key" onclick="simulateFarmerKeypad('9')">৯ (SAAO)</button>
+            </div>
+            <div id="liveCallLog" class="call-log-box">
+              <span class="log-line">কলের অবস্থা: প্রস্তুত (Ready to Dispatch)</span>
+            </div>
+          </div>
+
+          <button class="btn btn-success btn-block" onclick="dispatchAdviceCall()">
+            🚀 কৃষকের কাছে পরামর্শ পাঠিয়ে দিন (Dispatch Now)
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SCREEN 7: OPTIONAL FARMER MOBILE COMPANION -->
+    <!-- ========================================== -->
+    <section id="screen-companion" class="screen-section">
+      <div class="companion-wrapper">
+        <div class="companion-intro card">
+          <h2>ঐচ্ছিক কৃষক স্মার্টফোন সাথী (Companion PWA/App)</h2>
+          <p>এটি কৃষকের জন্য বাধ্যতামূলক নয়; যাদের স্মার্টফোন আছে তারা যেন অফলাইনেও সর্বশেষ অনুমোদিত পরামর্শ, আবহাওয়া এবং পরবর্তী করণীয় দেখতে পারেন তার সহজ ইন্টারফেস।</p>
+          <div class="offline-badge">
+            <span class="status-dot"></span> সম্পূর্ণ অফলাইনে ক্যাশ করা ডেটা থেকে কার্যকর
+          </div>
+        </div>
+
+        <!-- MOBILE DEVICE FRAME SIMULATOR -->
+        <div class="mobile-frame-container">
+          <div class="smartphone-frame">
+            <div class="phone-screen">
+              <!-- PHONE HEADER -->
+              <div class="phone-header">
+                <div class="phone-topbar">
+                  <span>EDEN</span>
+                  <span>📶 অফলাইন রেডি</span>
+                </div>
+                <div class="farmer-greeting">
+                  <h3>আসসালামু আলাইকুম, রফিকুল ভাই</h3>
+                  <span>তালন্দ ইউনিয়ন • আমন ২০২৬</span>
+                </div>
+              </div>
+
+              <!-- MAIN ACTION CARD -->
+              <div class="phone-body">
+                <div class="phone-card action-card">
+                  <span class="card-tag">আপনার পরবর্তী কাজ</span>
+                  <h4>১০ নভেম্বরের মধ্যে ব্রি ধান৭১ কেটে ফেলুন</h4>
+                  <p>জমিতে পর্যাপ্ত রস থাকতে থাকতেই মসুর বীজ বুনে দিন। অতিরিক্ত সেচের প্রয়োজন হবে না।</p>
+                  <button class="phone-btn primary" onclick="alert('ভয়েস পরামর্শ অডিও প্লে হচ্ছে...')">
+                    🔊 পরামর্শটি শুনুন (Play)
+                  </button>
+                </div>
+
+                <!-- 6 DIMENSIONS SUMMARY -->
+                <div class="phone-card">
+                  <span class="card-tag">ফসল চক্র: ব্রি ধান৭১ → মসুর-৮</span>
+                  <div class="phone-metrics-row">
+                    <div class="metric-cell">
+                      <span class="val">৮৪%</span>
+                      <span class="lbl">পানি সাশ্রয়</span>
+                    </div>
+                    <div class="metric-cell">
+                      <span class="val">০ দিন</span>
+                      <span class="lbl">তাপের ঝুঁকি</span>
+                    </div>
+                    <div class="metric-cell">
+                      <span class="val">+১৮ কেজি</span>
+                      <span class="lbl">মাটিতে নাইট্রোজেন</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- LOCAL ADVICE BUTTONS -->
+                <div class="phone-card">
+                  <span class="card-tag">মাঠ কর্মকর্তার সাথে যোগাযোগ</span>
+                  <p>কোনো দ্বিধা বা প্রশ্ন থাকলে আপনার ব্লকের কর্মকর্তার সাথে কথা বলুন:</p>
+                  <button class="phone-btn secondary" onclick="alert('নমুনা কর্মকর্তাকে কল করা হচ্ছে: 017XXXXXXXX')">
+                    📞 কৃষি কর্মকর্তা (SAAO)-কে কল দিন
+                  </button>
+                </div>
+
+                <div class="phone-footer">
+                  <span>সর্বশেষ আপডেট: ১৫ অক্টোবর ২০২৬ • ক্যাশড ভার্সন</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SCREEN 8: DATA QUALITY AND COVERAGE        -->
+    <!-- ========================================== -->
+    <section id="screen-quality" class="screen-section">
+      <div class="card quality-hero">
+        <div class="card-header">
+          <h2>ডেটা মান, ফ্রেশনেস ও কভারেজ ড্যাশবোর্ড (Data Quality & Transparency)</h2>
+          <span class="badge badge-success">সব সোর্স সচল</span>
+        </div>
+        <p class="subtitle">সুপারিশ কেন কোনো এলাকায় অনুপলব্ধ বা অনিশ্চিত হতে পারে তা যাচাই করার জন্য এসএএও ও অ্যাডমিন ভিউ। কোনো অনুপস্থিত মানকে কখনো গোপনে শূন্য ধরা হয় না।</p>
+      </div>
+
+      <div class="card">
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>ডেটা সোর্স ও প্যারামিটার</th>
+                <th>সময়কাল ও রেজোলিউশন</th>
+                <th>ল্যাটেন্সি / ফ্রেশনেস</th>
+                <th>গ্রাউন্ড ক্যালিব্রেশন</th>
+                <th>অবস্থা</th>
+              </tr>
+            </thead>
+            <tbody id="qualityTableBody">
+              <!-- Dynamically populated from /api/v1/data-release -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="quality-guidelines card">
+        <h3>EDEN ডেটা সততা নীতিমালা (Data Integrity Policy)</h3>
+        <div class="guidelines-grid">
+          <div class="policy-box">
+            <strong>১. নো সাইলেন্ট জিরো (No Silent Zeros):</strong>
+            <p>যদি বৃষ্টি বা তাপমাত্রার কোনো দিনের ডেটা পাওয়া না যায়, তবে সেটিকে শূন্য না ধরে নিকটস্থ বিএমডি রাজশাহী স্টেশন থেকে ইন্টারপোলেট করা হয় এবং আত্মবিশ্বাস 'অনিশ্চিত' ফ্ল্যাগ করা হয়।</p>
+          </div>
+          <div class="policy-box">
+            <strong>২. স্থানিক স্পষ্টতা (Spatial Resolution):</strong>
+            <p>নাসার গ্রিড সেল ইউনিয়ন বা ১০ কিমি স্কেলের প্রক্সি। এটিকে কখনো কৃষকের নির্দিষ্ট জমির মাটি পরীক্ষা বলে ভুলভাবে উপস্থাপন করা হয় না।</p>
+          </div>
+          <div class="policy-box">
+            <strong>৩. অপরিবর্তনীয় ডেটা ক্যাপসুল (Immutable Capsule):</strong>
+            <p>প্রতিটি ডেটা আপডেটের সুনির্দিষ্ট রিলিজ ভার্সন থাকে (bd-pilots-2026.10.1)। পুরোনো রিলিজের হিস্টোরিক্যাল রেকর্ড কখনো মুছে ফেলা হয় না।</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

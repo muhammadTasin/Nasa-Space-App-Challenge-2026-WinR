@@ -1,18 +1,82 @@
-# Farmer Mobile App
+# EDEN Farmer Android App
 
-This directory is reserved for EDEN's farmer-facing native Android app.
+Native Android prototype for farmers, built with Kotlin, Jetpack Compose, Material 3, and Room. This app lives in the `codex/android-apk` feature branch; it has not been merged into `main`.
 
-## Status
+## Current scope
 
-The Android application scaffold has not been created yet. Build it with Kotlin and Jetpack Compose; the target deliverable is an Android APK. Use the latest user-designated farmer Android screens, not superseded mobile exports in the design folder.
+The prototype has four bottom-navigation tabs and one nested detail screen:
 
-## Implementation boundaries
+| Screen | What it demonstrates |
+|---|---|
+| **আজ — Today's advice** | Current rotation card, plot context, freshness/offline banner, and Bangla text-to-speech control |
+| **পরিকল্পনা — Crop plan** | Crop-season timeline, alternative crop, and navigation to rotation details |
+| **আগের পরামর্শ — Advice history** | Locally stored advice cards and replay controls |
+| **আমার খামার — My farm** | Pilot farm profile, land/soil details, priorities, and consent presentation |
+| **ফসল চক্রের বিস্তারিত — Rotation detail** | Sowing/harvest guidance, evidence notes, missing-value labels, and a demo confirmation action |
 
-- Keep farmer-facing Compose screens, navigation, ViewModels, and device behavior in this directory.
-- Call the shared backend in `services/api/` for crop advice and other server data.
-- Reuse shared API types from `packages/contracts/`.
-- Keep crop scoring in `packages/rotation-engine/`; do not reimplement it in the app.
-- Use Room-backed local data as the read source for cached advice and farm data. Always show its last-updated time and a clear stale/offline state.
-- Keep API, Room, and presentation responsibilities separate; expose screen state from ViewModels and use lifecycle-aware state collection.
-- Keep the first release small and suitable for low-end Android devices. Avoid unnecessary SDKs, background polling, and large image assets.
-- Do not commit APK/AAB build files or real farmer personal data.
+The source for screens and their ViewModels is under `app/src/main/java/org/projecteden/farmermobile/ui/`. Navigation is in `Navigation.kt`; shared screen data models are in `data/model/`.
+
+## App architecture
+
+```text
+Compose screens
+    ↓ events / StateFlow
+Screen ViewModels
+    ↓
+FarmerRepository ───── EdenApiClient ───── services/api (HTTP :4000)
+    ↓                                      GET /api/v1/overview
+Room database                              POST /api/v1/advice
+    ↑
+Seeded prototype profile, advice, and history
+
+BanglaTtsManager → Android system TextToSpeech
+```
+
+- **Presentation:** Compose screens collect screen state from ViewModels. Navigation keeps the four tabs in one scaffold and opens rotation detail as a separate destination.
+- **Local data:** `EdenDatabase` and `FarmDao` store the farm profile, current advice, and advice history. The UI observes Room flows, so the seeded prototype content is available without a network connection.
+- **Remote data:** `EdenApiClient` uses Android's `HttpURLConnection` to call the shared Node API. The client defines overview and advice requests; farmer profile and advice history have no server endpoints yet.
+- **Voice:** `BanglaTtsManager` uses the device's Bengali system TTS when available. If Bengali voice data is missing, it reports that state instead of playing fabricated audio. The progress display is an estimate based on a timer.
+- **Recommendation ownership:** crop scoring remains in `packages/rotation-engine/` on the server side; the Android client does not implement scoring.
+
+## Data and integration status
+
+This branch is a reviewable demo, not a field-ready advice service. Treat the displayed farm, crop, dates, metrics, counts, provenance, and dashboard contacts as sample/pilot demonstration values until each is checked against its cited source and a real data release. Do not use the prototype as agricultural guidance.
+
+Known gaps in this version:
+
+- Room starts with seeded sample profile/advice/history. The profile screen's update action and the plan confirmation are demo interactions; they do not yet save a farmer-edited profile or a confirmed plan as a complete workflow.
+- `FarmerRepository.refreshAdvice()` calls the API, but the current response is not mapped into the Room advice fields. A successful refresh currently updates sync metadata while the displayed advice remains seeded; the failure path also needs to preserve the existing cache correctly.
+- Profile and history are local only; there are no `/api/v1/farmer-profile` or `/api/v1/advice-history` endpoints.
+- There is no durable background sync worker, account/authentication flow, or production API configuration yet.
+- The API address is currently `http://10.0.2.2:4000`, which is the Android emulator's route to the development host. A physical-device or deployed build needs an appropriate configurable API URL. Cleartext HTTP is enabled for local development and must be replaced with HTTPS before deployment.
+- The debug APK is a build output and is ignored by Git. Share the APK separately if a tester needs to install it.
+
+## Run locally
+
+Start the API and dashboard from the repository root:
+
+```bash
+npm install
+npm start
+```
+
+In a second terminal, build the Android app:
+
+```bash
+cd apps/farmer-mobile
+./gradlew assembleDebug
+```
+
+The debug APK is written to `apps/farmer-mobile/app/build/outputs/apk/debug/app-debug.apk`. To install it on a connected Android device or emulator with ADB:
+
+```bash
+adb install -r app/build/outputs/apk/debug/app-debug.apk
+```
+
+Run the existing local unit tests with:
+
+```bash
+./gradlew test
+```
+
+The app uses Gradle independently from the repository's npm workspaces. `local.properties`, Gradle caches, build outputs, APKs, and AABs should stay out of commits.

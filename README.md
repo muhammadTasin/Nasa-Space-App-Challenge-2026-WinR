@@ -29,7 +29,7 @@ The Node/TypeScript apps, services, and packages use npm workspaces. The Android
 
 ### Implementation status
 
-The committed branch currently contains the research and design work. The architecture above describes where product modules belong; the native Android app has not been implemented yet. Check the active branch and working tree before changing files, and preserve any existing uncommitted work.
+The default `main` branch contains the research/data-source work and this architecture overview. The separate `codex/android-apk` branch contains a working prototype of the native farmer app, the SAAO dashboard, API, and shared TypeScript packages. It has not been merged into `main`. Treat the app and dashboard as a demo: some displayed metrics, pilot records, and API responses are static or seeded values, not live farmer data or a production data feed. Review [`apps/farmer-mobile/README.md`](apps/farmer-mobile/README.md) on that branch for its screens, build steps, and known integration gaps.
 
 ### Where new code and data go
 
