@@ -11,9 +11,11 @@ import org.projecteden.farmermobile.data.local.FarmDao
 import org.projecteden.farmermobile.data.model.AdviceEntity
 import org.projecteden.farmermobile.data.model.AdviceHistoryEntity
 import org.projecteden.farmermobile.data.model.FarmProfileEntity
+import org.projecteden.farmermobile.data.remote.EdenApiClient
 import org.projecteden.farmermobile.data.repository.FarmerRepository
 import org.projecteden.farmermobile.ui.components.formatBanglaTimer
 import org.projecteden.farmermobile.ui.components.toBanglaDigits
+import org.projecteden.farmermobile.ui.components.windowPart
 
 class FarmerMobileUnitTest {
 
@@ -33,21 +35,30 @@ class FarmerMobileUnitTest {
     }
 
     @Test
+    fun testWindowPart() {
+        val window = "রোপণ: ~১ আগস্ট • কাটা: ~৩ নভেম্বর"
+        assertEquals("রোপণ: ~১ আগস্ট", window.windowPart(0))
+        assertEquals("কাটা: ~৩ নভেম্বর", window.windowPart(1))
+        assertEquals("", window.windowPart(2))
+    }
+
+    @Test
     fun testFarmProfileDefaults() {
         val profile = FarmProfileEntity()
-        assertEquals("তালান্দা পাইলট খামার", profile.farmName)
+        assertEquals("তালন্দ পাইলট খামার", profile.farmName)
         assertEquals("মাঝারি উঁচু জমি", profile.landType)
-        assertEquals("বেলে-দোআঁশ মাটি", profile.soilTexture)
+        assertEquals("খিয়ার মাটি", profile.soilTexture)
         assertTrue(profile.priorities.contains("পানি সাশ্রয়ী সেচ"))
     }
 
     @Test
-    fun testAdviceHonestMissingValues() {
+    fun testAdviceSeedUsesResearchAndMarksMissingPrice() {
         val advice = AdviceEntity()
-        assertEquals("তথ্য পাওয়া যায়নি", advice.season1IrrigationStatus)
-        assertEquals("তথ্য পাওয়া যায়নি", advice.season2FertilizerRecommendation)
-        assertEquals("তথ্য পাওয়া যায়নি", advice.alternativeCropMarketPrice)
-        assertEquals("আমন ধান ➔ সরিষা", advice.rotationTitle)
+        assertEquals("আমন ধান → মসুর", advice.rotationTitle)
+        assertTrue(advice.season1IrrigationStatus.startsWith("২৫ মৌসুমের"))
+        assertTrue(advice.season2FertilizerRecommendation.contains("SRDI"))
+        // No farm-gate price data yet, so the app says so instead of inventing one
+        assertEquals("তথ্য পাওয়া যায়নি", advice.alternativeCropMarketPrice)
     }
 
     @Test
@@ -65,14 +76,38 @@ class FarmerMobileUnitTest {
 
         val profile = repository.farmProfile.first()
         assertNotNull(profile)
-        assertEquals("তালান্দা পাইলট খামার", profile.farmName)
+        assertEquals("তালন্দ পাইলট খামার", profile.farmName)
 
         val advice = repository.currentAdvice.first()
         assertNotNull(advice)
-        assertEquals("আমন ধান ➔ সরিষা", advice.rotationTitle)
+        assertEquals("আমন ধান → মসুর", advice.rotationTitle)
 
         val history = repository.adviceHistory.first()
         assertEquals(1, history.size)
-        assertEquals("আমন ধান (ব্রি ধান-৪৯) ➔ সরিষা", history[0].rotationTitle)
+        assertEquals("আমন ধান (ব্রি ধান৭১) → মসুর", history[0].rotationTitle)
+    }
+
+    @Test
+    fun testRefreshFailureKeepsCachedAdvice() = runTest {
+        val cached = AdviceEntity(isOffline = false, lastSyncFormatted = "গতকাল")
+        var saved: AdviceEntity? = null
+        val fakeDao = object : FarmDao {
+            override fun getFarmProfile() = flowOf(null)
+            override suspend fun insertOrUpdateProfile(profile: FarmProfileEntity) {}
+            override fun getAdvice() = flowOf(cached)
+            override suspend fun insertOrUpdateAdvice(advice: AdviceEntity) { saved = advice }
+            override fun getAdviceHistory() = flowOf(emptyList<AdviceHistoryEntity>())
+            override suspend fun insertHistoryItem(item: AdviceHistoryEntity) {}
+        }
+
+        // Nothing listens on port 1, so the request fails
+        val repository = FarmerRepository(fakeDao, EdenApiClient(baseUrl = "http://127.0.0.1:1"))
+        val result = repository.refreshAdvice()
+
+        assertTrue(result.isFailure)
+        val stored = saved!!
+        assertTrue(stored.isOffline)
+        assertEquals(cached.rotationTitle, stored.rotationTitle)
+        assertEquals("গতকাল", stored.lastSyncFormatted)
     }
 }

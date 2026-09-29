@@ -65,32 +65,6 @@ fun EdenTopAppBar(
                 .fillMaxWidth()
                 .padding(horizontal = 16.dp, vertical = 6.dp)
         ) {
-            // Simulated Status Bar (Outdoor phone view)
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(bottom = 4.dp),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Text(
-                    text = "১০:৩০",
-                    style = MaterialTheme.typography.labelMedium,
-                    fontWeight = FontWeight.SemiBold,
-                    color = OnSurface
-                )
-                Row(
-                    horizontalArrangement = Arrangement.spacedBy(4.dp),
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Text(
-                        text = "৪জি  •  ৮৫%",
-                        style = MaterialTheme.typography.labelSmall,
-                        color = OnSurfaceVariant
-                    )
-                }
-            }
-
             // Main Action Bar Row
             Row(
                 modifier = Modifier

@@ -5,6 +5,7 @@ import { FloodDimensionPlugin } from './plugins/flood.ts';
 import { SoilDimensionPlugin } from './plugins/soil.ts';
 import { FodderDimensionPlugin } from './plugins/fodder.ts';
 import { IncomeDimensionPlugin } from './plugins/income.ts';
+import { PestDimensionPlugin } from './plugins/pest.ts';
 
 export class FeatureRegistry {
   private plugins = new Map<string, IEvidenceDimensionPlugin>();
@@ -17,6 +18,7 @@ export class FeatureRegistry {
     this.register(new SoilDimensionPlugin());
     this.register(new FodderDimensionPlugin());
     this.register(new IncomeDimensionPlugin());
+    this.register(new PestDimensionPlugin());
   }
 
   register(plugin: IEvidenceDimensionPlugin): void {

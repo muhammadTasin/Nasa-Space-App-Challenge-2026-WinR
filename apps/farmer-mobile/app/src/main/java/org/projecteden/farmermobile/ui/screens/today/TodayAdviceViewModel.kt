@@ -30,6 +30,11 @@ class TodayAdviceViewModel(application: Application) : AndroidViewModel(applicat
     private val _isRefreshing = MutableStateFlow(false)
     val isRefreshing: StateFlow<Boolean> = _isRefreshing.asStateFlow()
 
+    init {
+        // Sync with the server when the Today screen opens; the cached advice stays if it is unreachable.
+        refreshAdvice()
+    }
+
     fun playAudio() {
         ttsManager.playAdvice(advice.value.audioScriptBangla, advice.value.audioDurationSeconds)
     }

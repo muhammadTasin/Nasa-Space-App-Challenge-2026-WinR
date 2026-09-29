@@ -56,6 +56,7 @@ import org.projecteden.farmermobile.theme.SurfaceContainerLowest
 import org.projecteden.farmermobile.ui.components.AudioPlayerCard
 import org.projecteden.farmermobile.ui.components.EdenTopAppBar
 import org.projecteden.farmermobile.ui.components.OfflineStatusBanner
+import org.projecteden.farmermobile.ui.components.windowPart
 
 @Composable
 fun TodayAdviceScreen(
@@ -266,7 +267,7 @@ fun TodayAdviceScreen(
                                     color = OnSurfaceVariant
                                 )
                                 Text(
-                                    text = "রোপণ: জুলাই – আগস্ট",
+                                    text = advice.season1Window.windowPart(0),
                                     style = MaterialTheme.typography.labelSmall,
                                     color = Secondary,
                                     fontSize = 10.sp,
@@ -313,7 +314,7 @@ fun TodayAdviceScreen(
                                     color = OnSurfaceVariant
                                 )
                                 Text(
-                                    text = "বপন: নভেম্বর শেষ",
+                                    text = advice.season2Window.windowPart(0),
                                     style = MaterialTheme.typography.labelSmall,
                                     color = Secondary,
                                     fontSize = 10.sp,

@@ -1,59 +1,48 @@
 import type { IEvidenceDimensionPlugin, EvaluationContext, DimensionScoreResult } from '@project-eden/contracts';
-import { TANORE_RABI_REPLAY } from '../data/tanore_replay_data.ts';
+import { rabiOf, clampScore } from '../data/lookup.ts';
+import { ILLUSTRATIVE_AMAN_GROSS_MARGIN_TK_PER_HA } from '../data/crop_catalog.ts';
+import { bnNumber } from '../bn.ts';
 
 export class IncomeDimensionPlugin implements IEvidenceDimensionPlugin {
   readonly id = 'income';
-  readonly displayNameBangla = 'নিট লাভ ও অর্থনৈতিক নিরাপত্তা';
-  readonly displayNameEnglish = 'Net Farm Income & Economic Viability';
-  readonly version = '1.0.0';
+  readonly displayNameBangla = 'নিট লাভ (নমুনা হিসাব)';
+  readonly displayNameEnglish = 'Net Farm Income (illustrative)';
+  readonly version = '2.0.0';
   readonly isEnabled = true;
 
   evaluate(context: EvaluationContext): DimensionScoreResult {
-    const rabiCrop = context.crops.find(c => !c.variety.includes('dhan') || c.cropName.includes('Boro'));
-    const rabiData = TANORE_RABI_REPLAY[rabiCrop?.variety || 'BARI Masur-8'];
+    const { record: rabi, catalog: rabiName } = rabiOf(context);
 
-    const amanGrossMargin = 42000;
-    const rabiGrossMargin = rabiData?.grossMarginTkPerHa || 55000;
-    const totalRotationMargin = amanGrossMargin + rabiGrossMargin;
-
-    let incomeScore = (totalRotationMargin - 40000) / 80000;
-    incomeScore = Math.max(0.35, Math.min(0.96, Number(incomeScore.toFixed(2))));
-
-    const banglaSummary = `দুই মৌসুমে আনুমানিক নিট লাভ হেক্টর প্রতি প্রায় ${totalRotationMargin.toLocaleString('bn-BD')} টাকা। কম সেচ খরচের কারণে ঝুঁকি কম।`;
+    // Team placeholders until DAM farm-gate prices and farmer cost interviews are in (see crop_catalog.ts).
+    const total = ILLUSTRATIVE_AMAN_GROSS_MARGIN_TK_PER_HA + rabiName.illustrativeGrossMarginTkPerHa;
+    const incomeScore = clampScore((total - 40000) / 80000, 0.35, 0.96);
 
     return {
       dimensionId: this.id,
       score: incomeScore,
-      confidence: 'high',
-      summaryBangla: banglaSummary,
-      summaryEnglish: `Estimated annual net gross margin of approximately ${totalRotationMargin.toLocaleString()} BDT/ha with minimal irrigation input overhead.`,
+      confidence: 'low',
+      staleOrMissing: true,
+      summaryBangla: `নমুনা হিসাব: দুই মৌসুমে প্রায় ${bnNumber(total)} টাকা/হেক্টর নিট লাভ ধরা হয়েছে (দলের অনুমান; বাজারদর ও খরচ যাচাই বাকি)।`,
+      summaryEnglish: `Illustrative: about ${total.toLocaleString('en-US')} BDT/ha over two seasons (team estimate; prices and costs not yet verified).`,
       metrics: {
-        totalNetGrossMarginBdtPerHa: totalRotationMargin,
-        amanGrossMarginBdt: amanGrossMargin,
-        rabiGrossMarginBdt: rabiGrossMargin,
-        irrigationCostSharePercent: rabiCrop?.cropName.includes('Boro') ? 38 : 12,
+        illustrativeTotalBdtPerHa: total,
+        illustrativeRabiBdtPerHa: rabiName.illustrativeGrossMarginTkPerHa,
+        districtYieldTPerHa: rabi.districtYieldTPerHa ?? 'n/a',
       },
       provenance: {
-        source: 'BBS Crop District Panel (2012-2025) + WFP Market Prices & BARI Production Costs',
-        timePeriod: '2024-2025 Market Baseline',
-        spatialResolution: 'Rajshahi District & Tanore Local Markets',
-        measuredOrModeled: 'modeled',
-        notesBangla: 'বাংলাদেশ পরিসংখ্যান ব্যুরো (BBS) এর পাইকারি দর ও ডব্লিউএফপি স্থানীয় বাজার মূল্য।',
+        source: 'Team placeholder estimate. Pending: DAM farm-gate prices and farmer cost interviews. District yield for context: BBS Rajshahi 2024-25',
+        timePeriod: 'demo placeholder',
+        spatialResolution: 'Tanore',
+        measuredOrModeled: 'assumed',
+        notesBangla: 'এই সংখ্যা যাচাই করা বাজারদর নয়; কৃষক সাক্ষাৎকার ও DAM দর পাওয়ার পর বদলাবে।',
       },
     };
   }
 
   explain(result: DimensionScoreResult) {
-    const margin = result.metrics.totalNetGrossMarginBdtPerHa;
     return {
-      banglaBullets: [
-        `প্রতি হেক্টরে দুই মৌসুমে মোট মুনাফা প্রায় ${margin} টাকা।`,
-        `গভীর নলকূপের বিদ্যুত/ডিজেল বিল অনেক কম হওয়ায় কৃষকের পকেটে আসল লাভ বেশি থাকে।`,
-      ],
-      englishBullets: [
-        `Combined net return estimated at ${margin} BDT/ha.`,
-        `Reduced fuel/electricity pumping expenses preserve cash liquidity for smallholders.`,
-      ],
+      banglaBullets: [`নমুনা হিসাব: প্রায় ${bnNumber(result.metrics.illustrativeTotalBdtPerHa as number)} টাকা/হেক্টর (যাচাই বাকি)।`],
+      englishBullets: [`Illustrative ${result.metrics.illustrativeTotalBdtPerHa} BDT/ha, not yet verified.`],
     };
   }
 }

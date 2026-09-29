@@ -6,4 +6,8 @@ export * from './plugins/flood.ts';
 export * from './plugins/soil.ts';
 export * from './plugins/fodder.ts';
 export * from './plugins/income.ts';
+export * from './plugins/pest.ts';
+export * from './data/ipm_catalog.ts';
 export * from './data/tanore_replay_data.ts';
+export * from './data/crop_catalog.ts';
+export * from './bn.ts';

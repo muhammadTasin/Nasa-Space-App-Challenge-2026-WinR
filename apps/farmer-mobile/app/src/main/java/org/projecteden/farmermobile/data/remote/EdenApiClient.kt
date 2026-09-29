@@ -9,16 +9,32 @@ import java.io.OutputStreamWriter
 import java.net.HttpURLConnection
 import java.net.URL
 
+/** The server's farmer card for the top-ranked rotation (see FarmerCard in packages/contracts). */
 data class RemoteAdviceResponse(
     val unionId: String,
     val unionNameBangla: String,
-    val recommendedCropName: String,
-    val recommendedCropVariety: String,
-    val nextCropName: String,
-    val nextCropVariety: String,
-    val fieldFreeDateBangla: String,
-    val rescueIrrigationRequired: String,
-    val waterSavings: String,
+    val releaseId: String,
+    val rotationTitle: String,
+    val rotationSubtitle: String,
+    val season1Name: String,
+    val season1Variety: String,
+    val season1Window: String,
+    val season1Stage: String,
+    val season1Irrigation: String,
+    val season2Name: String,
+    val season2Variety: String,
+    val season2Window: String,
+    val season2Notes: String,
+    val season2Fertilizer: String,
+    val alternativeName: String,
+    val alternativeCategory: String,
+    val alternativeSowing: String,
+    val alternativeYield: String,
+    val alternativeMarketPrice: String,
+    val narrative: String,
+    val provenance: String,
+    val audioScript: String,
+    val audioDurationSeconds: Int,
     val rawJson: String
 )
 
@@ -27,8 +43,9 @@ data class RemoteOverviewResponse(
     val upazila: String,
     val union: String,
     val season: String,
-    val rainLast7d: Double,
+    val rainLast30dMm: Double,
     val rootzoneMoisture: Double,
+    val rootzoneMoistureDate: String,
     val activeAlertBangla: String?
 )
 
@@ -61,22 +78,23 @@ class EdenApiClient(
                 val scope = json.optJSONObject("scope")
                 val seasonSummary = json.optJSONObject("season_summary")
                 val satellite = json.optJSONObject("local_satellite_conditions")
+                val smap = satellite?.optJSONObject("smap")
+                val rain = satellite?.optJSONObject("rain_last_30_days")
                 val alerts = json.optJSONArray("active_alerts")
-                val firstAlert = if (alerts != null && alerts.length() > 0) {
-                    val alertObj = alerts.getJSONObject(0)
-                    if (alertObj.has("titleBangla")) alertObj.getString("titleBangla") else null
-                } else null
+                val firstAlert = alerts?.optJSONObject(0)?.optString("titleBangla")
 
-                val resp = RemoteOverviewResponse(
-                    district = scope?.optString("district") ?: "Rajshahi",
-                    upazila = scope?.optString("upazila") ?: "Tanore",
-                    union = scope?.optString("union") ?: "Talanda",
-                    season = seasonSummary?.optString("season") ?: "Aman 2026",
-                    rainLast7d = satellite?.optDouble("imerg_rain_last_7d_mm") ?: 0.0,
-                    rootzoneMoisture = satellite?.optDouble("smap_rootzone_moisture") ?: 0.0,
-                    activeAlertBangla = firstAlert
+                Result.success(
+                    RemoteOverviewResponse(
+                        district = scope?.optString("district") ?: "Rajshahi",
+                        upazila = scope?.optString("upazila") ?: "Tanore",
+                        union = scope?.optString("union") ?: "Talanda",
+                        season = seasonSummary?.optString("season") ?: "Aman 2026",
+                        rainLast30dMm = rain?.optDouble("imergLateMm") ?: Double.NaN,
+                        rootzoneMoisture = smap?.optDouble("rootZoneM3M3") ?: Double.NaN,
+                        rootzoneMoistureDate = smap?.optString("date").orEmpty(),
+                        activeAlertBangla = firstAlert
+                    )
                 )
-                Result.success(resp)
             } else {
                 Result.failure(Exception("HTTP error code $code"))
             }
@@ -125,22 +143,40 @@ class EdenApiClient(
 
                 val json = JSONObject(body)
                 val scope = json.optJSONObject("scope")
-                val options = json.optJSONArray("options")
-                val firstOption = options?.optJSONObject(0)
+                val card = json.getJSONObject("farmer_card")
+                val season1 = card.getJSONObject("season1")
+                val season2 = card.getJSONObject("season2")
+                val alternative = card.getJSONObject("alternative")
 
-                val resp = RemoteAdviceResponse(
-                    unionId = scope?.optString("union_id") ?: "talanda_tanore",
-                    unionNameBangla = scope?.optString("union_name_bangla") ?: "তালন্দ ইউনিয়ন",
-                    recommendedCropName = "আমন ধান",
-                    recommendedCropVariety = "ব্রি ধান-৪৯",
-                    nextCropName = "সরিষা",
-                    nextCropVariety = "বারি সরিষা-১৪",
-                    fieldFreeDateBangla = firstOption?.optString("fieldFreeDateBangla") ?: "১০ নভেম্বর",
-                    rescueIrrigationRequired = "৭/২৫ মৌসুম",
-                    waterSavings = "৫৯৮ মিমি",
-                    rawJson = body
+                Result.success(
+                    RemoteAdviceResponse(
+                        unionId = scope?.optString("union_id") ?: "talanda_tanore",
+                        unionNameBangla = scope?.optString("union_name_bangla") ?: "তালন্দ ইউনিয়ন",
+                        releaseId = json.optString("data_release"),
+                        rotationTitle = card.getString("rotationTitleBangla"),
+                        rotationSubtitle = card.getString("rotationSubtitleBangla"),
+                        season1Name = season1.getString("name"),
+                        season1Variety = season1.getString("variety"),
+                        season1Window = season1.getString("windowBangla"),
+                        season1Stage = season1.getString("stageBangla"),
+                        season1Irrigation = season1.getString("irrigationBangla"),
+                        season2Name = season2.getString("name"),
+                        season2Variety = season2.getString("variety"),
+                        season2Window = season2.getString("windowBangla"),
+                        season2Notes = season2.getString("notesBangla"),
+                        season2Fertilizer = season2.getString("fertilizerBangla"),
+                        alternativeName = alternative.getString("name"),
+                        alternativeCategory = alternative.getString("categoryBangla"),
+                        alternativeSowing = alternative.getString("sowingBangla"),
+                        alternativeYield = alternative.getString("yieldBangla"),
+                        alternativeMarketPrice = alternative.getString("marketPriceBangla"),
+                        narrative = card.getString("narrativeBangla"),
+                        provenance = card.getString("provenanceBangla"),
+                        audioScript = card.getString("audioScriptBangla"),
+                        audioDurationSeconds = card.optInt("audioDurationSeconds", 30),
+                        rawJson = body
+                    )
                 )
-                Result.success(resp)
             } else {
                 Result.failure(Exception("HTTP error code $code"))
             }

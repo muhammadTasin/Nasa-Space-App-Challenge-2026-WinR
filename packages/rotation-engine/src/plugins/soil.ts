@@ -1,67 +1,61 @@
 import type { IEvidenceDimensionPlugin, EvaluationContext, DimensionScoreResult } from '@project-eden/contracts';
+import { rabiOf } from '../data/lookup.ts';
+import { TALANDA_SRDI } from '../data/tanore_replay_data.ts';
+import { bnDigits, bnDecimal } from '../bn.ts';
 
 export class SoilDimensionPlugin implements IEvidenceDimensionPlugin {
   readonly id = 'soil';
   readonly displayNameBangla = 'মাটি স্বাস্থ্য ও পুষ্টি ভারসাম্য';
-  readonly displayNameEnglish = 'Soil Health & Nutrient Depletion';
-  readonly version = '1.0.0';
+  readonly displayNameEnglish = 'Soil Health & Fertilizer Load';
+  readonly version = '2.0.0';
   readonly isEnabled = true;
 
   evaluate(context: EvaluationContext): DimensionScoreResult {
-    const rabiCrop = context.crops.find(c => !c.variety.includes('dhan') || c.cropName.includes('Boro'));
-    const isLegume = rabiCrop?.cropName.toLowerCase().includes('lentil') || rabiCrop?.cropName.toLowerCase().includes('masur');
-    const isDoubleCereal = rabiCrop?.cropName.toLowerCase().includes('boro');
+    const { record: rabi, catalog: rabiName } = rabiOf(context);
+    const dose = rabi.fertilizer;
+    const rotationUrea = Math.round(TALANDA_SRDI.aman.ureaKgHa + dose.ureaKgHa);
 
-    // Legumes fix nitrogen and leave positive soil residual health
-    // Double cereal (Aman -> Boro) severely depletes soil organic matter and zinc in Barind
-    let soilScore = 0.70;
-    let banglaSummary = 'মাটির স্বাভাবিক পুষ্টি ভারসাম্য বজায় থাকে।';
-
-    if (isLegume) {
-      soilScore = 0.90;
-      banglaSummary = 'ডাল জাতীয় ফসল হওয়ায় মাটিতে ১৫-২০ কেজি/হেক্টর প্রাকৃতিক নাইট্রোজেন যুক্ত হবে এবং মাটির স্বাস্থ্য উন্নত হবে।';
-    } else if (isDoubleCereal) {
-      soilScore = 0.45;
-      banglaSummary = 'টানা দুই মৌসুমে ধান চাষে বরেন্দ্র মাটির জৈব পদার্থ দ্রুত হ্রাস পায় এবং দস্তা ও বোরন ঘাটতি দেখা দেয়।';
-    }
+    // Legumes add nitrogen and cut urea; two rice crops in a year work the soil hardest.
+    const soilScore = rabiName.isLegume ? 0.9 : rabiName.isRice ? 0.45 : 0.7;
+    const why = rabiName.isLegume
+      ? 'ডাল ফসল বাতাসের নাইট্রোজেন মাটিতে যোগ করে, তাই ইউরিয়া কম লাগে।'
+      : rabiName.isRice
+        ? 'বছরে দুবার ধানে মাটির ওপর চাপ ও সারের খরচ সবচেয়ে বেশি।'
+        : 'মাটির পুষ্টি ভারসাম্য মোটামুটি বজায় থাকে।';
 
     return {
       dimensionId: this.id,
       score: soilScore,
-      confidence: 'high',
-      summaryBangla: banglaSummary,
-      summaryEnglish: isLegume
-        ? 'Legume crop fixes 15-20 kg N/ha, boosting organic matter and soil microbial activity.'
-        : 'Continuous cereal-cereal cropping depletes soil organic matter and micronutrients.',
+      confidence: 'medium',
+      summaryBangla: `${why} SRDI তালন্দ কার্ডে (${TALANDA_SRDI.soilTypeBangla}) ${rabiName.cropInBangla} ইউরিয়া ${bnDecimal(dose.ureaKgHa)} কেজি/হেক্টর; আমনসহ পুরো চক্রে ${bnDigits(rotationUrea)} কেজি।`,
+      summaryEnglish: `SRDI Talanda card (Kharia soil): ${rabiName.crop} urea ${dose.ureaKgHa} kg/ha; ${rotationUrea} kg/ha for the whole rotation with Aman.`,
       metrics: {
-        nitrogenFixationKgPerHa: isLegume ? 18 : 0,
-        organicMatterTrend: isLegume ? 'positive' : (isDoubleCereal ? 'depleting' : 'neutral'),
-        srdiFertilityClass: 'Medium (Talanda Loam)',
+        srdiSoilType: TALANDA_SRDI.soilTypeBangla,
+        rabiUreaKgHa: dose.ureaKgHa,
+        rabiTspKgHa: dose.tspKgHa,
+        rabiMopKgHa: dose.mopKgHa,
+        rotationUreaKgHa: rotationUrea,
+        legume: rabiName.isLegume,
       },
       provenance: {
-        source: 'SRDI Union Fertilizer Recommendation Card (Talanda, Tanore) + BARI Soil Guide',
-        timePeriod: '2020-2025',
-        spatialResolution: 'Union level (Talanda)',
+        source: TALANDA_SRDI.source + ' — Talanda, medium-high land',
+        timePeriod: 'current SRDI card',
+        spatialResolution: 'Union (Talanda)',
         measuredOrModeled: 'measured',
-        notesBangla: 'মৃত্তিকা সম্পদ উন্নয়ন ইনস্টিটিউট (SRDI) এর তালন্দ ইউনিয়ন মাটি সার নির্দেশিকা কার্ড।',
+        notesBangla: 'SRDI-র মাটি পরীক্ষাভিত্তিক ইউনিয়ন সার সুপারিশ; নিজের জমির মাটি পরীক্ষা হলে সেটিই আগে।',
       },
     };
   }
 
   explain(result: DimensionScoreResult) {
-    const isLegume = result.metrics.nitrogenFixationKgPerHa > 0;
+    const m = result.metrics;
     return {
       banglaBullets: [
-        isLegume
-          ? 'ডাল ফসল চাষের পর মাটিতে শিকড়ের অবশিষ্টাংশ প্রাকৃতিক ইউরিয়া হিসেবে কাজ করে।'
-          : 'পরপর ধান চাষে ইউরিয়া ও অন্যান্য রাসায়নিক সারের খরচ প্রতি বছর বৃদ্ধি পায়।',
-        'মাটির উপরিভাগের দোআঁশ স্তরের আর্দ্রতা ধরে রাখার ক্ষমতা বৃদ্ধি পায়।',
+        m.legume
+          ? 'ডাল ফসলের পরে পরের ফসলে ইউরিয়া কম লাগে।'
+          : `পুরো চক্রে ইউরিয়া ${bnDigits(m.rotationUreaKgHa as number)} কেজি/হেক্টর (SRDI কার্ড)।`,
       ],
-      englishBullets: [
-        isLegume
-          ? 'Biological nitrogen fixation offsets subsequent chemical fertilizer requirements.'
-          : 'Monoculture rice sequences accelerate soil micro-nutrient fatigue.',
-      ],
+      englishBullets: [`Rotation urea ${m.rotationUreaKgHa} kg/ha on the SRDI card.`],
     };
   }
 }

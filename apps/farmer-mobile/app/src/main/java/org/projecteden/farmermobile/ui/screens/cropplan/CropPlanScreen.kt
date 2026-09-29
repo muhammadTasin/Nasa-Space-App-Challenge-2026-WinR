@@ -272,7 +272,7 @@ fun CropPlanScreen(
                                             modifier = Modifier.size(15.dp)
                                         )
                                         Text(
-                                            text = "পরিপক্কতার শেষ পর্যায়",
+                                            text = advice.season1Stage,
                                             style = MaterialTheme.typography.bodySmall,
                                             color = OnSurfaceVariant
                                         )
@@ -406,7 +406,7 @@ fun CropPlanScreen(
                                             modifier = Modifier.size(15.dp)
                                         )
                                         Text(
-                                            text = "সেচ ও সার: অনুমোদিত কৃষি গাইডলাইন অনুযায়ী",
+                                            text = "সার: ${advice.season2FertilizerRecommendation}",
                                             style = MaterialTheme.typography.bodySmall,
                                             color = OnSurfaceVariant
                                         )
@@ -460,7 +460,7 @@ fun CropPlanScreen(
                         modifier = Modifier.size(18.dp)
                     )
                     Text(
-                        text = "বিকল্প পছন্দ (যদি জমিতে পানি জমে থাকে)",
+                        text = "বিকল্প পছন্দ (দ্বিতীয় সেরা চক্র)",
                         style = MaterialTheme.typography.titleMedium,
                         fontWeight = FontWeight.Bold,
                         color = OnSurface
@@ -542,7 +542,7 @@ fun CropPlanScreen(
                             ) {
                                 Column(modifier = Modifier.padding(8.dp)) {
                                     Text(
-                                        text = "ফলন ধরন",
+                                        text = "ফলন",
                                         style = MaterialTheme.typography.labelSmall,
                                         color = Outline
                                     )
@@ -573,7 +573,7 @@ fun CropPlanScreen(
                                 modifier = Modifier.size(15.dp)
                             )
                             Text(
-                                text = "বাজার দর ও ব্যয়: তথ্য পাওয়া যায়নি",
+                                text = "বাজার দর ও ব্যয়: ${advice.alternativeCropMarketPrice}",
                                 style = MaterialTheme.typography.labelSmall,
                                 color = Outline
                             )

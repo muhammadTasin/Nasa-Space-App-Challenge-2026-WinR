@@ -1,39 +1,63 @@
 import type { AdviceJSON, CandidateRotation, NarrationResult } from '@project-eden/contracts';
+import { LAND_TYPE_BANGLA, bnDateOf, bnDigits, bnOf } from './bn_text.ts';
 
 export class TemplateNarrator {
   /**
-   * Generates 100% verified, deterministic Bangla speech text and IVR prompts from AdviceJSON facts.
+   * Generates deterministic Bangla speech text and IVR prompts from AdviceJSON facts only.
    * Zero hallucination, zero LLM dependency.
    */
   render(advice: AdviceJSON, selectedOption?: CandidateRotation): NarrationResult {
     const option = selectedOption || advice.options[0];
-    const waterScore = option.scores['water'] ? Math.round(option.scores['water'] * 100) : 80;
     const amanCrop = option.cropSequence[0];
     const rabiCrop = option.cropSequence[1];
-    const fieldFreeDate = option.fieldFreeDateBangla;
+    const water = option.dimensionDetails['water']?.metrics;
+    const rescueCount = water?.amanRescueIrrigationSeasons;
+    const totalSeasons = water?.totalSeasonsSimulated ?? 25;
+    const rabiIrrigation = water?.rabiNetIrrigationMm;
 
-    const waterMetric = option.dimensionDetails['water']?.metrics;
-    const rescueCount = waterMetric?.amanRescueIrrigationSeasons ?? 6;
-    const rabiIrrigation = waterMetric?.rabiNetIrrigationMm ?? 198;
+    const amanName = amanCrop.varietyBangla ?? amanCrop.variety;
+    const rabiName = rabiCrop.cropBangla ?? rabiCrop.crop;
+    const plantRabi = rabiName.includes('ধান') ? 'রোপণ করলে' : 'বুনলে';
+    const land = LAND_TYPE_BANGLA[advice.scope.land_type];
 
-    // Natural spoken Bangla message for IVR / Voice call
+    // Natural spoken Bangla message for IVR / voice call; every number comes from the advice.
     const speechLines = [
-      `EDEN থেকে বলছি।`,
-      `${advice.scope.union_name_bangla} ইউনিয়নের মাঝারি উঁচু জমির জন্য আপনার অনুমোদিত ফসল চক্র: ${option.nameBangla}।`,
-      `${amanCrop.variety} লাগালে ২৫ মৌসুমে মাত্র ${rescueCount} বার বাড়তি সেচের প্রয়োজন হয়েছিল।`,
-      `${fieldFreeDate}র মধ্যে ধান কেটে ফেললে রবি মৌসুমে ${rabiCrop.crop} চাষে সেচ সাশ্রয় হবে এবং মাত্র ${rabiIrrigation} মিলিমিটার পানির প্রয়োজন হবে।`,
-      `পরামর্শটি ভালো লাগলে বা কোনো প্রশ্ন থাকলে আপনার ইউনিয়ন কৃষি কর্মকর্তা (SAAO)-এর সাথে কথা বলুন। ধন্যবাদ।`,
+      'EDEN থেকে বলছি।',
+      `${bnOf(advice.scope.union_name_bangla)} ${land ? `${land} ` : ''}জমির জন্য প্রস্তাবিত ফসল চক্র: ${option.nameBangla}।`,
+      rescueCount !== undefined
+        ? `গত ${bnDigits(totalSeasons as number)} মৌসুমের নাসা তথ্যে ${amanName} লাগালে ফুল আসার সময় ${bnDigits(rescueCount as number)} বার বাড়তি সেচ লেগেছে।`
+        : '',
+      rabiIrrigation !== undefined
+        ? `${bnDateOf(option.fieldFreeDateBangla)} মধ্যে ধান কেটে ${rabiName} ${plantRabi} সেচ লাগবে প্রায় ${bnDigits(rabiIrrigation as number)} মিলিমিটার।`
+        : '',
+      'প্রশ্ন থাকলে আপনার উপসহকারী কৃষি কর্মকর্তার (SAAO) সাথে কথা বলুন। ধন্যবাদ।',
     ];
 
-    const banglaSpeechText = speechLines.join(' ');
+    const banglaSpeechText = speechLines.filter(Boolean).join(' ');
 
-    const keypadPrompt = `আপনার অগ্রাধিকার জানাতে কিপ্যাডে বোতাম চাপুন: পানির জন্য ১ চাপুন, বেশি আয়ের জন্য ২ চাপুন, মাটির স্বাস্থ্যের জন্য ৩ চাপুন। মাঠ কর্মকর্তার সাথে সরাসরি কথা বলতে ৯ চাপুন।`;
+    // English translation for reviewers and the English dashboard; farmers always hear the Bangla.
+    const unionEnglish = advice.scope.union_id === 'talanda_tanore' ? 'Talanda union' : advice.scope.union_id;
+    const plantEnglish = rabiCrop.crop.toLowerCase().includes('rice') ? 'transplant' : 'sow';
+    const englishGloss = [
+      'This is EDEN calling.',
+      `Suggested rotation for ${advice.scope.land_type.replace('_', '-')} land in ${unionEnglish}: ${option.nameEnglish}.`,
+      rescueCount !== undefined
+        ? `In NASA data from the last ${totalSeasons} seasons, ${amanCrop.variety} needed extra irrigation at flowering ${rescueCount} times.`
+        : '',
+      rabiIrrigation !== undefined
+        ? `Harvest by ${option.fieldFreeDateEnglish ?? option.fieldFreeDateBangla} and ${plantEnglish} ${rabiCrop.crop.toLowerCase()}: it needs about ${rabiIrrigation} mm of irrigation.`
+        : '',
+      'If you have questions, talk to your Sub-Assistant Agriculture Officer (SAAO). Thank you.',
+    ].filter(Boolean).join(' ');
+
+    const keypadPrompt = `আপনার অগ্রাধিকার জানাতে কিপ্যাডে বোতাম চাপুন: পানির জন্য ১, বেশি আয়ের জন্য ২, মাটির স্বাস্থ্যের জন্য ৩, কম কীটনাশকের জন্য ৪ চাপুন। কৃষি কর্মকর্তার সাথে কথা বলতে ৯ চাপুন।`;
 
     return {
       status: 'verified_template',
       banglaSpeechText,
+      englishGloss,
       banglaKeypadPrompt: keypadPrompt,
-      durationSecondsEstimate: 42,
+      durationSecondsEstimate: Math.max(20, Math.round(banglaSpeechText.length / 12)),
       auditLog: {
         gate1Passed: true,
         gate2Passed: true,

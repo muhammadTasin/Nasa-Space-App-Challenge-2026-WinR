@@ -68,6 +68,7 @@ import org.projecteden.farmermobile.theme.SurfaceContainerLow
 import org.projecteden.farmermobile.theme.SurfaceContainerLowest
 import org.projecteden.farmermobile.ui.components.AudioPlayerCard
 import org.projecteden.farmermobile.ui.components.EdenTopAppBar
+import org.projecteden.farmermobile.ui.components.windowPart
 
 @Composable
 fun RotationDetailScreen(
@@ -133,7 +134,7 @@ fun RotationDetailScreen(
                                     color = OnSurface
                                 )
                                 Text(
-                                    text = "আমন ধান ➔ সরিষা চক্র",
+                                    text = advice.rotationTitle,
                                     style = MaterialTheme.typography.labelSmall,
                                     color = OnSurfaceVariant,
                                     fontSize = 11.sp
@@ -262,12 +263,12 @@ fun RotationDetailScreen(
 
                                 Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
                                     Text(
-                                        text = "রোপণ সময়: জুলাই – আগস্ট",
+                                        text = advice.season1Window.windowPart(0),
                                         style = MaterialTheme.typography.bodySmall,
                                         color = OnSurfaceVariant
                                     )
                                     Text(
-                                        text = "কর্তন সময়: নভেম্বর – ডিসেম্বর",
+                                        text = advice.season1Window.windowPart(1),
                                         style = MaterialTheme.typography.bodySmall,
                                         color = OnSurfaceVariant
                                     )
@@ -351,12 +352,12 @@ fun RotationDetailScreen(
 
                                 Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
                                     Text(
-                                        text = "বপন সময়: নভেম্বর শেষ – ডিসেম্বর ১ম সপ্তাহ",
+                                        text = advice.season2Window.windowPart(0),
                                         style = MaterialTheme.typography.bodySmall,
                                         color = OnSurfaceVariant
                                     )
                                     Text(
-                                        text = "সংগ্রহ সময়: ফেব্রুয়ারি",
+                                        text = advice.season2Window.windowPart(1),
                                         style = MaterialTheme.typography.bodySmall,
                                         color = OnSurfaceVariant
                                     )

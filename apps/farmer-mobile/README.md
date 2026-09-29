@@ -33,7 +33,7 @@ BanglaTtsManager → Android system TextToSpeech
 ```
 
 - **Presentation:** Compose screens collect screen state from ViewModels. Navigation keeps the four tabs in one scaffold and opens rotation detail as a separate destination.
-- **Local data:** `EdenDatabase` and `FarmDao` store the farm profile, current advice, and advice history. The UI observes Room flows, so the seeded prototype content is available without a network connection.
+- **Local data:** `EdenDatabase` and `FarmDao` store the farm profile, current advice, and advice history. The UI observes Room flows, so the cached advice is available without a network connection. The first-run seed in `AdviceModels.kt` mirrors the engine's farmer card; `npm test` (TEST 9) fails if they drift.
 - **Remote data:** `EdenApiClient` uses Android's `HttpURLConnection` to call the shared Node API. The client defines overview and advice requests; farmer profile and advice history have no server endpoints yet.
 - **Voice:** `BanglaTtsManager` uses the device's Bengali system TTS when available. If Bengali voice data is missing, it reports that state instead of playing fabricated audio. The progress display is an estimate based on a timer.
 - **Recommendation ownership:** crop scoring remains in `packages/rotation-engine/` on the server side; the Android client does not implement scoring.
@@ -45,8 +45,9 @@ This branch is a reviewable demo, not a field-ready advice service. Treat the di
 Known gaps in this version:
 
 - Room starts with seeded sample profile/advice/history. The profile screen's update action and the plan confirmation are demo interactions; they do not yet save a farmer-edited profile or a confirmed plan as a complete workflow.
-- `FarmerRepository.refreshAdvice()` calls the API, but the current response is not mapped into the Room advice fields. A successful refresh currently updates sync metadata while the displayed advice remains seeded; the failure path also needs to preserve the existing cache correctly.
+- The Today screen syncs once when it opens: `FarmerRepository.refreshAdvice()` maps the server's `farmer_card` into Room, and on failure keeps the cached advice and its last sync time. There is no manual refresh button or background sync worker yet.
 - Profile and history are local only; there are no `/api/v1/farmer-profile` or `/api/v1/advice-history` endpoints.
+- The API already serves officer-verified advice (`POST /api/v1/advice` with `farmerId`), the IPM steps (`options[].ipmActions`) and English text, but the app does not show them yet; that is the next app step.
 - There is no durable background sync worker, account/authentication flow, or production API configuration yet.
 - The API address is currently `http://10.0.2.2:4000`, which is the Android emulator's route to the development host. A physical-device or deployed build needs an appropriate configurable API URL. Cleartext HTTP is enabled for local development and must be replaced with HTTPS before deployment.
 - The debug APK is a build output and is ignored by Git. Share the APK separately if a tester needs to install it.

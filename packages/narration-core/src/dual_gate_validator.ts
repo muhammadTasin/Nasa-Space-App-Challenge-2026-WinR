@@ -1,6 +1,9 @@
 import type { AdviceJSON, CandidateRotation, NarrationResult } from '@project-eden/contracts';
 import { TemplateNarrator } from './template_narrator.ts';
 
+/** Words no farmer message may contain: pesticide brands, loans, interest, cash asks, free-fertilizer offers. */
+export const FORBIDDEN_TERMS = ['ঋণ', 'সুদ', 'কীটনাশক ব্র্যান্ড', 'টাকা দিন', 'ফ্রি সার'];
+
 export interface ILocalLLMClient {
   generate(prompt: string, maxTokens?: number): Promise<string>;
 }
@@ -47,26 +50,26 @@ export class DualGateNarrationValidator {
       approvedNumbers.add(bn);
     };
 
-    // Add approved numeric facts
-    addNum(25); // 25 historical seasons
+    // Add approved numeric facts, all read from the advice itself
     const waterMetric = option.dimensionDetails['water']?.metrics;
+    const totalSeasons = waterMetric?.totalSeasonsSimulated ?? 25;
+    addNum(totalSeasons as number);
     if (waterMetric?.amanRescueIrrigationSeasons !== undefined) {
-      addNum(waterMetric.amanRescueIrrigationSeasons);
+      addNum(waterMetric.amanRescueIrrigationSeasons as number);
     }
     if (waterMetric?.rabiNetIrrigationMm !== undefined) {
-      addNum(waterMetric.rabiNetIrrigationMm);
+      addNum(waterMetric.rabiNetIrrigationMm as number);
     }
     const scoreVal = Math.round(option.totalWeightedScore * 100);
     addNum(scoreVal);
-    addNum(10); // 10 Nov
-    addNum(20); // 20 Nov
     addNum(1); // Keypad 1
     addNum(2); // Keypad 2
     addNum(3); // Keypad 3
+    addNum(4); // Keypad 4 (less pesticide)
     addNum(9); // Keypad 9
 
-    // Also extract all numbers from crop variety and rotation names (e.g. 71, 8, 33, 49)
-    const allNames = `${option.nameBangla} ${option.nameEnglish} ${option.cropSequence.map(c => c.variety).join(' ')}`;
+    // Numbers inside the field-free date, variety and rotation names (e.g. ১০ নভেম্বর, 71, 8, 33)
+    const allNames = `${option.fieldFreeDateBangla} ${option.nameBangla} ${option.nameEnglish} ${option.cropSequence.map(c => `${c.variety} ${c.varietyBangla ?? ''}`).join(' ')}`;
     const nameNumRegex = /(\d+|[০-৯]+)/g;
     let nameMatch;
     while ((nameMatch = nameNumRegex.exec(allNames)) !== null) {
@@ -79,10 +82,10 @@ export class DualGateNarrationValidator {
     const slots = {
       union: advice.scope.union_name_bangla,
       rotationName: option.nameBangla,
-      amanVariety: amanCrop?.variety || 'ব্রি ধান৭১',
-      rabiCropName: rabiCrop?.crop || 'মসুর',
-      rescueCount: String(waterMetric?.amanRescueIrrigationSeasons ?? 6),
-      rabiIrrigationMm: String(waterMetric?.rabiNetIrrigationMm ?? 198),
+      amanVariety: amanCrop?.varietyBangla ?? amanCrop?.variety ?? '',
+      rabiCropName: rabiCrop?.cropBangla ?? rabiCrop?.crop ?? '',
+      rescueCount: String(waterMetric?.amanRescueIrrigationSeasons ?? ''),
+      rabiIrrigationMm: String(waterMetric?.rabiNetIrrigationMm ?? ''),
       fieldFreeDate: option.fieldFreeDateBangla,
     };
 
@@ -91,7 +94,7 @@ Union: ${slots.union}
 Rotation: ${slots.rotationName}
 Aman Variety: ${slots.amanVariety}
 Field Free Date: ${slots.fieldFreeDate}
-Historical Replay: 25 seasons simulation showed rescue irrigation needed in only ${slots.rescueCount} seasons.
+Historical Replay: ${totalSeasons} seasons simulation showed rescue irrigation needed in ${slots.rescueCount} seasons.
 Rabi Crop: ${slots.rabiCropName} with ${slots.rabiIrrigationMm} mm irrigation needed.
 
 [INSTRUCTION]:
@@ -126,7 +129,7 @@ CRITICAL CONSTRAINT: Do NOT mention or invent ANY number, dosage, or price not i
     }
 
     // Check for forbidden terms (e.g. chemical brand names, loans, medical advice)
-    const forbiddenKeywords = ['ঋণ', 'সুদ', 'কীটনাশক ব্র্যান্ড', 'টাকা দিন', 'ফ্রি সার'];
+    const forbiddenKeywords = FORBIDDEN_TERMS;
     for (const word of forbiddenKeywords) {
       if (text.includes(word)) {
         unapprovedActions.push(word);

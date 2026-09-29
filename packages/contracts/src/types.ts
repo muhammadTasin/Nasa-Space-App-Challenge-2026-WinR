@@ -34,6 +34,7 @@ export interface EvaluationContext {
   seasonYear: number;
   rotationId: string;
   crops: Array<{
+    season: 'Aman' | 'Rabi'; // explicit, so plugins never guess the crop from its name
     cropName: string;
     variety: string;
     sowingDate: string; // ISO format or relative
@@ -59,7 +60,9 @@ export interface IEvidenceDimensionPlugin {
 
 export interface CropPhase {
   crop: string;
+  cropBangla?: string;
   variety: string;
+  varietyBangla?: string;
   seasonType: 'Aman' | 'Rabi' | 'Aus' | 'Pre-Kharif';
   sowingWindow: string;
   harvestWindow: string;
@@ -72,6 +75,7 @@ export interface MonthTimelineSlot {
   monthNameEnglish: string;
   status: 'occupied' | 'transplanting' | 'harvesting' | 'fallow_available';
   cropName?: string;
+  cropNameEnglish?: string;
 }
 
 export interface CandidateRotation {
@@ -87,7 +91,17 @@ export interface CandidateRotation {
   timeline: MonthTimelineSlot[];
   approvedActionIds: string[];
   approvedActionBangla: string[];
+  approvedActionEnglish?: string[];
   fieldFreeDateBangla: string; // e.g. "১০ নভেম্বর"
+  fieldFreeDateEnglish?: string; // e.g. "10 Nov"
+  ipmActions?: IpmTip[];
+}
+
+/** One integrated pest management step: non-chemical first, sprays only on the officer's advice. */
+export interface IpmTip {
+  bn: string;
+  en: string;
+  source: string;
 }
 
 export interface AdviceJSON {
@@ -112,7 +126,45 @@ export interface AdviceJSON {
     affectedDimension: string;
   }>;
   farmer_summary_bangla: string;
+  farmer_summary_english?: string;
   saao_technical_notes: string;
+  verification?: OfficerVerification | null;
+  release?: { id: string; generatedOn: string; researchCommit: string };
+  this_season?: ThisSeasonFit | null;
+  this_season_option_id?: string | null; // best option that starts from the Aman already in the field
+  farmer_card?: FarmerCard;
+}
+
+/** What still fits this season if a given Aman variety is already in the field. */
+export interface ThisSeasonFit {
+  currentAmanVariety: string;
+  fieldFreeDateBangla: string;
+  fieldFreeDateEnglish: string;
+  crops: Array<{ cropBangla: string; cropEnglish: string; sowingDeadlineBangla: string; sowingDeadlineEnglish: string; fits: boolean }>;
+  noteBangla: string;
+  noteEnglish: string;
+}
+
+/** Set when a Krishi officer's field observation shaped this advice. */
+export interface OfficerVerification {
+  officerId: string;
+  officerNameBangla: string;
+  officerNameEnglish: string;
+  date: string;
+  noteBangla: string;
+}
+
+/** Ready-to-show Bangla text for the farmer app's cached advice card (one per advice, top option first). */
+export interface FarmerCard {
+  rotationTitleBangla: string;
+  rotationSubtitleBangla: string;
+  season1: { name: string; variety: string; windowBangla: string; stageBangla: string; irrigationBangla: string };
+  season2: { name: string; variety: string; windowBangla: string; notesBangla: string; fertilizerBangla: string };
+  alternative: { name: string; categoryBangla: string; sowingBangla: string; yieldBangla: string; noteBangla: string; marketPriceBangla: string };
+  narrativeBangla: string;
+  provenanceBangla: string;
+  audioScriptBangla: string;
+  audioDurationSeconds: number;
 }
 
 export interface FarmerProfile {
@@ -146,7 +198,57 @@ export interface NarrationAuditLog {
 export interface NarrationResult {
   status: 'verified_template' | 'local_model_checked' | 'fallback_template';
   banglaSpeechText: string;
+  englishGloss?: string; // translation for reviewers; farmers hear the Bangla
   banglaKeypadPrompt: string;
   durationSecondsEstimate: number;
   auditLog: NarrationAuditLog;
+}
+
+// ---------------------------------------------------------------------------
+// Krishi officer (SAAO) desk: officers describe farmers' fields, and their observations take priority.
+// ---------------------------------------------------------------------------
+
+export type PestSeen = 'none' | 'stem_borer' | 'bph' | 'aphid' | 'blast' | 'other';
+
+export interface FieldObservation {
+  id: string;
+  farmerId: string;
+  officerId: string;
+  date: string; // ISO timestamp
+  landType: LandType;
+  currentAmanCrop: string; // e.g. 'BRRI dhan49'
+  irrigation: 'rainfed' | 'shallow_tube_well' | 'deep_tube_well';
+  pestSeen: PestSeen;
+  pestSeverity: 'low' | 'medium' | 'high' | null;
+  priorities: { water: number; income: number; soil: number; pest: number };
+  noteBangla: string;
+}
+
+export interface FarmerRecord {
+  id: string;
+  nameBangla: string;
+  nameEnglish: string;
+  villageBangla: string;
+  villageEnglish: string;
+  phoneMasked: string;
+  landType: LandType;
+  currentAmanCrop: string;
+  irrigation: FieldObservation['irrigation'];
+  sample: boolean;
+}
+
+export interface CallbackRequest {
+  id: string;
+  farmerId: string;
+  channel: 'ivr_keypad_9' | 'app';
+  createdAt: string;
+  status: 'open' | 'done';
+}
+
+export interface OfficerQueueItem {
+  farmerId: string;
+  score: number;
+  level: 'urgent' | 'high' | 'normal';
+  reasons: Array<{ bn: string; en: string }>;
+  openCallbackId: string | null;
 }

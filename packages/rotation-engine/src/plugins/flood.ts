@@ -2,51 +2,45 @@ import type { IEvidenceDimensionPlugin, EvaluationContext, DimensionScoreResult 
 
 export class FloodDimensionPlugin implements IEvidenceDimensionPlugin {
   readonly id = 'flood';
-  readonly displayNameBangla = 'বন্যা ও আকস্মিক প্লাবন ঝুঁকি';
+  readonly displayNameBangla = 'বন্যা ও জলাবদ্ধতা ঝুঁকি';
   readonly displayNameEnglish = 'Flood & Waterlogging Hazard';
-  readonly version = '1.0.0';
+  readonly version = '2.0.0';
   readonly isEnabled = true;
 
   evaluate(context: EvaluationContext): DimensionScoreResult {
-    // In Tanore (Barind Tract), land is medium-high/upland, flood risk is near zero.
-    // In Haor/Dharmapasha, flood risk would be high in early monsoon.
+    // Not modelled for the Barind pilot yet: the score follows the SRDI land-type class.
+    // The haor flash-flood model (Dharmapasha pilot) is the next step.
     const isUpland = context.landType === 'high' || context.landType === 'medium_high';
     const floodScore = isUpland ? 0.95 : 0.65;
-
-    const banglaSummary = isUpland
-      ? `তানোরের উঁচু ও মাঝারি উঁচু বরেন্দ্র জমিতে প্লাবনের ঝুঁকি নেই বললেই চলে (নিরাপদ)।`
-      : `নিচু জমিতে বর্ষার শেষে সাময়িক জলাবদ্ধতার মৃদু ঝুঁকি রয়েছে।`;
 
     return {
       dimensionId: this.id,
       score: floodScore,
-      confidence: 'high',
-      summaryBangla: banglaSummary,
+      confidence: 'low',
+      summaryBangla: isUpland
+        ? 'মাঝারি উঁচু বরেন্দ্র জমি (SRDI শ্রেণি): রবি ফসলের সময় বন্যার ঝুঁকি কম ধরা হয়েছে; বন্যা এখনো মডেল করা হয়নি।'
+        : 'নিচু জমি: বর্ষার শেষে জলাবদ্ধতার ঝুঁকি ধরা হয়েছে; বন্যা এখনো মডেল করা হয়নি।',
       summaryEnglish: isUpland
-        ? `Upland Barind tract topography exhibits near-zero flood inundation probability.`
-        : `Moderate waterlogging hazard exists in lower elevation landscape positions.`,
+        ? 'Medium-high Barind land (SRDI class): low flood exposure for Rabi crops is assumed; floods are not modelled yet.'
+        : 'Lower land: late-monsoon waterlogging risk is assumed; floods are not modelled yet.',
       metrics: {
-        inundationProbabilityPercent: isUpland ? 2.5 : 25.0,
-        ffwcHistoricalHazardEvents: 0,
+        landTypeClass: context.landType,
+        floodModelled: false,
       },
       provenance: {
-        source: 'FFWC Annual Flood Reports + NASADEM Topographic Elevation Proxy',
-        timePeriod: '2001-2025',
-        spatialResolution: 'Union level (Talanda)',
-        measuredOrModeled: 'measured',
-        notesBangla: 'বন্যা পূর্বাভাস ও সতর্কীকরণ কেন্দ্র (FFWC) ও নাসার উচ্চতা ডেটাবেস।',
+        source: 'Land-type class from the SRDI Talanda union card (assumption, not a flood model)',
+        timePeriod: 'static',
+        spatialResolution: 'Union land-type class',
+        measuredOrModeled: 'assumed',
+        notesBangla: 'হাওরের আকস্মিক বন্যার মডেল (ধর্মপাশা পাইলট) পরবর্তী ধাপে যুক্ত হবে।',
       },
     };
   }
 
   explain(result: DimensionScoreResult) {
     return {
-      banglaBullets: [
-        `তালন্দ ইউনিয়নের নির্বাচিত জমি মাঝারি উঁচু হওয়ায় বর্ষার তীব্র বৃষ্টিতেও জলাবদ্ধতা হয় না।`,
-      ],
-      englishBullets: [
-        `Medium-high topography prevents seasonal water stagnation even under heavy monsoon precipitation.`,
-      ],
+      banglaBullets: ['বরেন্দ্র পাইলটে বন্যার স্কোর জমির শ্রেণি থেকে ধরা; আলাদা বন্যা মডেল নয়।'],
+      englishBullets: ['For the Barind pilot the flood score comes from the land-type class, not a flood model.'],
     };
   }
 }

@@ -1350,3 +1350,171 @@ input[type="range"] {
     grid-template-columns: 1fr;
   }
 }
+
+/* ==========================================================================
+   Added on demo/research-data: language toggle, officer desk, IPM tab,
+   pest dimension and missing states used by the data-driven dashboard.
+   ========================================================================== */
+
+html[lang="en"] body { font-family: 'Inter', 'Hind Siliguri', sans-serif; }
+
+.badge-info { background-color: #e0f2fe; color: var(--water); }
+.dim-bar-fill.pest { background-color: #7c3aed; }
+.slot-indicator.fallow_available { background-color: #e0f2fe; color: var(--water); }
+.muted { color: var(--text-muted); }
+.small { font-size: 11px; }
+
+.keypad-buttons { flex-wrap: wrap; }
+.btn-key { min-width: 88px; }
+.call-log-box .log-line { display: block; }
+.call-log-box .key-line { color: #4ade80; }
+
+.this-season-note {
+  margin: 0 0 12px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: #fef9c3;
+  color: #713f12;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.candidate-meta { font-size: 12px; color: var(--text-muted); margin-bottom: 6px; }
+.candidate-action { font-size: 11px; color: var(--primary); }
+.speech-gloss {
+  margin: 8px 0 0;
+  padding: 10px 12px;
+  border-left: 3px solid var(--water);
+  background: #f0f9ff;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #0c4a6e;
+}
+
+/* Field pest reports (overview and IPM tab) */
+.pest-report-list { display: flex; flex-direction: column; gap: 8px; }
+.pest-report {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 13px;
+}
+.pest-name { font-weight: 600; }
+
+/* Krishi officer desk */
+.officer-login {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  align-items: end;
+  margin-top: 12px;
+}
+.officer-login .form-group { margin-bottom: 0; }
+.officer-hint { grid-column: 1 / -1; margin: 0; font-size: 12px; color: var(--text-muted); }
+.officer-error { grid-column: 1 / -1; margin: 0; font-size: 13px; color: var(--danger); font-weight: 600; }
+.officer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.officer-actions { display: flex; gap: 6px; flex-wrap: wrap; }
+.queue-list { display: flex; flex-direction: column; gap: 10px; }
+.queue-item {
+  border: 1px solid var(--border);
+  border-left: 4px solid #94a3b8;
+  border-radius: 8px;
+  padding: 10px 12px;
+  background: #fff;
+}
+.queue-item.urgent { border-left-color: var(--danger); }
+.queue-item.high { border-left-color: var(--warning); }
+.queue-top { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.reason-list { margin: 6px 0 8px 18px; font-size: 12px; color: #334155; line-height: 1.6; }
+.queue-actions { display: flex; gap: 6px; flex-wrap: wrap; }
+.obs-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 12px;
+}
+.obs-form .form-group { margin-bottom: 0; }
+.obs-priorities, .obs-note, .obs-check, .obs-form .btn-block { grid-column: 1 / -1; }
+.obs-check { display: flex; align-items: center; gap: 6px; font-size: 13px; }
+.obs-result {
+  margin-top: 12px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.obs-result p { margin: 4px 0 0; }
+.obs-result.error { background: #fef2f2; border-color: #fecaca; color: var(--danger); }
+.knowledge-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  gap: 16px;
+}
+.knowledge-block h4 { margin: 0 0 6px; font-size: 14px; }
+.knowledge-block p { margin: 0 0 8px; font-size: 12px; }
+.data-table.compact th, .data-table.compact td { padding: 6px 8px; font-size: 12px; }
+
+/* Less pesticide (IPM) */
+.ipm-compare-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+.ipm-column {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px;
+}
+.ipm-column.recommended { border-color: #86efac; background: #f0fdf4; }
+.ipm-column.baseline { border-color: #fcd34d; background: #fffbeb; }
+.ipm-column h4 { margin: 0 0 8px; font-size: 14px; }
+.ipm-score { font-size: 32px; font-weight: 700; color: #7c3aed; }
+.ipm-score small { font-size: 14px; color: var(--text-muted); }
+.kv-list { list-style: none; margin: 8px 0 0; padding: 0; font-size: 13px; }
+.kv-list li { display: flex; justify-content: space-between; gap: 8px; padding: 4px 0; border-bottom: 1px dashed var(--border); }
+.ipm-summary { grid-column: 1 / -1; margin: 0; font-size: 13px; line-height: 1.6; color: #14532d; }
+.ipm-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 16px;
+  margin: 16px 0;
+}
+.ipm-steps { margin: 0; padding-left: 18px; font-size: 13px; line-height: 1.6; }
+.ipm-steps li { margin-bottom: 8px; }
+.ipm-source {
+  display: inline-block;
+  margin-left: 4px;
+  padding: 1px 6px;
+  border-radius: 6px;
+  background: #f1f5f9;
+  color: #475569;
+  font-size: 10px;
+}
+
+@media (max-width: 992px) {
+  .officer-grid { grid-template-columns: 1fr; }
+  .knowledge-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .obs-form { grid-template-columns: 1fr; }
+}
+
+/* Narrow screens: wrap the header so the language toggle stays reachable */
+.header-left { display: flex; align-items: center; gap: 16px; }
+@media (max-width: 1100px) {
+  .app-header { flex-wrap: wrap; gap: 10px; padding: 10px 16px; }
+  .header-left, .header-right { flex-wrap: wrap; gap: 10px; }
+  .brand-subtitle { display: none; }
+}
+@media (max-width: 640px) {
+  .location-badge, .saao-profile .profile-info { display: none; }
+}
