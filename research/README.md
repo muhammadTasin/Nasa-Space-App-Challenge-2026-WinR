@@ -150,6 +150,20 @@ Not used yet, because they need new downloads or methods: HLS 30 m field maps, S
 ECOSTRESS and land-surface temperature, FIRMS fires and NASA's GEOS-S2S seasonal outlooks. The SMAP L4 archive
 (NSIDC) is not in Giovanni, so its long record needs AppEEARS or Harmony; GLDAS stands in for it here.
 
+## Data release for the EDEN app (added 29 Sep 2026)
+
+The team's EDEN app (repo project-eden-earth-data-environment-navigator, branch `demo/research-data`) reads its
+numbers from one generated file instead of retyping them. After re-running the analyses, rebuild it with:
+
+```bash
+python research/export/eden_release.py --out <project-eden>/packages/rotation-engine/src/data/tanore_replay_data.ts
+```
+
+It writes the Tanore/Talanda replay (rescue-irrigation seasons, dates, water use), Rabi irrigation and BMD-corrected
+heat exposure, the SRDI Talanda fertilizer card, BARI/BWMRI sowing windows, and current conditions (latest SMAP L4
+root zone, 30-day rain verdict, GLDAS groundwater trend, MODIS winter greenness, land use, BBS yields, GLW4 cattle),
+stamped with this repo's commit. Then run `npm test` in the app repo.
+
 ## What needs a free Earthdata Login
 
 Status 27 Sep 2026: all downloaded. MODIS ET/PET (`--preset et`, 5 sites × 1,196 composites, 2000-2025),
