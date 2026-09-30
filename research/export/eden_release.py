@@ -11,6 +11,9 @@ packages/rotation-engine/src/data/tanore_replay_data.ts, so every screen shows t
   BRRI / BARI / BWMRI handbooks: seedbed and sowing windows
   Current conditions: SMAP L4 root zone (latest day) and 30-day rain (IMERG Late cross-checked, rain_vs_normal.py)
   Context: GLDAS-2.2 groundwater trend, MODIS winter greenness, upazila land use, BBS yields, GLW4 cattle
+  Advisories: warming nights and hot days at sensitive stages (heat_trends.py), cattle heat by month (cattle_heat.py)
+  Haor early warning: IMERG 3-day rain at Sohra against FFWC flood years, Boro varieties that escape (flash floods)
+  Soil and checks: SMAP L4 carbon (soil organic carbon, GPP check), and the environment ledger rows for the app's tests
 
 Only research outputs go in here. Crop labels, fodder classes and the illustrative income figures stay in the
 engine's hand-written crop catalog, marked as team estimates.
@@ -121,6 +124,8 @@ def aman_records() -> dict[str, dict]:
             "rescueYears": [int(y) for y in r.loc[r["needs_rescue_irrigation"], "season"]],
             "cropWaterUseMm": int(r["crop_water_use_mm"].median()),
             "floweringNightTempC": None if night is None else round(float(night), 1),
+            # days in the field, transplanting to maturity (environment_ledger.py's method)
+            "fieldDays": int((pd.to_datetime(r["maturity"]) - pd.to_datetime(r["transplant"])).dt.days.median()),
         }
     return out
 
@@ -159,6 +164,8 @@ def rabi_records(srdi: dict, yields: dict[str, float]) -> dict[str, dict]:
             "netIrrigationMm": int(s["net_irrigation_mm"].median()),
             "netIrrigationRangeMm": [int(s["net_irrigation_mm"].quantile(0.1)),
                                      int(s["net_irrigation_mm"].quantile(0.9))],
+            "pumpedM3PerHa": int(s["net_irrigation_mm"].median() * 10),
+            "fieldDays": int((pd.to_datetime(s["harvest"]) - pd.to_datetime(s["sown"])).dt.days.median()) + 1,
             "cropWaterUseMm": int(s["crop_water_use_mm"].median()),
             "heat": exposure,
             "fertilizer": srdi[key],
@@ -228,6 +235,81 @@ def conditions() -> dict:
     }
 
 
+def advisories() -> dict:
+    """Warming nights and hot days at sensitive stages (heat_trends.py), and cattle heat by month (cattle_heat.py)."""
+    trends = pd.read_csv(PILOTS / "heat_trends.csv")
+    trends = trends[trends["site_id"] == SITE]
+    cattle = pd.read_csv(PILOTS / "cattle_heat.csv")
+    cattle = cattle[cattle["site_id"] == SITE].sort_values("month")
+    return {
+        "heatTrends": [{"measure": r["measure"], "mean1991to2005": round(float(r["mean_1991_2005"]), 2),
+                        "mean2011to2025": round(float(r["mean_2011_2025"]), 2),
+                        "trendPerDecade": round(float(r["trend_per_decade"]), 2), "kendallP": round(float(r["kendall_p"]), 3)}
+                       for _, r in trends.iterrows()],
+        "cattleHeat": [{"month": int(r["month"]), "meanThi": round(float(r["mean_thi"]), 1),
+                        "dangerShare": round(float(r["share_danger_79_83"] + r["share_emergency_84"]), 3),
+                        "emergencyShare": round(float(r["share_emergency_84"]), 3),
+                        "nightsWithoutReliefPct": round(float(r["nights_without_relief_pct"]), 1),
+                        "coolestHours": str(r["coolest_hours"]).split()}
+                       for _, r in cattle.iterrows()],
+        "cattleSource": "NASA POWER hourly temperature and humidity 2023-2025, THI (NRC 1971); explore/cattle_heat.py",
+    }
+
+
+def haor() -> dict:
+    """Flash-flood trigger for the Sunamganj haors from IMERG rain at Sohra, and which Boro varieties escape it."""
+    hind = pd.read_csv(RESEARCH / "floods" / "flash_flood_hindcast.csv")
+    thr = pd.read_csv(RESEARCH / "floods" / "flash_flood_thresholds.csv")
+    esc = pd.read_csv(RESEARCH / "floods" / "boro_flood_escape.csv")
+    sites = pd.concat([pd.read_csv(RESEARCH / "sites" / f) for f in ("pilot_sites.csv", "upstream_points.csv")])
+    sites = sites.drop_duplicates("site_id").set_index("site_id")
+    label = {1.0: "flood", 0.0: "no flood"}
+    return {
+        "window": ["03-15", "05-15"],
+        "sohra": {"lat": float(sites.loc["UP_SOHRA", "lat"]), "lon": float(sites.loc["UP_SOHRA", "lon"])},
+        "dharmapasha": {"lat": float(sites.loc["SUN_DHARMAPASHA", "lat"]), "lon": float(sites.loc["SUN_DHARMAPASHA", "lon"])},
+        "watchMm": 200,
+        "warningMm": 250,
+        "source": "GPM IMERG daily rain at Sohra (Meghalaya), 3-day totals 15 Mar-15 May; flood years from FFWC annual reports",
+        "seasons": [{"year": int(r["year"]), "sohraMax3Mm": round(float(r["sohra_max3_mm"]), 1),
+                     "sohraMax3End": r["sohra_max3_end"],
+                     "label": label.get(r["flash_flood"], "unlabelled"),
+                     "first200mm": None if pd.isna(r["first_burst_200mm"]) else r["first_burst_200mm"]}
+                    for _, r in hind.iterrows()],
+        "skill": [{"thresholdMm": int(r["threshold_mm"]), "floodYearsCaught": r["flood_years_caught"],
+                   "noFloodYearsFlagged": r["no_flood_years_flagged"], "seasonsFlagged": r["seasons_flagged"]}
+                  for _, r in thr.iterrows()],
+        "escape": [{"variety": r["variety"], "sowing": r["sowing"], "medianHarvest": r["median_harvest"],
+                    "burstsBeforeHarvest": int(r["burst_before_harvest"]), "bursts": int(r["seasons_with_burst"]),
+                    "caughtYears": [] if pd.isna(r["caught_years"]) else [int(y) for y in str(r["caught_years"]).split()]}
+                   for _, r in esc[esc["burst_mm"] == 250].iterrows()],
+    }
+
+
+def soil_and_productivity() -> dict:
+    """SMAP L4 carbon: soil organic carbon, and whether GPP confirms the replay's dry seasons (productivity_check.py)."""
+    soc = pd.read_csv(PILOTS / "soil_carbon.csv").set_index("site_id").loc[SITE]
+    prod = pd.read_csv(PILOTS / "productivity_check.csv")
+    tan = prod[prod["site_id"] == SITE].dropna(subset=["aman_gpp_pct", "tanore_dhan49_dry_days"])
+    both = prod.dropna(subset=["aman_gpp_pct", "rain_jun_oct_pct"])
+    return {
+        "soilCarbonGm2": int(soc["soc_g_m2_2016_2025"]),
+        "soilCarbonTrendGm2PerYear": round(float(soc["trend_g_m2_per_year"]), 1),
+        "dryDaysVsAmanGppRho": round(float(tan["tanore_dhan49_dry_days"].corr(tan["aman_gpp_pct"], method="spearman")), 2),
+        "dryDaysVsAmanGppSeasons": int(len(tan)),
+        "monsoonRainVsAmanGppRho": round(float(both["rain_jun_oct_pct"].corr(both["aman_gpp_pct"], method="spearman")), 2),
+        "source": "SMAP L4 carbon (SPL4CMDL) GPP and soil organic carbon, 2015-2025",
+    }
+
+
+def ledger_check() -> list[dict]:
+    """The research ledger's rows, so the app's tests can check that the engine reproduces them."""
+    led = pd.read_csv(PILOTS / "environment_ledger_tanore.csv")
+    return [{"rotation": r["rotation"], "pumpedM3PerHa": int(r["groundwater_pumped_m3_per_ha"]),
+             "floodedRiceDays": int(r["flooded_rice_days"]), "ureaKgHa": int(r["urea_kg_per_ha"]),
+             "bareDays": int(r["bare_days"])} for _, r in led.iterrows()]
+
+
 def research_commit() -> str:
     try:
         return subprocess.run(["git", "-C", str(RESEARCH), "describe", "--always", "--dirty"],
@@ -263,14 +345,18 @@ def main() -> None:
         ("TANORE_RABI_REPLAY", "Record<string, RabiRecord>", rabi_records(srdi, yields)),
         ("TALANDA_SRDI", "SrdiCard", srdi_card),
         ("TANORE_CONDITIONS", "PilotConditions", conditions()),
+        ("TANORE_ADVISORIES", "PilotAdvisories", advisories()),
+        ("HAOR_FLASH_FLOOD", "HaorFlashFlood", haor()),
+        ("TANORE_SOIL_CARBON", "SoilAndProductivity", soil_and_productivity()),
+        ("TANORE_LEDGER_RESEARCH", "LedgerCheckRow[]", ledger_check()),
     ]
     body = "\n".join(f"export const {name}: {kind} = {json.dumps(value, ensure_ascii=False, indent=2)};\n"
                      for name, kind, value in blocks)
     header = (f"// GENERATED by research/export/eden_release.py from the WinR research repo "
               f"(commit {release['researchCommit']}) on {release['generatedOn']}.\n"
               "// Do not edit by hand. Re-run the script so the engine, dashboard and app keep the research numbers.\n"
-              "import type { AmanRecord, PilotConditions, RabiRecord, ReleaseInfo, SrdiCard } "
-              "from './release_types.ts';\n\n")
+              "import type { AmanRecord, HaorFlashFlood, LedgerCheckRow, PilotAdvisories, PilotConditions, RabiRecord, "
+              "ReleaseInfo, SoilAndProductivity, SrdiCard } from './release_types.ts';\n\n")
     args.out.write_text(header + body, encoding="utf-8")
     print(f"wrote {args.out} ({release['id']}, research {release['researchCommit']})")
 
