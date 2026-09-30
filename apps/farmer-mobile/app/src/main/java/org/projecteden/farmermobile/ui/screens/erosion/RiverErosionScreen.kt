@@ -63,6 +63,7 @@ import org.projecteden.farmermobile.ui.components.EdenTopAppBar
 @Composable
 fun RiverErosionScreen(
     viewModel: RiverErosionViewModel = viewModel(),
+    onNavigateToProfile: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
@@ -76,7 +77,8 @@ fun RiverErosionScreen(
     ) {
         EdenTopAppBar(
             title = "নদীভাঙন ও হাইড্রোলজি",
-            isOffline = false
+            isOffline = false,
+            onProfileClick = onNavigateToProfile
         )
 
         // River Selection Horizontal Chips

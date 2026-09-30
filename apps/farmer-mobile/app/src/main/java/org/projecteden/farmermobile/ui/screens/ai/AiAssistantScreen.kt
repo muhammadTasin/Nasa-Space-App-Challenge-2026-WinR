@@ -32,6 +32,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -53,18 +54,21 @@ import org.projecteden.farmermobile.theme.OnPrimary
 import org.projecteden.farmermobile.theme.OnPrimaryContainer
 import org.projecteden.farmermobile.theme.OnSurface
 import org.projecteden.farmermobile.theme.OnSurfaceVariant
+import org.projecteden.farmermobile.theme.Outline
 import org.projecteden.farmermobile.theme.Primary
 import org.projecteden.farmermobile.theme.PrimaryContainer
 import org.projecteden.farmermobile.theme.PrimaryFixed
 import org.projecteden.farmermobile.theme.Surface
 import org.projecteden.farmermobile.theme.SurfaceContainerHigh
 import org.projecteden.farmermobile.theme.SurfaceContainerLow
+import org.projecteden.farmermobile.theme.SurfaceContainerLowest
 import org.projecteden.farmermobile.theme.Tertiary
 import org.projecteden.farmermobile.ui.components.EdenTopAppBar
 
 @Composable
 fun AiAssistantScreen(
     viewModel: AiAssistantViewModel = viewModel(),
+    onNavigateToProfile: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
     val messages by viewModel.messages.collectAsStateWithLifecycle()
@@ -86,7 +90,8 @@ fun AiAssistantScreen(
     ) {
         EdenTopAppBar(
             title = "সহায়ক এআই (কৃষি সহকারী)",
-            isOffline = false
+            isOffline = false,
+            onProfileClick = onNavigateToProfile
         )
 
         // Grounding Notice Banner
@@ -191,9 +196,22 @@ fun AiAssistantScreen(
                 OutlinedTextField(
                     value = inputText,
                     onValueChange = { inputText = it },
-                    placeholder = { Text("আপনার প্রশ্ন এখানে লিখুন...") },
+                    placeholder = { Text("আপনার প্রশ্ন এখানে লিখুন...", color = OnSurfaceVariant) },
                     maxLines = 3,
                     shape = RoundedCornerShape(20.dp),
+                    textStyle = MaterialTheme.typography.bodyMedium.copy(
+                        color = OnSurface,
+                        fontWeight = FontWeight.Normal
+                    ),
+                    colors = OutlinedTextFieldDefaults.colors(
+                        focusedTextColor = OnSurface,
+                        unfocusedTextColor = OnSurface,
+                        focusedContainerColor = SurfaceContainerLowest,
+                        unfocusedContainerColor = SurfaceContainerLowest,
+                        focusedBorderColor = Primary,
+                        unfocusedBorderColor = Outline,
+                        cursorColor = Primary
+                    ),
                     modifier = Modifier.weight(1f)
                 )
 

@@ -107,17 +107,24 @@ fun EdenMainScaffold(
             when (selectedTab) {
                 EdenTab.TODAY -> {
                     TodayAdviceScreen(
-                        onNavigateToPlan = onNavigateToPlan
+                        onNavigateToPlan = onNavigateToPlan,
+                        onNavigateToProfile = { selectedTab = EdenTab.FARM }
                     )
                 }
                 EdenTab.WEATHER -> {
-                    WeatherScreen()
+                    WeatherScreen(
+                        onNavigateToProfile = { selectedTab = EdenTab.FARM }
+                    )
                 }
                 EdenTab.EROSION -> {
-                    RiverErosionScreen()
+                    RiverErosionScreen(
+                        onNavigateToProfile = { selectedTab = EdenTab.FARM }
+                    )
                 }
                 EdenTab.AI -> {
-                    AiAssistantScreen()
+                    AiAssistantScreen(
+                        onNavigateToProfile = { selectedTab = EdenTab.FARM }
+                    )
                 }
                 EdenTab.FARM -> {
                     MyFarmScreen()

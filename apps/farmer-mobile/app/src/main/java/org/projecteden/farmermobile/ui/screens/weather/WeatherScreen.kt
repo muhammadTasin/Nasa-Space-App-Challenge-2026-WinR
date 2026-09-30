@@ -63,6 +63,7 @@ import org.projecteden.farmermobile.ui.components.EdenTopAppBar
 @Composable
 fun WeatherScreen(
     viewModel: WeatherViewModel = viewModel(),
+    onNavigateToProfile: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
@@ -76,7 +77,8 @@ fun WeatherScreen(
     ) {
         EdenTopAppBar(
             title = "নাসা আবহাওয়া ও মাটির রস",
-            isOffline = (uiState as? WeatherUiState.Success)?.data?.isLive != true
+            isOffline = (uiState as? WeatherUiState.Success)?.data?.isLive != true,
+            onProfileClick = onNavigateToProfile
         )
 
         when (val state = uiState) {

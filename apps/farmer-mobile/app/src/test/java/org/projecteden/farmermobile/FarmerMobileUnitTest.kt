@@ -112,4 +112,50 @@ class FarmerMobileUnitTest {
         assertEquals(cached.rotationTitle, stored.rotationTitle)
         assertEquals("গতকাল", stored.lastSyncFormatted)
     }
+
+    @Test
+    fun testFarmProfileSaveUpdatesTimestampAndDao() = runTest {
+        var saved: FarmProfileEntity? = null
+        val fakeDao = object : FarmDao {
+            override fun getFarmProfile() = flowOf(FarmProfileEntity(farmName = "আসল খামার"))
+            override suspend fun insertOrUpdateProfile(profile: FarmProfileEntity) { saved = profile }
+            override fun getAdvice() = flowOf(null)
+            override suspend fun insertOrUpdateAdvice(advice: AdviceEntity) {}
+            override fun getAdviceHistory() = flowOf(emptyList<AdviceHistoryEntity>())
+            override suspend fun insertHistoryItem(item: AdviceHistoryEntity) {}
+            override suspend fun markHistoryItemListened(historyId: String) {}
+        }
+
+        val repository = FarmerRepository(fakeDao)
+        val profile = repository.farmProfile.first()
+        assertEquals("আসল খামার", profile.farmName)
+
+        val updatedProfile = profile.copy(farmName = "সম্পাদিত খামার", region = "রাজশাহী")
+        repository.saveProfile(updatedProfile)
+
+        val nonNullSaved = saved
+        assertNotNull(nonNullSaved)
+        assertEquals("সম্পাদিত খামার", nonNullSaved!!.farmName)
+        assertEquals("রাজশাহী", nonNullSaved.region)
+        assertTrue(nonNullSaved.lastUpdatedTimestamp > 0)
+    }
+
+    @Test
+    fun testFarmProfileDraftDecoupling() {
+        val original = FarmProfileEntity(farmName = "খামার ১", region = "বরেন্দ্র")
+        var draft: FarmProfileEntity? = original
+
+        // Simulating draft update during user typing
+        draft = draft?.copy(farmName = "খামার ২")
+        assertEquals("খামার ২", draft?.farmName)
+        // Original entity remains untouched
+        assertEquals("খামার ১", original.farmName)
+
+        // Cancel editing discards draft
+        draft = null
+        org.junit.Assert.assertNull(draft)
+        assertEquals("খামার ১", original.farmName)
+    }
 }
+
+

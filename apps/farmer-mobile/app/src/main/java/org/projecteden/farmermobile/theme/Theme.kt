@@ -66,10 +66,10 @@ private val AgroPrecisionDarkColorScheme = darkColorScheme(
 
 @Composable
 fun ProjectEDENFarmerTheme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
+    darkTheme: Boolean = false,
     content: @Composable () -> Unit
 ) {
-    // Retain Agro Precision color scheme for strict visual consistency
+    // Retain Agro Precision color scheme for strict visual consistency under rural sunlight
     val colorScheme = if (darkTheme) AgroPrecisionDarkColorScheme else AgroPrecisionLightColorScheme
 
     MaterialTheme(

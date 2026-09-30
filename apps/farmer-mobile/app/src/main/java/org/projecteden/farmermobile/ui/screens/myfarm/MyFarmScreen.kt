@@ -14,12 +14,14 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
@@ -32,6 +34,7 @@ import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material.icons.filled.Login
 import androidx.compose.material.icons.filled.Logout
 import androidx.compose.material.icons.filled.Place
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CircularProgressIndicator
@@ -39,6 +42,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -48,6 +52,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -91,12 +96,13 @@ fun MyFarmScreen(
     val farmProfile by viewModel.farmProfile.collectAsStateWithLifecycle()
     val authState by viewModel.authState.collectAsStateWithLifecycle()
     val isUpdating by viewModel.isUpdating.collectAsStateWithLifecycle()
+    val isEditing by viewModel.isEditing.collectAsStateWithLifecycle()
+    val draftProfile by viewModel.draftProfile.collectAsStateWithLifecycle()
     val feedbackMessage by viewModel.feedbackMessage.collectAsStateWithLifecycle()
     val errorMessage by viewModel.errorMessage.collectAsStateWithLifecycle()
 
-    var isEditing by rememberSaveable { mutableStateOf(false) }
-    var draftProfile by remember(farmProfile) { mutableStateOf(farmProfile) }
     var showLoginDialog by remember { mutableStateOf(false) }
+    var showAccountDialog by remember { mutableStateOf(false) }
 
     val scrollState = rememberScrollState()
     val coroutineScope = rememberCoroutineScope()
@@ -115,14 +121,87 @@ fun MyFarmScreen(
         )
     }
 
+    if (showAccountDialog) {
+        val user = (authState as? AuthState.Authenticated)?.user
+        AlertDialog(
+            onDismissRequest = { showAccountDialog = false },
+            icon = {
+                Icon(
+                    imageVector = Icons.Default.AccountCircle,
+                    contentDescription = null,
+                    tint = Primary,
+                    modifier = Modifier.size(36.dp)
+                )
+            },
+            title = {
+                Text(
+                    text = user?.nameBangla ?: "প্রোফাইল তথ্য",
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.Bold,
+                    color = OnSurface
+                )
+            },
+            text = {
+                Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                    Text(
+                        text = "${user?.titleBangla} (${if (user?.role == "officer") "কৃষি কর্মকর্তা" else "কৃষক"})",
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = Primary,
+                        fontWeight = FontWeight.SemiBold
+                    )
+                    Text(
+                        text = "ব্লক / গ্রাম: ${user?.blockOrVillage}",
+                        style = MaterialTheme.typography.bodySmall,
+                        color = OnSurfaceVariant
+                    )
+                    Text(
+                        text = "লগইন স্থিতি: সুরক্ষিত ও সক্রিয়",
+                        style = MaterialTheme.typography.labelSmall,
+                        color = OnSurfaceVariant
+                    )
+                }
+            },
+            confirmButton = {
+                Button(
+                    onClick = {
+                        showAccountDialog = false
+                        viewModel.logout()
+                    },
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = MaterialTheme.colorScheme.error,
+                        contentColor = OnPrimary
+                    )
+                ) {
+                    Icon(imageVector = Icons.Default.Logout, contentDescription = null, modifier = Modifier.size(16.dp))
+                    Spacer(modifier = Modifier.width(4.dp))
+                    Text("লগআউট")
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { showAccountDialog = false }) {
+                    Text("বন্ধ করুন")
+                }
+            },
+            containerColor = Surface
+        )
+    }
+
     Column(
         modifier = modifier
             .fillMaxSize()
             .background(Surface)
+            .imePadding()
     ) {
         EdenTopAppBar(
             title = "আমার খামার ও প্রোফাইল",
-            isOffline = true
+            isOffline = true,
+            onProfileClick = {
+                if (authState is AuthState.Authenticated) {
+                    showAccountDialog = true
+                } else {
+                    showLoginDialog = true
+                }
+            }
         )
 
         Box(modifier = Modifier.fillMaxSize()) {
@@ -308,9 +387,7 @@ fun MyFarmScreen(
                 if (!isEditing) {
                     Button(
                         onClick = {
-                            draftProfile = farmProfile
-                            isEditing = true
-                            viewModel.logEditOpened()
+                            viewModel.startEditing()
                             coroutineScope.launch { scrollState.animateScrollTo(0) }
                         },
                         colors = ButtonDefaults.buttonColors(
@@ -335,6 +412,7 @@ fun MyFarmScreen(
                         )
                     }
                 } else {
+                    val currentDraft = draftProfile ?: farmProfile
                     Surface(
                         color = SurfaceContainerLow,
                         shape = RoundedCornerShape(14.dp),
@@ -370,41 +448,88 @@ fun MyFarmScreen(
                             }
 
                             Text(
-                                text = "পরিবর্তনগুলো আপনার ফোনের সুরক্ষিত ডেটাবেজে সংরক্ষিত হবে।",
+                                text = "পরিবর্তনগুলো আপনার ডিভাইসের সুরক্ষিত ডেটাবেজে সংরক্ষিত হবে (ডিভাইসে সংরক্ষিত)।",
                                 style = MaterialTheme.typography.bodySmall,
                                 color = OnSurfaceVariant
                             )
 
-                            // Editable Input Fields
-                            FarmEditField("খামারের নাম", draftProfile.farmName) {
-                                draftProfile = draftProfile.copy(farmName = it)
-                            }
-                            FarmEditField("অঞ্চল", draftProfile.region) {
-                                draftProfile = draftProfile.copy(region = it)
-                            }
-                            FarmEditField("ভৌগোলিক এলাকা", draftProfile.geoArea) {
-                                draftProfile = draftProfile.copy(geoArea = it)
-                            }
-                            FarmEditField("প্লটের বিবরণ", draftProfile.plotDescription) {
-                                draftProfile = draftProfile.copy(plotDescription = it)
-                            }
-                            FarmEditField("মোট জমির পরিমাণ", draftProfile.totalArea) {
-                                draftProfile = draftProfile.copy(totalArea = it)
-                            }
-                            FarmEditField("জমির শ্রেণি", draftProfile.landType) {
-                                draftProfile = draftProfile.copy(landType = it)
-                            }
-                            FarmEditField("মাটির বুনট", draftProfile.soilTexture) {
-                                draftProfile = draftProfile.copy(soilTexture = it)
-                            }
-                            FarmEditField("সেচ ও নিষ্কাশনের বিবরণ", draftProfile.irrigationFacility) {
-                                draftProfile = draftProfile.copy(irrigationFacility = it)
-                            }
-                            FarmEditField("অগ্রাধিকার (কমা দিয়ে আলাদা করুন)", draftProfile.priorities) {
-                                draftProfile = draftProfile.copy(priorities = it)
+                            // Quick reachable Save/Cancel buttons at TOP of form
+                            Row(
+                                modifier = Modifier.fillMaxWidth(),
+                                horizontalArrangement = Arrangement.spacedBy(10.dp)
+                            ) {
+                                OutlinedButton(
+                                    onClick = { viewModel.cancelEditing() },
+                                    enabled = !isUpdating,
+                                    shape = RoundedCornerShape(10.dp),
+                                    modifier = Modifier
+                                        .weight(1f)
+                                        .height(44.dp)
+                                ) {
+                                    Icon(imageVector = Icons.Default.Close, contentDescription = null, modifier = Modifier.size(16.dp))
+                                    Spacer(modifier = Modifier.width(4.dp))
+                                    Text("বাতিল")
+                                }
+
+                                Button(
+                                    onClick = { viewModel.saveDraft() },
+                                    enabled = !isUpdating,
+                                    colors = ButtonDefaults.buttonColors(containerColor = Primary, contentColor = OnPrimary),
+                                    shape = RoundedCornerShape(10.dp),
+                                    modifier = Modifier
+                                        .weight(1f)
+                                        .height(44.dp)
+                                ) {
+                                    if (isUpdating) {
+                                        CircularProgressIndicator(
+                                            color = OnPrimary,
+                                            strokeWidth = 2.dp,
+                                            modifier = Modifier.size(16.dp)
+                                        )
+                                        Spacer(modifier = Modifier.width(6.dp))
+                                        Text("সংরক্ষণ হচ্ছে...", style = MaterialTheme.typography.labelMedium)
+                                    } else {
+                                        Icon(imageVector = Icons.Default.Check, contentDescription = null, modifier = Modifier.size(16.dp))
+                                        Spacer(modifier = Modifier.width(4.dp))
+                                        Text("সংরক্ষণ করুন", style = MaterialTheme.typography.labelMedium, fontWeight = FontWeight.Bold)
+                                    }
+                                }
                             }
 
-                            // Save and Cancel Actions
+                            // Editable Input Fields
+                            FarmEditField("খামারের নাম", currentDraft.farmName) { text ->
+                                viewModel.updateDraft { it.copy(farmName = text) }
+                            }
+                            FarmEditField("অঞ্চল", currentDraft.region) { text ->
+                                viewModel.updateDraft { it.copy(region = text) }
+                            }
+                            FarmEditField("ভৌগোলিক এলাকা", currentDraft.geoArea) { text ->
+                                viewModel.updateDraft { it.copy(geoArea = text) }
+                            }
+                            FarmEditField("প্লটের বিবরণ", currentDraft.plotDescription) { text ->
+                                viewModel.updateDraft { it.copy(plotDescription = text) }
+                            }
+                            FarmEditField("মোট জমির পরিমাণ", currentDraft.totalArea) { text ->
+                                viewModel.updateDraft { it.copy(totalArea = text) }
+                            }
+                            FarmEditField("জমির শ্রেণি", currentDraft.landType) { text ->
+                                viewModel.updateDraft { it.copy(landType = text) }
+                            }
+                            FarmEditField("মাটির বুনট", currentDraft.soilTexture) { text ->
+                                viewModel.updateDraft { it.copy(soilTexture = text) }
+                            }
+                            FarmEditField("সেচ ও নিষ্কাশনের বিবরণ", currentDraft.irrigationFacility) { text ->
+                                viewModel.updateDraft { it.copy(irrigationFacility = text) }
+                            }
+                            FarmEditField(
+                                label = "অগ্রাধিকার (কমা দিয়ে আলাদা করুন)",
+                                value = currentDraft.priorities,
+                                keyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Done)
+                            ) { text ->
+                                viewModel.updateDraft { it.copy(priorities = text) }
+                            }
+
+                            // Save and Cancel Actions at bottom of form
                             Row(
                                 modifier = Modifier
                                     .fillMaxWidth()
@@ -412,11 +537,7 @@ fun MyFarmScreen(
                                 horizontalArrangement = Arrangement.spacedBy(10.dp)
                             ) {
                                 OutlinedButton(
-                                    onClick = {
-                                        draftProfile = farmProfile
-                                        isEditing = false
-                                        viewModel.logEditCancelled()
-                                    },
+                                    onClick = { viewModel.cancelEditing() },
                                     enabled = !isUpdating,
                                     shape = RoundedCornerShape(10.dp),
                                     modifier = Modifier
@@ -429,10 +550,7 @@ fun MyFarmScreen(
                                 }
 
                                 Button(
-                                    onClick = {
-                                        viewModel.updateFarmInfo(draftProfile)
-                                        isEditing = false
-                                    },
+                                    onClick = { viewModel.saveDraft() },
                                     enabled = !isUpdating,
                                     colors = ButtonDefaults.buttonColors(containerColor = Primary, contentColor = OnPrimary),
                                     shape = RoundedCornerShape(10.dp),
@@ -446,6 +564,8 @@ fun MyFarmScreen(
                                             strokeWidth = 2.dp,
                                             modifier = Modifier.size(18.dp)
                                         )
+                                        Spacer(modifier = Modifier.width(6.dp))
+                                        Text("সংরক্ষণ হচ্ছে...")
                                     } else {
                                         Icon(imageVector = Icons.Default.Check, contentDescription = null, modifier = Modifier.size(16.dp))
                                         Spacer(modifier = Modifier.width(4.dp))
@@ -469,9 +589,7 @@ fun MyFarmScreen(
                                 .fillMaxWidth()
                                 .background(SurfaceContainerHigh.copy(alpha = 0.5f))
                                 .clickable {
-                                    draftProfile = farmProfile
-                                    isEditing = true
-                                    viewModel.logEditOpened()
+                                    viewModel.startEditing()
                                     coroutineScope.launch { scrollState.animateScrollTo(0) }
                                 }
                                 .padding(horizontal = 14.dp, vertical = 10.dp),
@@ -538,9 +656,7 @@ fun MyFarmScreen(
                                 .fillMaxWidth()
                                 .background(SurfaceContainerHigh.copy(alpha = 0.5f))
                                 .clickable {
-                                    draftProfile = farmProfile
-                                    isEditing = true
-                                    viewModel.logEditOpened()
+                                    viewModel.startEditing()
                                     coroutineScope.launch { scrollState.animateScrollTo(0) }
                                 }
                                 .padding(horizontal = 14.dp, vertical = 10.dp),
@@ -710,13 +826,32 @@ private fun InfoItem(label: String, value: String) {
 private fun FarmEditField(
     label: String,
     value: String,
+    singleLine: Boolean = true,
+    keyboardOptions: KeyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Next),
     onValueChange: (String) -> Unit
 ) {
     OutlinedTextField(
         value = value,
         onValueChange = onValueChange,
-        label = { Text(label) },
-        singleLine = true,
+        label = { Text(label, style = MaterialTheme.typography.bodySmall) },
+        singleLine = singleLine,
+        keyboardOptions = keyboardOptions,
+        textStyle = MaterialTheme.typography.bodyMedium.copy(
+            color = OnSurface,
+            fontWeight = FontWeight.Medium
+        ),
+        colors = OutlinedTextFieldDefaults.colors(
+            focusedTextColor = OnSurface,
+            unfocusedTextColor = OnSurface,
+            focusedContainerColor = SurfaceContainerLowest,
+            unfocusedContainerColor = SurfaceContainerLowest,
+            focusedLabelColor = Primary,
+            unfocusedLabelColor = OnSurfaceVariant,
+            focusedBorderColor = Primary,
+            unfocusedBorderColor = Outline,
+            cursorColor = Primary
+        ),
+        shape = RoundedCornerShape(10.dp),
         modifier = Modifier.fillMaxWidth()
     )
 }

@@ -31,6 +31,12 @@ class MyFarmViewModel(application: Application) : AndroidViewModel(application) 
 
     val authState: StateFlow<AuthState> = authManager.authState
 
+    private val _isEditing = MutableStateFlow(false)
+    val isEditing: StateFlow<Boolean> = _isEditing.asStateFlow()
+
+    private val _draftProfile = MutableStateFlow<FarmProfileEntity?>(null)
+    val draftProfile: StateFlow<FarmProfileEntity?> = _draftProfile.asStateFlow()
+
     private val _isUpdating = MutableStateFlow(false)
     val isUpdating: StateFlow<Boolean> = _isUpdating.asStateFlow()
 
@@ -48,6 +54,55 @@ class MyFarmViewModel(application: Application) : AndroidViewModel(application) 
         Log.i(TAG, "farm_profile_edit_cancelled")
     }
 
+    fun startEditing() {
+        val current = farmProfile.value
+        _draftProfile.value = current
+        _isEditing.value = true
+        _feedbackMessage.value = null
+        _errorMessage.value = null
+        Log.i(TAG, "farm_profile_edit_opened")
+    }
+
+    fun updateDraft(transform: (FarmProfileEntity) -> FarmProfileEntity) {
+        val current = _draftProfile.value ?: farmProfile.value
+        _draftProfile.value = transform(current)
+    }
+
+    fun cancelEditing() {
+        _draftProfile.value = null
+        _isEditing.value = false
+        _errorMessage.value = null
+        Log.i(TAG, "farm_profile_edit_cancelled")
+    }
+
+    fun saveDraft() {
+        val draft = _draftProfile.value ?: return
+        if (_isUpdating.value) return
+
+        viewModelScope.launch {
+            _isUpdating.value = true
+            _feedbackMessage.value = null
+            _errorMessage.value = null
+            try {
+                repository.saveProfile(draft)
+                _isEditing.value = false
+                _draftProfile.value = null
+                _feedbackMessage.value = "খামারের তথ্য সফলভাবে সংরক্ষিত হয়েছে"
+                Log.i(TAG, "farm_profile_save_success")
+                Log.i(TAG, "farm_profile_saved")
+                delay(2500)
+                _feedbackMessage.value = null
+            } catch (error: CancellationException) {
+                throw error
+            } catch (error: Exception) {
+                _errorMessage.value = "তথ্য সংরক্ষণ করা যায়নি; আবার চেষ্টা করুন"
+                Log.w(TAG, "farm_profile_save_failed:${error.javaClass.simpleName}")
+            } finally {
+                _isUpdating.value = false
+            }
+        }
+    }
+
     fun updateFarmInfo(profile: FarmProfileEntity) {
         if (_isUpdating.value) return
         viewModelScope.launch {
@@ -56,7 +111,10 @@ class MyFarmViewModel(application: Application) : AndroidViewModel(application) 
             _errorMessage.value = null
             try {
                 repository.saveProfile(profile)
+                _isEditing.value = false
+                _draftProfile.value = null
                 _feedbackMessage.value = "খামারের তথ্য সফলভাবে সংরক্ষিত হয়েছে"
+                Log.i(TAG, "farm_profile_save_success")
                 Log.i(TAG, "farm_profile_saved")
                 delay(2500)
                 _feedbackMessage.value = null

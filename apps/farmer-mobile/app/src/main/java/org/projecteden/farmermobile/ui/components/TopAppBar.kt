@@ -1,5 +1,6 @@
 package org.projecteden.farmermobile.ui.components
 
+import android.util.Log
 import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.RepeatMode
 import androidx.compose.animation.core.animateFloat
@@ -53,6 +54,7 @@ fun EdenTopAppBar(
     title: String,
     onBackClick: (() -> Unit)? = null,
     onSupportClick: (() -> Unit)? = null,
+    onProfileClick: (() -> Unit)? = null,
     isOffline: Boolean = true
 ) {
     Surface(
@@ -160,18 +162,22 @@ fun EdenTopAppBar(
                         }
                     }
 
-                    Box(
+                    IconButton(
+                        onClick = {
+                            Log.i("EDEN_APP", "top_app_bar_profile_clicked")
+                            onProfileClick?.invoke()
+                        },
                         modifier = Modifier
-                            .size(32.dp)
+                            .size(40.dp)
                             .clip(CircleShape)
                             .background(Primary),
-                        contentAlignment = Alignment.Center
+                        enabled = onProfileClick != null
                     ) {
                         Icon(
                             imageVector = Icons.Default.Person,
-                            contentDescription = "প্রোফাইল",
+                            contentDescription = "প্রোফাইল ও অ্যাকাউন্ট সেটিংস",
                             tint = OnPrimary,
-                            modifier = Modifier.size(18.dp)
+                            modifier = Modifier.size(20.dp)
                         )
                     }
                 }

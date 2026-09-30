@@ -63,6 +63,7 @@ import org.projecteden.farmermobile.ui.components.windowPart
 @Composable
 fun TodayAdviceScreen(
     onNavigateToPlan: () -> Unit,
+    onNavigateToProfile: () -> Unit = {},
     viewModel: TodayAdviceViewModel = viewModel(),
     modifier: Modifier = Modifier
 ) {
@@ -79,7 +80,8 @@ fun TodayAdviceScreen(
     ) {
         EdenTopAppBar(
             title = "আজ",
-            isOffline = advice.isOffline
+            isOffline = advice.isOffline,
+            onProfileClick = onNavigateToProfile
         )
 
         Column(

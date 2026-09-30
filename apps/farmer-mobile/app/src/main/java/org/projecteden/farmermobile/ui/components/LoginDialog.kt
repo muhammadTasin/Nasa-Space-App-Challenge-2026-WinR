@@ -24,6 +24,7 @@ import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -41,10 +42,12 @@ import androidx.compose.ui.window.Dialog
 import org.projecteden.farmermobile.theme.OnPrimary
 import org.projecteden.farmermobile.theme.OnSurface
 import org.projecteden.farmermobile.theme.OnSurfaceVariant
+import org.projecteden.farmermobile.theme.Outline
 import org.projecteden.farmermobile.theme.Primary
 import org.projecteden.farmermobile.theme.PrimaryContainer
 import org.projecteden.farmermobile.theme.Surface
 import org.projecteden.farmermobile.theme.SurfaceContainerHigh
+import org.projecteden.farmermobile.theme.SurfaceContainerLowest
 
 @Composable
 fun LoginDialog(
@@ -197,6 +200,21 @@ fun LoginDialog(
                     leadingIcon = {
                         Icon(imageVector = Icons.Default.Person, contentDescription = null, tint = Primary)
                     },
+                    textStyle = MaterialTheme.typography.bodyMedium.copy(
+                        color = OnSurface,
+                        fontWeight = FontWeight.Medium
+                    ),
+                    colors = OutlinedTextFieldDefaults.colors(
+                        focusedTextColor = OnSurface,
+                        unfocusedTextColor = OnSurface,
+                        focusedContainerColor = SurfaceContainerLowest,
+                        unfocusedContainerColor = SurfaceContainerLowest,
+                        focusedLabelColor = Primary,
+                        unfocusedLabelColor = OnSurfaceVariant,
+                        focusedBorderColor = Primary,
+                        unfocusedBorderColor = Outline,
+                        cursorColor = Primary
+                    ),
                     modifier = Modifier.fillMaxWidth()
                 )
 
@@ -207,6 +225,21 @@ fun LoginDialog(
                     leadingIcon = {
                         Icon(imageVector = Icons.Default.Lock, contentDescription = null, tint = Primary)
                     },
+                    textStyle = MaterialTheme.typography.bodyMedium.copy(
+                        color = OnSurface,
+                        fontWeight = FontWeight.Medium
+                    ),
+                    colors = OutlinedTextFieldDefaults.colors(
+                        focusedTextColor = OnSurface,
+                        unfocusedTextColor = OnSurface,
+                        focusedContainerColor = SurfaceContainerLowest,
+                        unfocusedContainerColor = SurfaceContainerLowest,
+                        focusedLabelColor = Primary,
+                        unfocusedLabelColor = OnSurfaceVariant,
+                        focusedBorderColor = Primary,
+                        unfocusedBorderColor = Outline,
+                        cursorColor = Primary
+                    ),
                     modifier = Modifier.fillMaxWidth()
                 )
 
