@@ -6,7 +6,7 @@ EDEN is a Bangla-first crop-rotation decision-support project. Its goal is to he
 
 ## Project status
 
-The default branch currently contains the team's research and data-source work. The application architecture below is the agreed target; the production apps and shared services have not yet been merged into `main`. The current screen-design work is on [`feature/eden-screen-recreation-rayyan`](https://github.com/muhammadTasin/project-eden-earth-data-environment-navigator/tree/feature/eden-screen-recreation-rayyan/design).
+The default branch currently contains the team's research and data-source work. The application architecture below is the agreed target; the production apps and shared services have not yet been merged into `main`. The current screen-design work is on [`feature/eden-screen-recreation`](https://github.com/muhammadTasin/project-eden-earth-data-environment-navigator/tree/feature/eden-screen-recreation/design).
 
 ## Architecture
 
