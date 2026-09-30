@@ -42,6 +42,10 @@ async function run() {
   const dataOverview = await resOverview.json();
   check(resOverview.status === 200, 'overview status');
   check(dataOverview.local_satellite_conditions.smap?.date, 'overview has a dated SMAP value');
+  const warnings = dataOverview.early_warnings;
+  check(warnings?.haor?.skill?.length && warnings.cattleHeat?.months?.length === 12 && warnings.warmNights?.dhan71, 'overview carries the early warnings');
+  const haor = await (await fetch(`${BASE}/api/v1/haor/flash-flood`)).json();
+  check(haor.seasons.length === 25 && haor.status?.state, 'the haor endpoint serves the 25-season hindcast and the current status');
   console.log('✓ Overview status:', resOverview.status, 'Union:', dataOverview.scope.union, 'SMAP', dataOverview.local_satellite_conditions.smap.rootZoneM3M3, 'on', dataOverview.local_satellite_conditions.smap.date);
 
   // 2. POST /api/v1/advice

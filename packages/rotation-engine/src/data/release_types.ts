@@ -27,6 +27,7 @@ export interface AmanRecord {
   rescueYears: number[];
   cropWaterUseMm: number;
   floweringNightTempC: number | null;
+  fieldDays: number; // transplanting to maturity
 }
 
 export interface HeatExposure {
@@ -57,6 +58,8 @@ export interface RabiRecord {
   seasons: number;
   netIrrigationMm: number;
   netIrrigationRangeMm: [number, number];
+  pumpedM3PerHa: number; // median net irrigation as groundwater pumped per hectare
+  fieldDays: number; // sowing to harvest, both days counted
   cropWaterUseMm: number;
   heat: HeatExposure | null;
   fertilizer: FertilizerDose;
@@ -104,4 +107,39 @@ export interface PilotConditions {
   winterGreenness: { product: string; early: GreennessPeriod; recent: GreennessPeriod };
   landUse: { year: string; croppingIntensityPct: number; topPattern: string; topPatternPct: number };
   cattlePerKm2: number;
+}
+
+export interface PilotAdvisories {
+  heatTrends: Array<{ measure: string; mean1991to2005: number; mean2011to2025: number; trendPerDecade: number; kendallP: number }>;
+  cattleHeat: Array<{ month: number; meanThi: number; dangerShare: number; emergencyShare: number; nightsWithoutReliefPct: number; coolestHours: string[] }>;
+  cattleSource: string;
+}
+
+export interface HaorFlashFlood {
+  window: [MonthDay, MonthDay];
+  sohra: { lat: number; lon: number };
+  dharmapasha: { lat: number; lon: number };
+  watchMm: number;
+  warningMm: number;
+  source: string;
+  seasons: Array<{ year: number; sohraMax3Mm: number; sohraMax3End: string; label: 'flood' | 'no flood' | 'unlabelled'; first200mm: string | null }>;
+  skill: Array<{ thresholdMm: number; floodYearsCaught: string; noFloodYearsFlagged: string; seasonsFlagged: string }>;
+  escape: Array<{ variety: string; sowing: string; medianHarvest: string; burstsBeforeHarvest: number; bursts: number; caughtYears: number[] }>;
+}
+
+export interface SoilAndProductivity {
+  soilCarbonGm2: number;
+  soilCarbonTrendGm2PerYear: number;
+  dryDaysVsAmanGppRho: number;
+  dryDaysVsAmanGppSeasons: number;
+  monsoonRainVsAmanGppRho: number;
+  source: string;
+}
+
+export interface LedgerCheckRow {
+  rotation: string;
+  pumpedM3PerHa: number;
+  floodedRiceDays: number;
+  ureaKgHa: number;
+  bareDays: number;
 }

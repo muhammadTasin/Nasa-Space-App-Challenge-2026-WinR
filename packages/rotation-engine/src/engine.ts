@@ -11,7 +11,7 @@ import type {
   ThisSeasonFit,
 } from '@project-eden/contracts';
 import { FeatureRegistry } from './registry.ts';
-import { RELEASE, TANORE_AMAN_REPLAY, TANORE_CONDITIONS, TANORE_RABI_REPLAY } from './data/tanore_replay_data.ts';
+import { RELEASE, TALANDA_SRDI, TANORE_AMAN_REPLAY, TANORE_CONDITIONS, TANORE_RABI_REPLAY } from './data/tanore_replay_data.ts';
 import { AMAN_CATALOG, RABI_CATALOG } from './data/crop_catalog.ts';
 import type { AmanRecord, RabiRecord } from './data/release_types.ts';
 import type { RabiCatalogEntry } from './data/crop_catalog.ts';
@@ -300,6 +300,14 @@ export class RotationEngine {
       rabiActionEn,
     ];
     const ipmActions: IpmTip[] = [...(IPM_BY_RABI[spec.rabi] ?? []), ...IPM_AMAN, ...IPM_GENERAL];
+    // The research's environment ledger: rice stands flooded from transplanting to two weeks before harvest
+    const ledger = {
+      groundwaterPumpedM3PerHa: rabi.pumpedM3PerHa,
+      floodedRiceDays: aman.fieldDays - 14 + (rabiName.isRice ? rabi.fieldDays - 14 : 0),
+      ureaKgHa: Math.round(TALANDA_SRDI.aman.ureaKgHa + rabi.fertilizer.ureaKgHa),
+      legume: rabiName.isLegume,
+      bareDays: 365 - aman.fieldDays - rabi.fieldDays,
+    };
 
     const rabiAction: [string, string] = rabiName.isRice
       ? ['action_boro_transplant', `বোরোর চারা ~${bnDate(rabi.sowing)} রোপণ; সেচ লাগবে প্রায় ${bnDigits(rabi.netIrrigationMm)} মিমি।`]
@@ -329,6 +337,7 @@ export class RotationEngine {
       fieldFreeDateBangla: bnDate(aman.fieldFree),
       fieldFreeDateEnglish: enDate(aman.fieldFree),
       ipmActions,
+      ledger,
     };
   }
 
@@ -341,7 +350,7 @@ export class RotationEngine {
     const dose = rabi.fertilizer;
     const perBigha = (kgHa: number) => bnDecimal(kgHa * BIGHA_HA);
     const deadlineText = rabi.sowingWindow ? ` (শেষ সময় ${bnDate(rabi.sowingWindow[1])})` : '';
-    const savedM3 = (boro.netIrrigationMm - rabi.netIrrigationMm) * 10;
+    const savedM3 = boro.pumpedM3PerHa - rabi.pumpedM3PerHa;
 
     const altRabi = alt ? TANORE_RABI_REPLAY[alt.rabi] : undefined;
     const altName = alt ? RABI_CATALOG[alt.rabi] : undefined;

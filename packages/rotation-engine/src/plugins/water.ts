@@ -15,7 +15,7 @@ export class WaterDimensionPlugin implements IEvidenceDimensionPlugin {
 
     const rescueShare = aman.rescueSeasons / aman.totalSeasons;
     const waterScore = clampScore(1.0 - rescueShare * 0.35 - (rabi.netIrrigationMm / 1000) * 0.55, 0.1, 0.98);
-    const pumpedM3PerHa = rabi.netIrrigationMm * 10;
+    const pumpedM3PerHa = rabi.pumpedM3PerHa;
 
     return {
       dimensionId: this.id,

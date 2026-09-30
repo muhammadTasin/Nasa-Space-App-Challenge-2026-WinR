@@ -219,6 +219,141 @@ function renderOverview(o) {
   setHtml('overviewPestReports', reports);
   setHtml('ipmField', reports);
   setText('policyRelease', o.data_release.version);
+  if (o.early_warnings) renderWarnings(o.early_warnings, o.aman_replay);
+}
+
+// "3 of 5" -> "৫টির ৩টি" in Bangla, unchanged in English
+const ofText = (s) => {
+  const m = /^(\d+) of (\d+)$/.exec(s || '');
+  return m ? tr(`${num(m[2])}টির ${num(m[1])}টি`, s) : s;
+};
+const monthName = (m) => tr(BN_MONTHS[m - 1], EN_MONTHS[m - 1]);
+
+function haorChartSvg(h) {
+  const W = 560, H = 190, L = 34, R = 8, T = 12, B = 26, max = 400;
+  const bw = (W - L - R) / h.seasons.length;
+  const y = (v) => T + (H - T - B) * (1 - Math.min(v, max) / max);
+  const fill = (s) => (s.label === 'flood' ? '#d97706' : s.label === 'no flood' ? '#0284c7' : '#94a3b8');
+  const bars = h.seasons.map((s, i) => `<rect x="${(L + i * bw + 2).toFixed(1)}" y="${y(s.sohraMax3Mm).toFixed(1)}" width="${(bw - 4).toFixed(1)}" height="${(H - B - y(s.sohraMax3Mm)).toFixed(1)}" rx="2" fill="${fill(s)}"><title>${s.year}: ${s.sohraMax3Mm} mm</title></rect>`).join('');
+  const rule = (v, dash, label) => `<line x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}" stroke="#b91c1c" stroke-width="1.5" stroke-dasharray="${dash}"/><text x="${W - R}" y="${y(v) - 4}" text-anchor="end" font-size="11" fill="#b91c1c">${label}</text>`;
+  const years = h.seasons.map((s, i) => (s.year % 4 === 1 ? `<text x="${(L + i * bw + bw / 2).toFixed(1)}" y="${H - 8}" text-anchor="middle" font-size="11" fill="#64748b">${num(s.year)}</text>` : '')).join('');
+  const axis = [0, 100, 200, 300, 400].map(v => `<text x="${L - 6}" y="${y(v) + 4}" text-anchor="end" font-size="10" fill="#94a3b8">${num(v)}</text>`).join('');
+  const label = tr('সোহরায় বসন্তের সর্বোচ্চ ৩ দিনের বৃষ্টি, ২০০১–২০২৫', 'Largest 3-day spring rain at Sohra, 2001–2025');
+  return `<svg viewBox="0 0 ${W} ${H}" width="100%" aria-label="${label}">${axis}${bars}${rule(h.watchMm, '5 4', tr(`সতর্কতা ${num(h.watchMm)} মিমি`, `watch ${h.watchMm} mm`))}${rule(h.warningMm, '2 3', tr(`বিপদ ${num(h.warningMm)} মিমি`, `warning ${h.warningMm} mm`))}${years}</svg>`;
+}
+
+function cattleChartSvg(c) {
+  const W = 560, H = 150, L = 34, R = 8, T = 10, B = 24;
+  const bw = (W - L - R) / 12;
+  const y = (v) => T + (H - T - B) * (1 - v);
+  const bars = c.months.map((m, i) => `<rect x="${(L + i * bw + 3).toFixed(1)}" y="${y(m.dangerShare).toFixed(1)}" width="${(bw - 6).toFixed(1)}" height="${(H - B - y(m.dangerShare)).toFixed(1)}" rx="2" fill="${c.noReliefMonths.includes(m.month) ? '#b91c1c' : '#f59e0b'}"><title>${EN_MONTHS[m.month - 1]}: ${Math.round(m.dangerShare * 100)}%</title></rect>`).join('');
+  const months = c.months.map((m, i) => `<text x="${(L + i * bw + bw / 2).toFixed(1)}" y="${H - 7}" text-anchor="middle" font-size="10" fill="#64748b">${escapeHtml(monthName(m.month).slice(0, lang === 'en' ? 3 : 4))}</text>`).join('');
+  const axis = [0, 0.5, 1].map(v => `<text x="${L - 6}" y="${y(v) + 4}" text-anchor="end" font-size="10" fill="#94a3b8">${num(Math.round(v * 100))}%</text>`).join('');
+  const label = tr('মাসভিত্তিক বিপদসীমার ঘণ্টা', 'Share of hours in the danger bands, by month');
+  return `<svg viewBox="0 0 ${W} ${H}" width="100%" aria-label="${label}">${axis}${bars}${months}</svg>`;
+}
+
+function renderWarnings(w, amanReplay) {
+  const h = w.haor;
+  const badge = $('haorStatus');
+  if (h.status.state === 'in_season') {
+    badge.className = 'badge badge-warning';
+    badge.textContent = tr('মৌসুম চলছে: নজরদারি', 'In season: monitoring');
+  } else {
+    badge.className = 'badge badge-neutral';
+    badge.textContent = tr(`মৌসুম শুরু ${isoDate(h.status.nextStart)}`, `Season opens ${isoDate(h.status.nextStart)}`);
+  }
+  setText('haorRule', tr(
+    `১৫ মার্চ–১৫ মে: মেঘালয়ের সোহরায় (চেরাপুঞ্জি) ৩ দিনে ${num(h.watchMm)} মিমি বৃষ্টি হলে সতর্কতা, ${num(h.warningMm)} মিমি হলে বিপদবার্তা। সেই পানি ১–৩ দিনে সুনামগঞ্জের হাওরে নামে।`,
+    `15 Mar–15 May: ${h.watchMm} mm of rain in 3 days at Sohra (Cherrapunji, Meghalaya) raises a watch, ${h.warningMm} mm a warning. That water reaches the Sunamganj haors in 1–3 days.`,
+  ));
+  setHtml('haorChart', haorChartSvg(h));
+  setText('haorLegend', tr('কমলা: বন্যার বছর (FFWC) • নীল: বন্যাহীন বছর • ধূসর: রিপোর্ট নেই', 'Orange: flood years (FFWC) • Blue: no-flood years • Grey: no report'));
+  const watch = h.skill.find(s => s.thresholdMm === h.watchMm);
+  const dhan28 = h.escapeOnCalendar.find(e => e.variety === 'BRRI dhan28');
+  const others = h.escapeOnCalendar.filter(e => e.variety !== 'BRRI dhan28');
+  const othersEarly = h.escapeTwoWeeksEarly.filter(e => e.variety !== 'BRRI dhan28');
+  const worstOther = Math.max(...others.map(e => e.burstsBeforeHarvest));
+  const worstEarly = Math.max(...othersEarly.map(e => e.burstsBeforeHarvest));
+  setHtml('haorFacts', [
+    watch ? tr(
+      `<li><strong>২৫ বছরের পরীক্ষা:</strong> ${num(h.watchMm)} মিমি নিয়মে বন্যার বছর ধরা পড়ে ${ofText(watch.floodYearsCaught)}, বন্যাহীন বছরে ভুল সংকেত ${ofText(watch.noFloodYearsFlagged)}; সংকেত ${ofText(watch.seasonsFlagged)} মৌসুমে।</li>`,
+      `<li><strong>25-year hindcast:</strong> the ${h.watchMm} mm rule catches ${watch.floodYearsCaught} flood years, with false alarms in ${watch.noFloodYearsFlagged} no-flood years; it flags ${watch.seasonsFlagged} springs.</li>`,
+    ) : '',
+    dhan28 ? tr(
+      `<li><strong>কোন বোরো বাঁচে:</strong> ${num(h.warningMm)} মিমির ঢলে ব্রি ধান২৮ পাকার আগে ধরা পড়েছে ${num(dhan28.bursts)}টির ${num(dhan28.burstsBeforeHarvest)}টিতে; অন্য ${num(others.length)}টি জাত (${others.map(e => num(e.variety.replace('BRRI dhan', ''))).join(', ')}) সর্বোচ্চ ${num(worstOther)}টিতে; দুই সপ্তাহ আগে বুনলে ${num(worstEarly)}টিতে।</li>`,
+      `<li><strong>Which Boro escapes:</strong> ${h.warningMm} mm bursts caught BRRI dhan28 before harvest in ${dhan28.burstsBeforeHarvest} of ${dhan28.bursts}; the other ${others.length} varieties (BRRI dhan${others.map(e => e.variety.replace('BRRI dhan', '')).join(', ')}) in at most ${worstOther}; sown two weeks early, ${worstEarly}.</li>`,
+    ) : '',
+    tr('<li>হাওরের ফসল চক্র এখনো মডেল করা হয়নি; এটি আগাম সতর্কতা ব্যবস্থা।</li>', '<li>Rotation advice is not modelled for the haor yet; this is the early-warning system.</li>'),
+  ].join(''));
+
+  const n = w.warmNights;
+  const flower = (variety) => amanReplay?.find(r => r.variety === variety);
+  const f71 = flower('BRRI dhan71');
+  const f49 = flower('BRRI dhan49');
+  const sig = (t) => (t.kendallP < 0.05 ? tr('তাৎপর্যপূর্ণ', 'significant') : tr(`স্পষ্ট নয় (p ${num(t.kendallP.toFixed(2))})`, `not clear (p ${t.kendallP.toFixed(2)})`));
+  setHtml('nightFacts', [
+    tr(
+      `<li><strong>ব্রি ধান৭১</strong> (ফুল ~${f71?.floweringBangla ?? ''}): রাতের গড় ${num(n.dhan71.mean1991to2005.toFixed(1))}°C (১৯৯১–২০০৫) থেকে ${num(n.dhan71.mean2011to2025.toFixed(1))}°C (২০১১–২০২৫); প্রতি দশকে +${num(n.dhan71.trendPerDecade)}°C, ${sig(n.dhan71)}।</li>`,
+      `<li><strong>BRRI dhan71</strong> (flowers ~${f71?.floweringEnglish ?? ''}): nights averaged ${n.dhan71.mean1991to2005.toFixed(1)}°C in 1991–2005 and ${n.dhan71.mean2011to2025.toFixed(1)}°C in 2011–2025; +${n.dhan71.trendPerDecade}°C a decade, ${sig(n.dhan71)}.</li>`,
+    ),
+    tr(
+      `<li><strong>ব্রি ধান৪৯</strong> (ফুল ~${f49?.floweringBangla ?? ''}): প্রতি দশকে +${num(n.dhan49.trendPerDecade)}°C, ${sig(n.dhan49)}।</li>`,
+      `<li><strong>BRRI dhan49</strong> (flowers ~${f49?.floweringEnglish ?? ''}): +${n.dhan49.trendPerDecade}°C a decade, ${sig(n.dhan49)}.</li>`,
+    ),
+    tr(
+      `<li><strong>সুখবর:</strong> ২০ নভেম্বরে বোনা গমে দানা পুষ্টের গরম দিন প্রতি দশকে ${num(Math.abs(n.wheat20Nov.trendPerDecade).toFixed(1))}টি কমেছে (${sig(n.wheat20Nov)})।</li>`,
+      `<li><strong>Good news:</strong> hot days at grain filling for wheat sown on 20 Nov fell by ${Math.abs(n.wheat20Nov.trendPerDecade).toFixed(1)} a decade (${sig(n.wheat20Nov)}).</li>`,
+    ),
+    tr('<li>আগাম আমন পানি ও সময় বাঁচায়, কিন্তু উষ্ণ রাতে ফুল আসে; কর্মকর্তারা চিটা ও ফলন নজরে রাখবেন।</li>', '<li>Early Aman saves water and time but flowers into warmer nights; officers should watch for empty grains and yield.</li>'),
+  ].join(''));
+
+  const c = w.cattleHeat;
+  const noRelief = c.noReliefMonths.map(monthName);
+  const peak = Math.round(c.peakDangerShare * 100);
+  const cattleBadge = $('cattleBadge');
+  cattleBadge.textContent = tr(`${num(c.noReliefMonths.length)} মাস রাতেও স্বস্তি নেই`, `${c.noReliefMonths.length} months without night relief`);
+  setText('cattleLead', tr(
+    `${noRelief[0]}–${noRelief[noRelief.length - 1]}: রাতেও তাপ-আর্দ্রতা সূচক (THI) ৭২-এর নিচে নামে না; ${monthName(c.peakMonth)}-এ ${num(peak)}% ঘণ্টা বিপদসীমায়।`,
+    `${noRelief[0]}–${noRelief[noRelief.length - 1]}: the temperature-humidity index (THI) stays above 72 even at night; in ${monthName(c.peakMonth)} ${peak}% of hours are in the danger bands.`,
+  ));
+  setHtml('cattleChart', cattleChartSvg(c));
+  const [first, , , last] = c.coolestHours;
+  setHtml('cattleFacts', [
+    tr(
+      `<li>দিনের সবচেয়ে ঠান্ডা সময় রাত ${num(first)}–${num(last)}: খাওয়ানো ও ভারী কাজ ভোরের দিকে রাখুন, ছায়া ও পানি দিন।</li>`,
+      `<li>The coolest hours are ${first}–${last}: keep feeding and heavy work near dawn; give shade and water.</li>`,
+    ),
+    tr('<li>উৎস: নাসা POWER ঘণ্টাভিত্তিক তাপমাত্রা ও আর্দ্রতা (২০২৩–২০২৫), THI (NRC ১৯৭১)।</li>', '<li>Source: NASA POWER hourly temperature and humidity (2023–2025), THI (NRC 1971).</li>'),
+  ].join(''));
+}
+
+function renderLedger(advice) {
+  const rows = advice.options.filter(o => o.ledger);
+  const yesNo = (v) => (v ? tr('হ্যাঁ', 'yes') : tr('না', 'no'));
+  setHtml('ledgerTable', `
+    <table class="data-table ledger-table">
+      <thead><tr>
+        <th>${tr('চক্র', 'Rotation')}</th>
+        <th>${tr('ভূগর্ভস্থ পানি তোলা (ঘনমিটার/হেক্টর)', 'Groundwater pumped (m³/ha)')}</th>
+        <th>${tr('জলাবদ্ধ ধানের দিন (মিথেন সূচক)', 'Flooded-rice days (methane proxy)')}</th>
+        <th>${tr('ইউরিয়া (কেজি/হেক্টর)', 'Urea (kg/ha)')}</th>
+        <th>${tr('ডাল ফসল', 'Legume')}</th>
+        <th>${tr('খালি জমির দিন', 'Bare days')}</th>
+        <th>${tr('বালাই স্কোর', 'Pest score')}</th>
+      </tr></thead>
+      <tbody>${rows.map(o => `
+        <tr class="${o.isBaseline ? 'baseline-row' : o.rank === 1 ? 'top-row' : ''}">
+          <td>${escapeHtml(tr(o.nameBangla, o.nameEnglish))}${o.isBaseline ? ` <span class="tag tag-yellow">${tr('প্রচলিত', 'current practice')}</span>` : ''}</td>
+          <td>${bigNum(o.ledger.groundwaterPumpedM3PerHa)}</td>
+          <td>${num(o.ledger.floodedRiceDays)}</td>
+          <td>${num(o.ledger.ureaKgHa)}</td>
+          <td>${yesNo(o.ledger.legume)}</td>
+          <td>${num(o.ledger.bareDays)}</td>
+          <td>${num(Math.round((o.scores.pest ?? 0) * 100))}</td>
+        </tr>`).join('')}
+      </tbody>
+    </table>`);
 }
 
 function pestReportsHtml(reports) {
@@ -398,6 +533,10 @@ function renderEvidence(advice) {
       )),
       tr('<li><strong>তথ্যসূত্র:</strong> NASA POWER (FAO-56 ET0) ও GPM IMERG Final দৈনিক বৃষ্টি, ধানক্ষেতের পানির হিসাব।</li>', '<li><strong>Source:</strong> NASA POWER (FAO-56 ET0) and GPM IMERG Final daily rain in a paddy water balance.</li>'),
       tr('<li><strong>স্থানিক স্কেল:</strong> তানোর পাইলট পয়েন্টের গ্রিড সেল; একক জমির মাপ নয়।</li>', '<li><strong>Scale:</strong> the grid cell at the Tanore pilot point, not a single field.</li>'),
+      o.soil_carbon ? tr(
+        `<li><strong>যাচাই (SMAP GPP):</strong> শুকনো মৌসুমে আমনের উৎপাদন কমেনি (rho ${num(o.soil_carbon.dryDaysVsAmanGppRho)}, ${num(o.soil_carbon.dryDaysVsAmanGppSeasons)} মৌসুম): কৃষক সেচ দেন, তাই সম্পূরক সেচকে খরচ ধরা হয়েছে, ফসলহানি নয়।</li>`,
+        `<li><strong>Check (SMAP GPP):</strong> Aman productivity did not drop in the dry seasons (rho ${o.soil_carbon.dryDaysVsAmanGppRho}, ${o.soil_carbon.dryDaysVsAmanGppSeasons} seasons): farmers irrigate, so rescue water counts as a cost, not a lost crop.</li>`,
+      ) : '',
     ].join(''));
   }
 
@@ -422,6 +561,10 @@ function renderEvidence(advice) {
     boroSoil ? tr(
       `<li><strong>পুরো চক্রে ইউরিয়া:</strong> ${num(soil.rotationUreaKgHa)} কেজি/হেক্টর, বোরো চক্রে ${num(boroSoil.rotationUreaKgHa)} কেজি।</li>`,
       `<li><strong>Urea for the whole rotation:</strong> ${soil.rotationUreaKgHa} kg/ha, against ${boroSoil.rotationUreaKgHa} kg/ha with Boro.</li>`,
+    ) : '',
+    o?.soil_carbon ? tr(
+      `<li><strong>SMAP L4 কার্বন:</strong> মাটির জৈব কার্বন ~${bigNum(o.soil_carbon.soilCarbonGm2)} গ্রাম/বর্গমিটার (২০১৬–২০২৫), বছরে ${num('+' + o.soil_carbon.soilCarbonTrendGm2PerYear)}।</li>`,
+      `<li><strong>SMAP L4 carbon:</strong> soil organic carbon ~${bigNum(o.soil_carbon.soilCarbonGm2)} g/m² (2016–2025), ${'+' + o.soil_carbon.soilCarbonTrendGm2PerYear} a year.</li>`,
     ) : '',
   ].join(''));
 
@@ -470,6 +613,7 @@ function renderEvidence(advice) {
 // ---------------------------------------------------------------------------
 
 function renderIpm(advice) {
+  renderLedger(advice);
   const top = advice.options[0];
   const boro = advice.options.find(o => o.isBaseline);
   const column = (opt) => {

@@ -17,7 +17,7 @@ export const EN = {
   'nav.planner': 'Rotation planner',
   'nav.comparison': '7-dimension comparison',
   'nav.evidence': 'Satellite evidence',
-  'nav.ipm': 'Less pesticide (IPM)',
+  'nav.ipm': 'Environment & less pesticide',
   'nav.officer': 'Krishi officer desk',
   'nav.farmer': 'Farmer profile & keypad',
   'nav.delivery': 'Audio preview & call delivery',
@@ -50,6 +50,18 @@ export const EN = {
   'overview.solution': 'What to do:',
   'overview.pestTitle': 'Pest reports from the field (officer observations)',
   'overview.pestMore': 'Ways to use less pesticide',
+
+  'warnings.title': 'Early warnings: field and farm risks from NASA data',
+  'warnings.subtitle': 'Beyond the rotation, the same satellite data warns farmers ahead of time.',
+  'warnings.haorTitle': 'Haor flash floods (Dharmapasha pilot)',
+  'warnings.nightsTitle': 'Warmer nights at Aman flowering',
+  'warnings.nightsBadge': 'For officers to watch',
+  'warnings.nightsNote': 'Source: NASA POWER corrected against BMD stations; Theil-Sen trends, Kendall significance (p < 0.05).',
+  'warnings.cattleTitle': 'Heat stress on cattle (Tanore)',
+
+  'ledger.title': 'Environment ledger: what each rotation takes from the land and water in a year',
+  'ledger.badge': 'Research ledger method',
+  'ledger.note': 'Flooded-rice days are a proxy for methane (not a measurement); bare days are when soil organic matter wears away. Water pumped = Rabi irrigation, computed from NASA POWER and IMERG.',
 
   'planner.title': 'Rotation planner settings',
   'planner.subtitle': 'Choose the farmer’s land, what is in the field now, and what matters most to them',

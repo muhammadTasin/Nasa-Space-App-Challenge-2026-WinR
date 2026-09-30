@@ -78,7 +78,7 @@
       <span class="tab-num" data-num="4">৪</span> <span data-i18n="nav.evidence">স্যাটেলাইট প্রমাণ ও যুক্তি</span>
     </button>
     <button class="nav-tab" data-screen="screen-ipm">
-      <span class="tab-num" data-num="5">৫</span> <span data-i18n="nav.ipm">কম কীটনাশক (IPM)</span>
+      <span class="tab-num" data-num="5">৫</span> <span data-i18n="nav.ipm">পরিবেশ ও কম কীটনাশক</span>
     </button>
     <button class="nav-tab" data-screen="screen-officer">
       <span class="tab-num" data-num="6">৬</span> <span data-i18n="nav.officer">কৃষি কর্মকর্তা ডেস্ক</span>
@@ -242,6 +242,41 @@
             </div>
             <div id="overviewPestReports" class="pest-report-list"></div>
           </div>
+        </div>
+      </div>
+
+      <!-- EARLY WARNINGS BEYOND THE ROTATION -->
+      <div class="warnings-heading">
+        <h2 data-i18n="warnings.title">আগাম সতর্কতা: নাসার তথ্যে মাঠ ও খামারের ঝুঁকি</h2>
+        <p class="subtitle" data-i18n="warnings.subtitle">ফসল চক্রের বাইরেও একই উপগ্রহ তথ্য কৃষককে আগে থেকে সাবধান করে।</p>
+      </div>
+      <div class="warnings-row">
+        <div class="card warning-card">
+          <div class="card-header">
+            <h3 data-i18n="warnings.haorTitle">হাওরে আকস্মিক বন্যা (ধর্মপাশা পাইলট)</h3>
+            <span class="badge" id="haorStatus">…</span>
+          </div>
+          <p class="warning-lead" id="haorRule"></p>
+          <div id="haorChart" class="mini-chart" role="img"></div>
+          <p class="chart-legend" id="haorLegend"></p>
+          <ul class="warning-list" id="haorFacts"></ul>
+        </div>
+        <div class="card warning-card">
+          <div class="card-header">
+            <h3 data-i18n="warnings.nightsTitle">আমনে ফুল আসার রাত গরম হচ্ছে</h3>
+            <span class="badge badge-warning" data-i18n="warnings.nightsBadge">কর্মকর্তার নজরে</span>
+          </div>
+          <ul class="warning-list" id="nightFacts"></ul>
+          <p class="warning-note" data-i18n="warnings.nightsNote">উৎস: নাসা POWER, বিএমডি স্টেশনের সাথে সংশোধিত; প্রবণতা Theil-Sen, তাৎপর্য Kendall (p &lt; ০.০৫)।</p>
+        </div>
+        <div class="card warning-card">
+          <div class="card-header">
+            <h3 data-i18n="warnings.cattleTitle">গবাদিপশুর তাপ চাপ (তানোর)</h3>
+            <span class="badge badge-danger" id="cattleBadge">…</span>
+          </div>
+          <p class="warning-lead" id="cattleLead"></p>
+          <div id="cattleChart" class="mini-chart" role="img"></div>
+          <ul class="warning-list" id="cattleFacts"></ul>
         </div>
       </div>
     </section>
@@ -465,6 +500,15 @@
         <div class="evidence-header-tag" data-i18n="ipm.tag">ফসল চক্র ও কম কীটনাশক (Integrated Pest Management)</div>
         <h2 data-i18n="ipm.title">ফসল ঘুরিয়ে চাষ করলে কীটনাশক কম লাগে</h2>
         <p class="evidence-intro" data-i18n="ipm.intro">ধানের পর আবার ধান হলে মাজরা পোকা ও বাদামি গাছফড়িং সারা বছর খাবার পায়। রবিতে ডাল, তেল বা গম দিলে সেই চক্র ভাঙে, SRDI মাত্রায় সার দিলে পোকা কম আকৃষ্ট হয়, আর রোগ প্রতিরোধী জাত ছত্রাকনাশক কমায়। স্কোরগুলো নিয়মভিত্তিক; মাঠে পোকা গোনার তথ্য কর্মকর্তার পর্যবেক্ষণ থেকে আসে।</p>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h3 data-i18n="ledger.title">পরিবেশ হিসাব: প্রতিটি চক্র বছরে জমি ও পানি থেকে কী নেয়</h3>
+          <span class="badge badge-info" data-i18n="ledger.badge">গবেষণার লেজার পদ্ধতি</span>
+        </div>
+        <p class="subtitle" data-i18n="ledger.note">জলাবদ্ধ ধানের দিন মিথেন নির্গমনের সূচক (মাপা নয়); খালি জমির দিনে মাটির জৈব পদার্থ ক্ষয় হয়। পানি তোলা = রবিতে সেচ, নাসা POWER ও IMERG দিয়ে হিসাব।</p>
+        <div id="ledgerTable" class="table-responsive"></div>
       </div>
 
       <div class="card">

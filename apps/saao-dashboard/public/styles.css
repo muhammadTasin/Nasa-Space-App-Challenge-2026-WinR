@@ -1518,3 +1518,23 @@ html[lang="en"] body { font-family: 'Inter', 'Hind Siliguri', sans-serif; }
 @media (max-width: 640px) {
   .location-badge, .saao-profile .profile-info { display: none; }
 }
+
+/* Early warnings row (overview) and environment ledger */
+.warnings-heading { margin: 24px 0 12px; }
+.warnings-heading h2 { font-size: 20px; margin: 0 0 4px; }
+.warnings-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 16px;
+}
+.warning-card { display: flex; flex-direction: column; gap: 8px; }
+.warning-lead { margin: 0; font-size: 13px; line-height: 1.6; color: #334155; }
+.warning-list { margin: 0; padding-left: 18px; font-size: 13px; line-height: 1.6; color: #334155; }
+.warning-list li { margin-bottom: 6px; }
+.warning-note { margin: 0; font-size: 11px; color: var(--text-muted); }
+.mini-chart { width: 100%; background: #f8fafc; border: 1px solid var(--border); border-radius: 8px; padding: 6px 4px 0; }
+.mini-chart svg { display: block; }
+.chart-legend { margin: 0; font-size: 11px; color: var(--text-muted); }
+.ledger-table td:not(:first-child), .ledger-table th:not(:first-child) { text-align: right; }
+.ledger-table .top-row { background: #f0fdf4; }
+.ledger-table .baseline-row { background: #fffbeb; }

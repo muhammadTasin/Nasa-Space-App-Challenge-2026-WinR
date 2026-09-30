@@ -55,7 +55,7 @@ A two-minute walkthrough for a demo video:
 
 ## What changed on `demo/research-data`
 
-Changes made for the demo submission (September 2026), in two rounds.
+Changes made for the demo submission (September 2026), in three rounds.
 
 ### Round 1: numbers from the research, bugs fixed, app connected
 
@@ -103,6 +103,20 @@ Changes made for the demo submission (September 2026), in two rounds.
 - Farmers can ask for this with keypad 4 ("কম কীটনাশক"); the dashboard has a matching priority slider.
 - The app side of the officer desk and IPM is planned for later; the API already serves both.
 
+### Round 3: more of the NASA data at work (early warnings, environment ledger)
+
+The research release already held NASA results that the app did not use. Four of them now reach the dashboard, and all come from the same generated data file.
+
+| Feature | What the officer sees | NASA data and method | Files |
+|---|---|---|---|
+| Haor flash-flood warning (Dharmapasha pilot) | New **early warnings** row on the overview. From 15 Mar to 15 May, 200 mm of rain in 3 days at Sohra (Cherrapunji, Meghalaya) raises a watch and 250 mm a warning; that water reaches the Sunamganj haors in 1–3 days. A chart shows the largest 3-day spring rain for 2001–2025, coloured by FFWC flood years. Off season, the card shows when the trigger re-arms. | GPM IMERG daily rain at Sohra, checked against 25 springs of FFWC flood reports: the 200 mm rule caught 3 of 5 flood years with no false alarm in 3 no-flood years. A 250 mm burst caught BRRI dhan28 before harvest in 4 of 5 cases; BRRI dhan88, 81, 29, 89 and 92 in at most 1 of 5, and none when sown two weeks early. | `server.ts` (`earlyWarnings`, `haorStatus`), `app.js` (`renderWarnings`) |
+| Warmer nights at Aman flowering | Card for officers: early Aman saves water but flowers into warmer nights, so watch for empty grains. | NASA POWER, corrected against BMD stations; Theil-Sen trend with a Kendall test. BRRI dhan71 flowering nights: +0.29 °C a decade (p 0.015); dhan49: +0.15 °C (not significant). Good news: hot days at grain filling for wheat sown on 20 Nov fell by 4.3 a decade. The heat plugin adds a caution when the trend is significant; the score does not change. | `plugins/heat.ts`, `server.ts`, `app.js` |
+| Cattle heat stress (Tanore) | Card with a monthly chart: June to September have no night relief (THI stays above 72); in July 96% of hours are in the danger bands; the coolest hours are 02:00–05:00. | NASA POWER hourly temperature and humidity (2023–2025), temperature-humidity index (NRC 1971). | `server.ts`, `app.js` |
+| Environment ledger | Table in the renamed **পরিবেশ ও কম কীটনাশক (Environment & less pesticide)** tab: groundwater pumped, flooded-rice days (a methane proxy, not a measurement), urea, legume or not, bare-soil days and the pest score for every rotation. Boro pumps 7,975 m³/ha; dhan71 → lentil 1,995. | Water from the 25-season POWER + IMERG replay; urea from the SRDI Talanda card. The engine rebuilds the research ledger exactly (TEST 11). | `engine.ts` (`ledger` on each option), `app.js` (`renderLedger`) |
+| Soil carbon and a productivity check | Evidence tab: SMAP L4 soil organic carbon about 4,684 g/m² (2016–2025, +76 a year). The Aman productivity (GPP) did not drop in dry seasons (rho 0.26, 11 seasons), because farmers irrigate; so rescue water is counted as a cost, not a lost crop. | SMAP L4 carbon (SPL4CMDL). | `server.ts` (`soil_carbon`), `app.js` |
+
+The generator (`research/export/eden_release.py`) now also writes `TANORE_ADVISORIES`, `HAOR_FLASH_FLOOD`, `TANORE_SOIL_CARBON` and `TANORE_LEDGER_RESEARCH`, plus `fieldDays` and `pumpedM3PerHa` on the replay records. The officer reference pack adds the cattle-heat months and the haor hindcast.
+
 ### API
 
 | Method | Path | What it does |
@@ -119,6 +133,9 @@ Changes made for the demo submission (September 2026), in two rounds.
 | POST | `/api/v1/officer/callbacks/:id/resolve` | Mark a call-back done |
 | GET | `/api/v1/officer/knowledge` | Officer reference pack |
 | POST | `/api/v1/officer/reset` | Restore the sample farmers (demo) |
+| GET | `/api/v1/haor/flash-flood` | Haor flash-flood trigger: the Sohra thresholds, the 25-season hindcast, variety escape and today's status |
+
+`/api/v1/overview` also returns `early_warnings` (haor, warm nights, cattle heat) and `soil_carbon`.
 
 ### Tests
 
@@ -129,6 +146,8 @@ Changes made for the demo submission (September 2026), in two rounds.
 - that a stated priority leads the ranking;
 - that the Android seed matches the engine;
 - the pest score and the English fields;
+- that the environment ledger matches the research ledger (TEST 11);
+- that the overview carries the early warnings and the haor endpoint serves all 25 seasons;
 - officer sign-in (including a wrong code), queue order, that an observation takes priority, the note filter, keypad-9 call-backs and the reference pack;
 - that every dashboard text has an English translation.
 
@@ -147,6 +166,8 @@ The Android unit tests run with `./gradlew test` in `apps/farmer-mobile`.
 - Income is a team estimate until DAM farm-gate prices and farmer cost interviews are in.
 - The pest score is rule-based until officers log pest counts.
 - Floods are not modelled for Barind land.
+- The haor warning shows the 25-season hindcast and the season status; a live trigger needs a daily IMERG Early feed (planned). Rotation advice is not modelled for the haor.
+- Flooded-rice days stand in for methane; they are not a methane measurement.
 - The officer sign-in is a shared demo code with in-memory sessions and a JSON file store; a real deployment needs proper accounts and a database.
 - The Android app does not yet show the officer verification or the IPM steps; its API address works in the emulator only.
 

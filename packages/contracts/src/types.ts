@@ -95,6 +95,16 @@ export interface CandidateRotation {
   fieldFreeDateBangla: string; // e.g. "১০ নভেম্বর"
   fieldFreeDateEnglish?: string; // e.g. "10 Nov"
   ipmActions?: IpmTip[];
+  ledger?: EnvironmentLedger;
+}
+
+/** What a rotation takes from the land in one year (the research's environment ledger method). */
+export interface EnvironmentLedger {
+  groundwaterPumpedM3PerHa: number;
+  floodedRiceDays: number; // transplanting to two weeks before harvest: a methane proxy, not a measurement
+  ureaKgHa: number;
+  legume: boolean;
+  bareDays: number; // days in the year with no crop in the field
 }
 
 /** One integrated pest management step: non-chemical first, sprays only on the officer's advice. */

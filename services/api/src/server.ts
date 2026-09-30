@@ -6,7 +6,7 @@ import type { AdviceJSON, CandidateRotation } from '@project-eden/contracts';
 import type { PlanOptionsRequest } from '../../../packages/rotation-engine/src/engine.ts';
 import { RotationEngine, UnsupportedUnionError, SUPPORTED_UNIONS } from '../../../packages/rotation-engine/src/engine.ts';
 import { FeatureRegistry } from '../../../packages/rotation-engine/src/registry.ts';
-import { RELEASE, TALANDA_SRDI, TANORE_AMAN_REPLAY, TANORE_CONDITIONS, TANORE_RABI_REPLAY } from '../../../packages/rotation-engine/src/data/tanore_replay_data.ts';
+import { HAOR_FLASH_FLOOD, RELEASE, TALANDA_SRDI, TANORE_ADVISORIES, TANORE_AMAN_REPLAY, TANORE_CONDITIONS, TANORE_RABI_REPLAY, TANORE_SOIL_CARBON } from '../../../packages/rotation-engine/src/data/tanore_replay_data.ts';
 import { AMAN_CATALOG, RABI_CATALOG } from '../../../packages/rotation-engine/src/data/crop_catalog.ts';
 import { IPM_AMAN, IPM_BY_RABI, IPM_GENERAL } from '../../../packages/rotation-engine/src/data/ipm_catalog.ts';
 import { bnDate, bnDateOf, bnDigits, bnOf, enDate } from '../../../packages/rotation-engine/src/bn.ts';
@@ -195,8 +195,59 @@ function overview() {
       rootZoneGldasMm: TANORE_CONDITIONS.rootZoneGldasMm,
       cattlePerKm2: TANORE_CONDITIONS.cattlePerKm2,
     },
+    early_warnings: earlyWarnings(),
+    soil_carbon: TANORE_SOIL_CARBON,
     recent_farmer_contacts: farmerRows(),
     pest_reports: pestReports(),
+  };
+}
+
+/** Is today inside the haor flash-flood season (15 Mar-15 May)? If not, when does the Sohra trigger re-arm? */
+function haorStatus(today = new Date()) {
+  const [m0, d0] = HAOR_FLASH_FLOOD.window[0].split('-').map(Number);
+  const [m1, d1] = HAOR_FLASH_FLOOD.window[1].split('-').map(Number);
+  const year = today.getUTCFullYear();
+  const start = Date.UTC(year, m0 - 1, d0);
+  const end = Date.UTC(year, m1 - 1, d1, 23, 59);
+  if (today.getTime() >= start && today.getTime() <= end) return { state: 'in_season', nextStart: null };
+  const next = today.getTime() < start ? start : Date.UTC(year + 1, m0 - 1, d0);
+  return { state: 'off_season', nextStart: new Date(next).toISOString().slice(0, 10) };
+}
+
+/** Early warnings beyond the rotation: the haor flash flood (Dharmapasha), warming nights, cattle heat. */
+function earlyWarnings() {
+  const trend = (measure: string) => TANORE_ADVISORIES.heatTrends.find(t => t.measure === measure)!;
+  const byVariety = (sowing: string) => HAOR_FLASH_FLOOD.escape.filter(e => e.sowing === sowing);
+  const cattle = TANORE_ADVISORIES.cattleHeat;
+  const peak = [...cattle].sort((a, b) => b.dangerShare - a.dangerShare)[0];
+  return {
+    haor: {
+      pilotBangla: 'ধর্মপাশা, সুনামগঞ্জ হাওর',
+      pilotEnglish: 'Dharmapasha, Sunamganj haor',
+      status: haorStatus(),
+      window: HAOR_FLASH_FLOOD.window,
+      watchMm: HAOR_FLASH_FLOOD.watchMm,
+      warningMm: HAOR_FLASH_FLOOD.warningMm,
+      skill: HAOR_FLASH_FLOOD.skill.filter(s => s.thresholdMm >= HAOR_FLASH_FLOOD.watchMm),
+      escapeOnCalendar: byVariety('BRRI calendar'),
+      escapeTwoWeeksEarly: byVariety('two weeks early'),
+      seasons: HAOR_FLASH_FLOOD.seasons,
+      source: HAOR_FLASH_FLOOD.source,
+    },
+    warmNights: {
+      dhan71: trend('aman71_night_c'),
+      dhan49: trend('aman49_night_c'),
+      wheat20Nov: trend('wheat_20nov_days_gt30'),
+      boroHotDays: trend('boro_days_ge35'),
+    },
+    cattleHeat: {
+      months: cattle,
+      noReliefMonths: cattle.filter(m => m.nightsWithoutReliefPct >= 99.5).map(m => m.month),
+      peakMonth: peak.month,
+      peakDangerShare: peak.dangerShare,
+      coolestHours: peak.coolestHours,
+      source: TANORE_ADVISORIES.cattleSource,
+    },
   };
 }
 
@@ -295,6 +346,9 @@ function knowledgePack() {
       { bn: 'বরেন্দ্রে বন্যা মডেল করা হয়নি; জমির শ্রেণি থেকে ধরা।', en: 'Floods are not modelled for Barind land; the score follows the land-type class.' },
     ],
     saaoNotes: advice.saao_technical_notes,
+    cattleHeat: TANORE_ADVISORIES.cattleHeat,
+    haorSkill: HAOR_FLASH_FLOOD.skill,
+    haorEscape: HAOR_FLASH_FLOOD.escape,
   };
 }
 
@@ -432,6 +486,11 @@ const server = http.createServer(async (req, res) => {
         callbackId: callback?.id ?? null,
         timestamp: new Date().toISOString(),
       });
+    }
+
+    // API: haor flash-flood early warning (IMERG at Sohra, 25-season hindcast and today's status)
+    if (pathname === '/api/v1/haor/flash-flood' && req.method === 'GET') {
+      return sendJSON(res, 200, { ...HAOR_FLASH_FLOOD, status: haorStatus() });
     }
 
     // API: Krishi officer desk (sign-in required for everything except the officer list and login)

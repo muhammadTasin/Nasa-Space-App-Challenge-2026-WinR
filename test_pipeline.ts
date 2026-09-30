@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import { RotationEngine, UnsupportedUnionError } from './packages/rotation-engine/src/engine.ts';
-import { TANORE_RABI_REPLAY } from './packages/rotation-engine/src/data/tanore_replay_data.ts';
+import { TANORE_LEDGER_RESEARCH, TANORE_RABI_REPLAY } from './packages/rotation-engine/src/data/tanore_replay_data.ts';
 import { DualGateNarrationValidator, type ILocalLLMClient } from './packages/narration-core/src/dual_gate_validator.ts';
 import { TemplateNarrator } from './packages/narration-core/src/template_narrator.ts';
 
@@ -177,8 +177,26 @@ async function runTests() {
   }
   console.log('✓ TEST 10 PASSED: Rotation lowers pest pressure; IPM steps and English text are present.\n');
 
+  // TEST 11: The environment ledger reproduces the research ledger (explore/environment_ledger.py)
+  console.log('[TEST 11] Testing that the environment ledger matches the research ledger...');
+  const ledgerIds: Record<string, string> = {
+    'BRRI dhan49 then Boro (BRRI dhan28)': 'rot_dhan49_boro_conventional',
+    'BRRI dhan49 then wheat, sown 20 Nov': 'rot_dhan49_wheat_early',
+    'BRRI dhan71 then lentil': 'rot_dhan71_lentil',
+    'BRRI dhan71 then mustard': 'rot_dhan71_mustard',
+  };
+  for (const row of TANORE_LEDGER_RESEARCH) {
+    const l = advice.options.find(o => o.id === ledgerIds[row.rotation])?.ledger;
+    if (!l || l.groundwaterPumpedM3PerHa !== row.pumpedM3PerHa || l.floodedRiceDays !== row.floodedRiceDays || l.ureaKgHa !== row.ureaKgHa || l.bareDays !== row.bareDays) {
+      throw new Error(`Ledger drifted for ${row.rotation}: ${JSON.stringify(l)} vs ${JSON.stringify(row)}`);
+    }
+  }
+  console.log(`Flooded rice days: Boro rotation ${boro.ledger?.floodedRiceDays}, lentil rotation ${lentil.ledger?.floodedRiceDays}`);
+  console.log(`✓ TEST 11 PASSED: The engine reproduces the research ledger for ${TANORE_LEDGER_RESEARCH.length} rotations.
+`);
+
   console.log('========================================================');
-  console.log('  ALL 10 CORE TESTS PASSED SUCCESSFULLY!                ');
+  console.log('  ALL 11 CORE TESTS PASSED SUCCESSFULLY!                ');
   console.log('========================================================');
 }
 

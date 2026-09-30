@@ -1,6 +1,10 @@
 import type { IEvidenceDimensionPlugin, EvaluationContext, DimensionScoreResult } from '@project-eden/contracts';
 import { amanOf, rabiOf, clampScore } from '../data/lookup.ts';
-import { bnDate, bnDigits, enDate } from '../bn.ts';
+import { bnDate, bnDecimal, bnDigits, enDate } from '../bn.ts';
+import { TANORE_ADVISORIES } from '../data/tanore_replay_data.ts';
+
+/** Night temperature at Aman flowering, per variety, in the research's heat trends. */
+const NIGHT_MEASURE: Record<string, string> = { 'BRRI dhan71': 'aman71_night_c', 'BRRI dhan49': 'aman49_night_c' };
 
 export class HeatDimensionPlugin implements IEvidenceDimensionPlugin {
   readonly id = 'heat';
@@ -10,7 +14,7 @@ export class HeatDimensionPlugin implements IEvidenceDimensionPlugin {
   readonly isEnabled = true;
 
   evaluate(context: EvaluationContext): DimensionScoreResult {
-    const { record: aman } = amanOf(context);
+    const { crop: amanCrop, record: aman, catalog: amanName } = amanOf(context);
     const { record: rabi, catalog: rabiName } = rabiOf(context);
     const heat = rabi.heat;
 
@@ -21,6 +25,16 @@ export class HeatDimensionPlugin implements IEvidenceDimensionPlugin {
     const summaryBangla = heat
       ? `${heat.stageBangla} ${bnDigits(heat.windowDays)} দিনের মধ্যে প্রায় ${bnDigits(heat.hotDays)} দিন তাপমাত্রা ${bnDigits(heat.thresholdC)}°C ছাড়ায় (২৫ মৌসুমের মধ্যমা)।`
       : `${rabiName.cropBangla} ~${bnDate(rabi.harvest)} কাটা হয়, মার্চ-এপ্রিলের গরমের আগেই।`;
+    // A significant warming of nights at this variety's flowering is shown as a caution (it does not change the score)
+    const night = TANORE_ADVISORIES.heatTrends.find(t => t.measure === NIGHT_MEASURE[amanCrop.variety]);
+    const warmingNights = night && night.kendallP < 0.05 && night.trendPerDecade > 0 ? night : null;
+    const nightNoteBangla = warmingNights
+      ? ` সতর্কতা: ${amanName.varietyBangla}-এর ফুল আসার সময়ের রাত প্রতি দশকে ${bnDecimal(warmingNights.trendPerDecade, 2)}°C গরম হচ্ছে।`
+      : '';
+    const nightNoteEnglish = warmingNights
+      ? ` Watch: nights at ${amanCrop.variety} flowering are warming ${warmingNights.trendPerDecade} C per decade.`
+      : '';
+
     const summaryEnglish = heat
       ? `About ${heat.hotDays} of ${heat.windowDays} days above ${heat.thresholdC} C at ${heat.stage} (median of 25 seasons).`
       : `${rabiName.crop} is harvested around ${enDate(rabi.harvest)}, before the March-April heat.`;
@@ -29,14 +43,16 @@ export class HeatDimensionPlugin implements IEvidenceDimensionPlugin {
       dimensionId: this.id,
       score: heatScore,
       confidence: 'medium',
-      summaryBangla,
-      summaryEnglish,
+      summaryBangla: summaryBangla + nightNoteBangla,
+      summaryEnglish: summaryEnglish + nightNoteEnglish,
       metrics: {
         hotDays: heat?.hotDays ?? 0,
         sensitiveWindowDays: heat?.windowDays ?? 0,
         thresholdC: heat?.thresholdC ?? 0,
         sensitiveStage: heat?.stage ?? 'none before harvest',
         amanFloweringNightTempC: aman.floweringNightTempC ?? 'not computed',
+        amanNightTrendPerDecade: night ? night.trendPerDecade : 'not computed',
+        amanNightTrendSignificant: Boolean(warmingNights),
       },
       provenance: {
         source: 'NASA POWER daily Tmax, bias-corrected by month against BMD station 41895 Shah Mokhdum (NOAA GSOD); research/explore/heat_windows.py',
