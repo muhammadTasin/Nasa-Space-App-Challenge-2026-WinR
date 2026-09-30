@@ -264,8 +264,8 @@ function renderWarnings(w, amanReplay) {
     badge.textContent = tr(`মৌসুম শুরু ${isoDate(h.status.nextStart)}`, `Season opens ${isoDate(h.status.nextStart)}`);
   }
   setText('haorRule', tr(
-    `১৫ মার্চ–১৫ মে: মেঘালয়ের সোহরায় (চেরাপুঞ্জি) ৩ দিনে ${num(h.watchMm)} মিমি বৃষ্টি হলে সতর্কতা, ${num(h.warningMm)} মিমি হলে বিপদবার্তা। সেই পানি ১–৩ দিনে সুনামগঞ্জের হাওরে নামে।`,
-    `15 Mar–15 May: ${h.watchMm} mm of rain in 3 days at Sohra (Cherrapunji, Meghalaya) raises a watch, ${h.warningMm} mm a warning. That water reaches the Sunamganj haors in 1–3 days.`,
+    `১৫ মার্চ–১৫ মে: মেঘালয়ের সোহরায় (চেরাপুঞ্জি) ৩ দিনে ${num(h.watchMm)} মিমি বৃষ্টি হলে সতর্কতা, ${num(h.warningMm)} মিমি হলে বিপদবার্তা। সোহরা পৃথিবীর সবচেয়ে বৃষ্টিবহুল স্থানের একটি, তাই কোনো কল যাওয়ার আগে নদীর পানির উচ্চতা (FFWC) দিয়ে নিশ্চিত হতে হবে।`,
+    `15 Mar–15 May: ${h.watchMm} mm of rain in 3 days at Sohra (Cherrapunji, Meghalaya) raises a watch, ${h.warningMm} mm a warning. Sohra is one of the wettest places on Earth, so river gauges (FFWC) must confirm before any call goes out.`,
   ));
   setHtml('haorChart', haorChartSvg(h));
   setText('haorLegend', tr('কমলা: বন্যার বছর (FFWC) • নীল: বন্যাহীন বছর • ধূসর: রিপোর্ট নেই', 'Orange: flood years (FFWC) • Blue: no-flood years • Grey: no report'));
