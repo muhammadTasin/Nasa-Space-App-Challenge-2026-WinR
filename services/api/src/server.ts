@@ -13,6 +13,9 @@ import { bnDate, bnDateOf, bnDigits, bnOf, enDate } from '../../../packages/rota
 import * as desk from './officer_desk.ts';
 import { DualGateNarrationValidator } from '../../../packages/narration-core/src/dual_gate_validator.ts';
 import { TemplateNarrator } from '../../../packages/narration-core/src/template_narrator.ts';
+import { getNasaWeather } from './weather.ts';
+import { getRiverErosion } from './erosion.ts';
+import { askAiAssistant } from './ai_assistant.ts';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -491,6 +494,43 @@ const server = http.createServer(async (req, res) => {
     // API: haor flash-flood early warning (IMERG at Sohra, 25-season hindcast and today's status)
     if (pathname === '/api/v1/haor/flash-flood' && req.method === 'GET') {
       return sendJSON(res, 200, { ...HAOR_FLASH_FLOOD, status: haorStatus() });
+    }
+
+    // API: Real NASA Weather Observations (NASA POWER daily agroclimatology & SMAP soil moisture)
+    if (pathname === '/api/v1/weather' && req.method === 'GET') {
+      const lat = parseFloat(url.searchParams.get('lat') || '24.62');
+      const lon = parseFloat(url.searchParams.get('lon') || '88.56');
+      const weather = await getNasaWeather(lat, lon);
+      return sendJSON(res, 200, weather);
+    }
+
+    // API: River Erosion Information (BWDB station records, CEGIS vulnerability & IMERG basin rain)
+    if (pathname === '/api/v1/erosion' && req.method === 'GET') {
+      const river = url.searchParams.get('river') || 'jamuna';
+      const erosion = getRiverErosion(river);
+      return sendJSON(res, 200, erosion);
+    }
+
+    // API: Grounded Bengali AI Agricultural Assistant
+    if (pathname === '/api/v1/ai/ask' && req.method === 'POST') {
+      const body = await parseBody(req);
+      const answer = await askAiAssistant(body);
+      return sendJSON(res, 200, answer);
+    }
+
+    // API: Unified Authentication (Farmer and SAAO Officer)
+    if (pathname === '/api/v1/auth/login' && req.method === 'POST') {
+      const body = await parseBody(req);
+      const session = desk.loginUser(body);
+      return session ? sendJSON(res, 200, session) : sendJSON(res, 401, { error: 'Invalid login credentials' });
+    }
+    if (pathname === '/api/v1/auth/session' && req.method === 'GET') {
+      const user = desk.userForToken(req.headers.authorization);
+      return user ? sendJSON(res, 200, { user }) : sendJSON(res, 401, { error: 'No active session' });
+    }
+    if (pathname === '/api/v1/auth/logout' && req.method === 'POST') {
+      const ok = desk.logout(req.headers.authorization);
+      return sendJSON(res, 200, { ok });
     }
 
     // API: Krishi officer desk (sign-in required for everything except the officer list and login)

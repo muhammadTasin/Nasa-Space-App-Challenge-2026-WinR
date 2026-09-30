@@ -13,10 +13,11 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.List
-import androidx.compose.material.icons.filled.DateRange
+import androidx.compose.material.icons.filled.AutoAwesome
+import androidx.compose.material.icons.filled.Cloud
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.LocationOn
+import androidx.compose.material.icons.filled.Water
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -40,8 +41,9 @@ enum class EdenTab(
     val icon: ImageVector
 ) {
     TODAY("আজ", Icons.Default.Home),
-    PLAN("পরিকল্পনা", Icons.Default.DateRange),
-    HISTORY("পরামর্শ", Icons.AutoMirrored.Filled.List),
+    WEATHER("আবহাওয়া", Icons.Default.Cloud),
+    EROSION("নদীভাঙন", Icons.Default.Water),
+    AI("সহায়ক AI", Icons.Default.AutoAwesome),
     FARM("খামার", Icons.Default.LocationOn)
 }
 
@@ -61,8 +63,8 @@ fun EdenBottomNavBar(
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(68.dp)
-                .padding(horizontal = 8.dp),
+                .height(66.dp)
+                .padding(horizontal = 4.dp),
             horizontalArrangement = Arrangement.SpaceAround,
             verticalAlignment = Alignment.CenterVertically
         ) {
@@ -79,8 +81,8 @@ fun EdenBottomNavBar(
                 ) {
                     Box(
                         modifier = Modifier
-                            .size(width = 54.dp, height = 30.dp)
-                            .clip(RoundedCornerShape(15.dp))
+                            .size(width = 46.dp, height = 28.dp)
+                            .clip(RoundedCornerShape(14.dp))
                             .background(if (isSelected) PrimaryContainer else androidx.compose.ui.graphics.Color.Transparent),
                         contentAlignment = Alignment.Center
                     ) {
@@ -88,7 +90,7 @@ fun EdenBottomNavBar(
                             imageVector = tab.icon,
                             contentDescription = tab.titleBangla,
                             tint = if (isSelected) OnPrimary else OnSurfaceVariant,
-                            modifier = Modifier.size(20.dp)
+                            modifier = Modifier.size(19.dp)
                         )
                     }
 
@@ -97,7 +99,7 @@ fun EdenBottomNavBar(
                         style = MaterialTheme.typography.labelSmall,
                         fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Normal,
                         color = if (isSelected) Primary else OnSurfaceVariant,
-                        fontSize = 11.sp,
+                        fontSize = 10.sp,
                         modifier = Modifier.padding(top = 2.dp)
                     )
                 }

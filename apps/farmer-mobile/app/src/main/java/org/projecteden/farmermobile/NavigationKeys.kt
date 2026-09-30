@@ -8,3 +8,9 @@ data object MainNavKey : NavKey
 
 @Serializable
 data object RotationDetailNavKey : NavKey
+
+@Serializable
+data object CropPlanNavKey : NavKey
+
+@Serializable
+data object AdviceHistoryNavKey : NavKey

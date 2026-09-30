@@ -28,4 +28,7 @@ interface FarmDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertHistoryItem(item: AdviceHistoryEntity)
+
+    @Query("UPDATE advice_history SET hasListenedAudio = 1 WHERE id = :historyId")
+    suspend fun markHistoryItemListened(historyId: String)
 }

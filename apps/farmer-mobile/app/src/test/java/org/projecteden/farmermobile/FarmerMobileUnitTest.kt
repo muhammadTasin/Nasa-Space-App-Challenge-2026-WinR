@@ -70,6 +70,7 @@ class FarmerMobileUnitTest {
             override suspend fun insertOrUpdateAdvice(advice: AdviceEntity) {}
             override fun getAdviceHistory() = flowOf(emptyList<AdviceHistoryEntity>())
             override suspend fun insertHistoryItem(item: AdviceHistoryEntity) {}
+            override suspend fun markHistoryItemListened(historyId: String) {}
         }
 
         val repository = FarmerRepository(fakeDao)
@@ -98,6 +99,7 @@ class FarmerMobileUnitTest {
             override suspend fun insertOrUpdateAdvice(advice: AdviceEntity) { saved = advice }
             override fun getAdviceHistory() = flowOf(emptyList<AdviceHistoryEntity>())
             override suspend fun insertHistoryItem(item: AdviceHistoryEntity) {}
+            override suspend fun markHistoryItemListened(historyId: String) {}
         }
 
         // Nothing listens on port 1, so the request fails

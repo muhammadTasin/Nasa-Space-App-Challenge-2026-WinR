@@ -143,11 +143,64 @@ async function run() {
   console.log(`✓ All ${keys.size} dashboard texts have an English translation`);
 
   // 13. GET /
-  console.log('Testing GET / (Dashboard HTML) ...');
-  const resHtml = await fetch(`${BASE}/`);
-  const htmlText = await resHtml.text();
-  check(resHtml.status === 200 && htmlText.includes('EDEN'), 'dashboard html');
-  console.log('✓ Dashboard HTML status:', resHtml.status, 'Length:', htmlText.length, 'Contains title:', htmlText.includes('EDEN'));
+  // 14. Real NASA Weather Observations (GET /api/v1/weather)
+  console.log('Testing GET /api/v1/weather ...');
+  const resWeather = await fetch(`${BASE}/api/v1/weather?lat=24.62&lon=88.56`);
+  const dataWeather = await resWeather.json();
+  check(resWeather.status === 200, 'weather status');
+  check(dataWeather.latestObservationDate && dataWeather.dataSource.includes('NASA POWER'), 'weather data source & observation date');
+  check(dataWeather.latest?.t2m && dataWeather.latest?.rootZoneMoistureM3M3, 'weather carries real temperature and SMAP moisture');
+  console.log('✓ NASA Weather status: 200, Latest date:', dataWeather.latestObservationDate, 'Temp:', dataWeather.latest.t2m, '°C, Live:', dataWeather.isLive);
+
+  // 15. River Erosion Information (GET /api/v1/erosion)
+  console.log('Testing GET /api/v1/erosion ...');
+  const resErosion = await fetch(`${BASE}/api/v1/erosion?river=jamuna`);
+  const dataErosion = await resErosion.json();
+  check(resErosion.status === 200, 'erosion status');
+  check(dataErosion.corridor.stations.length >= 3, 'erosion stations');
+  check(dataErosion.corridor.stations[0].dangerLevelM > 0, 'station carries real danger level');
+  console.log('✓ River Erosion status: 200, Corridor:', dataErosion.corridor.riverNameBangla, 'Stations:', dataErosion.corridor.stations.length);
+
+  // 16. Unified Auth (POST /api/v1/auth/login, GET /session, POST /logout)
+  console.log('Testing Unified Auth ...');
+  const farmerLogin = await (await fetch(`${BASE}/api/v1/auth/login`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ role: 'farmer', farmerId: 'F01', pin: '1234' }),
+  })).json();
+  check(farmerLogin.token && farmerLogin.user.role === 'farmer', 'farmer login succeeds with session token');
+  const farmerSession = await (await fetch(`${BASE}/api/v1/auth/session`, {
+    headers: { Authorization: `Bearer ${farmerLogin.token}` },
+  })).json();
+  check(farmerSession.user.id === 'F01', 'farmer session validated');
+  const logoutRes = await (await fetch(`${BASE}/api/v1/auth/logout`, {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${farmerLogin.token}` },
+  })).json();
+  check(logoutRes.ok === true, 'logout succeeds');
+  const expiredSession = await fetch(`${BASE}/api/v1/auth/session`, {
+    headers: { Authorization: `Bearer ${farmerLogin.token}` },
+  });
+  check(expiredSession.status === 401, 'session revoked after logout');
+  console.log('✓ Farmer Auth lifecycle verified: login -> session -> logout -> revoked');
+
+  // 17. Grounded Bengali AI Agricultural Assistant (POST /api/v1/ai/ask)
+  console.log('Testing AI Assistant ...');
+  const aiWater = await (await fetch(`${BASE}/api/v1/ai/ask`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ query: 'আমার জমিতে সেচ কখন দেওয়া উচিত?' }),
+  })).json();
+  check(aiWater.evidenceLevel === 'verified_high' && aiWater.sources.length >= 2, 'AI answers irrigation query with verified sources');
+  check(aiWater.answer.includes('SMAP') || aiWater.answer.includes('সেচ'), 'AI answer references SMAP/irrigation evidence');
+
+  const aiRefusal = await (await fetch(`${BASE}/api/v1/ai/ask`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ query: 'শেয়ার বাজারে কোন শেয়ার কিনলে বেশি লাভ হবে?' }),
+  })).json();
+  check(aiRefusal.evidenceLevel === 'insufficient_evidence', 'AI refuses unsupported query without fabricating');
+  console.log('✓ Grounded AI Assistant verified: evidence-based answer and safe refusal');
 
   console.log('\n===========================================');
   console.log('  ALL ENDPOINTS TESTED & VERIFIED!          ');

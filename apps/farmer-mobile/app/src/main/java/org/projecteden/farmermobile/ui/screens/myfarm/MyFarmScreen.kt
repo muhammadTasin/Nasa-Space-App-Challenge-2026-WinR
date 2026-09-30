@@ -5,6 +5,7 @@ import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -21,21 +22,33 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.CheckCircle
+import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Edit
+import androidx.compose.material.icons.filled.Error
 import androidx.compose.material.icons.filled.LocationOn
+import androidx.compose.material.icons.filled.Login
+import androidx.compose.material.icons.filled.Logout
 import androidx.compose.material.icons.filled.Place
-import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -45,6 +58,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
+import kotlinx.coroutines.launch
+import org.projecteden.farmermobile.data.local.AuthState
 import org.projecteden.farmermobile.theme.InverseOnSurface
 import org.projecteden.farmermobile.theme.InverseSurface
 import org.projecteden.farmermobile.theme.OnPrimary
@@ -66,6 +81,7 @@ import org.projecteden.farmermobile.theme.SurfaceContainerLow
 import org.projecteden.farmermobile.theme.SurfaceContainerLowest
 import org.projecteden.farmermobile.theme.Tertiary
 import org.projecteden.farmermobile.ui.components.EdenTopAppBar
+import org.projecteden.farmermobile.ui.components.LoginDialog
 
 @Composable
 fun MyFarmScreen(
@@ -73,10 +89,31 @@ fun MyFarmScreen(
     modifier: Modifier = Modifier
 ) {
     val farmProfile by viewModel.farmProfile.collectAsStateWithLifecycle()
+    val authState by viewModel.authState.collectAsStateWithLifecycle()
     val isUpdating by viewModel.isUpdating.collectAsStateWithLifecycle()
     val feedbackMessage by viewModel.feedbackMessage.collectAsStateWithLifecycle()
+    val errorMessage by viewModel.errorMessage.collectAsStateWithLifecycle()
+
+    var isEditing by rememberSaveable { mutableStateOf(false) }
+    var draftProfile by remember(farmProfile) { mutableStateOf(farmProfile) }
+    var showLoginDialog by remember { mutableStateOf(false) }
 
     val scrollState = rememberScrollState()
+    val coroutineScope = rememberCoroutineScope()
+
+    if (showLoginDialog) {
+        LoginDialog(
+            onDismiss = { showLoginDialog = false },
+            onLogin = { role, id, pinOrCode ->
+                viewModel.login(role, id, pinOrCode) { result ->
+                    if (result.isSuccess) {
+                        showLoginDialog = false
+                    }
+                }
+            },
+            errorMessage = errorMessage
+        )
+    }
 
     Column(
         modifier = modifier
@@ -84,7 +121,7 @@ fun MyFarmScreen(
             .background(Surface)
     ) {
         EdenTopAppBar(
-            title = "আমার খামার",
+            title = "আমার খামার ও প্রোফাইল",
             isOffline = true
         )
 
@@ -96,7 +133,96 @@ fun MyFarmScreen(
                     .padding(horizontal = 16.dp, vertical = 12.dp),
                 verticalArrangement = Arrangement.spacedBy(14.dp)
             ) {
-                // 1. Farm Identification Banner
+                // 1. Session / Authentication Card
+                Surface(
+                    color = SurfaceContainerHigh,
+                    shape = RoundedCornerShape(14.dp),
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(horizontal = 14.dp, vertical = 10.dp),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.spacedBy(10.dp)
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.AccountCircle,
+                                contentDescription = null,
+                                tint = Primary,
+                                modifier = Modifier.size(24.dp)
+                            )
+                            Column {
+                                when (val state = authState) {
+                                    is AuthState.Authenticated -> {
+                                        Text(
+                                            text = state.user.nameBangla,
+                                            style = MaterialTheme.typography.titleSmall,
+                                            fontWeight = FontWeight.Bold,
+                                            color = OnSurface
+                                        )
+                                        Text(
+                                            text = "${state.user.titleBangla} • ${state.user.blockOrVillage}",
+                                            style = MaterialTheme.typography.labelSmall,
+                                            color = Primary
+                                        )
+                                    }
+                                    is AuthState.Guest -> {
+                                        Text(
+                                            text = "অতিথি ব্যবহারকারী",
+                                            style = MaterialTheme.typography.titleSmall,
+                                            fontWeight = FontWeight.Bold,
+                                            color = OnSurface
+                                        )
+                                        Text(
+                                            text = "লগইন করে আপনার নির্দিষ্ট তথ্য দেখুন",
+                                            style = MaterialTheme.typography.labelSmall,
+                                            color = OnSurfaceVariant
+                                        )
+                                    }
+                                }
+                            }
+                        }
+
+                        when (authState) {
+                            is AuthState.Authenticated -> {
+                                OutlinedButton(
+                                    onClick = { viewModel.logout() },
+                                    shape = RoundedCornerShape(8.dp)
+                                ) {
+                                    Icon(
+                                        imageVector = Icons.Default.Logout,
+                                        contentDescription = "সাইন আউট",
+                                        modifier = Modifier.size(16.dp)
+                                    )
+                                    Spacer(modifier = Modifier.width(4.dp))
+                                    Text("লগআউট", style = MaterialTheme.typography.labelSmall)
+                                }
+                            }
+                            is AuthState.Guest -> {
+                                Button(
+                                    onClick = { showLoginDialog = true },
+                                    colors = ButtonDefaults.buttonColors(containerColor = Primary, contentColor = OnPrimary),
+                                    shape = RoundedCornerShape(8.dp)
+                                ) {
+                                    Icon(
+                                        imageVector = Icons.Default.Login,
+                                        contentDescription = "সাইন ইন",
+                                        modifier = Modifier.size(16.dp)
+                                    )
+                                    Spacer(modifier = Modifier.width(4.dp))
+                                    Text("লগইন", style = MaterialTheme.typography.labelSmall)
+                                }
+                            }
+                        }
+                    }
+                }
+
+                // 2. Farm Identification Banner
                 Surface(
                     color = PrimaryContainer,
                     shape = RoundedCornerShape(14.dp),
@@ -178,18 +304,176 @@ fun MyFarmScreen(
                     }
                 }
 
-                // 2. Farm Location Card
+                // 3. EDIT CONTROLS & FORM - PLACED DIRECTLY AT TOP
+                if (!isEditing) {
+                    Button(
+                        onClick = {
+                            draftProfile = farmProfile
+                            isEditing = true
+                            viewModel.logEditOpened()
+                            coroutineScope.launch { scrollState.animateScrollTo(0) }
+                        },
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = Primary,
+                            contentColor = OnPrimary
+                        ),
+                        shape = RoundedCornerShape(12.dp),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(50.dp)
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.Edit,
+                            contentDescription = null,
+                            modifier = Modifier.size(18.dp)
+                        )
+                        Spacer(modifier = Modifier.width(8.dp))
+                        Text(
+                            text = "খামারের তথ্য সম্পাদনা করুন",
+                            style = MaterialTheme.typography.labelLarge,
+                            fontWeight = FontWeight.Bold
+                        )
+                    }
+                } else {
+                    Surface(
+                        color = SurfaceContainerLow,
+                        shape = RoundedCornerShape(14.dp),
+                        border = androidx.compose.foundation.BorderStroke(1.dp, Primary.copy(alpha = 0.5f)),
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Column(
+                            modifier = Modifier.padding(14.dp),
+                            verticalArrangement = Arrangement.spacedBy(12.dp)
+                        ) {
+                            Row(
+                                modifier = Modifier.fillMaxWidth(),
+                                horizontalArrangement = Arrangement.SpaceBetween,
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Row(
+                                    verticalAlignment = Alignment.CenterVertically,
+                                    horizontalArrangement = Arrangement.spacedBy(6.dp)
+                                ) {
+                                    Icon(
+                                        imageVector = Icons.Default.Edit,
+                                        contentDescription = null,
+                                        tint = Primary,
+                                        modifier = Modifier.size(20.dp)
+                                    )
+                                    Text(
+                                        text = "খামারের তথ্য সম্পাদনা",
+                                        style = MaterialTheme.typography.titleMedium,
+                                        fontWeight = FontWeight.Bold,
+                                        color = Primary
+                                    )
+                                }
+                            }
+
+                            Text(
+                                text = "পরিবর্তনগুলো আপনার ফোনের সুরক্ষিত ডেটাবেজে সংরক্ষিত হবে।",
+                                style = MaterialTheme.typography.bodySmall,
+                                color = OnSurfaceVariant
+                            )
+
+                            // Editable Input Fields
+                            FarmEditField("খামারের নাম", draftProfile.farmName) {
+                                draftProfile = draftProfile.copy(farmName = it)
+                            }
+                            FarmEditField("অঞ্চল", draftProfile.region) {
+                                draftProfile = draftProfile.copy(region = it)
+                            }
+                            FarmEditField("ভৌগোলিক এলাকা", draftProfile.geoArea) {
+                                draftProfile = draftProfile.copy(geoArea = it)
+                            }
+                            FarmEditField("প্লটের বিবরণ", draftProfile.plotDescription) {
+                                draftProfile = draftProfile.copy(plotDescription = it)
+                            }
+                            FarmEditField("মোট জমির পরিমাণ", draftProfile.totalArea) {
+                                draftProfile = draftProfile.copy(totalArea = it)
+                            }
+                            FarmEditField("জমির শ্রেণি", draftProfile.landType) {
+                                draftProfile = draftProfile.copy(landType = it)
+                            }
+                            FarmEditField("মাটির বুনট", draftProfile.soilTexture) {
+                                draftProfile = draftProfile.copy(soilTexture = it)
+                            }
+                            FarmEditField("সেচ ও নিষ্কাশনের বিবরণ", draftProfile.irrigationFacility) {
+                                draftProfile = draftProfile.copy(irrigationFacility = it)
+                            }
+                            FarmEditField("অগ্রাধিকার (কমা দিয়ে আলাদা করুন)", draftProfile.priorities) {
+                                draftProfile = draftProfile.copy(priorities = it)
+                            }
+
+                            // Save and Cancel Actions
+                            Row(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(top = 8.dp),
+                                horizontalArrangement = Arrangement.spacedBy(10.dp)
+                            ) {
+                                OutlinedButton(
+                                    onClick = {
+                                        draftProfile = farmProfile
+                                        isEditing = false
+                                        viewModel.logEditCancelled()
+                                    },
+                                    enabled = !isUpdating,
+                                    shape = RoundedCornerShape(10.dp),
+                                    modifier = Modifier
+                                        .weight(1f)
+                                        .height(48.dp)
+                                ) {
+                                    Icon(imageVector = Icons.Default.Close, contentDescription = null, modifier = Modifier.size(16.dp))
+                                    Spacer(modifier = Modifier.width(4.dp))
+                                    Text("বাতিল")
+                                }
+
+                                Button(
+                                    onClick = {
+                                        viewModel.updateFarmInfo(draftProfile)
+                                        isEditing = false
+                                    },
+                                    enabled = !isUpdating,
+                                    colors = ButtonDefaults.buttonColors(containerColor = Primary, contentColor = OnPrimary),
+                                    shape = RoundedCornerShape(10.dp),
+                                    modifier = Modifier
+                                        .weight(1f)
+                                        .height(48.dp)
+                                ) {
+                                    if (isUpdating) {
+                                        CircularProgressIndicator(
+                                            color = OnPrimary,
+                                            strokeWidth = 2.dp,
+                                            modifier = Modifier.size(18.dp)
+                                        )
+                                    } else {
+                                        Icon(imageVector = Icons.Default.Check, contentDescription = null, modifier = Modifier.size(16.dp))
+                                        Spacer(modifier = Modifier.width(4.dp))
+                                        Text("সংরক্ষণ করুন", fontWeight = FontWeight.Bold)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                // 4. Farm Location Card
                 Surface(
                     color = SurfaceContainerLow,
                     shape = RoundedCornerShape(14.dp),
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Column(modifier = Modifier.fillMaxWidth()) {
-                        // Section Header Bar
                         Row(
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .background(SurfaceContainerHigh.copy(alpha = 0.5f))
+                                .clickable {
+                                    draftProfile = farmProfile
+                                    isEditing = true
+                                    viewModel.logEditOpened()
+                                    coroutineScope.launch { scrollState.animateScrollTo(0) }
+                                }
                                 .padding(horizontal = 14.dp, vertical = 10.dp),
                             horizontalArrangement = Arrangement.SpaceBetween,
                             verticalAlignment = Alignment.CenterVertically
@@ -230,80 +514,19 @@ fun MyFarmScreen(
                             }
                         }
 
-                        // Content
                         Column(
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .padding(14.dp),
                             verticalArrangement = Arrangement.spacedBy(10.dp)
                         ) {
-                            Column {
-                                Row(
-                                    verticalAlignment = Alignment.CenterVertically,
-                                    horizontalArrangement = Arrangement.spacedBy(6.dp)
-                                ) {
-                                    Text(
-                                        text = "ভৌগোলিক এলাকা",
-                                        style = MaterialTheme.typography.labelSmall,
-                                        color = OnSurfaceVariant
-                                    )
-                                    Box(
-                                        modifier = Modifier
-                                            .clip(RoundedCornerShape(4.dp))
-                                            .background(SurfaceContainerHigh)
-                                            .padding(horizontal = 4.dp, vertical = 1.dp)
-                                    ) {
-                                        Text(
-                                            text = "নমুনা তথ্য",
-                                            style = MaterialTheme.typography.labelSmall,
-                                            fontSize = 9.sp,
-                                            color = Primary
-                                        )
-                                    }
-                                }
-                                Text(
-                                    text = farmProfile.geoArea,
-                                    style = MaterialTheme.typography.bodyMedium,
-                                    fontWeight = FontWeight.Bold,
-                                    color = OnSurface
-                                )
-                            }
-
-                            Surface(
-                                color = SurfaceContainer,
-                                shape = RoundedCornerShape(8.dp),
-                                modifier = Modifier.fillMaxWidth()
-                            ) {
-                                Row(
-                                    modifier = Modifier
-                                        .fillMaxWidth()
-                                        .padding(10.dp),
-                                    horizontalArrangement = Arrangement.SpaceBetween,
-                                    verticalAlignment = Alignment.CenterVertically
-                                ) {
-                                    Text(
-                                        text = "প্লট বিবরণ: ${farmProfile.plotDescription}",
-                                        style = MaterialTheme.typography.bodySmall,
-                                        color = OnSurface
-                                    )
-                                    Box(
-                                        modifier = Modifier
-                                            .size(5.dp)
-                                            .clip(CircleShape)
-                                            .background(OutlineVariant)
-                                    )
-                                    Text(
-                                        text = "মোট এলাকা: ${farmProfile.totalArea}",
-                                        style = MaterialTheme.typography.bodySmall,
-                                        color = OnSurface
-                                    )
-                                }
-                            }
+                            InfoItem("অঞ্চল", farmProfile.region)
+                            InfoItem("ভৌগোলিক এলাকা", farmProfile.geoArea)
                         }
                     }
                 }
 
-                // 3. Land Type & Soil Characteristics
+                // 5. Plot & Agro Info Card
                 Surface(
                     color = SurfaceContainerLow,
                     shape = RoundedCornerShape(14.dp),
@@ -314,27 +537,22 @@ fun MyFarmScreen(
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .background(SurfaceContainerHigh.copy(alpha = 0.5f))
+                                .clickable {
+                                    draftProfile = farmProfile
+                                    isEditing = true
+                                    viewModel.logEditOpened()
+                                    coroutineScope.launch { scrollState.animateScrollTo(0) }
+                                }
                                 .padding(horizontal = 14.dp, vertical = 10.dp),
                             horizontalArrangement = Arrangement.SpaceBetween,
                             verticalAlignment = Alignment.CenterVertically
                         ) {
-                            Row(
-                                verticalAlignment = Alignment.CenterVertically,
-                                horizontalArrangement = Arrangement.spacedBy(6.dp)
-                            ) {
-                                Icon(
-                                    imageVector = Icons.Default.Place,
-                                    contentDescription = null,
-                                    tint = Primary,
-                                    modifier = Modifier.size(18.dp)
-                                )
-                                Text(
-                                    text = "জমির বিবরণ",
-                                    style = MaterialTheme.typography.titleMedium,
-                                    fontWeight = FontWeight.Bold,
-                                    color = Primary
-                                )
-                            }
+                            Text(
+                                text = "প্লট ও ভূমির বিবরণ",
+                                style = MaterialTheme.typography.titleMedium,
+                                fontWeight = FontWeight.Bold,
+                                color = Primary
+                            )
                             Row(
                                 verticalAlignment = Alignment.CenterVertically,
                                 horizontalArrangement = Arrangement.spacedBy(4.dp)
@@ -360,299 +578,47 @@ fun MyFarmScreen(
                                 .padding(14.dp),
                             verticalArrangement = Arrangement.spacedBy(10.dp)
                         ) {
-                            Row(
-                                modifier = Modifier.fillMaxWidth(),
-                                horizontalArrangement = Arrangement.spacedBy(8.dp)
-                            ) {
-                                Surface(
-                                    color = SurfaceContainer,
-                                    shape = RoundedCornerShape(8.dp),
-                                    modifier = Modifier.weight(1f)
-                                ) {
-                                    Column(modifier = Modifier.padding(10.dp)) {
-                                        Text(
-                                            text = "জমির শ্রেণি",
-                                            style = MaterialTheme.typography.labelSmall,
-                                            color = OnSurfaceVariant
-                                        )
-                                        Text(
-                                            text = farmProfile.landType,
-                                            style = MaterialTheme.typography.bodyMedium,
-                                            fontWeight = FontWeight.Bold,
-                                            color = OnSurface
-                                        )
-                                        Text(
-                                            text = farmProfile.landTypeEnglish,
-                                            style = MaterialTheme.typography.labelSmall,
-                                            color = OnSurfaceVariant.copy(alpha = 0.8f)
-                                        )
-                                    }
-                                }
-
-                                Surface(
-                                    color = SurfaceContainer,
-                                    shape = RoundedCornerShape(8.dp),
-                                    modifier = Modifier.weight(1f)
-                                ) {
-                                    Column(modifier = Modifier.padding(10.dp)) {
-                                        Text(
-                                            text = "মাটির বুনট",
-                                            style = MaterialTheme.typography.labelSmall,
-                                            color = OnSurfaceVariant
-                                        )
-                                        Text(
-                                            text = farmProfile.soilTexture,
-                                            style = MaterialTheme.typography.bodyMedium,
-                                            fontWeight = FontWeight.Bold,
-                                            color = OnSurface
-                                        )
-                                        Text(
-                                            text = farmProfile.soilTextureEnglish,
-                                            style = MaterialTheme.typography.labelSmall,
-                                            color = OnSurfaceVariant.copy(alpha = 0.8f)
-                                        )
-                                    }
-                                }
-                            }
-
-                            Surface(
-                                color = SurfaceContainer,
-                                shape = RoundedCornerShape(8.dp),
-                                modifier = Modifier.fillMaxWidth()
-                            ) {
-                                Row(
-                                    modifier = Modifier
-                                        .fillMaxWidth()
-                                        .padding(10.dp),
-                                    horizontalArrangement = Arrangement.spacedBy(8.dp),
-                                    verticalAlignment = Alignment.Top
-                                ) {
-                                    Icon(
-                                        imageVector = Icons.Default.Place,
-                                        contentDescription = null,
-                                        tint = Tertiary,
-                                        modifier = Modifier.size(18.dp)
-                                    )
-                                    Column {
-                                        Text(
-                                            text = "বিদ্যমান সেচ ও নিষ্কাশন পরিকাঠামো",
-                                            style = MaterialTheme.typography.labelSmall,
-                                            color = OnSurfaceVariant
-                                        )
-                                        Text(
-                                            text = farmProfile.irrigationFacility,
-                                            style = MaterialTheme.typography.bodyMedium,
-                                            fontWeight = FontWeight.Medium,
-                                            color = OnSurface
-                                        )
-                                    }
-                                }
-                            }
+                            InfoItem("প্লটের বিবরণ", farmProfile.plotDescription)
+                            InfoItem("মোট জমির পরিমাণ", farmProfile.totalArea)
+                            InfoItem("জমির শ্রেণি", farmProfile.landType)
+                            InfoItem("মাটির বুনট", farmProfile.soilTexture)
+                            InfoItem("সেচ ও নিষ্কাশনের সুবিধা", farmProfile.irrigationFacility)
+                            InfoItem("কৃষকের অগ্রাধিকার", farmProfile.priorities)
                         }
                     }
                 }
 
-                // 4. Saved Priorities & Consent
+                // 6. Consent & Data Integrity Ledger
                 Surface(
                     color = SurfaceContainerLow,
                     shape = RoundedCornerShape(14.dp),
                     modifier = Modifier.fillMaxWidth()
                 ) {
-                    Column(modifier = Modifier.fillMaxWidth()) {
-                        Row(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .background(SurfaceContainerHigh.copy(alpha = 0.5f))
-                                .padding(horizontal = 14.dp, vertical = 10.dp),
-                            horizontalArrangement = Arrangement.SpaceBetween,
-                            verticalAlignment = Alignment.CenterVertically
-                        ) {
-                            Row(
-                                verticalAlignment = Alignment.CenterVertically,
-                                horizontalArrangement = Arrangement.spacedBy(6.dp)
-                            ) {
-                                Icon(
-                                    imageVector = Icons.Default.CheckCircle,
-                                    contentDescription = null,
-                                    tint = Primary,
-                                    modifier = Modifier.size(18.dp)
-                                )
-                                Text(
-                                    text = "সংরক্ষিত অগ্রাধিকার ও সম্মতি",
-                                    style = MaterialTheme.typography.titleMedium,
-                                    fontWeight = FontWeight.Bold,
-                                    color = Primary
-                                )
-                            }
-                            Row(
-                                verticalAlignment = Alignment.CenterVertically,
-                                horizontalArrangement = Arrangement.spacedBy(4.dp)
-                            ) {
-                                Icon(
-                                    imageVector = Icons.Default.Edit,
-                                    contentDescription = "পরিবর্তন",
-                                    tint = Primary,
-                                    modifier = Modifier.size(14.dp)
-                                )
-                                Text(
-                                    text = "পরিবর্তন",
-                                    style = MaterialTheme.typography.labelSmall,
-                                    fontWeight = FontWeight.SemiBold,
-                                    color = Primary
-                                )
-                            }
-                        }
-
-                        Column(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(14.dp),
-                            verticalArrangement = Arrangement.spacedBy(10.dp)
-                        ) {
-                            Text(
-                                text = "খামারের জন্য নির্ধারিত অগ্রাধিকারসমূহ:",
-                                style = MaterialTheme.typography.bodySmall,
-                                color = OnSurfaceVariant
-                            )
-
-                            Row(
-                                modifier = Modifier.fillMaxWidth(),
-                                horizontalArrangement = Arrangement.spacedBy(6.dp)
-                            ) {
-                                val priorityList = farmProfile.priorities.split(",")
-                                priorityList.forEach { priority ->
-                                    Box(
-                                        modifier = Modifier
-                                            .clip(RoundedCornerShape(16.dp))
-                                            .background(SurfaceContainerHigh)
-                                            .padding(horizontal = 8.dp, vertical = 4.dp)
-                                    ) {
-                                        Text(
-                                            text = priority,
-                                            style = MaterialTheme.typography.labelSmall,
-                                            fontWeight = FontWeight.Medium,
-                                            color = Primary
-                                        )
-                                    }
-                                }
-                            }
-
-                            // Consent Status
-                            Surface(
-                                color = SurfaceContainer,
-                                shape = RoundedCornerShape(8.dp),
-                                modifier = Modifier.fillMaxWidth()
-                            ) {
-                                Row(
-                                    modifier = Modifier
-                                        .fillMaxWidth()
-                                        .padding(10.dp),
-                                    horizontalArrangement = Arrangement.spacedBy(10.dp),
-                                    verticalAlignment = Alignment.CenterVertically
-                                ) {
-                                    Box(
-                                        modifier = Modifier
-                                            .size(32.dp)
-                                            .clip(CircleShape)
-                                            .background(PrimaryFixed),
-                                        contentAlignment = Alignment.Center
-                                    ) {
-                                        Icon(
-                                            imageVector = Icons.Default.Check,
-                                            contentDescription = null,
-                                            tint = OnPrimaryFixed,
-                                            modifier = Modifier.size(18.dp)
-                                        )
-                                    }
-
-                                    Column {
-                                        Row(
-                                            verticalAlignment = Alignment.CenterVertically,
-                                            horizontalArrangement = Arrangement.spacedBy(6.dp)
-                                        ) {
-                                            Box(
-                                                modifier = Modifier
-                                                    .clip(RoundedCornerShape(8.dp))
-                                                    .background(PrimaryContainer)
-                                                    .padding(horizontal = 6.dp, vertical = 2.dp)
-                                            ) {
-                                                Text(
-                                                    text = farmProfile.consentStatus,
-                                                    style = MaterialTheme.typography.labelSmall,
-                                                    color = OnPrimary,
-                                                    fontWeight = FontWeight.Bold,
-                                                    fontSize = 10.sp
-                                                )
-                                            }
-                                            Text(
-                                                text = farmProfile.consentValidity,
-                                                style = MaterialTheme.typography.labelSmall,
-                                                color = OnSurfaceVariant
-                                            )
-                                        }
-
-                                        Text(
-                                            text = farmProfile.consentDescription,
-                                            style = MaterialTheme.typography.bodySmall,
-                                            fontWeight = FontWeight.Bold,
-                                            color = OnSurface,
-                                            modifier = Modifier.padding(top = 2.dp)
-                                        )
-                                    }
-                                }
-                            }
-
-                            Text(
-                                text = farmProfile.consentDisclaimer,
-                                style = MaterialTheme.typography.labelSmall,
-                                color = OnSurfaceVariant,
-                                lineHeight = 16.sp,
-                                modifier = Modifier.padding(horizontal = 2.dp)
-                            )
-                        }
-                    }
-                }
-
-                // 5. Update Action Button
-                Button(
-                    onClick = { viewModel.updateFarmInfo() },
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = Primary,
-                        contentColor = OnPrimary
-                    ),
-                    shape = RoundedCornerShape(12.dp),
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(54.dp)
-                ) {
-                    if (isUpdating) {
-                        CircularProgressIndicator(
-                            color = OnPrimary,
-                            strokeWidth = 2.dp,
-                            modifier = Modifier.size(20.dp)
-                        )
-                        Spacer(modifier = Modifier.width(8.dp))
-                        Text(text = "হালনাগাদ হচ্ছে...")
-                    } else {
-                        Icon(
-                            imageVector = Icons.Default.Refresh,
-                            contentDescription = null,
-                            tint = OnPrimary,
-                            modifier = Modifier.size(20.dp)
-                        )
-                        Spacer(modifier = Modifier.width(8.dp))
+                    Column(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(14.dp),
+                        verticalArrangement = Arrangement.spacedBy(8.dp)
+                    ) {
                         Text(
-                            text = "তথ্য আপডেট করুন",
-                            style = MaterialTheme.typography.labelLarge,
-                            fontWeight = FontWeight.Bold
+                            text = "উপাত্ত সুরক্ষা ও সম্মতি",
+                            style = MaterialTheme.typography.titleSmall,
+                            fontWeight = FontWeight.Bold,
+                            color = OnSurface
+                        )
+                        Text(
+                            text = farmProfile.consentDisclaimer,
+                            style = MaterialTheme.typography.bodySmall,
+                            color = OnSurfaceVariant,
+                            lineHeight = 18.sp
                         )
                     }
                 }
 
-                Spacer(modifier = Modifier.height(16.dp))
+                Spacer(modifier = Modifier.height(24.dp))
             }
 
-            // Feedback Toast Notification
+            // Success Toast
             androidx.compose.animation.AnimatedVisibility(
                 visible = feedbackMessage != null,
                 enter = fadeIn(),
@@ -685,6 +651,72 @@ fun MyFarmScreen(
                     }
                 }
             }
+
+            // Error Toast
+            androidx.compose.animation.AnimatedVisibility(
+                visible = errorMessage != null,
+                enter = fadeIn(),
+                exit = fadeOut(),
+                modifier = Modifier
+                    .align(Alignment.BottomCenter)
+                    .padding(bottom = 24.dp)
+            ) {
+                Surface(
+                    color = MaterialTheme.colorScheme.errorContainer,
+                    shape = RoundedCornerShape(8.dp),
+                    shadowElevation = 6.dp
+                ) {
+                    Row(
+                        modifier = Modifier.padding(horizontal = 14.dp, vertical = 10.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(8.dp)
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.Error,
+                            contentDescription = null,
+                            tint = MaterialTheme.colorScheme.error,
+                            modifier = Modifier.size(18.dp)
+                        )
+                        Text(
+                            text = errorMessage ?: "",
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onErrorContainer
+                        )
+                    }
+                }
+            }
         }
     }
+}
+
+@Composable
+private fun InfoItem(label: String, value: String) {
+    Column {
+        Text(
+            text = label,
+            style = MaterialTheme.typography.labelSmall,
+            color = OnSurfaceVariant
+        )
+        Text(
+            text = value,
+            style = MaterialTheme.typography.bodyMedium,
+            fontWeight = FontWeight.Medium,
+            color = OnSurface
+        )
+    }
+}
+
+@Composable
+private fun FarmEditField(
+    label: String,
+    value: String,
+    onValueChange: (String) -> Unit
+) {
+    OutlinedTextField(
+        value = value,
+        onValueChange = onValueChange,
+        label = { Text(label) },
+        singleLine = true,
+        modifier = Modifier.fillMaxWidth()
+    )
 }

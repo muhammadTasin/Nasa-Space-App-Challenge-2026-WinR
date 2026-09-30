@@ -121,6 +121,20 @@ export function resetDesk(): void {
   save();
 }
 
+export interface AuthUser {
+  id: string;
+  role: 'officer' | 'farmer';
+  nameBangla: string;
+  nameEnglish: string;
+  titleBangla: string;
+  blockOrVillageBangla: string;
+  phoneMasked?: string;
+  landType?: string;
+  currentAmanCrop?: string;
+}
+
+const userSessions = new Map<string, AuthUser>();
+
 export function login(officerId: string, accessCode: string): { token: string; officer: (typeof OFFICERS)[number] } | null {
   const officer = OFFICERS.find(o => o.id === officerId);
   const given = Buffer.from(String(accessCode ?? ''));
@@ -128,7 +142,85 @@ export function login(officerId: string, accessCode: string): { token: string; o
   if (!officer || given.length !== expected.length || !crypto.timingSafeEqual(given, expected)) return null;
   const token = crypto.randomUUID();
   sessions.set(token, officer.id);
+  userSessions.set(token, {
+    id: officer.id,
+    role: 'officer',
+    nameBangla: officer.nameBangla,
+    nameEnglish: officer.nameEnglish,
+    titleBangla: 'উপসহকারী কৃষি কর্মকর্তা (SAAO)',
+    blockOrVillageBangla: officer.blockBangla,
+  });
   return { token, officer };
+}
+
+export function loginUser(body: { role?: string; officerId?: string; accessCode?: string; farmerId?: string; phone?: string; pin?: string }): { token: string; user: AuthUser } | null {
+  if (body.role === 'officer' || body.officerId) {
+    const officerId = body.officerId || 'saao_talanda_01';
+    const accessCode = body.accessCode || '';
+    const res = login(officerId, accessCode);
+    if (!res) return null;
+    return { token: res.token, user: userSessions.get(res.token)! };
+  } else {
+    // Farmer login: lookup by ID (F01, F02, etc.) or phone
+    let targetFarmer = body.farmerId ? farmerById(body.farmerId) : undefined;
+    if (!targetFarmer && body.phone) {
+      const cleanPhone = body.phone.replace(/\D/g, '');
+      targetFarmer = store.farmers.find(f => {
+        const lastDigits = f.phoneMasked.slice(-2);
+        return cleanPhone.endsWith(lastDigits) || f.phoneMasked.includes(cleanPhone);
+      });
+    }
+    if (!targetFarmer) {
+      targetFarmer = store.farmers[0]; // fallback to F01
+    }
+    const pin = body.pin || '1234';
+    if (pin !== '1234' && pin !== '0000') return null;
+
+    const token = crypto.randomUUID();
+    const user: AuthUser = {
+      id: targetFarmer.id,
+      role: 'farmer',
+      nameBangla: targetFarmer.nameBangla,
+      nameEnglish: targetFarmer.nameEnglish,
+      titleBangla: 'নিবন্ধিত কৃষক',
+      blockOrVillageBangla: targetFarmer.villageBangla,
+      phoneMasked: targetFarmer.phoneMasked,
+      landType: targetFarmer.landType,
+      currentAmanCrop: targetFarmer.currentAmanCrop,
+    };
+    userSessions.set(token, user);
+    return { token, user };
+  }
+}
+
+export function userForToken(authorization: string | undefined): AuthUser | null {
+  const token = authorization?.startsWith('Bearer ') ? authorization.slice(7) : '';
+  if (!token) return null;
+  const user = userSessions.get(token);
+  if (user) return user;
+  const officerId = sessions.get(token);
+  if (officerId) {
+    const officer = OFFICERS.find(o => o.id === officerId);
+    if (officer) {
+      return {
+        id: officer.id,
+        role: 'officer',
+        nameBangla: officer.nameBangla,
+        nameEnglish: officer.nameEnglish,
+        titleBangla: 'উপসহকারী কৃষি কর্মকর্তা (SAAO)',
+        blockOrVillageBangla: officer.blockBangla,
+      };
+    }
+  }
+  return null;
+}
+
+export function logout(authorization: string | undefined): boolean {
+  const token = authorization?.startsWith('Bearer ') ? authorization.slice(7) : '';
+  if (!token) return false;
+  sessions.delete(token);
+  userSessions.delete(token);
+  return true;
 }
 
 export function officerForToken(authorization: string | undefined) {

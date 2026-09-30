@@ -1,5 +1,6 @@
 package org.projecteden.farmermobile
 
+import android.util.Log
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -16,11 +17,14 @@ import androidx.navigation3.ui.NavDisplay
 import org.projecteden.farmermobile.theme.Surface
 import org.projecteden.farmermobile.ui.components.EdenBottomNavBar
 import org.projecteden.farmermobile.ui.components.EdenTab
+import org.projecteden.farmermobile.ui.screens.ai.AiAssistantScreen
 import org.projecteden.farmermobile.ui.screens.cropplan.CropPlanScreen
+import org.projecteden.farmermobile.ui.screens.erosion.RiverErosionScreen
 import org.projecteden.farmermobile.ui.screens.history.AdviceHistoryScreen
 import org.projecteden.farmermobile.ui.screens.myfarm.MyFarmScreen
 import org.projecteden.farmermobile.ui.screens.rotationdetail.RotationDetailScreen
 import org.projecteden.farmermobile.ui.screens.today.TodayAdviceScreen
+import org.projecteden.farmermobile.ui.screens.weather.WeatherScreen
 
 @Composable
 fun MainNavigation() {
@@ -37,7 +41,16 @@ fun MainNavigation() {
             entry<MainNavKey> {
                 EdenMainScaffold(
                     onNavigateToDetail = {
+                        Log.i("EDEN_APP", "rotation_detail_opened")
                         backStack.add(RotationDetailNavKey)
+                    },
+                    onNavigateToPlan = {
+                        Log.i("EDEN_APP", "crop_plan_opened")
+                        backStack.add(CropPlanNavKey)
+                    },
+                    onNavigateToHistory = {
+                        Log.i("EDEN_APP", "advice_history_opened")
+                        backStack.add(AdviceHistoryNavKey)
                     }
                 )
             }
@@ -48,13 +61,29 @@ fun MainNavigation() {
                     }
                 )
             }
+            entry<CropPlanNavKey> {
+                CropPlanScreen(
+                    onNavigateToDetail = {
+                        backStack.add(RotationDetailNavKey)
+                    }
+                )
+            }
+            entry<AdviceHistoryNavKey> {
+                AdviceHistoryScreen(
+                    onNavigateToDetail = {
+                        backStack.add(RotationDetailNavKey)
+                    }
+                )
+            }
         }
     )
 }
 
 @Composable
 fun EdenMainScaffold(
-    onNavigateToDetail: () -> Unit
+    onNavigateToDetail: () -> Unit,
+    onNavigateToPlan: () -> Unit,
+    onNavigateToHistory: () -> Unit
 ) {
     var selectedTab by rememberSaveable { mutableStateOf(EdenTab.TODAY) }
 
@@ -64,6 +93,7 @@ fun EdenMainScaffold(
             EdenBottomNavBar(
                 selectedTab = selectedTab,
                 onTabSelected = { tab ->
+                    Log.i("EDEN_APP", "tab_selected:${tab.name.lowercase()}")
                     selectedTab = tab
                 }
             )
@@ -77,20 +107,17 @@ fun EdenMainScaffold(
             when (selectedTab) {
                 EdenTab.TODAY -> {
                     TodayAdviceScreen(
-                        onNavigateToPlan = {
-                            selectedTab = EdenTab.PLAN
-                        }
+                        onNavigateToPlan = onNavigateToPlan
                     )
                 }
-                EdenTab.PLAN -> {
-                    CropPlanScreen(
-                        onNavigateToDetail = onNavigateToDetail
-                    )
+                EdenTab.WEATHER -> {
+                    WeatherScreen()
                 }
-                EdenTab.HISTORY -> {
-                    AdviceHistoryScreen(
-                        onNavigateToDetail = onNavigateToDetail
-                    )
+                EdenTab.EROSION -> {
+                    RiverErosionScreen()
+                }
+                EdenTab.AI -> {
+                    AiAssistantScreen()
                 }
                 EdenTab.FARM -> {
                     MyFarmScreen()

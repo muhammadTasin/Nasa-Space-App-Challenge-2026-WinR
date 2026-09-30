@@ -297,7 +297,7 @@ fun AdviceHistoryScreen(
                                         if (playbackState is AudioPlaybackState.Playing) {
                                             viewModel.pauseOrStopAudio()
                                         } else {
-                                            viewModel.playAudio(advice.audioScriptBangla)
+                                            viewModel.playAudio(item)
                                         }
                                     },
                                     colors = ButtonDefaults.buttonColors(

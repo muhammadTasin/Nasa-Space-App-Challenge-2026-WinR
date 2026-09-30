@@ -105,10 +105,20 @@ class FarmerRepository(
     }
 
     suspend fun markAudioListened(historyId: String) {
+        farmDao.markHistoryItemListened(historyId)
+    }
+
+    suspend fun recordPlanConfirmation(advice: AdviceEntity) {
+        val timestamp = System.currentTimeMillis()
+        val confirmedAt = SimpleDateFormat("h:mm a", Locale("bn", "BD")).format(Date(timestamp))
         farmDao.insertHistoryItem(
             AdviceHistoryEntity(
-                id = historyId,
-                hasListenedAudio = true
+                id = "confirmed_$timestamp",
+                seasonTag = "নিশ্চিত পরিকল্পনা",
+                rotationTitle = advice.rotationTitle,
+                adviceSummary = advice.narrativeAdvice,
+                syncTimestamp = "ডিভাইসে নিশ্চিত • $confirmedAt",
+                createdAt = timestamp
             )
         )
     }

@@ -1,11 +1,13 @@
 package org.projecteden.farmermobile.ui.screens.history
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.launch
 import org.projecteden.farmermobile.EdenFarmerApp
 import org.projecteden.farmermobile.audio.AudioPlaybackState
 import org.projecteden.farmermobile.data.model.AdviceEntity
@@ -31,11 +33,20 @@ class AdviceHistoryViewModel(application: Application) : AndroidViewModel(applic
 
     val playbackState: StateFlow<AudioPlaybackState> = ttsManager.playbackState
 
-    fun playAudio(textBangla: String) {
-        ttsManager.playAdvice(textBangla)
+    fun playAudio(item: AdviceHistoryEntity) {
+        Log.i(TAG, "history_audio_started")
+        ttsManager.playAdvice(item.adviceSummary)
+        viewModelScope.launch {
+            repository.markAudioListened(item.id)
+        }
     }
 
     fun pauseOrStopAudio() {
+        Log.i(TAG, "history_audio_stopped")
         ttsManager.pauseOrStop()
+    }
+
+    private companion object {
+        const val TAG = "EDEN_APP"
     }
 }

@@ -22,8 +22,10 @@ import androidx.compose.material.icons.filled.DateRange
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material.icons.filled.Place
+import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -66,6 +68,8 @@ fun TodayAdviceScreen(
 ) {
     val advice by viewModel.advice.collectAsStateWithLifecycle()
     val playbackState by viewModel.playbackState.collectAsStateWithLifecycle()
+    val isRefreshing by viewModel.isRefreshing.collectAsStateWithLifecycle()
+    val refreshMessage by viewModel.refreshMessage.collectAsStateWithLifecycle()
     val scrollState = rememberScrollState()
 
     Column(
@@ -90,6 +94,42 @@ fun TodayAdviceScreen(
                 isOffline = advice.isOffline,
                 lastSyncTimeText = advice.lastSyncFormatted
             )
+
+            Button(
+                onClick = { viewModel.refreshAdvice() },
+                enabled = !isRefreshing,
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = SurfaceContainer,
+                    contentColor = Primary
+                ),
+                shape = RoundedCornerShape(10.dp),
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                if (isRefreshing) {
+                    CircularProgressIndicator(
+                        color = Primary,
+                        strokeWidth = 2.dp,
+                        modifier = Modifier.size(18.dp)
+                    )
+                } else {
+                    Icon(
+                        imageVector = Icons.Default.Refresh,
+                        contentDescription = null,
+                        tint = Primary,
+                        modifier = Modifier.size(18.dp)
+                    )
+                }
+                Spacer(modifier = Modifier.width(8.dp))
+                Text(text = if (isRefreshing) "পরামর্শ হালনাগাদ হচ্ছে..." else "পরামর্শ হালনাগাদ করুন")
+            }
+            refreshMessage?.let { message ->
+                Text(
+                    text = message,
+                    style = MaterialTheme.typography.bodySmall,
+                    color = OnSurfaceVariant,
+                    modifier = Modifier.padding(horizontal = 4.dp)
+                )
+            }
 
             // 2. Selected Plot Card
             Surface(
