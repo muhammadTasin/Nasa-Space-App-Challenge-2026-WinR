@@ -46,6 +46,7 @@ async function run() {
   check(warnings?.haor?.skill?.length && warnings.cattleHeat?.months?.length === 12 && warnings.warmNights?.dhan71, 'overview carries the early warnings');
   const haor = await (await fetch(`${BASE}/api/v1/haor/flash-flood`)).json();
   check(haor.seasons.length === 25 && haor.status?.state, 'the haor endpoint serves the 25-season hindcast and the current status');
+  check(haor.live?.upstream?.length === 4 && haor.live.upstream[0].calibrated && haor.live.date, 'the haor endpoint carries the live upstream reading');
   console.log('✓ Overview status:', resOverview.status, 'Union:', dataOverview.scope.union, 'SMAP', dataOverview.local_satellite_conditions.smap.rootZoneM3M3, 'on', dataOverview.local_satellite_conditions.smap.date);
 
   // Daily NASA update: every upazila, with dated sources

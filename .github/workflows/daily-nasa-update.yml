@@ -1,6 +1,6 @@
 name: Daily NASA update
 
-# Every morning: NASA POWER (no login) for all 544 upazilas, and GPM IMERG rain when the
+# Every morning: NASA POWER (no login) for all 544 upazilas, the haor flash-flood check, and GPM IMERG rain when the
 # EARTHDATA_USERNAME and EARTHDATA_PASSWORD repository secrets are set.
 # Writes services/api/data/live/upazila_conditions.json and commits it when it changed.
 
@@ -28,7 +28,7 @@ jobs:
           python-version: "3.12"
 
       - name: Install
-        run: pip install requests pandas numpy pyarrow
+        run: pip install requests pandas numpy pyarrow pillow
 
       - name: GPM IMERG, last 10 days (needs Earthdata secrets)
         continue-on-error: true

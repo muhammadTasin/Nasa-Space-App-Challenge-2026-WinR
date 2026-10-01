@@ -70,3 +70,11 @@ export function liveUpazila(q: { id?: string | null; name?: string | null; lat?:
     generatedAt: d.summary.generatedAt,
   };
 }
+
+/** Today's haor flash-flood reading: upstream 3-day IMERG rain and the MODIS flood map, with their ages. */
+export function liveHaor() {
+  const d = load();
+  const h = d?.summary?.haor;
+  if (!h || !h.available) return null;
+  return { ...h, ageDays: daysSince(h.date), modisAgeDays: daysSince(h.modisFlood?.date) };
+}

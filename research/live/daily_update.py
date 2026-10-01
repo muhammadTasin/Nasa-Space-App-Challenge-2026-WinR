@@ -33,7 +33,24 @@ BBOX = {"latitude-min": 20.5, "latitude-max": 26.7, "longitude-min": 88.0, "long
 PARAMS = ["PRECTOTCORR", "T2M_MAX", "T2M_MIN", "RH2M", "GWETROOT", "GWETTOP"]
 NORMAL_YEARS = 10
 HOT_C = 35.0  # rice flowers start to fail at about 35 C
-SOHRA = (25.27, 91.73)  # upstream of the Sunamganj haors, where the flash-flood trigger is read
+RAIN_VS_NORMAL = ROOT / "research" / "pilots" / "rain_vs_normal.csv"
+GIBS = "https://gibs.earthdata.nasa.gov/wms/epsg4326/best/wms.cgi"
+HAOR_BOX = (24.0, 90.6, 25.3, 92.0)  # lat min, lon min, lat max, lon max: the north-eastern haor basin
+# NASA MODIS NRT Global Flood Product colours on GIBS (legend MODIS_Flood_H)
+FLOOD_CLASSES = {(250, 30, 36): "flood", (255, 255, 0): "recurring", (50, 210, 245): "water", (175, 175, 175): "noData"}
+# Hills whose rain reaches the haors in a burst. Only Sohra's thresholds were tested (25 springs against FFWC flood years).
+UPSTREAM = [
+    {"id": "sohra", "place": "Sohra (Cherrapunji), Meghalaya", "lat": 25.27, "lon": 91.73, "calibrated": True,
+     "districts": ["Sunamganj", "Netrakona", "Kishoreganj"]},
+    {"id": "jaintia", "place": "Jaintia Hills (Jowai), Meghalaya", "lat": 25.45, "lon": 92.20, "calibrated": False,
+     "districts": ["Sylhet"]},
+    {"id": "garo", "place": "Garo Hills (Tura), Meghalaya", "lat": 25.51, "lon": 90.22, "calibrated": False,
+     "districts": ["Netrakona", "Mymensingh"]},
+    {"id": "barak", "place": "Barak valley (Silchar), Assam", "lat": 24.82, "lon": 92.80, "calibrated": False,
+     "districts": ["Sylhet", "Maulvibazar", "Habiganj"]},
+]
+WATCH_MM, WARNING_MM = 200, 250
+SOHRA = (UPSTREAM[0]["lat"], UPSTREAM[0]["lon"])
 
 
 def power_regional(param: str, start: date, end: date) -> dict:
@@ -72,6 +89,49 @@ def status(rank: int, n: int, low: str, high: str) -> str:
     if rank >= n * .8:
         return high
     return "normal"
+
+
+def late_final_ratios() -> tuple[float, float]:
+    """IMERG Late reads drier than Final since 2023 (research/explore/rain_vs_normal.py): Sohra's ratio, and the median."""
+    by = {}
+    for r in csv.DictReader(open(RAIN_VS_NORMAL, encoding="utf-8")):
+        by.setdefault(r["site_id"], float(r["late_final_ratio"]))
+    vals = sorted(by.values())
+    return by.get("UP_SOHRA", vals[len(vals) // 2]), vals[len(vals) // 2]
+
+
+def modis_flood(today: date) -> dict | None:
+    """Share of the haor box in each class of NASA's MODIS NRT flood map (3-day composite), newest day available."""
+    try:
+        import io
+        from PIL import Image
+    except ImportError:
+        return None
+    lat0, lon0, lat1, lon1 = HAOR_BOX
+    for back in range(1, 5):
+        d = today - timedelta(days=back)
+        q = {"SERVICE": "WMS", "REQUEST": "GetMap", "VERSION": "1.3.0", "CRS": "EPSG:4326", "LAYERS": "MODIS_Combined_Flood_3-Day",
+             "STYLES": "", "BBOX": f"{lat0},{lon0},{lat1},{lon1}", "WIDTH": 400, "HEIGHT": 400, "FORMAT": "image/png",
+             "TIME": f"{d}", "TRANSPARENT": "TRUE"}
+        try:
+            r = requests.get(GIBS, params=q, timeout=90)
+            r.raise_for_status()
+            im = Image.open(io.BytesIO(r.content)).convert("RGBA")
+        except (requests.RequestException, OSError) as e:
+            print(f"  MODIS flood map {d}: {e}", file=sys.stderr)
+            continue
+        px = list(im.getdata())
+        counts = {k: 0 for k in FLOOD_CLASSES.values()}
+        for c in px:
+            k = FLOOD_CLASSES.get(c[:3]) if c[3] else None
+            if k:
+                counts[k] += 1
+        if sum(counts.values()) == 0:
+            continue
+        n = len(px)
+        return {"date": f"{d}", "layer": "MODIS_Combined_Flood_3-Day", "box": {"latMin": lat0, "lonMin": lon0, "latMax": lat1, "lonMax": lon1},
+                **{f"{k}Pct": round(100 * v / n, 1) for k, v in counts.items()}}
+    return None
 
 
 def main() -> None:
@@ -118,7 +178,7 @@ def main() -> None:
         g["date"] = pd.to_datetime(g["date"]).dt.date
         last = g["date"].max()
         if (today - last).days <= 7:
-            g = g[g["date"] > last - timedelta(days=7)]
+            g = g[g["date"] > last - timedelta(days=12)]
             imerg = {"last": last, "runs": g[g["date"] == last]["run"].iloc[0],
                      "cells": {(round(r.lat, 2), round(r.lon, 2), r.date): r.precip_mm for r in g.itertuples()}}
             print(f"GPM IMERG through {last} ({imerg['runs']})")
@@ -171,6 +231,31 @@ def main() -> None:
                             "rain3": imerg_sum(lat, lon, 3), "rain7": imerg_sum(lat, lon, 7)}
         records.append(rec)
 
+    # live haor flash-flood check: 3-day IMERG rain upstream, scaled to the Final run the thresholds were tested on
+    haor = {"available": bool(imerg), "window": ["03-15", "05-15"], "watchMm": WATCH_MM, "warningMm": WARNING_MM, "upstream": []}
+    if imerg:
+        last = imerg["last"]
+        sohra_ratio, median_ratio = late_final_ratios()
+        haor.update({"date": f"{last}", "run": imerg["runs"], "inSeason": (3, 15) <= (last.month, last.day) <= (5, 15),
+                     "lateFinalRatio": {"sohra": sohra_ratio, "median": median_ratio}})
+        for u in UPSTREAM:
+            ratio = sohra_ratio if u["calibrated"] else median_ratio
+            cl, cn = imerg_cell(u["lat"], u["lon"])
+            daily = [(last - timedelta(days=k), imerg["cells"].get((cl, cn, last - timedelta(days=k)))) for k in range(9, -1, -1)]
+            series = []
+            for i, (d, v) in enumerate(daily):
+                window3 = [x for _, x in daily[max(0, i - 2): i + 1]]
+                s3 = round(sum(window3) / ratio, 1) if i >= 2 and None not in window3 else None
+                series.append({"date": f"{d}", "rain": None if v is None else round(v, 1), "sum3Adj": s3})
+            adj = series[-1]["sum3Adj"]
+            level = None
+            if u["calibrated"] and adj is not None:
+                level = "warning" if adj >= WARNING_MM else "watch" if adj >= WATCH_MM else "normal"
+            haor["upstream"].append({**{k: u[k] for k in ("id", "place", "lat", "lon", "calibrated", "districts")},
+                                     "rain3Raw": imerg_sum(u["lat"], u["lon"], 3), "rain3Adj": adj, "ratio": ratio,
+                                     "level": level, "series": series})
+    haor["modisFlood"] = modis_flood(today)
+
     summary = {
         "generatedAt": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "upazilas": len(records),
@@ -183,9 +268,7 @@ def main() -> None:
              "latestDate": f"{imerg['last']}" if imerg else None, "lagDays": (today - imerg["last"]).days if imerg else None,
              "grid": "0.1 degree", "login": True},
         ],
-        "haorUpstream": {"place": "Sohra, Meghalaya", "lat": SOHRA[0], "lon": SOHRA[1],
-                         "imergRain3": imerg_sum(*SOHRA, 3), "date": f"{imerg['last']}" if imerg else None,
-                         "watchMm": 200, "warningMm": 250},
+        "haor": haor,
         "method": {
             "rainStatus": "30-day rain against the same 30 days in each past year: dry if at or below the 2nd lowest of 10, wet if at or above the 8th",
             "soilStatus": "root-zone soil wetness (0 to 1) against the same date in each past year, with the same cut-offs",
@@ -197,8 +280,10 @@ def main() -> None:
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps({"summary": summary, "upazilas": records}, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     dry = sum(r["power"]["soilStatus"] == "dry" for r in records)
-    print(f"wrote {OUT.relative_to(ROOT)}: {len(records)} upazilas, {dry} with drier soil than usual, "
-          f"Sohra 3-day IMERG rain {summary['haorUpstream']['imergRain3']} mm")
+    sohra = haor["upstream"][0] if haor["upstream"] else {}
+    mf = haor["modisFlood"] or {}
+    print(f"wrote {OUT.relative_to(ROOT)}: {len(records)} upazilas, {dry} with drier soil than usual; haor: Sohra 3-day "
+          f"{sohra.get('rain3Adj')} mm ({sohra.get('level')}), MODIS flood {mf.get('floodPct')}% / cloud {mf.get('noDataPct')}% on {mf.get('date')}")
 
 
 if __name__ == "__main__":

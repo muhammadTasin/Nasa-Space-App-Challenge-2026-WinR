@@ -2,6 +2,13 @@
 
 What changed in Project EDEN, newest first, with who made each change and the branch it came from. Every branch below was merged into `main` on 1 October 2026.
 
+## 1 October 2026 · Live daily flash-flood check for the haor (Tasrif, `feature/daily-nasa-update`)
+
+- Every daily run reads the last 3 days of GPM IMERG rain at Sohra, divides it by Sohra's Late/Final ratio (0.91, from `research/pilots/rain_vs_normal.csv`) so it matches the Final run the levels were tested on, and sets normal, watch (200 mm) or warning (250 mm); the season is 15 March to 15 May.
+- The Jaintia Hills (Sylhet), Garo Hills (Netrokona, Mymensingh) and Barak valley (Sylhet, Moulvibazar, Habiganj) are read the same way and shown as not yet calibrated.
+- NASA's MODIS NRT flood map (`MODIS_Combined_Flood_3-Day` on GIBS, no login) gives the share of the haor basin under unusual flood water, seasonal flood water and cloud.
+- `/api/v1/haor/flash-flood` and the overview's early warnings carry it as `live`; the dashboard's flash-flood card shows today's reading and turns its badge to Watch or Warning in season; a test checks it.
+
 ## 1 October 2026 · Daily NASA update for every upazila (Tasrif, `feature/daily-nasa-update`)
 
 - `research/live/daily_update.py` fetches NASA POWER for all of Bangladesh in one request per variable (104 grid points, no login) and gives each of the 544 upazilas its nearest point: rain, temperature, humidity and root-zone and surface soil wetness, with rain and soil compared against the same dates in 2016–2025. With an Earthdata Login it adds GPM IMERG rain at 10 km (1 to 2 days behind) and the 3-day rain at Sohra for the haor trigger.

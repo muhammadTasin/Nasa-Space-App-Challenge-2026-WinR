@@ -15,7 +15,7 @@ import { DualGateNarrationValidator } from '../../../packages/narration-core/src
 import { TemplateNarrator } from '../../../packages/narration-core/src/template_narrator.ts';
 import { getNasaWeather } from './weather.ts';
 import { getRiverErosion } from './erosion.ts';
-import { liveStatus, liveUpazila, liveUpazilas } from './live.ts';
+import { liveHaor, liveStatus, liveUpazila, liveUpazilas } from './live.ts';
 import { askAiAssistant } from './ai_assistant.ts';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -229,6 +229,7 @@ function earlyWarnings() {
       pilotBangla: 'ধর্মপাশা, সুনামগঞ্জ হাওর',
       pilotEnglish: 'Dharmapasha, Sunamganj haor',
       status: haorStatus(),
+      live: liveHaor(),
       window: HAOR_FLASH_FLOOD.window,
       watchMm: HAOR_FLASH_FLOOD.watchMm,
       warningMm: HAOR_FLASH_FLOOD.warningMm,
@@ -510,7 +511,7 @@ const server = http.createServer(async (req, res) => {
     }
 
     if (pathname === '/api/v1/haor/flash-flood' && req.method === 'GET') {
-      return sendJSON(res, 200, { ...HAOR_FLASH_FLOOD, status: haorStatus() });
+      return sendJSON(res, 200, { ...HAOR_FLASH_FLOOD, status: haorStatus(), live: liveHaor() });
     }
 
     // API: Real NASA Weather Observations (NASA POWER daily agroclimatology & SMAP soil moisture)

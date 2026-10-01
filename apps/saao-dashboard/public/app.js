@@ -256,7 +256,11 @@ function cattleChartSvg(c) {
 function renderWarnings(w, amanReplay) {
   const h = w.haor;
   const badge = $('haorStatus');
-  if (h.status.state === 'in_season') {
+  const liveSohra = h.live?.upstream?.[0];
+  if (h.live?.inSeason && liveSohra && ['watch', 'warning'].includes(liveSohra.level)) {
+    badge.className = liveSohra.level === 'warning' ? 'badge badge-danger' : 'badge badge-warning';
+    badge.textContent = tr(`${liveSohra.level === 'warning' ? 'বিপদ' : 'সতর্কতা'}: সোহরায় ৩ দিনে ${num(liveSohra.rain3Adj)} মিমি`, `${liveSohra.level === 'warning' ? 'Warning' : 'Watch'}: ${liveSohra.rain3Adj} mm in 3 days at Sohra`);
+  } else if (h.status.state === 'in_season') {
     badge.className = 'badge badge-warning';
     badge.textContent = tr('মৌসুম চলছে: নজরদারি', 'In season: monitoring');
   } else {
@@ -276,6 +280,7 @@ function renderWarnings(w, amanReplay) {
   const worstOther = Math.max(...others.map(e => e.burstsBeforeHarvest));
   const worstEarly = Math.max(...othersEarly.map(e => e.burstsBeforeHarvest));
   setHtml('haorFacts', [
+    liveHaorLines(h.live),
     watch ? tr(
       `<li><strong>২৫ বছরের পরীক্ষা:</strong> ${num(h.watchMm)} মিমি নিয়মে বন্যার বছর ধরা পড়ে ${ofText(watch.floodYearsCaught)}, বন্যাহীন বছরে ভুল সংকেত ${ofText(watch.noFloodYearsFlagged)}; সংকেত ${ofText(watch.seasonsFlagged)} মৌসুমে।</li>`,
       `<li><strong>25-year hindcast:</strong> the ${h.watchMm} mm rule catches ${watch.floodYearsCaught} flood years, with false alarms in ${watch.noFloodYearsFlagged} no-flood years; it flags ${watch.seasonsFlagged} springs.</li>`,
@@ -1192,3 +1197,25 @@ async function loadLive() {
 const setLanguageBeforeLive = window.setLanguage;
 window.setLanguage = function(next) { setLanguageBeforeLive(next); renderLive(); };
 document.addEventListener('DOMContentLoaded', loadLive);
+
+
+// Today's haor reading from the daily NASA update (IMERG upstream rain and the MODIS flood map)
+function liveHaorLines(live) {
+  if (!live) return tr('<li><strong>আজকের পাঠ:</strong> দৈনিক নাসা হালনাগাদ এখনো চলেনি।</li>', '<li><strong>Today:</strong> the daily NASA update has not run yet.</li>');
+  const word = { normal: ['স্বাভাবিক', 'normal'], watch: ['সতর্কতা', 'watch'], warning: ['বিপদ', 'warning'] };
+  const s = live.upstream[0];
+  const lvl = word[s.level] || ['—', '—'];
+  const run = String(live.run || '').startsWith('E') ? 'IMERG Early' : 'IMERG Late';
+  const lines = [tr(
+    `<li><strong>আজকের পাঠ (${isoDate(live.date)}, ${run}):</strong> সোহরায় ৩ দিনে ${num(s.rain3Adj ?? '—')} মিমি (দ্রুত সংস্করণের ঘাটতি ঠিক করে) — ${lvl[0]}।${live.inSeason ? '' : ' মৌসুমের বাইরে: বোরো কাটা হয়ে গেছে, পাঠটি নজরদারির জন্য।'}</li>`,
+    `<li><strong>Today's reading (${isoDate(live.date)}, ${run}):</strong> ${s.rain3Adj ?? '—'} mm in 3 days at Sohra (adjusted for the quick run) — ${lvl[1]}.${live.inSeason ? '' : ' Off season: Boro is harvested, so the reading is kept for watching.'}</li>`)];
+  const others = live.upstream.slice(1).filter(u => u.rain3Adj !== null);
+  if (others.length) lines.push(tr(
+    `<li><strong>অন্য উজান এলাকা (সীমা এখনো যাচাই হয়নি):</strong> ${others.map(u => `${u.place.split(',')[0]} ${num(u.rain3Adj)} মিমি`).join(' · ')}</li>`,
+    `<li><strong>Other upstream hills (thresholds not tested yet):</strong> ${others.map(u => `${u.place.split(',')[0]} ${u.rain3Adj} mm`).join(' · ')}</li>`));
+  const m = live.modisFlood;
+  if (m) lines.push(tr(
+    `<li><strong>MODIS বন্যা মানচিত্র (${isoDate(m.date)}):</strong> হাওর অঞ্চলের ${num(m.floodPct)}% অস্বাভাবিক বন্যার পানি, ${num(m.recurringPct)}% মৌসুমি বন্যার পানি, ${num(m.noDataPct)}% মেঘে ঢাকা।</li>`,
+    `<li><strong>MODIS flood map (${isoDate(m.date)}):</strong> ${m.floodPct}% of the haor basin under unusual flood water, ${m.recurringPct}% under seasonal flood water, ${m.noDataPct}% under cloud.</li>`));
+  return lines.join('');
+}
