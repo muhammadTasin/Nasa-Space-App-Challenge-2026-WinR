@@ -6,17 +6,17 @@ EDEN is a Bangla-first crop-rotation decision-support system for Bangladesh. Its
 
 ## Project status (1 October 2026)
 
-`main` holds all of the team's work, merged on 1 October 2026:
+Branch `sync/all-latest` holds all of the team's work, ready to merge into `main` (see [Branches](#branches)):
 
 | Part | Folder | What works |
 |---|---|---|
 | Research and data | `research/` | NASA and local datasets with their checks, the 25-season replay for the Tanore pilot, signals for five pilots, and the generator for the app's data release |
 | Rotation engine | `packages/rotation-engine/` | 5 rotations replayed through 25 seasons, 7 scores. The Talanda pilot uses data release `tanore-2026.09.30` (research commit `0469020`); every other upazila uses its district's replay (`national_replay.json`) |
 | API | `services/api/` | Advice, checked Bangla narration, keypad events, Krishi officer desk, early warnings, NASA POWER weather, river erosion, the evidence-only assistant, sign-in |
-| SAAO dashboard | `apps/saao-dashboard/` | Bangla and English, officer desk, less-pesticide (IPM) tab, early warnings, environment ledger |
+| SAAO dashboard | `apps/saao-dashboard/` | Any of the 544 upazilas, Bangla and English, officer desk, less-pesticide (IPM) tab, early warnings with today's haor reading, environment ledger, daily NASA conditions |
 | Android app | `apps/farmer-mobile/` | Farmer card synced from the API with an offline cache, weather, river erosion, assistant, sign-in, farm profile editing |
 | Screen designs | `design/` | Six SAAO desktop screens and the portrait mobile companion |
-| Daily NASA update | `research/live/` | NASA POWER every day for all 544 upazilas (64 districts), plus GPM IMERG rain at 10 km with an Earthdata Login |
+| Daily NASA update | `research/live/` | NASA POWER every day for all 544 upazilas (64 districts), GPM IMERG rain at 10 km with an Earthdata Login, and the live haor flash-flood check with the MODIS flood map |
 
 The dashboard advises any of the 544 upazilas (pick the district and upazila at the top of the overview); Talanda union (Tanore) remains the most detailed pilot. Sample farmers, the farm profile and the income scores are sample values and are labelled as such on screen. The story site that presents the project lives in its own repository, [Mati-Kohon](https://github.com/Tasrif-Ahmed-Mohsin/Mati-Kohon). Changes are listed, newest first, in [`CHANGELOG.md`](CHANGELOG.md).
 
@@ -27,6 +27,8 @@ npm install
 npm test          # 11 engine tests and every API check
 npm start         # API and SAAO dashboard on http://localhost:4000
 ```
+
+- **Place:** pick a district and upazila at the top of the overview; the advice, replay, alerts and rain follow it, and the browser remembers it. Rajshahi → Tanore is the detailed Talanda pilot.
 
 - **Language:** the বাংলা / EN buttons in the dashboard header switch every text; the browser remembers the choice.
 - **Krishi officer desk:** tab ৬ / 6, demo access code `talanda-demo` (set `EDEN_OFFICER_CODE` to change it). **Restore sample data** resets the sample farmers before a recording.
@@ -219,7 +221,13 @@ The latest SMAP soil-moisture values come from the downloaded cache (`research/d
 
 ## Branches
 
-On 1 October 2026 every working branch was merged into `main`: `research/data-access` (`0469020`) and `codex/android-app-latest` (`8e633aa`), which already carried `codex/android-apk`, `feature/eden-screen-recreation` and `demo/research-data`. The old branches stay for reference; start new work from `main`.
+| Branch | What it holds |
+|---|---|
+| `sync/all-latest` | Everything: `research/data-access` (`0469020`) and `codex/android-app-latest` (`8e633aa`, which already carried `codex/android-apk`, `feature/eden-screen-recreation` and `demo/research-data`), plus the daily NASA update, the live haor check and advice for every upazila. Merge it into `main` with a pull request ("Create a merge commit"). |
+| `feature/daily-nasa-update` | The daily NASA update, the live haor check and every-upazila advice; the same commits as `sync/all-latest` |
+| `main` | Research up to 27 September and the README; it catches up when `sync/all-latest` is merged |
+
+Once `main` is merged, start new work from `main`. GitHub runs the daily NASA workflow only from `main`.
 
 ## Team
 

@@ -24,9 +24,9 @@ What changed in Project EDEN, newest first, with who made each change and the br
 - `.github/workflows/daily-nasa-update.yml` runs it every morning and commits the result.
 - Dry and wet labels are provisional: POWER's newest weeks read drier than its archive, so they wait for the SMAP check.
 
-## 1 October 2026 · Everything merged into `main` (Tasrif)
+## 1 October 2026 · Everything merged into `sync/all-latest`, ready for `main` (Tasrif)
 
-- Merged `research/data-access` (`0469020`) and `codex/android-app-latest` (`8e633aa`) into `main`. The app branch already carried `codex/android-apk`, `feature/eden-screen-recreation` and `demo/research-data`, so `main` now holds the research, the engine, the API, the dashboard, the Android app and the designs together.
+- Merged `research/data-access` (`0469020`) and `codex/android-app-latest` (`8e633aa`) on top of `main` in `sync/all-latest`. The app branch already carried `codex/android-apk`, `feature/eden-screen-recreation` and `demo/research-data`, so that branch holds the research, the engine, the API, the dashboard, the Android app and the designs together; it goes into `main` with a pull request.
 - Rewrote the README for the whole project. It keeps the architecture section muhammadTasin added to `main` on 30 September, and this file now holds the change history.
 - Research and app share one tree, so the data release is regenerated from the repository root: `python research/export/eden_release.py --out packages/rotation-engine/src/data/tanore_replay_data.ts`.
 - `npm test` passes on the merged tree: 11 engine tests and every API check.
