@@ -1,0 +1,54 @@
+name: Daily NASA update
+
+# Every morning: NASA POWER (no login) for all 544 upazilas, and GPM IMERG rain when the
+# EARTHDATA_USERNAME and EARTHDATA_PASSWORD repository secrets are set.
+# Writes services/api/data/live/upazila_conditions.json and commits it when it changed.
+
+on:
+  schedule:
+    - cron: "30 3 * * *"   # 09:30 Bangladesh time
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-nasa-update
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install
+        run: pip install requests pandas numpy pyarrow
+
+      - name: GPM IMERG, last 10 days (needs Earthdata secrets)
+        continue-on-error: true
+        env:
+          EARTHDATA_USERNAME: ${{ secrets.EARTHDATA_USERNAME }}
+          EARTHDATA_PASSWORD: ${{ secrets.EARTHDATA_PASSWORD }}
+        run: |
+          if [ -z "$EARTHDATA_USERNAME" ]; then echo "No Earthdata secrets; IMERG skipped"; exit 0; fi
+          printf 'machine urs.earthdata.nasa.gov login %s password %s\n' "$EARTHDATA_USERNAME" "$EARTHDATA_PASSWORD" > ~/.netrc
+          chmod 600 ~/.netrc
+          python research/acquire/imerg_nrt.py --days 10
+
+      - name: NASA POWER for every upazila, and the summary file
+        run: python research/live/daily_update.py
+
+      - name: Commit the update
+        run: |
+          git config user.name "eden-daily-update"
+          git config user.email "eden-daily-update@users.noreply.github.com"
+          git add services/api/data/live/upazila_conditions.json
+          if git diff --cached --quiet; then echo "No change"; exit 0; fi
+          git commit -m "Daily NASA update $(date -u +%F)"
+          git push

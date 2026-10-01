@@ -16,6 +16,7 @@ EDEN is a Bangla-first crop-rotation decision-support system for Bangladesh. Its
 | SAAO dashboard | `apps/saao-dashboard/` | Bangla and English, officer desk, less-pesticide (IPM) tab, early warnings, environment ledger |
 | Android app | `apps/farmer-mobile/` | Farmer card synced from the API with an offline cache, weather, river erosion, assistant, sign-in, farm profile editing |
 | Screen designs | `design/` | Six SAAO desktop screens and the portrait mobile companion |
+| Daily NASA update | `research/live/` | NASA POWER every day for all 544 upazilas (64 districts), plus GPM IMERG rain at 10 km with an Earthdata Login |
 
 Treat the apps as a demo for the Talanda union (Tanore upazila) pilot. Sample farmers, the farm profile and the income scores are sample values and are labelled as such on screen. The story site that presents the project lives in its own repository, [Mati-Kohon](https://github.com/Tasrif-Ahmed-Mohsin/Mati-Kohon). Changes are listed, newest first, in [`CHANGELOG.md`](CHANGELOG.md).
 
@@ -32,6 +33,19 @@ npm start         # API and SAAO dashboard on http://localhost:4000
 - **Farmer sign-in (app):** a farmer ID or phone number with the demo PIN `1234`. Both sign-ins are demo gates, not real authentication.
 - **Weather:** `/api/v1/weather` fetches NASA POWER over the internet and caches it; offline, it serves a fixed baseline marked as not live.
 - **Android app:** build steps and screens are in [`apps/farmer-mobile/README.md`](apps/farmer-mobile/README.md). The emulator reaches the API at `http://10.0.2.2:4000`; run its unit tests with `./gradlew test` in `apps/farmer-mobile`.
+
+### Daily NASA update (all 544 upazilas)
+
+```bash
+python research/acquire/imerg_nrt.py --days 10   # optional: GPM IMERG rain, needs an Earthdata Login in .env
+python research/live/daily_update.py            # NASA POWER for every upazila, no login
+```
+
+The script writes `services/api/data/live/upazila_conditions.json`: for each upazila, rain (1, 7 and 30 days, and 30-day rain against the same dates in 2016–2025), maximum and minimum temperature, days at 35 °C or more, root-zone and surface soil wetness, and IMERG rain over 1, 3 and 7 days, each with its date. NASA POWER is about 3 days behind and IMERG 1 to 2 days. The dashboard overview shows it for any district and upazila, and `/api/v1/live/*` serves it.
+
+The dry and wet labels are provisional: POWER's newest weeks come from near-real-time inputs that read drier than the reprocessed archive, so they wait for the SMAP check (next step).
+
+`.github/workflows/daily-nasa-update.yml` runs this every morning at 09:30 Bangladesh time and commits the file when it changes. GitHub runs scheduled workflows only from `main`. For IMERG, add the repository secrets `EARTHDATA_USERNAME` and `EARTHDATA_PASSWORD` (Settings → Secrets and variables → Actions); without them only POWER updates.
 
 A two-minute dashboard walkthrough for a demo video:
 
@@ -116,6 +130,9 @@ Do not commit secrets, local environment files, dependency folders, generated AP
 | POST | `/api/v1/auth/login` | Officer (access code) or farmer (ID or phone and PIN) sign-in, returns a session token |
 | GET | `/api/v1/auth/session` | The signed-in user for a Bearer token |
 | POST | `/api/v1/auth/logout` | Ends the session |
+| GET | `/api/v1/live/status` | The daily NASA update: when it ran, each source's latest date and age, and the method |
+| GET | `/api/v1/live/upazilas?district=` | Compact daily conditions for every upazila, or one district's |
+| GET | `/api/v1/live/upazila?id=` / `?name=` / `?lat=&lon=` | Full daily conditions for one upazila, or the nearest to a point |
 | GET | `/api/v1/officers` | Officers who can sign in to the desk (no secrets) |
 | POST | `/api/v1/officer/login` | `{ officerId, accessCode }`, returns a desk session token |
 | GET | `/api/v1/officer/desk` | Queue, farmer register, observations and call-backs (Bearer token) |

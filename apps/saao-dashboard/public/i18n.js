@@ -51,6 +51,8 @@ export const EN = {
   'overview.pestTitle': 'Pest reports from the field (officer observations)',
   'overview.pestMore': 'Ways to use less pesticide',
 
+  'live.title': 'Daily NASA conditions: every upazila of Bangladesh',
+  'live.note': 'Sources: NASA POWER (daily, 50 km grid, about 3 days behind) and GPM IMERG (10 km, 1 to 2 days behind). Dry and wet compare with the same dates in 2016–2025; provisional until checked with SMAP.',
   'warnings.title': 'Early warnings: field and farm risks from NASA data',
   'warnings.subtitle': 'Beyond the rotation, the same satellite data warns farmers ahead of time.',
   'warnings.haorTitle': 'Haor flash floods (Dharmapasha pilot)',

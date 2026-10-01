@@ -1538,3 +1538,8 @@ html[lang="en"] body { font-family: 'Inter', 'Hind Siliguri', sans-serif; }
 .ledger-table td:not(:first-child), .ledger-table th:not(:first-child) { text-align: right; }
 .ledger-table .top-row { background: #f0fdf4; }
 .ledger-table .baseline-row { background: #fffbeb; }
+
+/* Daily NASA conditions card */
+.live-card { margin-top: 16px; }
+.live-pick { display: flex; gap: 8px; flex-wrap: wrap; margin: 8px 0 4px; }
+.live-pick select { padding: 6px 10px; border: 1px solid var(--border); border-radius: 6px; background: #fff; font: inherit; min-width: 160px; }

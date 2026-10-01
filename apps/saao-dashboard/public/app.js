@@ -1130,3 +1130,65 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (officerSession) await loadOfficerDesk();
   renderAll();
 });
+
+
+// Daily NASA conditions for every upazila (research/live/daily_update.py)
+let liveRows = null;
+const LIVE_WORD = {
+  dry: ['স্বাভাবিকের চেয়ে শুকনো', 'drier than usual'],
+  normal: ['স্বাভাবিক', 'about usual'],
+  wet: ['স্বাভাবিকের চেয়ে ভেজা', 'wetter than usual'],
+  unknown: ['তুলনা নেই', 'no comparison'],
+};
+const liveWord = (k) => tr(...(LIVE_WORD[k] || LIVE_WORD.unknown));
+
+function fillLiveUpazilas() {
+  const d = $('liveDistrict').value;
+  $('liveUpazila').innerHTML = liveRows.filter(u => u.district === d)
+    .sort((a, b) => a.name.localeCompare(b.name))
+    .map(u => `<option value="${escapeHtml(u.id)}">${escapeHtml(u.name)}</option>`).join('');
+}
+
+async function renderLive() {
+  if (!liveRows) return;
+  const res = await fetch(`/api/v1/live/upazila?id=${encodeURIComponent($('liveUpazila').value)}`);
+  if (!res.ok) return;
+  const u = await res.json();
+  const p = u.power, i = u.imerg;
+  setText('liveAge', tr(`POWER ${isoDate(p.date)} · IMERG ${i ? isoDate(i.date) : '—'}`, `POWER ${isoDate(p.date)} · IMERG ${i ? isoDate(i.date) : '—'}`));
+  const rainLine = i
+    ? tr(`<li><strong>বৃষ্টি (IMERG, ১০ কিমি):</strong> শেষ ৩ দিনে ${num(i.rain3)} মিমি, ৭ দিনে ${num(i.rain7)} মিমি</li>`,
+         `<li><strong>Rain (IMERG, 10 km):</strong> ${i.rain3} mm in the last 3 days, ${i.rain7} mm in 7 days</li>`)
+    : tr(`<li><strong>বৃষ্টি (POWER):</strong> ৭ দিনে ${num(p.rain7)} মিমি</li>`, `<li><strong>Rain (POWER):</strong> ${p.rain7} mm in 7 days</li>`);
+  setHtml('liveFacts', [
+    rainLine,
+    tr(`<li><strong>৩০ দিনের বৃষ্টি:</strong> ${num(p.rain30)} মিমি, স্বাভাবিকের ${num(p.rain30PctOfNormal ?? '—')}% (${liveWord(p.rainStatus)})</li>`,
+       `<li><strong>30-day rain:</strong> ${p.rain30} mm, ${p.rain30PctOfNormal ?? '—'}% of normal (${liveWord(p.rainStatus)})</li>`),
+    tr(`<li><strong>তাপমাত্রা:</strong> সর্বোচ্চ ${num(p.tmax)}°C, সর্বনিম্ন ${num(p.tmin)}°C; শেষ ৭ দিনে ৩৫°C-এর বেশি ${num(p.hotDays7)} দিন</li>`,
+       `<li><strong>Temperature:</strong> max ${p.tmax}°C, min ${p.tmin}°C; ${p.hotDays7} days at 35°C or more in the last 7</li>`),
+    tr(`<li><strong>মাটির রস (মূল অঞ্চল):</strong> ${num(p.soilRoot)} (০–১), ${liveWord(p.soilStatus)}; ${num(p.soilYears)} বছরের ${num(p.soilRank)}টির চেয়ে বেশি</li>`,
+       `<li><strong>Root-zone soil wetness:</strong> ${p.soilRoot} (0 to 1), ${liveWord(p.soilStatus)}; higher than ${p.soilRank} of the past ${p.soilYears} years</li>`),
+  ].join(''));
+}
+
+async function loadLive() {
+  try {
+    const res = await fetch('/api/v1/live/upazilas');
+    if (!res.ok) { setText('liveAge', tr('এখনো হালনাগাদ হয়নি', 'Not updated yet')); return; }
+    liveRows = (await res.json()).upazilas;
+    const districts = [...new Set(liveRows.map(u => u.district))].sort();
+    $('liveDistrict').innerHTML = districts.map(d => `<option>${escapeHtml(d)}</option>`).join('');
+    $('liveDistrict').value = districts.includes('Rajshahi') ? 'Rajshahi' : districts[0];
+    fillLiveUpazilas();
+    if ([...$('liveUpazila').options].some(o => o.value === 'ADM3_Tanore')) $('liveUpazila').value = 'ADM3_Tanore';
+    $('liveDistrict').addEventListener('change', () => { fillLiveUpazilas(); renderLive(); });
+    $('liveUpazila').addEventListener('change', renderLive);
+    await renderLive();
+  } catch {
+    setText('liveAge', tr('এখনো হালনাগাদ হয়নি', 'Not updated yet'));
+  }
+}
+
+const setLanguageBeforeLive = window.setLanguage;
+window.setLanguage = function(next) { setLanguageBeforeLive(next); renderLive(); };
+document.addEventListener('DOMContentLoaded', loadLive);

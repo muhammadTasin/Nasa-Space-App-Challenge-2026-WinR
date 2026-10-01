@@ -2,6 +2,14 @@
 
 What changed in Project EDEN, newest first, with who made each change and the branch it came from. Every branch below was merged into `main` on 1 October 2026.
 
+## 1 October 2026 · Daily NASA update for every upazila (Tasrif, `feature/daily-nasa-update`)
+
+- `research/live/daily_update.py` fetches NASA POWER for all of Bangladesh in one request per variable (104 grid points, no login) and gives each of the 544 upazilas its nearest point: rain, temperature, humidity and root-zone and surface soil wetness, with rain and soil compared against the same dates in 2016–2025. With an Earthdata Login it adds GPM IMERG rain at 10 km (1 to 2 days behind) and the 3-day rain at Sohra for the haor trigger.
+- `research/sites/upazilas.csv`: the 544 upazila centroids with their districts.
+- API `GET /api/v1/live/status`, `/api/v1/live/upazilas`, `/api/v1/live/upazila`; a dashboard card picks any district and upazila; a test checks all 544 upazilas.
+- `.github/workflows/daily-nasa-update.yml` runs it every morning and commits the result.
+- Dry and wet labels are provisional: POWER's newest weeks read drier than its archive, so they wait for the SMAP check.
+
 ## 1 October 2026 · Everything merged into `main` (Tasrif)
 
 - Merged `research/data-access` (`0469020`) and `codex/android-app-latest` (`8e633aa`) into `main`. The app branch already carried `codex/android-apk`, `feature/eden-screen-recreation` and `demo/research-data`, so `main` now holds the research, the engine, the API, the dashboard, the Android app and the designs together.

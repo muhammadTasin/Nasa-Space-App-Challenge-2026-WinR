@@ -48,6 +48,15 @@ async function run() {
   check(haor.seasons.length === 25 && haor.status?.state, 'the haor endpoint serves the 25-season hindcast and the current status');
   console.log('✓ Overview status:', resOverview.status, 'Union:', dataOverview.scope.union, 'SMAP', dataOverview.local_satellite_conditions.smap.rootZoneM3M3, 'on', dataOverview.local_satellite_conditions.smap.date);
 
+  // Daily NASA update: every upazila, with dated sources
+  const live = await (await fetch(`${BASE}/api/v1/live/status`)).json();
+  check(live.upazilas === 544 && live.districts === 64 && live.sources.find(s => s.id === 'power')?.latestDate, 'the daily NASA update covers all 544 upazilas');
+  const tanoreLive = await (await fetch(`${BASE}/api/v1/live/upazila?name=Tanore`)).json();
+  check(tanoreLive.district === 'Rajshahi' && typeof tanoreLive.power.soilRoot === 'number', 'an upazila carries its NASA POWER conditions');
+  const nearLive = await (await fetch(`${BASE}/api/v1/live/upazila?lat=24.62&lon=88.56`)).json();
+  check(nearLive.name === 'Tanore', `the nearest upazila to the Tanore pilot point is Tanore (got ${nearLive.name})`);
+  console.log('✓ Daily NASA update:', live.upazilas, 'upazilas; POWER', live.sources[0].latestDate, '; IMERG', live.sources[1].latestDate || 'not set');
+
   // 2. POST /api/v1/advice
   console.log('Testing POST /api/v1/advice ...');
   const resAdvice = await fetch(`${BASE}/api/v1/advice`, {

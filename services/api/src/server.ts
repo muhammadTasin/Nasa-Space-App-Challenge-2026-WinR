@@ -15,6 +15,7 @@ import { DualGateNarrationValidator } from '../../../packages/narration-core/src
 import { TemplateNarrator } from '../../../packages/narration-core/src/template_narrator.ts';
 import { getNasaWeather } from './weather.ts';
 import { getRiverErosion } from './erosion.ts';
+import { liveStatus, liveUpazila, liveUpazilas } from './live.ts';
 import { askAiAssistant } from './ai_assistant.ts';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -492,6 +493,22 @@ const server = http.createServer(async (req, res) => {
     }
 
     // API: haor flash-flood early warning (IMERG at Sohra, 25-season hindcast and today's status)
+    // API: daily NASA conditions for every upazila (research/live/daily_update.py)
+    if (pathname === '/api/v1/live/status' && req.method === 'GET') {
+      const st = liveStatus();
+      return st ? sendJSON(res, 200, st) : sendJSON(res, 404, { error: 'No daily NASA update yet; run research/live/daily_update.py' });
+    }
+    if (pathname === '/api/v1/live/upazilas' && req.method === 'GET') {
+      const rows = liveUpazilas(url.searchParams.get('district') || undefined);
+      return rows ? sendJSON(res, 200, { upazilas: rows }) : sendJSON(res, 404, { error: 'No daily NASA update yet' });
+    }
+    if (pathname === '/api/v1/live/upazila' && req.method === 'GET') {
+      const lat = url.searchParams.get('lat'), lon = url.searchParams.get('lon');
+      const one = liveUpazila({ id: url.searchParams.get('id'), name: url.searchParams.get('name'),
+        lat: lat === null ? undefined : Number(lat), lon: lon === null ? undefined : Number(lon) });
+      return one ? sendJSON(res, 200, one) : sendJSON(res, 404, { error: 'Upazila not found; pass id, name, or lat and lon' });
+    }
+
     if (pathname === '/api/v1/haor/flash-flood' && req.method === 'GET') {
       return sendJSON(res, 200, { ...HAOR_FLASH_FLOOD, status: haorStatus() });
     }
