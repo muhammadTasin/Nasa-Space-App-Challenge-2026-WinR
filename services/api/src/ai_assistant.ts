@@ -12,7 +12,7 @@
 import { FORBIDDEN_TERMS } from '../../../packages/narration-core/src/dual_gate_validator.ts';
 import { getNasaWeather } from './weather.ts';
 import { getRiverErosion } from './erosion.ts';
-import { TALANDA_SRDI, TANORE_CONDITIONS } from '../../../packages/rotation-engine/src/data/tanore_replay_data.ts';
+import { LOC } from '../../../packages/rotation-engine/src/data/location.ts';
 
 export interface AiAskRequest {
   query: string;
@@ -58,7 +58,7 @@ export async function askAiAssistant(req: AiAskRequest): Promise<AiAskResponse> 
   const weather = await getNasaWeather();
   const erosion = getRiverErosion();
   const landType = req.farmProfile?.landType || 'মাঝারি উঁচু জমি';
-  const soilTexture = req.farmProfile?.soilTexture || TALANDA_SRDI.soilTypeBangla;
+  const soilTexture = req.farmProfile?.soilTexture || LOC.srdi.soilTypeBangla;
 
   // 3. Question routing & Evidence-based answering
 
@@ -139,7 +139,7 @@ export async function askAiAssistant(req: AiAskRequest): Promise<AiAskResponse> 
       answer: `তালন্দ ইউনিয়ন মৃত্তিকা সম্পদ উন্নয়ন ইনস্টিটিউট (SRDI) সার সুপারিশ কার্ড:\n\n` +
         `• **মাটির শ্রেণি**: ${soilTexture} (${landType})।\n` +
         `• **আমন ধান (ব্রি ধান৭১)**:\n` +
-        `   - ইউরিয়া: ${TALANDA_SRDI.aman.split(';')[0] || '১৬ কেজি/বিঘা (৩ কিস্তিতে)'}\n` +
+        `   - ইউরিয়া: ${LOC.srdi.aman.split(';')[0] || '১৬ কেজি/বিঘা (৩ কিস্তিতে)'}\n` +
         `   - টিএসপি ও এমওপি: শেষ চাষের সময় জমি তৈরির সাথে প্রয়োগ করুন।\n` +
         `• **বারি মসুর-৮**:\n` +
         `   - ডাল জাতীয় ফসলে নাইট্রোজেন কম লাগে। বিঘা প্রতি ইউরিয়া মাত্র ৫-৬ কেজি, টিএসপি ১০-১২ কেজি, এমওপি ৫-৬ কেজি এবং জিপসাম যথেষ্ট।\n` +

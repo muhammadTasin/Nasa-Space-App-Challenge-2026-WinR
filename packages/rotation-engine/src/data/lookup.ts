@@ -1,5 +1,5 @@
 import type { EvaluationContext } from '@project-eden/contracts';
-import { TANORE_AMAN_REPLAY, TANORE_RABI_REPLAY } from './tanore_replay_data.ts';
+import { LOC } from './location.ts';
 import { AMAN_CATALOG, RABI_CATALOG } from './crop_catalog.ts';
 
 /*
@@ -9,7 +9,7 @@ import { AMAN_CATALOG, RABI_CATALOG } from './crop_catalog.ts';
 
 export function amanOf(context: EvaluationContext) {
   const crop = context.crops.find(c => c.season === 'Aman');
-  const record = crop ? TANORE_AMAN_REPLAY[crop.variety] : undefined;
+  const record = crop ? LOC.aman[crop.variety] : undefined;
   const catalog = crop ? AMAN_CATALOG[crop.variety] : undefined;
   if (!crop || !record || !catalog) {
     throw new Error(`No Aman replay data for "${crop?.variety ?? 'none'}" in rotation ${context.rotationId}`);
@@ -19,7 +19,7 @@ export function amanOf(context: EvaluationContext) {
 
 export function rabiOf(context: EvaluationContext) {
   const crop = context.crops.find(c => c.season === 'Rabi');
-  const record = crop ? TANORE_RABI_REPLAY[crop.variety] : undefined;
+  const record = crop ? LOC.rabi[crop.variety] : undefined;
   const catalog = crop ? RABI_CATALOG[crop.variety] : undefined;
   if (!crop || !record || !catalog) {
     throw new Error(`No Rabi replay data for "${crop?.variety ?? 'none'}" in rotation ${context.rotationId}`);

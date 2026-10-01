@@ -58,6 +58,16 @@ async function run() {
   check(nearLive.name === 'Tanore', `the nearest upazila to the Tanore pilot point is Tanore (got ${nearLive.name})`);
   console.log('✓ Daily NASA update:', live.upazilas, 'upazilas; POWER', live.sources[0].latestDate, '; IMERG', live.sources[1].latestDate || 'not set');
 
+  // Any upazila: the places list, advice from its district's replay, and the overview for it
+  const places = await (await fetch(`${BASE}/api/v1/places`)).json();
+  check(places.upazilas.length === 544, `every upazila is listed (got ${places.upazilas.length})`);
+  const godagari = await (await fetch(`${BASE}/api/v1/advice`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ unionId: 'ADM3_Godagari' }) })).json();
+  check(godagari.options?.length === 5 && godagari.scope.union_id === 'ADM3_Godagari', 'an upazila outside the pilot gets ranked rotations');
+  const sylhetId = places.upazilas.find(u => u.district === 'Sylhet').id;
+  const sylhet = await (await fetch(`${BASE}/api/v1/overview?place=${sylhetId}`)).json();
+  check(sylhet.scope.district === 'Sylhet' && sylhet.aman_replay.length >= 5, 'the overview follows the chosen place');
+  console.log('✓ Any upazila:', places.upazilas.length, 'places; Godagari top:', godagari.options[0].nameEnglish, '; Sylhet overview district:', sylhet.scope.district);
+
   // 2. POST /api/v1/advice
   console.log('Testing POST /api/v1/advice ...');
   const resAdvice = await fetch(`${BASE}/api/v1/advice`, {

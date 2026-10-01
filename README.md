@@ -11,14 +11,14 @@ EDEN is a Bangla-first crop-rotation decision-support system for Bangladesh. Its
 | Part | Folder | What works |
 |---|---|---|
 | Research and data | `research/` | NASA and local datasets with their checks, the 25-season replay for the Tanore pilot, signals for five pilots, and the generator for the app's data release |
-| Rotation engine | `packages/rotation-engine/` | 5 rotations replayed through 25 seasons, 7 scores, numbers from data release `tanore-2026.09.30` (research commit `0469020`) |
+| Rotation engine | `packages/rotation-engine/` | 5 rotations replayed through 25 seasons, 7 scores. The Talanda pilot uses data release `tanore-2026.09.30` (research commit `0469020`); every other upazila uses its district's replay (`national_replay.json`) |
 | API | `services/api/` | Advice, checked Bangla narration, keypad events, Krishi officer desk, early warnings, NASA POWER weather, river erosion, the evidence-only assistant, sign-in |
 | SAAO dashboard | `apps/saao-dashboard/` | Bangla and English, officer desk, less-pesticide (IPM) tab, early warnings, environment ledger |
 | Android app | `apps/farmer-mobile/` | Farmer card synced from the API with an offline cache, weather, river erosion, assistant, sign-in, farm profile editing |
 | Screen designs | `design/` | Six SAAO desktop screens and the portrait mobile companion |
 | Daily NASA update | `research/live/` | NASA POWER every day for all 544 upazilas (64 districts), plus GPM IMERG rain at 10 km with an Earthdata Login |
 
-Treat the apps as a demo for the Talanda union (Tanore upazila) pilot. Sample farmers, the farm profile and the income scores are sample values and are labelled as such on screen. The story site that presents the project lives in its own repository, [Mati-Kohon](https://github.com/Tasrif-Ahmed-Mohsin/Mati-Kohon). Changes are listed, newest first, in [`CHANGELOG.md`](CHANGELOG.md).
+The dashboard advises any of the 544 upazilas (pick the district and upazila at the top of the overview); Talanda union (Tanore) remains the most detailed pilot. Sample farmers, the farm profile and the income scores are sample values and are labelled as such on screen. The story site that presents the project lives in its own repository, [Mati-Kohon](https://github.com/Tasrif-Ahmed-Mohsin/Mati-Kohon). Changes are listed, newest first, in [`CHANGELOG.md`](CHANGELOG.md).
 
 ## Run it
 
@@ -33,6 +33,12 @@ npm start         # API and SAAO dashboard on http://localhost:4000
 - **Farmer sign-in (app):** a farmer ID or phone number with the demo PIN `1234`. Both sign-ins are demo gates, not real authentication.
 - **Weather:** `/api/v1/weather` fetches NASA POWER over the internet and caches it; offline, it serves a fixed baseline marked as not live.
 - **Android app:** build steps and screens are in [`apps/farmer-mobile/README.md`](apps/farmer-mobile/README.md). The emulator reaches the API at `http://10.0.2.2:4000`; run its unit tests with `./gradlew test` in `apps/farmer-mobile`.
+
+### Every upazila
+
+`python research/explore/national_replay.py` runs the Tanore replay's method (FAO-56 water balance, BRRI and BARI calendars, heat at flowering and grain filling) at each of the 64 districts' NASA POWER and GPM IMERG point for 2001–2025, with temperatures corrected against the nearest BMD station within 100 km, and writes `packages/rotation-engine/src/data/national_replay.json`. `packages/rotation-engine/src/data/location.ts` points the engine at the chosen place: the Talanda pilot, or an upazila using its district's replay. At Rajshahi district it reproduces Tanore's research figures closely (BRRI dhan71: 7 of 25 rescue seasons; Boro 790 mm against 797 mm).
+
+Where a place has no data yet, the dashboard says so instead of borrowing Tanore's: SMAP soil moisture, MODIS greenness and land use are pilot-only so far; fertilizer doses use the SRDI Talanda card until each upazila's card is added; upazila names are in English. `GET /api/v1/places` lists the places, `GET /api/v1/overview?place=<id>` and `POST /api/v1/advice` with `unionId: <id>` follow the choice.
 
 ### Daily NASA update (all 544 upazilas)
 
@@ -135,6 +141,7 @@ Do not commit secrets, local environment files, dependency folders, generated AP
 | GET | `/api/v1/live/status` | The daily NASA update: when it ran, each source's latest date and age, and the method |
 | GET | `/api/v1/live/upazilas?district=` | Compact daily conditions for every upazila, or one district's |
 | GET | `/api/v1/live/upazila?id=` / `?name=` / `?lat=&lon=` | Full daily conditions for one upazila, or the nearest to a point |
+| GET | `/api/v1/places` | The pilot and all 544 upazilas the engine can advise |
 | GET | `/api/v1/officers` | Officers who can sign in to the desk (no secrets) |
 | POST | `/api/v1/officer/login` | `{ officerId, accessCode }`, returns a desk session token |
 | GET | `/api/v1/officer/desk` | Queue, farmer register, observations and call-backs (Bearer token) |
@@ -201,7 +208,7 @@ The latest SMAP soil-moisture values come from the downloaded cache (`research/d
 
 ## Known limits
 
-- Only the Talanda pilot is modelled; other unions get HTTP 422. NASA data for four more pilots (Dharmapasha, Batiaghata, Ullapara, Mithapukur) is collected, but their rotation replay is not built yet.
+- Upazilas outside the Talanda pilot use their district's NASA point (about 50 km grid), the SRDI Talanda fertilizer card as a stand-in, and no SMAP, MODIS greenness or land-use context yet. Unknown places get HTTP 422.
 - Income is a team estimate until DAM farm-gate prices and farmer cost interviews are in.
 - The pest score is rule-based until officers log pest counts.
 - Floods are not modelled for Barind land. The haor warning shows the 25-season hindcast and the season status; a live trigger needs a daily IMERG Early feed and river-gauge confirmation. Rotation advice is not modelled for the haor.

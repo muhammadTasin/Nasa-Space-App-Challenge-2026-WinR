@@ -1,6 +1,6 @@
 import type { IEvidenceDimensionPlugin, EvaluationContext, DimensionScoreResult } from '@project-eden/contracts';
 import { rabiOf } from '../data/lookup.ts';
-import { TANORE_CONDITIONS } from '../data/tanore_replay_data.ts';
+import { LOC } from '../data/location.ts';
 import { bnDigits } from '../bn.ts';
 
 const FODDER_SCORE = { high: 0.88, medium: 0.82, low: 0.65 };
@@ -14,7 +14,7 @@ export class FodderDimensionPlugin implements IEvidenceDimensionPlugin {
 
   evaluate(context: EvaluationContext): DimensionScoreResult {
     const { catalog: rabiName } = rabiOf(context);
-    const cattle = Math.round(TANORE_CONDITIONS.cattlePerKm2);
+    const cattle = Math.round(LOC.conditions.cattlePerKm2);
 
     return {
       dimensionId: this.id,
@@ -24,7 +24,7 @@ export class FodderDimensionPlugin implements IEvidenceDimensionPlugin {
       summaryEnglish: `Residue class "${rabiName.fodderValue}" for ${rabiName.crop}; Rajshahi has about ${cattle} cattle per km2 (FAO GLW4, 2015).`,
       metrics: {
         residueClass: rabiName.fodderValue,
-        districtCattlePerKm2: TANORE_CONDITIONS.cattlePerKm2,
+        districtCattlePerKm2: LOC.conditions.cattlePerKm2,
       },
       provenance: {
         source: 'FAO Gridded Livestock of the World v4, cattle 2015 (Gilbert et al. 2018); residue classes are team estimates',

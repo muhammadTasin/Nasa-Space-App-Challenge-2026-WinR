@@ -1,6 +1,6 @@
 import type { IEvidenceDimensionPlugin, EvaluationContext, DimensionScoreResult } from '@project-eden/contracts';
 import { amanOf, rabiOf, clampScore } from '../data/lookup.ts';
-import { TALANDA_SRDI } from '../data/tanore_replay_data.ts';
+import { LOC } from '../data/location.ts';
 import { RESISTANT_VARIETIES } from '../data/ipm_catalog.ts';
 import { bnDigits, seasonDay } from '../bn.ts';
 
@@ -24,7 +24,7 @@ export class PestDimensionPlugin implements IEvidenceDimensionPlugin {
     const { crop, record: rabi, catalog: rabiName } = rabiOf(context);
 
     const hostBreak = rabiName.hostGroup !== 'rice';
-    const rotationUrea = Math.round(TALANDA_SRDI.aman.ureaKgHa + rabi.fertilizer.ureaKgHa);
+    const rotationUrea = Math.round(LOC.srdi.aman.ureaKgHa + rabi.fertilizer.ureaKgHa);
     const resistance = RESISTANT_VARIETIES[crop.variety];
     const deadline = rabi.sowingWindow?.[1];
     const sownOnTime = !deadline || seasonDay(rabi.sowing) <= seasonDay(deadline);

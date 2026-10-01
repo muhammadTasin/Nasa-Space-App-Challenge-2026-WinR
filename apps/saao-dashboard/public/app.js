@@ -150,23 +150,46 @@ window.updateObsWeights = function() {
 // ---------------------------------------------------------------------------
 
 async function loadOverview() {
-  const res = await fetch('/api/v1/overview');
+  let res = await fetch(`/api/v1/overview?place=${encodeURIComponent(currentPlace)}`);
+  if (!res.ok) {
+    currentPlace = PILOT_PLACE;
+    res = await fetch('/api/v1/overview');
+  }
   currentOverview = await res.json();
+  currentPlaceLive = null;
+  if (currentOverview.scope.place_kind === 'upazila') {
+    const live = await fetch(`/api/v1/live/upazila?id=${encodeURIComponent(currentPlace)}`);
+    if (live.ok) currentPlaceLive = await live.json();
+  }
   renderOverview(currentOverview);
+  applyPlaceText();
 }
 
 function renderOverview(o) {
   setText('releaseTag', `${tr('রিলিজ', 'Release')}: ${o.data_release.version}`);
 
   const rain = o.local_satellite_conditions.rain_last_30_days;
-  const pct = rain.pctOfNormal;
-  setText('statRainValue', `${num(Math.round(rain.imergLateMm))} ${tr('মিমি', 'mm')}`);
-  setText('statRainSub', tr(
-    `${rain.verdictBangla}: স্বাভাবিকের ${num(pct.imergLate)}% (IMERG Late), ${num(pct.imergAdjusted)}% (সমন্বিত), ${num(pct.merra2)}% (MERRA-2); ${isoDate(rain.to)} পর্যন্ত`,
-    `${rain.verdict.charAt(0).toUpperCase()}${rain.verdict.slice(1)}: ${pct.imergLate}% of normal (IMERG Late), ${pct.imergAdjusted}% (corrected), ${pct.merra2}% (MERRA-2); to ${isoDate(rain.to)}`,
-  ));
+  if (rain) {
+    const pct = rain.pctOfNormal;
+    setText('statRainValue', `${num(Math.round(rain.imergLateMm))} ${tr('মিমি', 'mm')}`);
+    setText('statRainSub', tr(
+      `${rain.verdictBangla}: স্বাভাবিকের ${num(pct.imergLate)}% (IMERG Late), ${num(pct.imergAdjusted)}% (সমন্বিত), ${num(pct.merra2)}% (MERRA-2); ${isoDate(rain.to)} পর্যন্ত`,
+      `${rain.verdict.charAt(0).toUpperCase()}${rain.verdict.slice(1)}: ${pct.imergLate}% of normal (IMERG Late), ${pct.imergAdjusted}% (corrected), ${pct.merra2}% (MERRA-2); to ${isoDate(rain.to)}`,
+    ));
+  } else if (currentPlaceLive) {
+    const p = currentPlaceLive.power;
+    setText('statRainValue', `${num(Math.round(p.rain30))} ${tr('মিমি', 'mm')}`);
+    setText('statRainSub', tr(`দৈনিক নাসা POWER: স্বাভাবিকের ${num(p.rain30PctOfNormal ?? '—')}%; ${isoDate(p.date)} পর্যন্ত`, `Daily NASA POWER: ${p.rain30PctOfNormal ?? '—'}% of normal; to ${isoDate(p.date)}`));
+  } else {
+    setText('statRainValue', '—');
+    setText('statRainSub', tr('দৈনিক নাসা হালনাগাদ এখনো চলেনি', 'The daily NASA update has not run yet'));
+  }
 
   const smap = o.local_satellite_conditions.smap;
+  if (!smap) {
+    setText('statSmapValue', '—');
+    setText('statSmapSub', tr('এই জায়গার SMAP মাটির রস পরের ধাপে যোগ হবে', 'SMAP soil moisture for this place comes in the next step'));
+  }
   if (smap) {
     setText('statSmapValue', `${num(smap.rootZoneM3M3.toFixed(2))} m³/m³`);
     const past = smap.sameDatePastYears.map(p => tr(`${num(p.year)} সালে ${num(p.rootZoneM3M3.toFixed(2))}`, `${p.year}: ${p.rootZoneM3M3.toFixed(2)}`)).join(', ');
@@ -177,19 +200,26 @@ function renderOverview(o) {
   setText('statVarietyValue', tr(o.recommended.amanVarietyBangla, o.recommended.amanVariety));
   setText('statVarietySub', tr(`${bnDateOf(o.recommended.fieldFreeDateBangla)} মধ্যে জমি খালি`, `Field free by ${o.recommended.fieldFreeDateEnglish}`));
 
-  setText('mapPinLabel', `${tr('তানোর পাইলট পয়েন্ট', 'Tanore pilot point')} (${num(o.scope.lat)}° N, ${num(o.scope.lon)}° E)`);
-  setText('specSoil', tr(`${o.context.soilTypeBangla}, ${o.context.landTypeBangla}`, `${o.context.soilTypeEnglish}, ${o.context.landTypeEnglish}`));
+  const pilot = o.scope.place_kind !== 'upazila';
+  setText('mapPinLabel', pilot
+    ? `${tr('তানোর পাইলট পয়েন্ট', 'Tanore pilot point')} (${num(o.scope.lat)}° N, ${num(o.scope.lon)}° E)`
+    : `${o.scope.district} ${tr('জেলার পয়েন্ট', 'district point')} (${num(o.scope.lat.toFixed(2))}° N, ${num(o.scope.lon.toFixed(2))}° E)`);
+  setText('specSoil', o.context.soilTypeBangla
+    ? tr(`${o.context.soilTypeBangla}, ${o.context.landTypeBangla}`, `${o.context.soilTypeEnglish}, ${o.context.landTypeEnglish}`)
+    : tr('এই উপজেলার SRDI কার্ড এখনো যোগ হয়নি', 'This upazila’s SRDI card is not added yet'));
   const gw = o.context.groundwater;
-  setText('specGroundwater', tr(
+  setText('specGroundwater', gw ? tr(
     `বছরে ${num(gw.trendMmPerYear)} মিমি (${num(gw.period.replace(' to ', ' থেকে '))}: ${num(gw.changeMm)} মিমি)`,
     `${gw.trendMmPerYear} mm a year (${gw.changeMm} mm, ${gw.period})`,
-  ));
+  ) : '—');
   const green = o.context.winterGreenness;
-  setText('specGreenness', `NDVI ${num(green.early.peakNdvi)} → ${num(green.recent.peakNdvi)}; ${tr('বছরে ফসল', 'crops a year')} ${num(green.early.cyclesPerYear)} → ${num(green.recent.cyclesPerYear)}`);
-  setText('specBmd', tr(
+  setText('specGreenness', green
+    ? `NDVI ${num(green.early.peakNdvi)} → ${num(green.recent.peakNdvi)}; ${tr('বছরে ফসল', 'crops a year')} ${num(green.early.cyclesPerYear)} → ${num(green.recent.cyclesPerYear)}`
+    : tr('এখনো শুধু পাইলট এলাকায়', 'Pilot places only so far'));
+  setText('specBmd', o.context.bmdStation ? tr(
     `${o.context.bmdStationBangla} (${num(o.context.bmdStationKm)} কিমি দূরে)`,
-    `Shah Mokhdum, Rajshahi (41895), ${o.context.bmdStationKm} km away`,
-  ));
+    `${pilot ? 'Shah Mokhdum, Rajshahi (41895)' : o.context.bmdStation}, ${o.context.bmdStationKm} km away`,
+  ) : tr('১০০ কিমির মধ্যে BMD স্টেশন নেই; তাপমাত্রা সংশোধন ছাড়া', 'No BMD station within 100 km; temperatures uncorrected'));
 
   const alert = o.active_alerts[0];
   if (alert) {
@@ -383,7 +413,7 @@ window.runPlannerCalculation = async function(options = {}) {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        unionId: 'talanda_tanore',
+        unionId: currentPlace,
         unionNameBangla: 'তালন্দ ইউনিয়ন',
         upazila: 'Tanore',
         district: 'Rajshahi',
@@ -573,7 +603,7 @@ function renderEvidence(advice) {
     ) : '',
   ].join(''));
 
-  if (o) {
+  if (o && o.context.groundwater && o.context.winterGreenness && o.season_summary.dominantPattern) {
     const gw = o.context.groundwater;
     const green = o.context.winterGreenness;
     const boroWater = boro?.dimensionDetails.water?.metrics;
@@ -601,9 +631,9 @@ function renderEvidence(advice) {
   setText('evIncomeBig', tr(`${bigNum(income.illustrativeTotalBdtPerHa || 0)} ৳`, `BDT ${bigNum(income.illustrativeTotalBdtPerHa || 0)}`));
   setText('evIncomeText', tr('দুই মৌসুমের নিট লাভের নমুনা হিসাব (দলের অনুমান), যাচাই করা বাজারদর নয়।', 'Sample net profit over two seasons (team estimate), not verified market prices.'));
   setHtml('evIncomeList', [
-    o ? tr(
-      `<li><strong>গবাদিপশু:</strong> রাজশাহীতে প্রতি বর্গকিমিতে ~${num(Math.round(o.context.cattlePerKm2))}টি গরু (FAO GLW4, ২০১৫)।</li>`,
-      `<li><strong>Livestock:</strong> about ${Math.round(o.context.cattlePerKm2)} cattle per km² in Rajshahi (FAO GLW4, 2015).</li>`,
+    o && o.context.cattlePerKm2 ? tr(
+      `<li><strong>গবাদিপশু:</strong> ${o.scope.place_kind === 'upazila' ? o.scope.district : 'রাজশাহী'}তে প্রতি বর্গকিমিতে ~${num(Math.round(o.context.cattlePerKm2))}টি গরু (FAO GLW4, ২০১৫)।</li>`,
+      `<li><strong>Livestock:</strong> about ${Math.round(o.context.cattlePerKm2)} cattle per km² in ${o.scope.place_kind === 'upazila' ? o.scope.district : 'Rajshahi'} (FAO GLW4, 2015).</li>`,
     ) : '',
     typeof income.districtYieldTPerHa === 'number' ? tr(
       `<li><strong>জেলার গড় ফলন:</strong> ${rabi.cropBangla} ${num(income.districtYieldTPerHa)} টন/হেক্টর (BBS ২০২৪-২৫)।</li>`,
@@ -1219,3 +1249,78 @@ function liveHaorLines(live) {
     `<li><strong>MODIS flood map (${isoDate(m.date)}):</strong> ${m.floodPct}% of the haor basin under unusual flood water, ${m.recurringPct}% under seasonal flood water, ${m.noDataPct}% under cloud.</li>`));
   return lines.join('');
 }
+
+
+// Any place: the pilot (Talanda union, Tanore) or any upazila, advised from its district's 25-season replay
+const PILOT_PLACE = 'talanda_tanore';
+let currentPlace = (() => { try { return localStorage.getItem('eden.place') || PILOT_PLACE; } catch { return PILOT_PLACE; } })();
+let currentPlaceLive = null;
+let placeIndex = null;
+let placeTextChanged = false;
+
+function placeName() {
+  const s = currentOverview?.scope;
+  if (!s || s.place_kind !== 'upazila') return null;
+  return { upazila: s.upazila, district: s.district };
+}
+
+function applyPlaceText() {
+  const p = placeName();
+  const kind = $('placeKind');
+  if (kind) kind.textContent = p ? tr('জেলার ২৫ মৌসুমের নাসা রিপ্লে', 'District 25-season NASA replay') : tr('পাইলট: সবচেয়ে বিস্তারিত তথ্য', 'Pilot: the most detailed data');
+  if (!p) {
+    if (placeTextChanged) { applyStaticText(); placeTextChanged = false; }
+    return;
+  }
+  placeTextChanged = true;
+  const lead = document.querySelector('[data-i18n="overview.lead"]');
+  if (lead) lead.textContent = tr(`${p.district} জেলার নাসা পয়েন্টে ২৫ মৌসুমের (২০০১–২০২৫) রিপ্লে থেকে ${p.upazila} উপজেলার মাঝারি উঁচু জমির জন্য ফসল চক্র বাছাই: পানি, তাপ, মাটি ও কীটনাশক মিলিয়ে।`, `Choosing a rotation for medium-high land in ${p.upazila} upazila from 25 seasons (2001–2025) replayed at ${p.district} district's NASA point: water, heat, soil and pesticide together.`);
+  const title = document.querySelector('[data-i18n="overview.title"]');
+  if (title) title.textContent = tr(`${p.upazila} উপজেলা: আমন থেকে রবি ফসল চক্র সিদ্ধান্ত`, `${p.upazila} upazila: from Aman to the Rabi rotation`);
+  const set = (key, text) => document.querySelectorAll(`[data-i18n="${key}"]`).forEach(el => { el.textContent = text; });
+  set('geo.district', p.district);
+  set('geo.upazila', p.upazila);
+  set('geo.union', tr('সব ইউনিয়ন', 'all unions'));
+  set('overview.satTitle', tr(`স্যাটেলাইট নজরদারি (${p.district} জেলার পয়েন্ট)`, `Satellite monitoring (${p.district} district point)`));
+  set('planner.unionOption', `${p.upazila}, ${p.district}`);
+}
+
+function fillPlaceUpazilas() {
+  const d = $('placeDistrict').value;
+  $('placeUpazila').innerHTML = placeIndex.filter(u => u.district === d).sort((a, b) => a.name.localeCompare(b.name))
+    .map(u => `<option value="${escapeHtml(u.id === 'ADM3_Tanore' ? PILOT_PLACE : u.id)}">${escapeHtml(u.id === 'ADM3_Tanore' ? `${u.name} (Talanda pilot)` : u.name)}</option>`).join('');
+}
+
+async function choosePlace(id) {
+  currentPlace = id;
+  try { localStorage.setItem('eden.place', id); } catch { /* the choice lasts for this page only */ }
+  await loadOverview();
+  if (typeof window.runPlannerCalculation === 'function') await window.runPlannerCalculation({ switchScreenAfter: false });
+  renderAll();
+  applyPlaceText();
+  if (liveRows && $('liveDistrict')) {
+    const row = liveRows.find(r => r.id === (id === PILOT_PLACE ? 'ADM3_Tanore' : id));
+    if (row) { $('liveDistrict').value = row.district; fillLiveUpazilas(); $('liveUpazila').value = row.id; renderLive(); }
+  }
+}
+
+async function loadPlaces() {
+  try {
+    const res = await fetch('/api/v1/places');
+    if (!res.ok) return;
+    placeIndex = (await res.json()).upazilas;
+    const districts = [...new Set(placeIndex.map(u => u.district))].sort();
+    $('placeDistrict').innerHTML = districts.map(d => `<option>${escapeHtml(d)}</option>`).join('');
+    const current = currentPlace === PILOT_PLACE ? placeIndex.find(u => u.id === 'ADM3_Tanore') : placeIndex.find(u => u.id === currentPlace);
+    $('placeDistrict').value = current ? current.district : 'Rajshahi';
+    fillPlaceUpazilas();
+    $('placeUpazila').value = currentPlace;
+    $('placeDistrict').addEventListener('change', () => { fillPlaceUpazilas(); choosePlace($('placeUpazila').value); });
+    $('placeUpazila').addEventListener('change', () => choosePlace($('placeUpazila').value));
+    applyPlaceText();
+  } catch { /* the pilot stays selected */ }
+}
+
+const setLanguageBeforePlace = window.setLanguage;
+window.setLanguage = function(next) { setLanguageBeforePlace(next); applyPlaceText(); };
+document.addEventListener('DOMContentLoaded', loadPlaces);

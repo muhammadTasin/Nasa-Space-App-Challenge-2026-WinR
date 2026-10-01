@@ -5,7 +5,7 @@
  * NOTE: NASA POWER serves scientific observations and reanalysis (MERRA-2 / GEOS-IT),
  * NOT a weather forecast. Data latency is typically 2-3 days.
  */
-import { TANORE_CONDITIONS } from '../../../packages/rotation-engine/src/data/tanore_replay_data.ts';
+import { LOC } from '../../../packages/rotation-engine/src/data/location.ts';
 
 export interface WeatherObservationDay {
   date: string; // YYYY-MM-DD
@@ -76,8 +76,8 @@ export async function getNasaWeather(lat = 24.62, lon = 88.56): Promise<WeatherR
     return cachedWeather;
   }
 
-  const smap = TANORE_CONDITIONS.smap;
-  const rain30 = TANORE_CONDITIONS.rainLast30Days;
+  const smap = LOC.conditions.smap;
+  const rain30 = LOC.conditions.rainLast30Days;
 
   // Try live NASA POWER Daily API
   try {

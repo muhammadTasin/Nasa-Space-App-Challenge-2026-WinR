@@ -11,7 +11,8 @@ import type {
   ThisSeasonFit,
 } from '@project-eden/contracts';
 import { FeatureRegistry } from './registry.ts';
-import { RELEASE, TALANDA_SRDI, TANORE_AMAN_REPLAY, TANORE_CONDITIONS, TANORE_RABI_REPLAY } from './data/tanore_replay_data.ts';
+import { RELEASE } from './data/tanore_replay_data.ts';
+import { LOC, placeFor, withPlace } from './data/location.ts';
 import { AMAN_CATALOG, RABI_CATALOG } from './data/crop_catalog.ts';
 import type { AmanRecord, RabiRecord } from './data/release_types.ts';
 import type { RabiCatalogEntry } from './data/crop_catalog.ts';
@@ -53,6 +54,7 @@ export interface PlanOptionsRequest {
   };
 }
 
+/** The detailed pilot; every upazila in data/national_replay.json is advised too (data/location.ts). */
 export const SUPPORTED_UNIONS = ['talanda_tanore'];
 
 export class UnsupportedUnionError extends Error {
@@ -143,12 +145,12 @@ function amanStageBangla(aman: AmanRecord, today: Date, seasonYear: number): str
 
 /** Which Rabi crops still fit their sowing deadline if a given Aman variety is already in the field. */
 export function thisSeasonFit(currentAman: string | undefined): ThisSeasonFit | null {
-  const aman = currentAman ? TANORE_AMAN_REPLAY[currentAman] : undefined;
+  const aman = currentAman ? LOC.aman[currentAman] : undefined;
   const name = currentAman ? AMAN_CATALOG[currentAman] : undefined;
   if (!currentAman || !aman || !name) return null;
 
   const fieldFree = seasonDay(aman.fieldFree);
-  const crops = Object.entries(TANORE_RABI_REPLAY)
+  const crops = Object.entries(LOC.rabi)
     .filter(([key, rabi]) => rabi.sowingWindow !== null && key !== 'BARI Gom 33 (Late)')
     .map(([key, rabi]) => ({
       cropBangla: RABI_CATALOG[key].cropBangla,
@@ -197,8 +199,8 @@ export class RotationEngine {
   }
 
   private evaluateRotation(spec: CandidateSpec, request: PlanOptionsRequest, seasonYear: number): CandidateRotation {
-    const aman = TANORE_AMAN_REPLAY[spec.aman];
-    const rabi = TANORE_RABI_REPLAY[spec.rabi];
+    const aman = LOC.aman[spec.aman];
+    const rabi = LOC.rabi[spec.rabi];
     const amanName = AMAN_CATALOG[spec.aman];
     const rabiName = RABI_CATALOG[spec.rabi];
     if (!aman || !rabi || !amanName || !rabiName) {
@@ -304,7 +306,7 @@ export class RotationEngine {
     const ledger = {
       groundwaterPumpedM3PerHa: rabi.pumpedM3PerHa,
       floodedRiceDays: aman.fieldDays - 14 + (rabiName.isRice ? rabi.fieldDays - 14 : 0),
-      ureaKgHa: Math.round(TALANDA_SRDI.aman.ureaKgHa + rabi.fertilizer.ureaKgHa),
+      ureaKgHa: Math.round(LOC.srdi.aman.ureaKgHa + rabi.fertilizer.ureaKgHa),
       legume: rabiName.isLegume,
       bareDays: 365 - aman.fieldDays - rabi.fieldDays,
     };
@@ -342,17 +344,17 @@ export class RotationEngine {
   }
 
   private farmerCard(best: CandidateSpec, alt: CandidateSpec | undefined, stageBangla: string): FarmerCard {
-    const aman = TANORE_AMAN_REPLAY[best.aman];
-    const rabi = TANORE_RABI_REPLAY[best.rabi];
+    const aman = LOC.aman[best.aman];
+    const rabi = LOC.rabi[best.rabi];
     const amanName = AMAN_CATALOG[best.aman];
     const rabiName = RABI_CATALOG[best.rabi];
-    const boro = TANORE_RABI_REPLAY['BRRI dhan28'];
+    const boro = LOC.rabi['BRRI dhan28'];
     const dose = rabi.fertilizer;
     const perBigha = (kgHa: number) => bnDecimal(kgHa * BIGHA_HA);
     const deadlineText = rabi.sowingWindow ? ` (শেষ সময় ${bnDate(rabi.sowingWindow[1])})` : '';
     const savedM3 = boro.pumpedM3PerHa - rabi.pumpedM3PerHa;
 
-    const altRabi = alt ? TANORE_RABI_REPLAY[alt.rabi] : undefined;
+    const altRabi = alt ? LOC.rabi[alt.rabi] : undefined;
     const altName = alt ? RABI_CATALOG[alt.rabi] : undefined;
     const altAman = alt ? AMAN_CATALOG[alt.aman] : undefined;
     const irrigationClass = (mm: number) => (mm < 150 ? 'কম সেচ' : mm < 400 ? 'মাঝারি সেচ' : 'বেশি সেচ');
@@ -394,9 +396,15 @@ export class RotationEngine {
   }
 
   generateAdvice(request: PlanOptionsRequest): AdviceJSON {
-    if (!SUPPORTED_UNIONS.includes(request.unionId)) {
+    const place = placeFor(request.unionId);
+    if (!place) {
       throw new UnsupportedUnionError(request.unionId);
     }
+    return withPlace(place, () => this.adviseHere(request));
+  }
+
+  /** Advice for the place `LOC` currently points at (see data/location.ts). */
+  private adviseHere(request: PlanOptionsRequest): AdviceJSON {
     const seasonYear = parseSeasonYear(request.season);
     const today = request.today ? new Date(request.today) : new Date();
 
@@ -408,12 +416,12 @@ export class RotationEngine {
 
     const bestSpec = CANDIDATES.find(c => c.id === options[0].id)!;
     const altSpec = options[1] ? CANDIDATES.find(c => c.id === options[1].id) : undefined;
-    const aman = TANORE_AMAN_REPLAY[bestSpec.aman];
-    const rabi = TANORE_RABI_REPLAY[bestSpec.rabi];
+    const aman = LOC.aman[bestSpec.aman];
+    const rabi = LOC.rabi[bestSpec.rabi];
     const amanName = AMAN_CATALOG[bestSpec.aman];
     const rabiName = RABI_CATALOG[bestSpec.rabi];
-    const boro = TANORE_RABI_REPLAY['BRRI dhan28'];
-    const smap = TANORE_CONDITIONS.smap;
+    const boro = LOC.rabi['BRRI dhan28'];
+    const smap = LOC.conditions.smap;
     const landBangla = LAND_TYPE_BANGLA[request.landType] ?? '';
 
     const farmerSummary = [
@@ -424,7 +432,7 @@ export class RotationEngine {
     ].filter(Boolean).join(' ');
 
     const farmerSummaryEnglish = [
-      `Top option for ${request.landType.replace('_', '-')} land in ${request.unionId === 'talanda_tanore' ? 'Talanda union' : request.unionId}: ${options[0].nameEnglish}.`,
+      `Top option for ${request.landType.replace('_', '-')} land in ${LOC.nameEnglish}: ${options[0].nameEnglish}.`,
       `${bestSpec.aman} frees the field by ${enDate(aman.fieldFree)}; it needed rescue irrigation at flowering in ${aman.rescueSeasons} of ${aman.totalSeasons} seasons.`,
       `${rabiName.crop} needs about ${rabi.netIrrigationMm} mm of irrigation.`,
       rabiName.isLegume ? `${rabiName.crop} adds nitrogen to the soil.` : '',
@@ -434,7 +442,8 @@ export class RotationEngine {
       `Talanda (Tanore) replay ${RELEASE.seasons} with NASA POWER ET0 and GPM IMERG Final rain: ${bestSpec.aman} flowers ~${enDate(aman.flowering)} and needed rescue irrigation at flowering in ${aman.rescueSeasons} of ${aman.totalSeasons} seasons; field free ~${enDate(aman.fieldFree)}.`,
       `${rabiName.crop} net irrigation ~${rabi.netIrrigationMm} mm (p10-p90 ${rabi.netIrrigationRangeMm[0]}-${rabi.netIrrigationRangeMm[1]}) against ~${boro.netIrrigationMm} mm for Boro.`,
       smap ? `SMAP L4 root zone around 10 Nov (${smap.nov10Years.join(', ')}): ${smap.nov10TypicalM3M3} m3/m3.` : '',
-      `GLDAS-2.2 groundwater at Tanore: ${TANORE_CONDITIONS.groundwater.trendMmPerYear} mm/yr (${TANORE_CONDITIONS.groundwater.changeMm} mm, ${TANORE_CONDITIONS.groundwater.period}).`,
+      LOC.conditions.groundwater ? `GLDAS-2.2 groundwater at ${LOC.upazila}: ${LOC.conditions.groundwater.trendMmPerYear} mm/yr (${LOC.conditions.groundwater.changeMm} mm, ${LOC.conditions.groundwater.period}).` : '',
+      LOC.kind === 'pilot' ? '' : LOC.dataNote,
       `Income scores are illustrative team estimates. Release ${RELEASE.id} (research ${RELEASE.researchCommit}).`,
     ].filter(Boolean).join(' ');
 

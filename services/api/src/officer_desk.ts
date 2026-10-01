@@ -25,7 +25,7 @@ import type {
 } from '@project-eden/contracts';
 import type { PlanOptionsRequest } from '../../../packages/rotation-engine/src/engine.ts';
 import { thisSeasonFit } from '../../../packages/rotation-engine/src/engine.ts';
-import { TANORE_AMAN_REPLAY } from '../../../packages/rotation-engine/src/data/tanore_replay_data.ts';
+import { LOC } from '../../../packages/rotation-engine/src/data/location.ts';
 import { FORBIDDEN_TERMS } from '../../../packages/narration-core/src/dual_gate_validator.ts';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -299,7 +299,7 @@ export function addObservation(officerId: string, body: any): { observation?: Fi
   const farmer = farmerById(String(body.farmerId ?? ''));
   if (!farmer) return { error: 'Unknown farmer' };
   if (!LAND_TYPES.includes(body.landType)) return { error: 'landType must be one of ' + LAND_TYPES.join(', ') };
-  if (!TANORE_AMAN_REPLAY[body.currentAmanCrop]) return { error: 'currentAmanCrop must be a variety in the research release' };
+  if (!LOC.aman[body.currentAmanCrop]) return { error: 'currentAmanCrop must be a variety in the research release' };
   if (!IRRIGATION.includes(body.irrigation)) return { error: 'irrigation must be one of ' + IRRIGATION.join(', ') };
   const pestSeen: PestSeen = body.pestSeen in PEST_NAMES ? body.pestSeen : 'none';
   const pestSeverity = pestSeen === 'none' ? null : SEVERITY.includes(body.pestSeverity) ? body.pestSeverity : 'low';

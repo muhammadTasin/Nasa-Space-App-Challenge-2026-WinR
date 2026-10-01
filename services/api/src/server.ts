@@ -6,7 +6,8 @@ import type { AdviceJSON, CandidateRotation } from '@project-eden/contracts';
 import type { PlanOptionsRequest } from '../../../packages/rotation-engine/src/engine.ts';
 import { RotationEngine, UnsupportedUnionError, SUPPORTED_UNIONS } from '../../../packages/rotation-engine/src/engine.ts';
 import { FeatureRegistry } from '../../../packages/rotation-engine/src/registry.ts';
-import { HAOR_FLASH_FLOOD, RELEASE, TALANDA_SRDI, TANORE_ADVISORIES, TANORE_AMAN_REPLAY, TANORE_CONDITIONS, TANORE_RABI_REPLAY, TANORE_SOIL_CARBON } from '../../../packages/rotation-engine/src/data/tanore_replay_data.ts';
+import { HAOR_FLASH_FLOOD, RELEASE, TANORE_ADVISORIES, TANORE_SOIL_CARBON } from '../../../packages/rotation-engine/src/data/tanore_replay_data.ts';
+import { LOC, listPlaces, placeFor, withPlace } from '../../../packages/rotation-engine/src/data/location.ts';
 import { AMAN_CATALOG, RABI_CATALOG } from '../../../packages/rotation-engine/src/data/crop_catalog.ts';
 import { IPM_AMAN, IPM_BY_RABI, IPM_GENERAL } from '../../../packages/rotation-engine/src/data/ipm_catalog.ts';
 import { bnDate, bnDateOf, bnDigits, bnOf, enDate } from '../../../packages/rotation-engine/src/bn.ts';
@@ -75,11 +76,12 @@ function parseBody(req: http.IncomingMessage): Promise<any> {
 }
 
 function planRequest(body: any): PlanOptionsRequest {
+  const place = placeFor(body.unionId || 'talanda_tanore');
   return {
     unionId: body.unionId || 'talanda_tanore',
-    unionNameBangla: body.unionNameBangla || 'তালন্দ ইউনিয়ন',
-    upazila: body.upazila || 'Tanore',
-    district: body.district || 'Rajshahi',
+    unionNameBangla: body.unionNameBangla || place?.nameBangla || 'তালন্দ ইউনিয়ন',
+    upazila: body.upazila || place?.upazila || 'Tanore',
+    district: body.district || place?.district || 'Rajshahi',
     landType: body.landType || 'medium_high',
     season: body.season || '2026-aman',
     currentAmanCrop: body.currentAmanCrop,
@@ -102,23 +104,31 @@ function adviseWithNarration(request: PlanOptionsRequest, farmerId?: string): Ad
   return advice;
 }
 
-function overview() {
-  const advice = adviseWithNarration(planRequest({}));
+function overview(placeId?: string | null) {
+  const place = placeFor(placeId);
+  if (!place) return null;
+  return withPlace(place, () => overviewHere(place.id));
+}
+
+function overviewHere(placeId: string) {
+  const advice = adviseWithNarration(planRequest({ unionId: placeId }));
   const best = advice.options[0];
-  const bestAman = TANORE_AMAN_REPLAY[best.cropSequence[0].variety];
-  const dhan49 = TANORE_AMAN_REPLAY['BRRI dhan49'];
-  const rain = TANORE_CONDITIONS.rainLast30Days;
-  const smap = TANORE_CONDITIONS.smap;
+  const bestAman = LOC.aman[best.cropSequence[0].variety];
+  const dhan49 = LOC.aman['BRRI dhan49'];
+  const rain = LOC.conditions.rainLast30Days;
+  const smap = LOC.conditions.smap;
 
   return {
     scope: {
-      district: 'Rajshahi (রাজশাহী)',
-      upazila: 'Tanore (তানোর)',
-      union: 'Talanda (তালন্দ)',
-      union_id: 'talanda_tanore',
+      district: LOC.kind === 'pilot' ? 'Rajshahi (রাজশাহী)' : LOC.district,
+      upazila: LOC.kind === 'pilot' ? 'Tanore (তানোর)' : LOC.upazila,
+      union: LOC.kind === 'pilot' ? 'Talanda (তালন্দ)' : null,
+      union_id: LOC.id,
+      place_kind: LOC.kind,
+      data_note: LOC.dataNote,
       land_type: 'medium_high',
-      lat: TANORE_CONDITIONS.lat,
-      lon: TANORE_CONDITIONS.lon,
+      lat: LOC.conditions.lat,
+      lon: LOC.conditions.lon,
     },
     data_release: {
       version: RELEASE.id,
@@ -129,11 +139,11 @@ function overview() {
     },
     season_summary: {
       season: 'Aman 2026 (আমন ২০২৬)',
-      dominantPattern: TANORE_CONDITIONS.landUse.topPattern,
-      dominantPatternBangla: PATTERN_BANGLA[TANORE_CONDITIONS.landUse.topPattern] ?? TANORE_CONDITIONS.landUse.topPattern,
-      dominantPatternPct: TANORE_CONDITIONS.landUse.topPatternPct,
-      croppingIntensity: `${TANORE_CONDITIONS.landUse.croppingIntensityPct}%`,
-      landUseYear: TANORE_CONDITIONS.landUse.year,
+      dominantPattern: LOC.conditions.landUse?.topPattern ?? null,
+      dominantPatternBangla: LOC.conditions.landUse ? (PATTERN_BANGLA[LOC.conditions.landUse.topPattern] ?? LOC.conditions.landUse.topPattern) : null,
+      dominantPatternPct: LOC.conditions.landUse?.topPatternPct ?? null,
+      croppingIntensity: LOC.conditions.landUse ? `${LOC.conditions.landUse.croppingIntensityPct}%` : null,
+      landUseYear: LOC.conditions.landUse?.year ?? null,
       activeFarmersInUnion: null, // no farmer interviews yet
     },
     local_satellite_conditions: {
@@ -144,7 +154,7 @@ function overview() {
         nov10TypicalM3M3: smap.nov10TypicalM3M3,
         nov10Years: smap.nov10Years,
       },
-      rain_last_30_days: {
+      rain_last_30_days: rain && {
         from: rain.from,
         to: rain.to,
         imergLateMm: rain.imergLateMm,
@@ -162,7 +172,7 @@ function overview() {
       fieldFreeDateBangla: best.fieldFreeDateBangla,
       fieldFreeDateEnglish: best.fieldFreeDateEnglish,
     },
-    aman_replay: Object.values(TANORE_AMAN_REPLAY).map(r => ({
+    aman_replay: Object.values(LOC.aman).map(r => ({
       variety: r.variety,
       varietyBangla: AMAN_CATALOG[r.variety]?.varietyBangla ?? r.variety,
       noteBangla: AMAN_CATALOG[r.variety]?.noteBangla ?? '',
@@ -187,17 +197,17 @@ function overview() {
       },
     ],
     context: {
-      soilTypeBangla: TALANDA_SRDI.soilTypeBangla,
-      soilTypeEnglish: 'Kharia soil (Barind)',
-      landTypeBangla: TALANDA_SRDI.landTypeBangla,
+      soilTypeBangla: LOC.kind === 'pilot' ? LOC.srdi.soilTypeBangla : null,
+      soilTypeEnglish: LOC.kind === 'pilot' ? 'Kharia soil (Barind)' : null,
+      landTypeBangla: LOC.srdi.landTypeBangla,
       landTypeEnglish: 'medium-high land',
-      bmdStation: TANORE_CONDITIONS.bmdStation,
-      bmdStationBangla: BMD_STATION_BANGLA[TANORE_CONDITIONS.bmdStation] ?? TANORE_CONDITIONS.bmdStation,
-      bmdStationKm: TANORE_CONDITIONS.bmdStationKm,
-      groundwater: TANORE_CONDITIONS.groundwater,
-      winterGreenness: TANORE_CONDITIONS.winterGreenness,
-      rootZoneGldasMm: TANORE_CONDITIONS.rootZoneGldasMm,
-      cattlePerKm2: TANORE_CONDITIONS.cattlePerKm2,
+      bmdStation: LOC.conditions.bmdStation,
+      bmdStationBangla: BMD_STATION_BANGLA[LOC.conditions.bmdStation] ?? LOC.conditions.bmdStation,
+      bmdStationKm: LOC.conditions.bmdStationKm,
+      groundwater: LOC.conditions.groundwater,
+      winterGreenness: LOC.conditions.winterGreenness,
+      rootZoneGldasMm: LOC.conditions.rootZoneGldasMm,
+      cattlePerKm2: LOC.conditions.cattlePerKm2,
     },
     early_warnings: earlyWarnings(),
     soil_carbon: TANORE_SOIL_CARBON,
@@ -303,18 +313,18 @@ function farmerRows() {
 /** Officer-only reference: the full SRDI card, replay details, IPM steps and data caveats. */
 function knowledgePack() {
   const advice = adviseWithNarration(planRequest({}));
-  const rabiKeys = Object.keys(TANORE_RABI_REPLAY).filter(k => k !== 'BARI Gom 33 (Late)');
+  const rabiKeys = Object.keys(LOC.rabi).filter(k => k !== 'BARI Gom 33 (Late)');
   return {
     srdi: {
-      soilTypeBangla: TALANDA_SRDI.soilTypeBangla,
-      landTypeBangla: TALANDA_SRDI.landTypeBangla,
-      source: TALANDA_SRDI.source,
+      soilTypeBangla: LOC.srdi.soilTypeBangla,
+      landTypeBangla: LOC.srdi.landTypeBangla,
+      source: LOC.srdi.source,
       rows: [
-        { cropBangla: 'আমন ধান', cropEnglish: 'Aman rice', dose: TALANDA_SRDI.aman },
-        ...rabiKeys.map(k => ({ cropBangla: RABI_CATALOG[k].cropBangla, cropEnglish: RABI_CATALOG[k].crop, dose: TANORE_RABI_REPLAY[k].fertilizer })),
+        { cropBangla: 'আমন ধান', cropEnglish: 'Aman rice', dose: LOC.srdi.aman },
+        ...rabiKeys.map(k => ({ cropBangla: RABI_CATALOG[k].cropBangla, cropEnglish: RABI_CATALOG[k].crop, dose: LOC.rabi[k].fertilizer })),
       ],
     },
-    amanReplay: Object.values(TANORE_AMAN_REPLAY).map(r => ({
+    amanReplay: Object.values(LOC.aman).map(r => ({
       variety: r.variety,
       varietyBangla: AMAN_CATALOG[r.variety]?.varietyBangla ?? r.variety,
       rescueSeasons: r.rescueSeasons,
@@ -326,7 +336,7 @@ function knowledgePack() {
       fieldFreeBangla: bnDate(r.fieldFree),
       cropWaterUseMm: r.cropWaterUseMm,
     })),
-    rabiReplay: Object.entries(TANORE_RABI_REPLAY).map(([key, r]) => ({
+    rabiReplay: Object.entries(LOC.rabi).map(([key, r]) => ({
       key,
       cropBangla: RABI_CATALOG[key].cropBangla,
       cropEnglish: RABI_CATALOG[key].crop,
@@ -344,7 +354,7 @@ function knowledgePack() {
       byRabi: Object.entries(IPM_BY_RABI).map(([key, tips]) => ({ key, cropBangla: RABI_CATALOG[key].cropBangla, cropEnglish: RABI_CATALOG[key].crop, tips })),
     },
     caveats: [
-      { bn: `IMERG Late ২০২৩ থেকে Final-এর চেয়ে কম বৃষ্টি দেখায় (তানোরে অনুপাত ${bnDigits(TANORE_CONDITIONS.rainLast30Days.lateFinalRatio)}); সাম্প্রতিক বৃষ্টির রায় তিনটি অনুমান মিলিয়ে দেওয়া হয়।`, en: `IMERG Late reads dry against Final since 2023 (ratio ${TANORE_CONDITIONS.rainLast30Days.lateFinalRatio} at Tanore); recent rain is judged from three estimates.` },
+      { bn: `IMERG Late ২০২৩ থেকে Final-এর চেয়ে কম বৃষ্টি দেখায় (তানোরে অনুপাত ${bnDigits(LOC.conditions.rainLast30Days.lateFinalRatio)}); সাম্প্রতিক বৃষ্টির রায় তিনটি অনুমান মিলিয়ে দেওয়া হয়।`, en: `IMERG Late reads dry against Final since 2023 (ratio ${LOC.conditions.rainLast30Days.lateFinalRatio} at Tanore); recent rain is judged from three estimates.` },
       { bn: 'বৃষ্টি ও মাটির রস ~১০ কিমি ও ৯ কিমি গ্রিডের গড়, একক জমির নয়।', en: 'Rain and soil moisture are ~10 km and 9 km grid averages, not single fields.' },
       { bn: 'আয়ের স্কোর দলের অনুমান; DAM দর ও কৃষকের খরচ বাকি।', en: 'Income scores are team estimates until DAM prices and farmer costs are in.' },
       { bn: 'বালাই স্কোর নিয়মভিত্তিক; মাঠে পোকা গোনার তথ্য কর্মকর্তার পর্যবেক্ষণ থেকে আসবে।', en: 'The pest score is rule-based; field pest counts will come from officer observations.' },
@@ -397,10 +407,10 @@ function dataRelease() {
     pilotSitesCovered: 1,
     modelledUnions: SUPPORTED_UNIONS,
     datasets: [
-      { name: 'NASA POWER (daily)', parameter: 'Tmax, Tmin, dew point, wind, radiation -> FAO-56 ET0', timePeriod: '2001-2025', spatialResolution: '0.5° x 0.625°', latency: '~2-3 days', freshness: 'research release', groundCorrection: `Tmax/Tmin bias-corrected by month against BMD ${TANORE_CONDITIONS.bmdStation} (NOAA GSOD, ${TANORE_CONDITIONS.bmdStationKm} km)`, status: 'operational' },
+      { name: 'NASA POWER (daily)', parameter: 'Tmax, Tmin, dew point, wind, radiation -> FAO-56 ET0', timePeriod: '2001-2025', spatialResolution: '0.5° x 0.625°', latency: '~2-3 days', freshness: 'research release', groundCorrection: `Tmax/Tmin bias-corrected by month against BMD ${LOC.conditions.bmdStation} (NOAA GSOD, ${LOC.conditions.bmdStationKm} km)`, status: 'operational' },
       { name: 'NASA GPM IMERG Final (daily, via POWER)', parameter: 'Rain for the 25-season water-balance replay', timePeriod: '2001-2025', spatialResolution: '0.1° (~10 km)', latency: '~3.5 months', freshness: 'research release', groundCorrection: 'Checked against the BMD Rajshahi gauge (Jun-Oct)', status: 'operational' },
-      { name: 'NASA GPM IMERG Late (daily, via Giovanni)', parameter: 'Rain in the last 30 days', timePeriod: `${TANORE_CONDITIONS.rainLast30Days.from} to ${TANORE_CONDITIONS.rainLast30Days.to}`, spatialResolution: '0.1° (~10 km)', latency: '~14 hours', freshness: 'recent', groundCorrection: `Late reads dry against Final since 2023 (ratio ${TANORE_CONDITIONS.rainLast30Days.lateFinalRatio}); cross-checked with Final-scaled Late and MERRA-2`, status: 'cross-checked' },
-      { name: 'NASA SMAP L4 (SPL4SMGP v008)', parameter: 'Root-zone soil moisture (0-100 cm)', timePeriod: `2023-09-27 to ${TANORE_CONDITIONS.smap?.date ?? 'n/a'}`, spatialResolution: '9 km', latency: '~2-3 days', freshness: 'recent', groundCorrection: `Agrees with GLDAS-2.2 root zone (Spearman ${TANORE_CONDITIONS.rootZoneGldasMm.smapSpearman})`, status: 'operational' },
+      { name: 'NASA GPM IMERG Late (daily, via Giovanni)', parameter: 'Rain in the last 30 days', timePeriod: `${LOC.conditions.rainLast30Days.from} to ${LOC.conditions.rainLast30Days.to}`, spatialResolution: '0.1° (~10 km)', latency: '~14 hours', freshness: 'recent', groundCorrection: `Late reads dry against Final since 2023 (ratio ${LOC.conditions.rainLast30Days.lateFinalRatio}); cross-checked with Final-scaled Late and MERRA-2`, status: 'cross-checked' },
+      { name: 'NASA SMAP L4 (SPL4SMGP v008)', parameter: 'Root-zone soil moisture (0-100 cm)', timePeriod: `2023-09-27 to ${LOC.conditions.smap?.date ?? 'n/a'}`, spatialResolution: '9 km', latency: '~2-3 days', freshness: 'recent', groundCorrection: `Agrees with GLDAS-2.2 root zone (Spearman ${LOC.conditions.rootZoneGldasMm.smapSpearman})`, status: 'operational' },
       { name: 'NASA GLDAS-2.2 CLSM (GRACE-assimilated)', parameter: 'Groundwater storage and root-zone water', timePeriod: '2003-2025', spatialResolution: '0.25°', latency: 'monthly updates', freshness: 'research release', groundCorrection: 'GRACE/GRACE-FO terrestrial water storage assimilated', status: 'operational' },
       { name: 'NASA MODIS MOD13Q1', parameter: 'NDVI: crop cycles and winter crop cover', timePeriod: '2001-2026', spatialResolution: '250 m (median of 9 x 9 pixels)', latency: '16 days', freshness: 'research release', groundCorrection: 'Landscape around the pilot point, not single fields', status: 'operational' },
       { name: 'SRDI Fertilizer Recommendation System', parameter: 'Talanda union card: soil type, land type, fertilizer doses', timePeriod: 'current card', spatialResolution: 'Union (Talanda)', latency: 'static', freshness: 'current', groundCorrection: 'SRDI soil-test based recommendations', status: 'operational' },
@@ -430,7 +440,13 @@ const server = http.createServer(async (req, res) => {
   try {
     // API: SAAO Overview
     if (pathname === '/api/v1/overview' && req.method === 'GET') {
-      return sendJSON(res, 200, overview());
+      const ov = overview(url.searchParams.get('place'));
+      return ov ? sendJSON(res, 200, ov) : sendJSON(res, 422, { error: 'No research data for this place yet' });
+    }
+
+    // API: every place the engine can advise (the pilot and all upazilas)
+    if (pathname === '/api/v1/places' && req.method === 'GET') {
+      return sendJSON(res, 200, { pilot: { id: 'talanda_tanore', name: 'Talanda union', upazila: 'Tanore', district: 'Rajshahi' }, upazilas: listPlaces() });
     }
 
     // API: Generate Rotation Advice

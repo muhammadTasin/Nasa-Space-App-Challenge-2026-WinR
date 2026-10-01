@@ -2,6 +2,13 @@
 
 What changed in Project EDEN, newest first, with who made each change and the branch it came from. Every branch below was merged into `main` on 1 October 2026.
 
+## 1 October 2026 · Advice for every upazila (Tasrif, `feature/daily-nasa-update`)
+
+- `research/explore/national_replay.py` runs the 25-season replay (FAO-56 water balance, BRRI/BARI calendars, heat windows) at all 64 districts' NASA POWER + GPM IMERG points, correcting temperatures against the nearest BMD station, and writes `national_replay.json` with the 544-upazila index. Rajshahi district matches the Tanore research (dhan71 7 of 25 rescue seasons; Boro 790 mm against 797).
+- `data/location.ts` switches the engine between the Talanda pilot and any upazila; the engine, plugins and API read the current place instead of Tanore's fixed data.
+- API: `GET /api/v1/places`, `GET /api/v1/overview?place=`, and advice for any upazila id; tests check 544 places, advice for Godagari and an overview for a Sylhet upazila.
+- Dashboard: a district and upazila picker at the top of the overview; the header, title, rain (from the daily NASA update), alert, replay table, planner and comparison follow it, and datasets that exist only for the pilot are labelled as not added yet. The choice is remembered.
+
 ## 1 October 2026 · Live daily flash-flood check for the haor (Tasrif, `feature/daily-nasa-update`)
 
 - Every daily run reads the last 3 days of GPM IMERG rain at Sohra, divides it by Sohra's Late/Final ratio (0.91, from `research/pilots/rain_vs_normal.csv`) so it matches the Final run the levels were tested on, and sets normal, watch (200 mm) or warning (250 mm); the season is 15 March to 15 May.

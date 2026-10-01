@@ -1,6 +1,6 @@
 import type { IEvidenceDimensionPlugin, EvaluationContext, DimensionScoreResult } from '@project-eden/contracts';
 import { rabiOf } from '../data/lookup.ts';
-import { TALANDA_SRDI } from '../data/tanore_replay_data.ts';
+import { LOC } from '../data/location.ts';
 import { bnDigits, bnDecimal } from '../bn.ts';
 
 export class SoilDimensionPlugin implements IEvidenceDimensionPlugin {
@@ -13,7 +13,7 @@ export class SoilDimensionPlugin implements IEvidenceDimensionPlugin {
   evaluate(context: EvaluationContext): DimensionScoreResult {
     const { record: rabi, catalog: rabiName } = rabiOf(context);
     const dose = rabi.fertilizer;
-    const rotationUrea = Math.round(TALANDA_SRDI.aman.ureaKgHa + dose.ureaKgHa);
+    const rotationUrea = Math.round(LOC.srdi.aman.ureaKgHa + dose.ureaKgHa);
 
     // Legumes add nitrogen and cut urea; two rice crops in a year work the soil hardest.
     const soilScore = rabiName.isLegume ? 0.9 : rabiName.isRice ? 0.45 : 0.7;
@@ -27,10 +27,10 @@ export class SoilDimensionPlugin implements IEvidenceDimensionPlugin {
       dimensionId: this.id,
       score: soilScore,
       confidence: 'medium',
-      summaryBangla: `${why} SRDI তালন্দ কার্ডে (${TALANDA_SRDI.soilTypeBangla}) ${rabiName.cropInBangla} ইউরিয়া ${bnDecimal(dose.ureaKgHa)} কেজি/হেক্টর; আমনসহ পুরো চক্রে ${bnDigits(rotationUrea)} কেজি।`,
+      summaryBangla: `${why} SRDI তালন্দ কার্ডে (${LOC.srdi.soilTypeBangla}) ${rabiName.cropInBangla} ইউরিয়া ${bnDecimal(dose.ureaKgHa)} কেজি/হেক্টর; আমনসহ পুরো চক্রে ${bnDigits(rotationUrea)} কেজি।`,
       summaryEnglish: `SRDI Talanda card (Kharia soil): ${rabiName.crop} urea ${dose.ureaKgHa} kg/ha; ${rotationUrea} kg/ha for the whole rotation with Aman.`,
       metrics: {
-        srdiSoilType: TALANDA_SRDI.soilTypeBangla,
+        srdiSoilType: LOC.srdi.soilTypeBangla,
         rabiUreaKgHa: dose.ureaKgHa,
         rabiTspKgHa: dose.tspKgHa,
         rabiMopKgHa: dose.mopKgHa,
@@ -38,7 +38,7 @@ export class SoilDimensionPlugin implements IEvidenceDimensionPlugin {
         legume: rabiName.isLegume,
       },
       provenance: {
-        source: TALANDA_SRDI.source + ' — Talanda, medium-high land',
+        source: LOC.srdi.source + ' — Talanda, medium-high land',
         timePeriod: 'current SRDI card',
         spatialResolution: 'Union (Talanda)',
         measuredOrModeled: 'measured',

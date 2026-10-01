@@ -1,7 +1,7 @@
 import type { IEvidenceDimensionPlugin, EvaluationContext, DimensionScoreResult } from '@project-eden/contracts';
 import { amanOf, rabiOf, clampScore } from '../data/lookup.ts';
 import { bnDate, bnDecimal, bnDigits, enDate } from '../bn.ts';
-import { TANORE_ADVISORIES } from '../data/tanore_replay_data.ts';
+import { LOC } from '../data/location.ts';
 
 /** Night temperature at Aman flowering, per variety, in the research's heat trends. */
 const NIGHT_MEASURE: Record<string, string> = { 'BRRI dhan71': 'aman71_night_c', 'BRRI dhan49': 'aman49_night_c' };
@@ -26,7 +26,7 @@ export class HeatDimensionPlugin implements IEvidenceDimensionPlugin {
       ? `${heat.stageBangla} ${bnDigits(heat.windowDays)} দিনের মধ্যে প্রায় ${bnDigits(heat.hotDays)} দিন তাপমাত্রা ${bnDigits(heat.thresholdC)}°C ছাড়ায় (২৫ মৌসুমের মধ্যমা)।`
       : `${rabiName.cropBangla} ~${bnDate(rabi.harvest)} কাটা হয়, মার্চ-এপ্রিলের গরমের আগেই।`;
     // A significant warming of nights at this variety's flowering is shown as a caution (it does not change the score)
-    const night = TANORE_ADVISORIES.heatTrends.find(t => t.measure === NIGHT_MEASURE[amanCrop.variety]);
+    const night = LOC.advisories?.heatTrends.find(t => t.measure === NIGHT_MEASURE[amanCrop.variety]);
     const warmingNights = night && night.kendallP < 0.05 && night.trendPerDecade > 0 ? night : null;
     const nightNoteBangla = warmingNights
       ? ` সতর্কতা: ${amanName.varietyBangla}-এর ফুল আসার সময়ের রাত প্রতি দশকে ${bnDecimal(warmingNights.trendPerDecade, 2)}°C গরম হচ্ছে।`
