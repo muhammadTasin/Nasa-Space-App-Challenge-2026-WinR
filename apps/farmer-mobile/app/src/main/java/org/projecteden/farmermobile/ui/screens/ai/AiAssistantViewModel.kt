@@ -1,0 +1,118 @@
+package org.projecteden.farmermobile.ui.screens.ai
+
+import android.app.Application
+import android.util.Log
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.firstOrNull
+import kotlinx.coroutines.launch
+import org.json.JSONObject
+import org.projecteden.farmermobile.EdenFarmerApp
+import org.projecteden.farmermobile.data.remote.RemoteAiResponse
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
+
+data class ChatMessage(
+    val id: String,
+    val isUser: Boolean,
+    val text: String,
+    val sources: List<String> = emptyList(),
+    val isInsufficientEvidence: Boolean = false,
+    val timeFormatted: String
+)
+
+class AiAssistantViewModel(application: Application) : AndroidViewModel(application) {
+
+    private val app = application as EdenFarmerApp
+    private val apiClient = app.apiClient
+    private val repository = app.repository
+
+    private val _messages = MutableStateFlow<List<ChatMessage>>(
+        listOf(
+            ChatMessage(
+                id = "init_0",
+                isUser = false,
+                text = "নমস্কার/সালাম। আমি প্রজেক্ট ইডেন কৃত্রিম বুদ্ধিমত্তা সহকারী। আমি নাসা উপগ্রহ উপাত্ত, বাংলাদেশ ধান গবেষণা ইনস্টিটিউট (BRRI) এবং মৃত্তিকা সম্পদ উন্নয়ন ইনস্টিটিউট (SRDI)-এর পরীক্ষিত তথ্যের ভিত্তিতে প্রশ্নের উত্তর দিই। আপনার জমি, সেচ বা আবহাওয়া সম্পর্কে কী জানতে চান?",
+                sources = listOf("NASA Earth Science", "BRRI", "SRDI", "BWDB"),
+                timeFormatted = currentTime()
+            )
+        )
+    )
+    val messages: StateFlow<List<ChatMessage>> = _messages.asStateFlow()
+
+    private val _isLoading = MutableStateFlow(false)
+    val isLoading: StateFlow<Boolean> = _isLoading.asStateFlow()
+
+    val promptSuggestions = listOf(
+        "আমার জমিতে সেচ কখন দেওয়া উচিত?",
+        "আজকের আবহাওয়া ও মাটির অবস্থা কেমন?",
+        "ব্রি ধান৭১ ও রবি মসুর চক্রের সুবিধা কি?",
+        "নদীভাঙন ও আকস্মিক বন্যার ঝুঁকি আছে কি?"
+    )
+
+    fun sendQuery(query: String) {
+        val trimmed = query.trim()
+        if (trimmed.isBlank() || _isLoading.value) return
+
+        val userMsg = ChatMessage(
+            id = "user_${System.currentTimeMillis()}",
+            isUser = true,
+            text = trimmed,
+            timeFormatted = currentTime()
+        )
+        _messages.value = _messages.value + userMsg
+        _isLoading.value = true
+        Log.i(TAG, "ai_assistant_query_sent")
+
+        viewModelScope.launch {
+            val farmProfile = repository.farmProfile.firstOrNull()
+            val profileJson = if (farmProfile != null) {
+                JSONObject().apply {
+                    put("farmName", farmProfile.farmName)
+                    put("landType", farmProfile.landType)
+                    put("soilTexture", farmProfile.soilTexture)
+                    put("region", farmProfile.region)
+                }
+            } else null
+
+            val res = apiClient.askAi(trimmed, profileJson)
+            res.fold(
+                onSuccess = { aiResp ->
+                    val aiMsg = ChatMessage(
+                        id = "ai_${System.currentTimeMillis()}",
+                        isUser = false,
+                        text = aiResp.answer,
+                        sources = aiResp.sources,
+                        isInsufficientEvidence = aiResp.evidenceLevel == "insufficient_evidence",
+                        timeFormatted = currentTime()
+                    )
+                    _messages.value = _messages.value + aiMsg
+                    Log.i(TAG, "ai_assistant_response_received:evidence=${aiResp.evidenceLevel}")
+                },
+                onFailure = { err ->
+                    Log.w(TAG, "ai_assistant_request_failed:${err.message}")
+                    val fallbackMsg = ChatMessage(
+                        id = "ai_err_${System.currentTimeMillis()}",
+                        isUser = false,
+                        text = "সার্ভারের সাথে সংযোগ স্থাপন করা যায়নি। দয়া করে নেটওয়ার্ক চেক করে আবার চেষ্টা করুন।",
+                        timeFormatted = currentTime()
+                    )
+                    _messages.value = _messages.value + fallbackMsg
+                }
+            )
+            _isLoading.value = false
+        }
+    }
+
+    private companion object {
+        const val TAG = "EDEN_APP"
+
+        fun currentTime(): String {
+            return SimpleDateFormat("h:mm a", Locale.getDefault()).format(Date())
+        }
+    }
+}
