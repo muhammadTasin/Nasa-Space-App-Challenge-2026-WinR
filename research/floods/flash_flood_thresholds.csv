@@ -1,0 +1,5 @@
+threshold_mm,flood_years_caught,no_flood_years_flagged,seasons_flagged,seasons_flagged_before_15_apr
+100,5 of 5,1 of 3,21 of 25,13 of 25
+150,3 of 5,1 of 3,13 of 25,7 of 25
+200,3 of 5,0 of 3,8 of 25,5 of 25
+250,3 of 5,0 of 3,5 of 25,2 of 25

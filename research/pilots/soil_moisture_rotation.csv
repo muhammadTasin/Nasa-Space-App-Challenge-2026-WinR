@@ -1,0 +1,6 @@
+site_id,20_oct_median_mm,20_oct_p10_mm,20_oct_p90_mm,10_nov_median_mm,10_nov_p10_mm,10_nov_p90_mm,19_nov_median_mm,19_nov_p10_mm,19_nov_p90_mm,01_dec_median_mm,01_dec_p10_mm,01_dec_p90_mm,lost_10_to_19_nov_median_mm,lost_10_to_19_nov_p10_p90_mm,smap_overlap_days,smap_spearman,smap_nov_drying_m3m3_per_10d,gldas_nov_drying_mm_per_10d
+RAJ_TANORE,312,274,360,290,268,339,285,260,332,275,253,322,7.9,3.5-12.3,1008,0.86,-0.0061,1.4
+SUN_DHARMAPASHA,392,369,412,362,329,390,346,319,373,329,308,353,16.0,8.6-19.5,1008,0.96,-0.0056,-4.7
+KHU_BATIAGHATA,386,363,418,372,346,384,357,338,382,345,325,368,10.4,2.6-17.3,1008,0.93,-0.0091,-1.6
+SIR_ULLAHPARA,359,300,404,324,294,359,307,287,344,296,280,325,11.6,6.1-19.2,1008,0.93,-0.0032,0.6
+RAN_MITHAPUKUR,377,334,411,343,309,376,327,302,359,312,293,345,13.6,8.3-18.5,1008,0.93,-0.0066,-1.3

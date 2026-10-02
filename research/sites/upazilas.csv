@@ -1,0 +1,545 @@
+site_id,name,district,lat,lon
+ADM3_Abhaynagar,Abhaynagar,Jessore,23.0177,89.4204
+ADM3_Adabor,Adabor,Dhaka,23.7702,90.3533
+ADM3_Adamdighi,Adamdighi,Bogra,24.7992,89.0595
+ADM3_Aditmari,Aditmari,Lalmonirhat,25.9421,89.3687
+ADM3_Agailjhara,Agailjhara,Barisal,22.968,90.1408
+ADM3_Ajmiriganj,Ajmiriganj,Habiganj,24.5533,91.2843
+ADM3_Akhaura,Akhaura,Brahamanbaria,23.8386,91.1951
+ADM3_Akkelpur,Akkelpur,Joypurhat,24.934,89.0421
+ADM3_Alamdanga,Alamdanga,Chuadanga,23.7293,88.9081
+ADM3_Alfadanga,Alfadanga,Faridpur,23.2968,89.6699
+ADM3_Alikadam,Alikadam,Bandarban,21.6001,92.3846
+ADM3_Amtali,Amtali,Barguna,22.0749,90.2028
+ADM3_Anowara,Anowara,Chittagong,22.2026,91.8812
+ADM3_Araihazar,Araihazar,Narayanganj,23.761,90.6689
+ADM3_Ashuganj,Ashuganj,Brahamanbaria,24.0158,91.0184
+ADM3_Assasuni,Assasuni,Satkhira,22.5192,89.1874
+ADM3_Atgharia,Atgharia,Pabna,24.1083,89.2819
+ADM3_Atpara,Atpara,Netrakona,24.7914,90.8762
+ADM3_Atrai,Atrai,Naogaon,24.6252,88.9879
+ADM3_Atwari,Atwari,Panchagarh,26.2496,88.4264
+ADM3_Austagram,Austagram,Kishoreganj,24.323,91.1215
+ADM3_Babuganj,Babuganj,Barisal,22.8235,90.3146
+ADM3_Badalgachhi,Badalgachhi,Naogaon,24.9659,88.9435
+ADM3_Badarganj,Badarganj,Rangpur,25.6659,89.0564
+ADM3_Badda,Badda,Dhaka,23.798,90.4489
+ADM3_BagatiPara,Bagati Para,Natore,24.3122,88.9467
+ADM3_BagerhatSadar,Bagerhat Sadar,Bagerhat,22.6775,89.7632
+ADM3_Bagha,Bagha,Rajshahi,24.2004,88.8283
+ADM3_BaghaiChhari,Baghai Chhari,Rangamati,23.3731,92.2294
+ADM3_BagherPara,Bagher Para,Jessore,23.2424,89.3355
+ADM3_Baghmara,Baghmara,Rajshahi,24.5911,88.8107
+ADM3_Bahubal,Bahubal,Habiganj,24.3606,91.5464
+ADM3_Bajitpur,Bajitpur,Kishoreganj,24.2245,90.9512
+ADM3_Bakalia,Bakalia,Chittagong,22.3473,91.8555
+ADM3_Bakerganj,Bakerganj,Barisal,22.5524,90.3826
+ADM3_Bakshiganj,Bakshiganj,Jamalpur,25.2149,89.8527
+ADM3_Balaganj,Balaganj,Sylhet,24.6954,91.7734
+ADM3_BaliaKandi,Balia Kandi,Rajbari,23.6497,89.5507
+ADM3_Baliadangi,Baliadangi,Thakurgaon,26.1085,88.2637
+ADM3_Bamna,Bamna,Barguna,22.2725,90.0581
+ADM3_BanariPara,Banari Para,Barisal,22.8118,90.1284
+ADM3_Banchharampur,Banchharampur,Brahamanbaria,23.7801,90.807
+ADM3_Bandar,Bandar,Narayanganj,23.6377,90.5378
+ADM3_BandarbanSadar,Bandarban Sadar,Bandarban,22.1711,92.2182
+ADM3_Bangshal,Bangshal,Dhaka,23.7182,90.4051
+ADM3_Baniachong,Baniachong,Habiganj,24.4947,91.3654
+ADM3_Banshkhali,Banshkhali,Chittagong,22.0147,91.9402
+ADM3_Baraigram,Baraigram,Natore,24.2737,89.1476
+ADM3_BargunaSadar,Barguna Sadar,Barguna,22.1346,90.109
+ADM3_Barhatta,Barhatta,Netrakona,24.9196,90.8852
+ADM3_BarisalSadarKotwali,Barisal Sadar (Kotwali),Barisal,22.7146,90.3822
+ADM3_Barkal,Barkal,Rangamati,22.8454,92.3447
+ADM3_Barlekha,Barlekha,Maulvibazar,24.7082,92.1756
+ADM3_Barura,Barura,Comilla,23.3557,91.0394
+ADM3_Basail,Basail,Tangail,24.2311,90.0394
+ADM3_Batiaghata,Batiaghata,Khulna,22.7143,89.5162
+ADM3_Bauphal,Bauphal,Patuakhali,22.433,90.5384
+ADM3_BayejidBostami,Bayejid Bostami,Chittagong,22.4193,91.8079
+ADM3_BeaniBazar,Beani Bazar,Sylhet,24.8489,92.1591
+ADM3_Begumganj,Begumganj,Noakhali,22.9306,91.0952
+ADM3_Belabo,Belabo,Narsingdi,24.0986,90.8493
+ADM3_BelaiChhari,Belai Chhari,Rangamati,22.3028,92.4852
+ADM3_Belkuchi,Belkuchi,Sirajganj,24.2953,89.7021
+ADM3_Bera,Bera,Pabna,23.9424,89.656
+ADM3_Betagi,Betagi,Barguna,22.3472,90.1482
+ADM3_Bhairab,Bhairab,Kishoreganj,24.0974,90.9816
+ADM3_Bhaluka,Bhaluka,Mymensingh,24.3817,90.3535
+ADM3_Bhandaria,Bhandaria,Pirojpur,22.4542,90.0215
+ADM3_Bhanga,Bhanga,Faridpur,23.3867,90.0098
+ADM3_Bhangura,Bhangura,Pabna,24.239,89.3927
+ADM3_Bhedarganj,Bhedarganj,Shariatpur,23.2114,90.51
+ADM3_Bheramara,Bheramara,Kushtia,24.0568,88.9815
+ADM3_BholaSadar,Bhola Sadar,Bhola,22.6837,90.6188
+ADM3_Bholahat,Bholahat,Nawabganj,24.8963,88.2097
+ADM3_Bhuapur,Bhuapur,Tangail,24.4767,89.8143
+ADM3_Bhurungamari,Bhurungamari,Kurigram,26.1161,89.6935
+ADM3_Bijoynagar,Bijoynagar,Brahamanbaria,23.9944,91.2282
+ADM3_BimanBandar,Biman Bandar,Dhaka,23.8475,90.406
+ADM3_Biral,Biral,Dinajpur,25.6467,88.5477
+ADM3_Birampur,Birampur,Dinajpur,25.3791,88.9637
+ADM3_Birganj,Birganj,Dinajpur,25.9279,88.6266
+ADM3_Bishwambarpur,Bishwambarpur,Sunamganj,25.1098,91.3151
+ADM3_Bishwanath,Bishwanath,Sylhet,24.8349,91.7292
+ADM3_Boalia,Boalia,Rajshahi,24.3779,88.6133
+ADM3_Boalkhali,Boalkhali,Chittagong,22.377,91.9701
+ADM3_Boalmari,Boalmari,Faridpur,23.4045,89.6971
+ADM3_Bochaganj,Bochaganj,Dinajpur,25.7857,88.4535
+ADM3_Boda,Boda,Panchagarh,26.2306,88.6127
+ADM3_BograSadar,Bogra Sadar,Bogra,24.8955,89.3557
+ADM3_BrahmanPara,Brahman Para,Comilla,23.6452,91.0966
+ADM3_BrahmanbariaSadar,Brahmanbaria Sadar,Brahamanbaria,23.9506,91.119
+ADM3_Burhanuddin,Burhanuddin,Bhola,22.4774,90.7331
+ADM3_Burichang,Burichang,Comilla,23.5337,91.117
+ADM3_Cantonment,Cantonment,Dhaka,23.8145,90.3999
+ADM3_ChakBazar,Chak Bazar,Dhaka,23.717,90.3938
+ADM3_Chakaria,Chakaria,Cox's Bazar,21.7402,92.0524
+ADM3_Chandanaish,Chandanaish,Chittagong,22.2122,92.0635
+ADM3_Chandgaon,Chandgaon,Chittagong,22.3876,91.8649
+ADM3_Chandina,Chandina,Comilla,23.4459,90.9465
+ADM3_ChandpurSadar,Chandpur Sadar,Chandpur,23.227,90.6908
+ADM3_CharBhadrasan,Char Bhadrasan,Faridpur,23.5926,89.978
+ADM3_CharFasson,Char Fasson,Bhola,22.1331,90.7071
+ADM3_CharRajibpur,Char Rajibpur,Kurigram,25.4433,89.764
+ADM3_Charghat,Charghat,Rajshahi,24.3001,88.7754
+ADM3_Chatkhil,Chatkhil,Noakhali,23.0538,90.9639
+ADM3_Chatmohar,Chatmohar,Pabna,24.2252,89.302
+ADM3_Chauddagram,Chauddagram,Comilla,23.2203,91.2804
+ADM3_Chaugachha,Chaugachha,Jessore,23.2634,89.0218
+ADM3_Chauhali,Chauhali,Sirajganj,24.1363,89.7566
+ADM3_Chhagalnaiya,Chhagalnaiya,Feni,23.017,91.507
+ADM3_Chhatak,Chhatak,Sunamganj,24.9439,91.6155
+ADM3_Chilmari,Chilmari,Kurigram,25.5663,89.7184
+ADM3_Chirirbandar,Chirirbandar,Dinajpur,25.6654,88.7865
+ADM3_Chitalmari,Chitalmari,Bagerhat,22.8123,89.8653
+ADM3_ChittagongPort,Chittagong Port,Chittagong,22.3085,91.7859
+ADM3_ChuadangaSadar,Chuadanga Sadar,Chuadanga,23.5886,88.8846
+ADM3_Chunarughat,Chunarughat,Habiganj,24.1816,91.5174
+ADM3_ComillaAdarshaSadar,Comilla Adarsha Sadar,Comilla,23.4699,91.1712
+ADM3_ComillaSadarDakshin,Comilla Sadar Dakshin,Comilla,23.358,91.1833
+ADM3_Companiganj_539746,Companiganj,Noakhali,22.7825,91.2735
+ADM3_Companiganj_185666,Companiganj,Sylhet,25.0796,91.7734
+ADM3_CoxsBazarSadar,Cox's Bazar Sadar,Cox's Bazar,21.5056,92.0347
+ADM3_Dacope,Dacope,Khulna,22.3889,89.5185
+ADM3_Daganbhuiyan,Daganbhuiyan,Feni,22.9706,91.2997
+ADM3_DakshinSunamganj,Dakshin Sunamganj,Sunamganj,24.9126,91.4106
+ADM3_DakshinSurma,Dakshin Surma,Sylhet,24.8161,91.877
+ADM3_Dakshinkhan,Dakshinkhan,Dhaka,23.8611,90.425
+ADM3_Damudya,Damudya,Shariatpur,23.1368,90.4217
+ADM3_Damurhuda,Damurhuda,Chuadanga,23.5931,88.7404
+ADM3_DarusSalam,Darus Salam,Dhaka,23.7841,90.3452
+ADM3_Dashmina,Dashmina,Patuakhali,22.2802,90.5379
+ADM3_Daudkandi,Daudkandi,Comilla,23.5027,90.7731
+ADM3_Daulatkhan,Daulatkhan,Bhola,22.5959,90.702
+ADM3_Daulatpur_839920,Daulatpur,Manikganj,23.9558,89.7977
+ADM3_Daulatpur_050002,Daulatpur,Khulna,22.8753,89.5092
+ADM3_Daulatpur_326946,Daulatpur,Kushtia,24.0272,88.8392
+ADM3_Debhata,Debhata,Satkhira,22.5972,89.0153
+ADM3_Debidwar,Debidwar,Comilla,23.5783,90.9979
+ADM3_Debiganj,Debiganj,Panchagarh,26.1321,88.7194
+ADM3_Delduar,Delduar,Tangail,24.142,89.9377
+ADM3_Demra,Demra,Dhaka,23.7245,90.481
+ADM3_Derai,Derai,Sunamganj,24.7875,91.336
+ADM3_Dewanganj,Dewanganj,Jamalpur,25.2636,89.7659
+ADM3_Dhamoirhat,Dhamoirhat,Naogaon,25.1304,88.823
+ADM3_Dhamrai,Dhamrai,Dhaka,23.9371,90.1414
+ADM3_Dhanbari,Dhanbari,Tangail,24.6867,89.9333
+ADM3_Dhanmondi,Dhanmondi,Dhaka,23.7452,90.3734
+ADM3_Dharampasha,Dharampasha,Sunamganj,25.0107,91.0407
+ADM3_Dhobaura,Dhobaura,Mymensingh,25.1012,90.5249
+ADM3_Dhunat,Dhunat,Bogra,24.6825,89.5503
+ADM3_Dhupchanchia,Dhupchanchia,Bogra,24.8837,89.1392
+ADM3_Dighalia,Dighalia,Khulna,22.9252,89.5601
+ADM3_Dighinala,Dighinala,Khagrachhari,23.3994,92.0498
+ADM3_Dimla,Dimla,Nilphamari,26.1721,88.9725
+ADM3_DinajpurSadar,Dinajpur Sadar,Dinajpur,25.6081,88.6774
+ADM3_Dohar,Dohar,Dhaka,23.6009,90.1093
+ADM3_Domar,Domar,Nilphamari,26.1586,88.8252
+ADM3_DoubleMooring,Double Mooring,Chittagong,22.3304,91.8093
+ADM3_Dowarabazar,Dowarabazar,Sunamganj,25.0717,91.5625
+ADM3_Dumki,Dumki,Patuakhali,22.4503,90.3719
+ADM3_Dumuria,Dumuria,Khulna,22.8054,89.398
+ADM3_Durgapur_169588,Durgapur,Netrakona,25.0897,90.6821
+ADM3_Durgapur_796536,Durgapur,Rajshahi,24.4667,88.7601
+ADM3_Fakirhat,Fakirhat,Bagerhat,22.7425,89.6657
+ADM3_Faridganj,Faridganj,Chandpur,23.1462,90.7609
+ADM3_Faridpur,Faridpur,Pabna,24.1606,89.4488
+ADM3_FaridpurSadar,Faridpur Sadar,Faridpur,23.6048,89.8165
+ADM3_Fatikchhari,Fatikchhari,Chittagong,22.7563,91.7472
+ADM3_Fenchuganj,Fenchuganj,Sylhet,24.6938,91.9617
+ADM3_FeniSadar,Feni Sadar,Feni,22.99,91.4159
+ADM3_Fulbari,Fulbari,Dinajpur,25.4701,88.9019
+ADM3_Fulbaria,Fulbaria,Mymensingh,24.5865,90.2546
+ADM3_Fulchhari,Fulchhari,Gaibandha,25.2543,89.6539
+ADM3_Fulgazi,Fulgazi,Feni,23.118,91.4425
+ADM3_Gabtali,Gabtali,Bogra,24.8868,89.465
+ADM3_Gaffargaon,Gaffargaon,Mymensingh,24.3935,90.5495
+ADM3_GaibandhaSadar,Gaibandha Sadar,Gaibandha,25.3497,89.5667
+ADM3_Galachipa,Galachipa,Patuakhali,22.2031,90.423
+ADM3_Gangachara,Gangachara,Rangpur,25.8742,89.1933
+ADM3_Gangni,Gangni,Meherpur,23.8576,88.771
+ADM3_Gauripur,Gauripur,Mymensingh,24.756,90.5858
+ADM3_Gaurnadi,Gaurnadi,Barisal,22.9662,90.2447
+ADM3_Gazaria,Gazaria,Munshiganj,23.5472,90.6297
+ADM3_GazipurSadar,Gazipur Sadar,Gazipur,24.0141,90.3962
+ADM3_Gendaria,Gendaria,Dhaka,23.7066,90.4225
+ADM3_Ghatail,Ghatail,Tangail,24.4735,90.0516
+ADM3_Ghior,Ghior,Manikganj,23.8732,89.9046
+ADM3_Ghoraghat,Ghoraghat,Dinajpur,25.2844,89.2143
+ADM3_Goalandaghat,Goalandaghat,Rajbari,23.7564,89.7661
+ADM3_Gobindaganj,Gobindaganj,Gaibandha,25.1572,89.3691
+ADM3_Godagari,Godagari,Rajshahi,24.4836,88.4147
+ADM3_Golabganj,Golabganj,Sylhet,24.812,92.017
+ADM3_Gomastapur,Gomastapur,Nawabganj,24.8569,88.355
+ADM3_GopalganjSadar,Gopalganj Sadar,Gopalganj,23.0604,89.8489
+ADM3_Gopalpur,Gopalpur,Tangail,24.572,89.9036
+ADM3_Gosairhat,Gosairhat,Shariatpur,23.0796,90.447
+ADM3_Gowainghat,Gowainghat,Sylhet,25.0831,91.9583
+ADM3_Gulshan,Gulshan,Dhaka,23.7896,90.4121
+ADM3_Gurudaspur,Gurudaspur,Natore,24.3728,89.203
+ADM3_HabiganjSadar,Habiganj Sadar,Habiganj,24.3359,91.4143
+ADM3_HaimChar,Haim Char,Chandpur,23.0727,90.6618
+ADM3_Hajiganj,Hajiganj,Chandpur,23.263,90.8372
+ADM3_Hakimpur,Hakimpur,Dinajpur,25.2921,89.062
+ADM3_Halishahar,Halishahar,Chittagong,22.3375,91.776
+ADM3_Haluaghat,Haluaghat,Mymensingh,25.0846,90.3513
+ADM3_Harinakunda,Harinakunda,Jhenaidah,23.6428,89.0766
+ADM3_Haripur,Haripur,Thakurgaon,25.8785,88.1549
+ADM3_Harirampur,Harirampur,Manikganj,23.7242,89.9478
+ADM3_Hathazari,Hathazari,Chittagong,22.5287,91.7971
+ADM3_Hatibandha,Hatibandha,Lalmonirhat,26.1215,89.1409
+ADM3_Hatiya,Hatiya,Noakhali,22.2431,91.1116
+ADM3_Hazaribagh,Hazaribagh,Dhaka,23.7389,90.3593
+ADM3_Hizla,Hizla,Barisal,22.966,90.5334
+ADM3_Homna,Homna,Comilla,23.6791,90.8128
+ADM3_Hossainpur,Hossainpur,Kishoreganj,24.4488,90.6628
+ADM3_Ishwardi,Ishwardi,Pabna,24.0778,89.0972
+ADM3_Ishwarganj,Ishwarganj,Mymensingh,24.645,90.5994
+ADM3_Islampur,Islampur,Jamalpur,25.0752,89.7613
+ADM3_Itna,Itna,Kishoreganj,24.5491,91.0826
+ADM3_Jagannathpur,Jagannathpur,Sunamganj,24.7469,91.5558
+ADM3_Jaintiapur,Jaintiapur,Sylhet,25.0565,92.1014
+ADM3_Jaldhaka,Jaldhaka,Nilphamari,26.0296,88.9933
+ADM3_Jamalganj,Jamalganj,Sunamganj,24.9542,91.203
+ADM3_JamalpurSadar,Jamalpur Sadar,Jamalpur,24.8442,90.0125
+ADM3_Jatrabari,Jatrabari,Dhaka,23.7134,90.4515
+ADM3_JhalokatiSadar,Jhalokati Sadar,Jhalokati,22.6797,90.1922
+ADM3_JhenaidahSadar,Jhenaidah Sadar,Jhenaidah,23.5165,89.1577
+ADM3_Jhenaigati,Jhenaigati,Sherpur,25.1818,90.053
+ADM3_Jhikargachha,Jhikargachha,Jessore,23.0688,89.0542
+ADM3_JibanNagar,Jiban Nagar,Chuadanga,23.4411,88.8491
+ADM3_JoypurhatSadar,Joypurhat Sadar,Joypurhat,25.1055,89.0199
+ADM3_JuraiChhari,Jurai Chhari,Rangamati,22.6309,92.4225
+ADM3_Juri,Juri,Maulvibazar,24.5532,92.1432
+ADM3_Kabirhat,Kabirhat,Noakhali,22.8133,91.1999
+ADM3_Kachua_371605,Kachua,Chandpur,23.3627,90.8817
+ADM3_Kachua_342001,Kachua,Bagerhat,22.6523,89.8748
+ADM3_Kadamtali,Kadamtali,Dhaka,23.6872,90.4484
+ADM3_Kafrul,Kafrul,Dhaka,23.7953,90.3848
+ADM3_Kahaloo,Kahaloo,Bogra,24.8323,89.2505
+ADM3_Kaharole,Kaharole,Dinajpur,25.8009,88.5988
+ADM3_KalaPara,Kala Para,Patuakhali,21.8914,90.1948
+ADM3_Kalabagan,Kalabagan,Dhaka,23.7469,90.386
+ADM3_Kalai,Kalai,Joypurhat,25.0779,89.1977
+ADM3_Kalaroa,Kalaroa,Satkhira,22.8807,89.0303
+ADM3_Kalia,Kalia,Narail,23.028,89.644
+ADM3_Kaliakair,Kaliakair,Gazipur,24.1033,90.2645
+ADM3_Kaliganj_086039,Kaliganj,Gazipur,23.9642,90.5549
+ADM3_Kaliganj_882675,Kaliganj,Jhenaidah,23.3697,89.1518
+ADM3_Kaliganj_663470,Kaliganj,Satkhira,22.4473,89.0623
+ADM3_Kaliganj_098735,Kaliganj,Lalmonirhat,25.9856,89.2402
+ADM3_Kalihati,Kalihati,Tangail,24.36,89.9448
+ADM3_Kalkini,Kalkini,Madaripur,23.0709,90.2481
+ADM3_Kalmakanda,Kalmakanda,Netrakona,25.077,90.8573
+ADM3_Kalukhali,Kalukhali,Rajbari,23.741,89.4743
+ADM3_Kamalganj,Kamalganj,Maulvibazar,24.3157,91.8592
+ADM3_Kamalnagar,Kamalnagar,Lakshmipur,22.7677,90.8653
+ADM3_Kamarkhanda,Kamarkhanda,Sirajganj,24.3751,89.6434
+ADM3_KamrangirChar,Kamrangir Char,Dhaka,23.712,90.3715
+ADM3_Kanaighat,Kanaighat,Sylhet,24.9935,92.218
+ADM3_Kanthalia,Kanthalia,Jhalokati,22.4203,90.1024
+ADM3_Kapasia,Kapasia,Gazipur,24.1472,90.5999
+ADM3_Kaptai,Kaptai,Rangamati,22.4599,92.1934
+ADM3_Karimganj,Karimganj,Kishoreganj,24.4513,90.896
+ADM3_Kasba,Kasba,Brahamanbaria,23.763,91.1303
+ADM3_Kashiani,Kashiani,Gopalganj,23.1907,89.7963
+ADM3_Katiadi,Katiadi,Kishoreganj,24.2911,90.824
+ADM3_Kaunia,Kaunia,Rangpur,25.7639,89.395
+ADM3_Kawkhali,Kawkhali,Pirojpur,22.6067,90.0585
+ADM3_KawkhaliBetbunia,Kawkhali (Betbunia),Rangamati,22.6207,92.0095
+ADM3_Kazipur,Kazipur,Sirajganj,24.6702,89.6872
+ADM3_Kendua,Kendua,Netrakona,24.6773,90.8028
+ADM3_Keraniganj,Keraniganj,Dhaka,23.6935,90.3443
+ADM3_Keshabpur,Keshabpur,Jessore,22.8801,89.2318
+ADM3_KhagrachhariSadar,Khagrachhari Sadar,Khagrachhari,23.1286,91.9861
+ADM3_Khaliajuri,Khaliajuri,Netrakona,24.7023,91.1212
+ADM3_Khalishpur,Khalishpur,Khulna,22.8497,89.5363
+ADM3_KhanJahanAli,Khan Jahan Ali,Khulna,22.9168,89.4907
+ADM3_Khansama,Khansama,Dinajpur,25.8698,88.7652
+ADM3_Khetlal,Khetlal,Joypurhat,25.0225,89.1181
+ADM3_Khilgaon,Khilgaon,Dhaka,23.76,90.455
+ADM3_Khilkhet,Khilkhet,Dhaka,23.8344,90.4474
+ADM3_Khoksa,Khoksa,Kushtia,23.8089,89.2998
+ADM3_KhulnaSadar,Khulna Sadar,Khulna,22.8006,89.5687
+ADM3_Khulshi,Khulshi,Chittagong,22.3661,91.8002
+ADM3_Kishoreganj,Kishoreganj,Nilphamari,25.8961,89.0328
+ADM3_KishoreganjSadar,Kishoreganj Sadar,Kishoreganj,24.4238,90.7833
+ADM3_KotaliPara,Kotali Para,Gopalganj,23.0111,90.0207
+ADM3_Kotchandpur,Kotchandpur,Jhenaidah,23.4479,88.9987
+ADM3_Kotwali_226647,Kotwali,Chittagong,22.3429,91.8325
+ADM3_Kotwali_832933,Kotwali,Dhaka,23.7099,90.4079
+ADM3_Kotwali_291187,Kotwali,Jessore,23.1819,89.2192
+ADM3_Koyra,Koyra,Khulna,22.3377,89.3466
+ADM3_Kulaura,Kulaura,Maulvibazar,24.4903,92.0123
+ADM3_KuliarChar,Kuliar Char,Kishoreganj,24.152,90.8881
+ADM3_Kumarkhali,Kumarkhali,Kushtia,23.8567,89.2096
+ADM3_KurigramSadar,Kurigram Sadar,Kurigram,25.826,89.6907
+ADM3_KushtiaSadar,Kushtia Sadar,Kushtia,23.8223,89.0896
+ADM3_Kutubdia,Kutubdia,Cox's Bazar,21.8378,91.8625
+ADM3_Lakhai,Lakhai,Habiganj,24.2981,91.2603
+ADM3_Laksam,Laksam,Comilla,23.2388,91.1053
+ADM3_Lakshmichhari,Lakshmichhari,Khagrachhari,22.7849,91.929
+ADM3_LakshmipurSadar,Lakshmipur Sadar,Lakshmipur,22.9239,90.8684
+ADM3_Lalbagh,Lalbagh,Dhaka,23.7213,90.3783
+ADM3_Lalmohan,Lalmohan,Bhola,22.3148,90.7543
+ADM3_LalmonirhatSadar,Lalmonirhat Sadar,Lalmonirhat,25.8747,89.4527
+ADM3_Lalpur,Lalpur,Natore,24.1983,88.9849
+ADM3_Lama,Lama,Bandarban,21.8181,92.2076
+ADM3_Langadu,Langadu,Rangamati,22.9505,92.2089
+ADM3_Lohagara_836566,Lohagara,Chittagong,21.9862,92.111
+ADM3_Lohagara_691580,Lohagara,Narail,23.2048,89.6234
+ADM3_Lohajang,Lohajang,Munshiganj,23.4706,90.3413
+ADM3_Madan,Madan,Netrakona,24.6775,90.9669
+ADM3_Madarganj,Madarganj,Jamalpur,24.8819,89.7408
+ADM3_MadaripurSadar,Madaripur Sadar,Madaripur,23.1938,90.175
+ADM3_Madhabpur,Madhabpur,Habiganj,24.1205,91.3415
+ADM3_Madhukhali,Madhukhali,Faridpur,23.5409,89.612
+ADM3_Madhupur,Madhupur,Tangail,24.6502,90.0602
+ADM3_MaguraSadar,Magura Sadar,Magura,23.4519,89.4131
+ADM3_Mahadebpur,Mahadebpur,Naogaon,24.9199,88.7647
+ADM3_Mahalchhari,Mahalchhari,Khagrachhari,22.9515,92.0232
+ADM3_Maheshkhali,Maheshkhali,Cox's Bazar,21.6094,91.9218
+ADM3_Maheshpur,Maheshpur,Jhenaidah,23.3197,88.8578
+ADM3_Manda,Manda,Naogaon,24.7444,88.713
+ADM3_Manikchhari,Manikchhari,Khagrachhari,22.8412,91.8191
+ADM3_ManikganjSadar,Manikganj Sadar,Manikganj,23.8357,90.0305
+ADM3_Manirampur,Manirampur,Jessore,23.0062,89.2202
+ADM3_Manohardi,Manohardi,Narsingdi,24.1607,90.7304
+ADM3_Manoharganj,Manoharganj,Comilla,23.1402,91.067
+ADM3_Manpura,Manpura,Bhola,22.2002,90.9548
+ADM3_Mathbaria,Mathbaria,Pirojpur,22.2853,89.9507
+ADM3_Matihar,Matihar,Rajshahi,24.3676,88.6468
+ADM3_Matiranga,Matiranga,Khagrachhari,23.1044,91.8548
+ADM3_MatlabDakshin,Matlab Dakshin,Chandpur,23.3501,90.7475
+ADM3_MatlabUttar,Matlab Uttar,Chandpur,23.4145,90.642
+ADM3_MaulviBazarSadar,Maulvi Bazar Sadar,Maulvibazar,24.4995,91.7123
+ADM3_Meghna,Meghna,Comilla,23.6248,90.6909
+ADM3_Mehendiganj,Mehendiganj,Barisal,22.8404,90.56
+ADM3_MeherpurSadar,Meherpur Sadar,Meherpur,23.7661,88.6611
+ADM3_Melandaha,Melandaha,Jamalpur,24.9574,89.8247
+ADM3_Mirpur_169518,Mirpur,Dhaka,23.7942,90.3618
+ADM3_Mirpur_956594,Mirpur,Kushtia,23.8961,88.9896
+ADM3_Mirsharai,Mirsharai,Chittagong,22.81,91.5502
+ADM3_Mirzaganj,Mirzaganj,Patuakhali,22.3569,90.2167
+ADM3_Mirzapur,Mirzapur,Tangail,24.1159,90.1072
+ADM3_MithaPukur,Mitha Pukur,Rangpur,25.5713,89.2612
+ADM3_Mithamain,Mithamain,Kishoreganj,24.433,91.1107
+ADM3_Mohammadpur_517929,Mohammadpur,Dhaka,23.7586,90.3565
+ADM3_Mohammadpur_792291,Mohammadpur,Magura,23.4009,89.5523
+ADM3_Mohanganj,Mohanganj,Netrakona,24.8268,91.0237
+ADM3_Mohanpur,Mohanpur,Rajshahi,24.5536,88.6403
+ADM3_Mollahat,Mollahat,Bagerhat,22.8827,89.7733
+ADM3_Mongla,Mongla,Bagerhat,22.3313,89.6749
+ADM3_Morrelganj,Morrelganj,Bagerhat,22.4838,89.8336
+ADM3_Motijheel,Motijheel,Dhaka,23.7347,90.4215
+ADM3_MujibNagar,Mujib Nagar,Meherpur,23.6683,88.6213
+ADM3_Muksudpur,Muksudpur,Gopalganj,23.2667,89.9144
+ADM3_Muktagachha,Muktagachha,Mymensingh,24.743,90.2038
+ADM3_Muladi,Muladi,Barisal,22.9526,90.3759
+ADM3_MunshiganjSadar,Munshiganj Sadar,Munshiganj,23.4865,90.5276
+ADM3_Muradnagar,Muradnagar,Comilla,23.6776,90.9437
+ADM3_MymensinghSadar,Mymensingh Sadar,Mymensingh,24.7746,90.3614
+ADM3_Nabiganj,Nabiganj,Habiganj,24.5696,91.5444
+ADM3_Nabinagar,Nabinagar,Brahamanbaria,23.8635,90.9804
+ADM3_Nachole,Nachole,Nawabganj,24.7267,88.3964
+ADM3_Nagarkanda,Nagarkanda,Faridpur,23.4373,89.8944
+ADM3_Nagarpur,Nagarpur,Tangail,24.0477,89.8742
+ADM3_Nageshwari,Nageshwari,Kurigram,25.9585,89.7401
+ADM3_Naikhongchhari,Naikhongchhari,Cox's Bazar,21.469,92.2287
+ADM3_Nakla,Nakla,Sherpur,24.9568,90.1836
+ADM3_Nalchity,Nalchity,Jhalokati,22.6007,90.2736
+ADM3_Nalitabari,Nalitabari,Sherpur,25.1175,90.1835
+ADM3_Nandail,Nandail,Mymensingh,24.5502,90.677
+ADM3_Nandigram,Nandigram,Bogra,24.6813,89.2268
+ADM3_Nangalkot,Nangalkot,Comilla,23.1401,91.2093
+ADM3_Naniarchar,Naniarchar,Rangamati,22.8217,92.0694
+ADM3_NaogaonSadar,Naogaon Sadar,Naogaon,24.811,88.8981
+ADM3_NarailSadar,Narail Sadar,Narail,23.1546,89.4948
+ADM3_NarayanganjSadar,Narayanganj Sadar,Narayanganj,23.6275,90.4811
+ADM3_Naria,Naria,Shariatpur,23.3046,90.4273
+ADM3_NarsingdiSadar,Narsingdi Sadar,Narsingdi,23.8667,90.7082
+ADM3_Nasirnagar,Nasirnagar,Brahamanbaria,24.1822,91.1875
+ADM3_NatoreSadar,Natore Sadar,Natore,24.4432,88.9841
+ADM3_Nawabganj_222310,Nawabganj,Dhaka,23.6735,90.1608
+ADM3_Nawabganj_718336,Nawabganj,Dinajpur,25.4204,89.0916
+ADM3_NawabganjSadar,Nawabganj Sadar,Nawabganj,24.5649,88.258
+ADM3_Nazirpur,Nazirpur,Pirojpur,22.7703,89.9743
+ADM3_NesarabadSwarupkati,Nesarabad (Swarupkati),Pirojpur,22.7226,90.0857
+ADM3_NetrokonaSadar,Netrokona Sadar,Netrakona,24.8868,90.7374
+ADM3_NewMarket,New Market,Dhaka,23.7355,90.3808
+ADM3_Niamatpur,Niamatpur,Naogaon,24.8285,88.5515
+ADM3_Nikli,Nikli,Kishoreganj,24.3368,90.9631
+ADM3_NilphamariSadar,Nilphamari Sadar,Nilphamari,25.9417,88.8548
+ADM3_NoakhaliSadarSudharam,Noakhali Sadar (Sudharam),Noakhali,22.8024,91.0606
+ADM3_Paba,Paba,Rajshahi,24.4022,88.6004
+ADM3_PabnaSadar,Pabna Sadar,Pabna,23.9938,89.2814
+ADM3_Pahartali,Pahartali,Chittagong,22.3596,91.7728
+ADM3_Paikgachha,Paikgachha,Khulna,22.5906,89.3403
+ADM3_Pakundia,Pakundia,Kishoreganj,24.3206,90.6926
+ADM3_Palash,Palash,Narsingdi,23.9538,90.6494
+ADM3_Palashbari,Palashbari,Gaibandha,25.2636,89.3967
+ADM3_Pallabi,Pallabi,Dhaka,23.8254,90.3683
+ADM3_Paltan,Paltan,Dhaka,23.735,90.4139
+ADM3_PanchagarhSadar,Panchagarh Sadar,Panchagarh,26.3674,88.5818
+ADM3_Panchbibi,Panchbibi,Joypurhat,25.2022,89.0704
+ADM3_Panchhari,Panchhari,Khagrachhari,23.3197,91.9101
+ADM3_Panchlaish,Panchlaish,Chittagong,22.3734,91.8288
+ADM3_Pangsha,Pangsha,Rajbari,23.7878,89.3869
+ADM3_Parbatipur,Parbatipur,Dinajpur,25.6188,88.9256
+ADM3_Parshuram,Parshuram,Feni,23.2013,91.4397
+ADM3_Patenga,Patenga,Chittagong,22.263,91.7958
+ADM3_Patgram,Patgram,Lalmonirhat,26.347,89.0256
+ADM3_Patharghata,Patharghata,Barguna,22.0941,89.9658
+ADM3_Patiya,Patiya,Chittagong,22.292,91.964
+ADM3_Patnitala,Patnitala,Naogaon,25.0754,88.7165
+ADM3_PatuakhaliSadar,Patuakhali Sadar,Patuakhali,22.3358,90.329
+ADM3_Pekua,Pekua,Cox's Bazar,21.8182,91.9527
+ADM3_Phulbari,Phulbari,Kurigram,25.9481,89.5713
+ADM3_Phulpur,Phulpur,Mymensingh,24.9085,90.4064
+ADM3_Phultala,Phultala,Khulna,22.9565,89.4419
+ADM3_Pirgachha,Pirgachha,Rangpur,25.6652,89.42
+ADM3_Pirganj_117283,Pirganj,Rangpur,25.4237,89.2743
+ADM3_Pirganj_912558,Pirganj,Thakurgaon,25.8412,88.3679
+ADM3_PirojpurSadar,Pirojpur Sadar,Pirojpur,22.6086,89.9811
+ADM3_Porsha,Porsha,Naogaon,24.9922,88.5177
+ADM3_Purbadhala,Purbadhala,Netrakona,24.9338,90.602
+ADM3_Puthia,Puthia,Rajshahi,24.411,88.8274
+ADM3_Rajapur,Rajapur,Jhalokati,22.5507,90.131
+ADM3_Rajarhat,Rajarhat,Kurigram,25.7861,89.5424
+ADM3_Rajasthali,Rajasthali,Rangamati,22.3785,92.2416
+ADM3_RajbariSadar,Rajbari Sadar,Rajbari,23.7175,89.6542
+ADM3_Rajnagar,Rajnagar,Maulvibazar,24.5653,91.8608
+ADM3_Rajoir,Rajoir,Madaripur,23.2013,90.037
+ADM3_Rajpara,Rajpara,Rajshahi,24.377,88.5672
+ADM3_Ramganj,Ramganj,Lakshmipur,23.0989,90.8726
+ADM3_Ramgarh,Ramgarh,Khagrachhari,22.935,91.831
+ADM3_Ramgati,Ramgati,Lakshmipur,22.6654,90.9468
+ADM3_Ramna,Ramna,Dhaka,23.7483,90.4059
+ADM3_Rampal,Rampal,Bagerhat,22.5914,89.6522
+ADM3_Rampura,Rampura,Dhaka,23.7606,90.4209
+ADM3_Ramu,Ramu,Cox's Bazar,21.4408,92.1211
+ADM3_RangamatiSadar,Rangamati Sadar,Rangamati,22.6365,92.199
+ADM3_RangpurSadar,Rangpur Sadar,Rangpur,25.7459,89.2124
+ADM3_Rangunia,Rangunia,Chittagong,22.465,92.0666
+ADM3_Raninagar,Raninagar,Naogaon,24.7107,89.0218
+ADM3_Ranisankail,Ranisankail,Thakurgaon,25.9401,88.2458
+ADM3_Raozan,Raozan,Chittagong,22.5208,91.917
+ADM3_Raumari,Raumari,Kurigram,25.5915,89.8275
+ADM3_Rowangchhari,Rowangchhari,Bandarban,22.2091,92.3397
+ADM3_Royganj,Royganj,Sirajganj,24.4923,89.5156
+ADM3_Roypur,Roypur,Lakshmipur,23.0003,90.7312
+ADM3_Roypura,Roypura,Narsingdi,23.9602,90.8721
+ADM3_Ruma,Ruma,Bandarban,22.0126,92.4294
+ADM3_Rupganj,Rupganj,Narayanganj,23.8128,90.5388
+ADM3_Rupsa,Rupsa,Khulna,22.8203,89.6364
+ADM3_Sabujbagh,Sabujbagh,Dhaka,23.7346,90.4421
+ADM3_Sadarpur,Sadarpur,Faridpur,23.4959,90.0526
+ADM3_Sadullapur,Sadullapur,Gaibandha,25.3948,89.4264
+ADM3_Saghatta,Saghatta,Gaibandha,25.1234,89.5638
+ADM3_Saidpur,Saidpur,Nilphamari,25.8028,88.9221
+ADM3_Sakhipur,Sakhipur,Tangail,24.3066,90.1728
+ADM3_Saltha,Saltha,Faridpur,23.42,89.7997
+ADM3_Sandwip,Sandwip,Chittagong,22.4912,91.491
+ADM3_Santhia,Santhia,Pabna,24.0422,89.5168
+ADM3_Sapahar,Sapahar,Naogaon,25.1182,88.5303
+ADM3_Sarail,Sarail,Brahamanbaria,24.1032,91.1122
+ADM3_Sarankhola,Sarankhola,Bagerhat,22.2253,89.8144
+ADM3_Sariakandi,Sariakandi,Bogra,24.8812,89.6141
+ADM3_Sarishabari,Sarishabari,Jamalpur,24.7186,89.8304
+ADM3_Satkania,Satkania,Chittagong,22.1045,92.0605
+ADM3_SatkhiraSadar,Satkhira Sadar,Satkhira,22.721,89.0386
+ADM3_Saturia,Saturia,Manikganj,23.9575,90.0016
+ADM3_Savar,Savar,Dhaka,23.8811,90.2807
+ADM3_Senbagh,Senbagh,Noakhali,22.9924,91.2121
+ADM3_Serajdikhan,Serajdikhan,Munshiganj,23.5978,90.3563
+ADM3_ShahAli,Shah Ali,Dhaka,23.8116,90.3475
+ADM3_ShahMakhdum,Shah Makhdum,Rajshahi,24.4029,88.6086
+ADM3_Shahbagh,Shahbagh,Dhaka,23.7326,90.3993
+ADM3_Shahjadpur,Shahjadpur,Sirajganj,24.1628,89.6301
+ADM3_Shahrasti,Shahrasti,Chandpur,23.2087,90.9569
+ADM3_Shailkupa,Shailkupa,Jhenaidah,23.6634,89.2422
+ADM3_Shajahanpur,Shajahanpur,Bogra,24.7601,89.375
+ADM3_Shalikha,Shalikha,Magura,23.3481,89.3585
+ADM3_ShariatpurSadar,Shariatpur Sadar,Shariatpur,23.2161,90.3159
+ADM3_Sharsha,Sharsha,Jessore,23.0449,88.9407
+ADM3_SherebanglaNagar,Sher-e-bangla Nagar,Dhaka,23.7699,90.3757
+ADM3_Sherpur,Sherpur,Bogra,24.6291,89.4223
+ADM3_SherpurSadar,Sherpur Sadar,Sherpur,24.9929,90.0199
+ADM3_ShibChar,Shib Char,Madaripur,23.3754,90.1742
+ADM3_Shibalaya,Shibalaya,Manikganj,23.8383,89.8102
+ADM3_Shibganj_340057,Shibganj,Bogra,25.0166,89.3067
+ADM3_Shibganj_581700,Shibganj,Nawabganj,24.7043,88.1548
+ADM3_Shibpur,Shibpur,Narsingdi,24.026,90.7454
+ADM3_Shyamnagar,Shyamnagar,Satkhira,22.2236,89.1612
+ADM3_Shyampur,Shyampur,Dhaka,23.6971,90.4299
+ADM3_Singair,Singair,Manikganj,23.7834,90.1543
+ADM3_Singra,Singra,Natore,24.5241,89.186
+ADM3_SirajganjSadar,Sirajganj Sadar,Sirajganj,24.494,89.6885
+ADM3_Sitakunda,Sitakunda,Chittagong,22.5588,91.6828
+ADM3_Sonadanga,Sonadanga,Khulna,22.8197,89.5425
+ADM3_Sonagazi,Sonagazi,Feni,22.8655,91.395
+ADM3_Sonaimuri,Sonaimuri,Noakhali,23.0262,91.0777
+ADM3_Sonargaon,Sonargaon,Narayanganj,23.6756,90.5933
+ADM3_Sonatola,Sonatola,Bogra,24.9971,89.514
+ADM3_Sreebardi,Sreebardi,Sherpur,25.1656,89.9549
+ADM3_Sreemangal,Sreemangal,Maulvibazar,24.301,91.698
+ADM3_Sreenagar,Sreenagar,Munshiganj,23.547,90.2632
+ADM3_Sreepur_171075,Sreepur,Gazipur,24.2052,90.4431
+ADM3_Sreepur_021808,Sreepur,Magura,23.5963,89.4244
+ADM3_Subarnachar,Subarnachar,Noakhali,22.637,91.1277
+ADM3_Sujanagar,Sujanagar,Pabna,23.8967,89.5127
+ADM3_Sulla,Sulla,Sunamganj,24.6864,91.2569
+ADM3_SunamganjSadar,Sunamganj Sadar,Sunamganj,25.0508,91.3955
+ADM3_Sundarganj,Sundarganj,Gaibandha,25.51,89.564
+ADM3_Sutrapur,Sutrapur,Dhaka,23.7137,90.4174
+ADM3_SylhetSadar,Sylhet Sadar,Sylhet,24.9413,91.8474
+ADM3_Tahirpur,Tahirpur,Sunamganj,25.1281,91.1633
+ADM3_Tala,Tala,Satkhira,22.7401,89.2105
+ADM3_TangailSadar,Tangail Sadar,Tangail,24.2564,89.8661
+ADM3_Tanore,Tanore,Rajshahi,24.6202,88.5312
+ADM3_Taraganj,Taraganj,Rangpur,25.7806,89.0334
+ADM3_Tarail,Tarail,Kishoreganj,24.5503,90.8908
+ADM3_Tarash,Tarash,Sirajganj,24.4431,89.3581
+ADM3_Tazumuddin,Tazumuddin,Bhola,22.404,90.8164
+ADM3_Tejgaon,Tejgaon,Dhaka,23.7629,90.3917
+ADM3_TejgaonIndArea,Tejgaon Ind. Area,Dhaka,23.7646,90.4032
+ADM3_Teknaf,Teknaf,Cox's Bazar,20.9961,92.2224
+ADM3_Tentulia,Tentulia,Panchagarh,26.5134,88.4298
+ADM3_Terokhada,Terokhada,Khulna,22.9126,89.6543
+ADM3_ThakurgaonSadar,Thakurgaon Sadar,Thakurgaon,26.0707,88.4644
+ADM3_Thanchi,Thanchi,Bandarban,21.6372,92.531
+ADM3_Titas,Titas,Comilla,23.5897,90.797
+ADM3_Tongibari,Tongibari,Munshiganj,23.4761,90.4527
+ADM3_Trishal,Trishal,Mymensingh,24.5639,90.4093
+ADM3_TungiPara,Tungi Para,Gopalganj,22.9256,89.9045
+ADM3_Turag,Turag,Dhaka,23.8599,90.3666
+ADM3_Ukhia,Ukhia,Cox's Bazar,21.2295,92.1159
+ADM3_Ulipur,Ulipur,Kurigram,25.6891,89.6689
+ADM3_UllahPara,Ullah Para,Sirajganj,24.3273,89.5181
+ADM3_UttarKhan,Uttar Khan,Dhaka,23.8746,90.4448
+ADM3_Uttara,Uttara,Dhaka,23.8721,90.394
+ADM3_Wazirpur,Wazirpur,Barisal,22.8656,90.1659
+ADM3_Zakiganj,Zakiganj,Sylhet,24.926,92.3671
+ADM3_Zanjira,Zanjira,Shariatpur,23.3655,90.3183
+ADM3_Zianagar,Zianagar,Bagerhat,22.4657,89.9345
