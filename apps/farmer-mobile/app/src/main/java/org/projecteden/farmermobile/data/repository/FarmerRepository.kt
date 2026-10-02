@@ -42,17 +42,40 @@ class FarmerRepository(
     }
 
     /**
-     * Fetches the server's advice and stores it in Room. On failure the cached advice and its last
-     * successful sync time are kept; only the offline flag changes.
+     * Fetches the server's advice tailored to the farmer's profile and stores it in Room.
+     * On failure the cached advice and its last successful sync time are kept; only the offline flag changes.
      */
     suspend fun refreshAdvice(): Result<Boolean> {
         val cached = farmDao.getAdvice().first() ?: AdviceEntity()
+        val profile = farmDao.getFarmProfile().first() ?: FarmProfileEntity()
         val now = "আজ " + SimpleDateFormat("h:mm a", Locale("bn", "BD")).format(Date())
 
-        return apiClient.fetchAdvice().fold(
+        val apiLandType = when {
+            profile.landType.contains("মাঝারি উঁচু") || profile.landType.contains("medium_high", ignoreCase = true) -> "medium_high"
+            profile.landType.contains("উঁচু") || profile.landType.contains("high", ignoreCase = true) -> "high"
+            profile.landType.contains("মাঝারি নিচু") || profile.landType.contains("medium_low", ignoreCase = true) -> "medium_low"
+            profile.landType.contains("নিচু") || profile.landType.contains("low", ignoreCase = true) -> "low"
+            else -> "medium_high"
+        }
+
+        val p = profile.priorities
+        val (wWater, wIncome, wSoil) = when {
+            p.contains("পানি") || p.contains("water", ignoreCase = true) -> Triple(0.6, 0.2, 0.2)
+            p.contains("মুনাফা") || p.contains("income", ignoreCase = true) -> Triple(0.2, 0.6, 0.2)
+            p.contains("মাটি") || p.contains("soil", ignoreCase = true) -> Triple(0.2, 0.2, 0.6)
+            else -> Triple(0.5, 0.3, 0.2)
+        }
+
+        return apiClient.fetchAdvice(
+            landType = apiLandType,
+            waterWeight = wWater,
+            incomeWeight = wIncome,
+            soilWeight = wSoil
+        ).fold(
             onSuccess = { remote ->
                 farmDao.insertOrUpdateAdvice(
                     cached.copy(
+                        plotName = if (profile.plotDescription.isNotBlank()) "${profile.farmName} – ${profile.plotDescription}" else cached.plotName,
                         rotationTitle = remote.rotationTitle,
                         rotationSubtitle = remote.rotationSubtitle,
                         season1Name = remote.season1Name,
@@ -80,11 +103,14 @@ class FarmerRepository(
                         updatedAt = System.currentTimeMillis()
                     )
                 )
+                val historyId = "sync_${System.currentTimeMillis()}"
                 farmDao.insertHistoryItem(
                     AdviceHistoryEntity(
+                        id = historyId,
                         rotationTitle = "আমন ধান (${remote.season1Variety}) → ${remote.season2Name}",
                         adviceSummary = remote.narrative,
-                        syncTimestamp = now
+                        syncTimestamp = now,
+                        createdAt = System.currentTimeMillis()
                     )
                 )
                 Result.success(true)

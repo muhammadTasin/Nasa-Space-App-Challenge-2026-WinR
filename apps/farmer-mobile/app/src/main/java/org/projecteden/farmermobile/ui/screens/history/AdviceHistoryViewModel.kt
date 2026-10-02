@@ -4,8 +4,10 @@ import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import org.projecteden.farmermobile.EdenFarmerApp
@@ -33,8 +35,22 @@ class AdviceHistoryViewModel(application: Application) : AndroidViewModel(applic
 
     val playbackState: StateFlow<AudioPlaybackState> = ttsManager.playbackState
 
+    private val _playingItemId = MutableStateFlow<String?>(null)
+    val playingItemId: StateFlow<String?> = _playingItemId.asStateFlow()
+
+    init {
+        viewModelScope.launch {
+            ttsManager.playbackState.collect { state ->
+                if (state !is AudioPlaybackState.Playing) {
+                    _playingItemId.value = null
+                }
+            }
+        }
+    }
+
     fun playAudio(item: AdviceHistoryEntity) {
         Log.i(TAG, "history_audio_started")
+        _playingItemId.value = item.id
         ttsManager.playAdvice(item.adviceSummary)
         viewModelScope.launch {
             repository.markAudioListened(item.id)
@@ -43,6 +59,7 @@ class AdviceHistoryViewModel(application: Application) : AndroidViewModel(applic
 
     fun pauseOrStopAudio() {
         Log.i(TAG, "history_audio_stopped")
+        _playingItemId.value = null
         ttsManager.pauseOrStop()
     }
 

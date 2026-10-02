@@ -63,6 +63,9 @@ fun MainNavigation() {
             }
             entry<CropPlanNavKey> {
                 CropPlanScreen(
+                    onBack = {
+                        backStack.removeLastOrNull()
+                    },
                     onNavigateToDetail = {
                         backStack.add(RotationDetailNavKey)
                     }
@@ -70,6 +73,9 @@ fun MainNavigation() {
             }
             entry<AdviceHistoryNavKey> {
                 AdviceHistoryScreen(
+                    onBack = {
+                        backStack.removeLastOrNull()
+                    },
                     onNavigateToDetail = {
                         backStack.add(RotationDetailNavKey)
                     }
@@ -108,6 +114,8 @@ fun EdenMainScaffold(
                 EdenTab.TODAY -> {
                     TodayAdviceScreen(
                         onNavigateToPlan = onNavigateToPlan,
+                        onNavigateToHistory = onNavigateToHistory,
+                        onNavigateToDetail = onNavigateToDetail,
                         onNavigateToProfile = { selectedTab = EdenTab.FARM }
                     )
                 }

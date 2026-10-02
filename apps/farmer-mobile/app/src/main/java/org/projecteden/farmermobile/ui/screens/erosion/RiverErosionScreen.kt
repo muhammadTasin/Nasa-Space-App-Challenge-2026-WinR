@@ -77,7 +77,7 @@ fun RiverErosionScreen(
     ) {
         EdenTopAppBar(
             title = "নদীভাঙন ও হাইড্রোলজি",
-            isOffline = false,
+            isOffline = uiState !is RiverErosionUiState.Success,
             onProfileClick = onNavigateToProfile
         )
 

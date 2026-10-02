@@ -33,6 +33,7 @@ class WeatherViewModel(application: Application) : AndroidViewModel(application)
     }
 
     fun loadWeather() {
+        if (_isRefreshing.value) return
         viewModelScope.launch {
             _isRefreshing.value = true
             Log.i(TAG, "weather_refresh_started")
@@ -43,7 +44,7 @@ class WeatherViewModel(application: Application) : AndroidViewModel(application)
                     Log.i(TAG, "weather_refresh_success:live=${weather.isLive}")
                 },
                 onFailure = { err ->
-                    Log.w(TAG, "weather_refresh_failed:${err.message}")
+                    Log.w(TAG, "weather_refresh_failed:${err.javaClass.simpleName}")
                     val currentSuccess = (_uiState.value as? WeatherUiState.Success)?.data
                     _uiState.value = WeatherUiState.Error(
                         message = "আবহাওয়া উপাত্ত হালনাগাদ করা যায়নি; নেটওয়ার্ক চেক করুন।",

@@ -19,4 +19,16 @@ class MainActivity : ComponentActivity() {
       ProjectEDENFarmerTheme { Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) { MainNavigation() } }
     }
   }
+
+  override fun onStop() {
+    super.onStop()
+    (application as? EdenFarmerApp)?.ttsManager?.pauseOrStop()
+  }
+
+  override fun onDestroy() {
+    super.onDestroy()
+    if (isFinishing) {
+      (application as? EdenFarmerApp)?.ttsManager?.shutdown()
+    }
+  }
 }

@@ -21,6 +21,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
+import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.DateRange
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Person
@@ -60,6 +61,7 @@ import org.projecteden.farmermobile.ui.components.EdenTopAppBar
 
 @Composable
 fun AdviceHistoryScreen(
+    onBack: () -> Unit = {},
     onNavigateToDetail: () -> Unit,
     viewModel: AdviceHistoryViewModel = viewModel(),
     modifier: Modifier = Modifier
@@ -67,6 +69,7 @@ fun AdviceHistoryScreen(
     val historyList by viewModel.historyList.collectAsStateWithLifecycle()
     val advice by viewModel.currentAdvice.collectAsStateWithLifecycle()
     val playbackState by viewModel.playbackState.collectAsStateWithLifecycle()
+    val playingItemId by viewModel.playingItemId.collectAsStateWithLifecycle()
     val scrollState = rememberScrollState()
 
     Column(
@@ -76,6 +79,7 @@ fun AdviceHistoryScreen(
     ) {
         EdenTopAppBar(
             title = "আগের পরামর্শ",
+            onBackClick = onBack,
             isOffline = advice.isOffline
         )
 
@@ -285,6 +289,8 @@ fun AdviceHistoryScreen(
                                 lineHeight = 18.sp
                             )
 
+                            val isItemPlaying = playbackState is AudioPlaybackState.Playing && playingItemId == item.id
+
                             Row(
                                 modifier = Modifier
                                     .fillMaxWidth()
@@ -294,7 +300,7 @@ fun AdviceHistoryScreen(
                             ) {
                                 Button(
                                     onClick = {
-                                        if (playbackState is AudioPlaybackState.Playing) {
+                                        if (isItemPlaying) {
                                             viewModel.pauseOrStopAudio()
                                         } else {
                                             viewModel.playAudio(item)
@@ -312,13 +318,13 @@ fun AdviceHistoryScreen(
                                         horizontalArrangement = Arrangement.spacedBy(6.dp)
                                     ) {
                                         Icon(
-                                            imageVector = Icons.Default.PlayArrow,
+                                            imageVector = if (isItemPlaying) Icons.Default.Close else Icons.Default.PlayArrow,
                                             contentDescription = null,
                                             tint = Primary,
                                             modifier = Modifier.size(18.dp)
                                         )
                                         Text(
-                                            text = if (playbackState is AudioPlaybackState.Playing) "বাজছে..." else "পুনরায় শুনুন",
+                                            text = if (isItemPlaying) "থামুন" else "পুনরায় শুনুন",
                                             style = MaterialTheme.typography.labelMedium,
                                             fontWeight = FontWeight.Bold
                                         )

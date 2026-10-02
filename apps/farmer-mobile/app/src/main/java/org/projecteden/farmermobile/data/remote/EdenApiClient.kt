@@ -178,9 +178,10 @@ class EdenApiClient(
         var lastException: Exception? = null
 
         for (host in getCandidates()) {
+            var conn: HttpURLConnection? = null
             try {
                 val fullUrl = "$host$path"
-                val conn = (URL(fullUrl).openConnection() as HttpURLConnection).apply {
+                conn = (URL(fullUrl).openConnection() as HttpURLConnection).apply {
                     requestMethod = method
                     connectTimeout = 3000
                     readTimeout = 4500
@@ -217,6 +218,8 @@ class EdenApiClient(
                 }
             } catch (e: Exception) {
                 lastException = e
+            } finally {
+                conn?.disconnect()
             }
         }
 

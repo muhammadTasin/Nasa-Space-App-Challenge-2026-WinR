@@ -28,6 +28,8 @@ class RiverErosionViewModel(application: Application) : AndroidViewModel(applica
     private val _selectedRiver = MutableStateFlow("jamuna")
     val selectedRiver: StateFlow<String> = _selectedRiver.asStateFlow()
 
+    private var loadJob: kotlinx.coroutines.Job? = null
+
     init {
         Log.i(TAG, "erosion_screen_opened")
         loadRiverData("jamuna")
@@ -41,7 +43,8 @@ class RiverErosionViewModel(application: Application) : AndroidViewModel(applica
     }
 
     fun loadRiverData(riverId: String) {
-        viewModelScope.launch {
+        loadJob?.cancel()
+        loadJob = viewModelScope.launch {
             _uiState.value = RiverErosionUiState.Loading
             val res = apiClient.fetchRiverErosion(riverId)
             res.fold(
@@ -50,7 +53,7 @@ class RiverErosionViewModel(application: Application) : AndroidViewModel(applica
                     Log.i(TAG, "erosion_load_success:$riverId")
                 },
                 onFailure = { err ->
-                    Log.w(TAG, "erosion_load_failed:${err.message}")
+                    Log.w(TAG, "erosion_load_failed:${err.javaClass.simpleName}")
                     _uiState.value = RiverErosionUiState.Error("নদীভাঙন উপাত্ত লোড করা যায়নি; নেটওয়ার্ক চেক করুন।")
                 }
             )

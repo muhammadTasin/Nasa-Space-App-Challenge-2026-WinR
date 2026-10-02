@@ -79,6 +79,15 @@ class MyFarmViewModel(application: Application) : AndroidViewModel(application) 
         val draft = _draftProfile.value ?: return
         if (_isUpdating.value) return
 
+        if (draft.farmName.trim().isBlank()) {
+            _errorMessage.value = "খামারের নাম খালি রাখা যাবে না"
+            return
+        }
+        if (draft.region.trim().isBlank()) {
+            _errorMessage.value = "অঞ্চলের নাম খালি রাখা যাবে না"
+            return
+        }
+
         viewModelScope.launch {
             _isUpdating.value = true
             _feedbackMessage.value = null
@@ -89,7 +98,6 @@ class MyFarmViewModel(application: Application) : AndroidViewModel(application) 
                 _draftProfile.value = null
                 _feedbackMessage.value = "খামারের তথ্য সফলভাবে সংরক্ষিত হয়েছে"
                 Log.i(TAG, "farm_profile_save_success")
-                Log.i(TAG, "farm_profile_saved")
                 delay(2500)
                 _feedbackMessage.value = null
             } catch (error: CancellationException) {
@@ -115,7 +123,6 @@ class MyFarmViewModel(application: Application) : AndroidViewModel(application) 
                 _draftProfile.value = null
                 _feedbackMessage.value = "খামারের তথ্য সফলভাবে সংরক্ষিত হয়েছে"
                 Log.i(TAG, "farm_profile_save_success")
-                Log.i(TAG, "farm_profile_saved")
                 delay(2500)
                 _feedbackMessage.value = null
             } catch (error: CancellationException) {

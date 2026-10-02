@@ -63,6 +63,8 @@ import org.projecteden.farmermobile.ui.components.windowPart
 @Composable
 fun TodayAdviceScreen(
     onNavigateToPlan: () -> Unit,
+    onNavigateToHistory: () -> Unit = {},
+    onNavigateToDetail: () -> Unit = {},
     onNavigateToProfile: () -> Unit = {},
     viewModel: TodayAdviceViewModel = viewModel(),
     modifier: Modifier = Modifier
@@ -457,6 +459,36 @@ fun TodayAdviceScreen(
                             )
                             Text(
                                 text = "সম্পূর্ণ পর্যায়ক্রমিক পরিকল্পনা দেখুন",
+                                style = MaterialTheme.typography.labelLarge,
+                                fontWeight = FontWeight.SemiBold
+                            )
+                        }
+                    }
+
+                    // Tertiary Action: Navigate to Advice History
+                    Button(
+                        onClick = onNavigateToHistory,
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = SurfaceContainer,
+                            contentColor = Primary
+                        ),
+                        shape = RoundedCornerShape(12.dp),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(50.dp)
+                    ) {
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.spacedBy(6.dp)
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.DateRange,
+                                contentDescription = null,
+                                tint = Primary,
+                                modifier = Modifier.size(18.dp)
+                            )
+                            Text(
+                                text = "আগের সংরক্ষিত পরামর্শের ইতিহাস দেখুন",
                                 style = MaterialTheme.typography.labelLarge,
                                 fontWeight = FontWeight.SemiBold
                             )

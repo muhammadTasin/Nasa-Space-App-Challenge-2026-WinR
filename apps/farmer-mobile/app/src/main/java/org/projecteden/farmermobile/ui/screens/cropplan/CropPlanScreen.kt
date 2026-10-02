@@ -65,6 +65,7 @@ import org.projecteden.farmermobile.ui.components.EdenTopAppBar
 
 @Composable
 fun CropPlanScreen(
+    onBack: () -> Unit = {},
     onNavigateToDetail: () -> Unit,
     viewModel: CropPlanViewModel = viewModel(),
     modifier: Modifier = Modifier
@@ -79,6 +80,7 @@ fun CropPlanScreen(
     ) {
         EdenTopAppBar(
             title = "ফসল পরিকল্পনা",
+            onBackClick = onBack,
             isOffline = advice.isOffline
         )
 
@@ -115,7 +117,7 @@ fun CropPlanScreen(
                         )
                         Column {
                             Text(
-                                text = "পূর্ব মাঠ – প্লট ০২",
+                                text = advice.plotName,
                                 style = MaterialTheme.typography.titleMedium,
                                 fontWeight = FontWeight.Bold,
                                 color = OnSurface

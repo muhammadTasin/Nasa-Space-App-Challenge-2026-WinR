@@ -94,7 +94,7 @@ class AiAssistantViewModel(application: Application) : AndroidViewModel(applicat
                     Log.i(TAG, "ai_assistant_response_received:evidence=${aiResp.evidenceLevel}")
                 },
                 onFailure = { err ->
-                    Log.w(TAG, "ai_assistant_request_failed:${err.message}")
+                    Log.w(TAG, "ai_assistant_request_failed:${err.javaClass.simpleName}")
                     val fallbackMsg = ChatMessage(
                         id = "ai_err_${System.currentTimeMillis()}",
                         isUser = false,

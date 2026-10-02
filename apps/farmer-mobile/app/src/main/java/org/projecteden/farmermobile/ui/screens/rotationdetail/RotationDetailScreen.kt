@@ -128,7 +128,7 @@ fun RotationDetailScreen(
                             )
                             Column {
                                 Text(
-                                    text = "পূর্ব মাঠ – প্লট ০২",
+                                    text = advice.plotName,
                                     style = MaterialTheme.typography.titleMedium,
                                     fontWeight = FontWeight.Bold,
                                     color = OnSurface
